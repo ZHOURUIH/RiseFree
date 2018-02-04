@@ -1,0 +1,75 @@
+ManifestFileVersion: 0
+CRC: 4028910309
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9b9cfb617921836f8bd76aa0db1c1ce8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_27.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_38.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_53.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_23.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_54.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_60.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_3.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_7.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_35.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_28.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_41.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_55.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_16.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_47.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_42.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_17.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_30.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_58.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_25.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_56.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_49.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_39.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_46.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_21.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_11.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_22.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_52.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_19.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_14.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_2.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_40.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_33.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_1.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_5.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_44.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_57.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_37.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_20.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_48.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_29.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_10.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_59.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_51.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_31.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_12.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_8.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_36.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_34.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_32.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_6.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_26.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_13.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_18.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_50.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_24.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_15.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_9.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_4.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_45.png
+- Assets/Resources/Texture/TextureAnim/RoleSelectionTitle/RoleSelectionTitle_43.png
+Dependencies: []

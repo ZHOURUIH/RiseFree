@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2438418407
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 518ebab6081bcd7c985726a54ef06f54
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8b54d5bd9421015746ebf7860fd82ded
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/AncientCity/LightMap/ReflectionProbe-0.exr
+Dependencies: []

@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 1455018356
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2fb7e3c8526fd40c6181bb0462595d4a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: aae2d35afda1a0505780034fdee6f138
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Character/Prefab/Role0.prefab
+Dependencies:
+- Assets/StreamingAssets/model/character/resources/othermaterial.unity3d
+- Assets/StreamingAssets/model/character/resources/role0/materials.unity3d
+- Assets/StreamingAssets/model/character/resources/role0/mesh.unity3d

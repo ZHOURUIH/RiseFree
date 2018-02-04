@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 778422452
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ba6d966a53cf8a0e01ab2f991ee07c8f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/BottomPrompt/A.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_ProgressBar.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptSound_Background.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/Y.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_Sound.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_TurnLeft.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_TurnAangle.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_Return.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptSound_Less.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_TurnRight.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_Up.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_SwitchProps.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptSound_Add.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/X.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_Background.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_Determine.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_Return.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_CarHandle.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_Brake.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/B.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_Donw.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPrompt_No.png
+- Assets/Resources/Texture/GameTexture/BottomPrompt/BottomPromptLabel_UseProps.png
+Dependencies: []

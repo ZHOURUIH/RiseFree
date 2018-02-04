@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 1990929061
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 85d2d2d19635b4407545221edeaaa8bd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d4f403a1964f0245a296ccc8b5d4c1b2
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/Desert/Desert.unity
+Dependencies:
+- Assets/StreamingAssets/scene/desert/main/materials.unity3d
+- Assets/StreamingAssets/scene/desert/main.unity3d
+- Assets/StreamingAssets/scene/desert/meshes/bushes/bush 02/bush 02 prefab.unity3d
+- Assets/StreamingAssets/scene/desert/wispy sky/materials.unity3d

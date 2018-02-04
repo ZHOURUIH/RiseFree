@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 783704186
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4a3254e9c4c192b14ee866f05af545ec
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_13.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_20.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_12.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_16.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_5.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_19.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_4.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_7.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_8.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_3.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_9.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_6.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_1.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_17.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_2.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_11.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_14.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_15.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_18.png
+- Assets/Resources/Texture/TextureAnim/Mileage/Mileage_10.png
+Dependencies: []

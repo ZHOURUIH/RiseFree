@@ -1,0 +1,64 @@
+ManifestFileVersion: 0
+CRC: 4220913856
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 94ae844c473a10f925fda3095051df39
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_32.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_1.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_29.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_14.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_38.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_8.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_9.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_44.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_4.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_42.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_48.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_19.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_15.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_33.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_46.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_11.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_37.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_17.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_25.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_39.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_6.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_36.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_22.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_43.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_3.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_26.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_47.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_16.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_31.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_2.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_35.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_5.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_21.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_27.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_10.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_18.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_13.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_34.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_12.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_49.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_23.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_45.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_40.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_28.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_7.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_24.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_41.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_20.png
+- Assets/Resources/Texture/TextureAnim/Role1/Role1_30.png
+Dependencies: []

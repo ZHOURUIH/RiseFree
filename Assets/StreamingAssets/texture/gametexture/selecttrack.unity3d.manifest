@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 2354796029
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1e680b5c42cc1c905224e29a3183af35
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Checked.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Intermediate.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Primary.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/AncientCity.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_PendingBox.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/Desert.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Expect.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/SnowMountain.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/PrimaryTrack.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Arrow.png
+Dependencies: []

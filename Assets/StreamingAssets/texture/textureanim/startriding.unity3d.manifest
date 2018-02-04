@@ -1,0 +1,94 @@
+ManifestFileVersion: 0
+CRC: 155703872
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cc37b1bc8456a74d44a74319f006e34b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_37.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_77.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_52.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_27.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_71.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_1.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_68.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_24.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_29.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_67.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_6.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_57.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_3.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_5.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_53.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_78.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_17.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_7.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_8.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_58.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_12.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_45.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_0.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_10.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_43.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_13.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_36.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_63.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_75.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_47.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_19.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_51.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_62.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_72.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_59.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_64.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_4.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_18.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_40.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_76.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_70.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_48.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_69.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_49.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_31.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_38.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_32.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_23.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_33.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_11.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_39.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_44.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_20.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_30.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_14.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_15.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_26.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_50.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_2.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_60.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_28.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_73.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_55.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_54.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_42.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_25.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_16.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_66.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_46.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_22.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_41.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_21.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_65.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_74.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_34.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_56.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_35.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_9.png
+- Assets/Resources/Texture/TextureAnim/StartRiding/StartRiding_61.png
+Dependencies: []

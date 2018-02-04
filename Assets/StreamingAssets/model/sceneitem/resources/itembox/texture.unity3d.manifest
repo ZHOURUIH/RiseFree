@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 15057355
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2165caa0d05ebc3b8a05de1efa6a4a13
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9dea23ffc7e96552740e12d1ee5309d8
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/DJ_xiangzi_diguang.png
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/SOmobileFX_rhombus_animated.png
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/SOmobileFX_petals_animated.png
+- "Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/\u9053\u5177\u7BB1\u5B50.tga"
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/SOmobileFX_star.png
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/DJ_xiangzi_diguang3.png
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/DJ_xiangzi_diguang2.png
+- Assets/Resources/Model/SceneItem/Resources/ItemBox/Texture/SOmobileFX_bubble_4.png
+Dependencies: []

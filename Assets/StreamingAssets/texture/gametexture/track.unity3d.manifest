@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1747792555
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d351be4ff5446c741357332948d28d4f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/Track/Track_PlayerIcon.png
+- Assets/Resources/Texture/GameTexture/Track/Track_AiIcon.png
+- Assets/Resources/Texture/GameTexture/Track/Track_End.png
+- Assets/Resources/Texture/GameTexture/Track/Track_LapDivided.png
+- Assets/Resources/Texture/GameTexture/Track/Track_Background.png
+- Assets/Resources/Texture/GameTexture/Track/Track_PlayerProgress.png
+Dependencies: []

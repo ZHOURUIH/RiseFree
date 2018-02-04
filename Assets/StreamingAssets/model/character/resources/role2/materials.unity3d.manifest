@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 4195566528
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 82f6e0d821bf702dfe1c9e3a10a9e70a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Fr_Mtbike_b.mat
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Fr_Mtbike_c.mat
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Role_man2_b.mat
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Fr_Mtbike_a.mat
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Role_man2_d.mat
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Role_man2_c.mat
+- Assets/Resources/Model/Character/Resources/Role2/Materials/Role_man2_a.mat
+Dependencies:
+- Assets/StreamingAssets/model/character/resources/role2/maps.unity3d

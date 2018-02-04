@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 110260972
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d44ac225884836a9219c425af1454f8e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Atlas/TextureAnim/AtlasNext.png
+- Assets/Resources/Atlas/TextureAnim/AtlasRoleSelectionTitle.png
+- Assets/Resources/Atlas/TextureAnim/AtlasMaxSpeed.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasDataRanking.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasNext.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasKcal.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasKcal.png
+- Assets/Resources/Atlas/TextureAnim/AtlasRinking.png
+- Assets/Resources/Atlas/TextureAnim/AtlasSelectTrackTitle.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasRinking.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasDataRanking.png
+- Assets/Resources/Atlas/TextureAnim/AtlasMileage.png
+- Assets/Resources/Atlas/TextureAnim/AtlasAverageSpeed.png
+- Assets/Resources/Atlas/TextureAnim/AtlasSelectTrackTitle.png
+- Assets/Resources/Atlas/TextureAnim/AtlasMaxSpeed.png
+- Assets/Resources/Atlas/TextureAnim/AtlasAverageSpeed.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasMileage.mat
+- Assets/Resources/Atlas/TextureAnim/AtlasRoleSelectionTitle.mat
+Dependencies: []

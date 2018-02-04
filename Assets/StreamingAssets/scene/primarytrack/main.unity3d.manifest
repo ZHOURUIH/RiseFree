@@ -1,0 +1,51 @@
+ManifestFileVersion: 0
+CRC: 1277276388
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e88c1492ef2c5196d72c8d46c4bea432
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3ad0c1f1e1f8d88ce17ab9f9d53ab3bc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ_dimian1.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/neiqiang2.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ_guanzhongpsd.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ_dimian2.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/deng.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/jiantou.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ_qidian.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/RS_chengshiguanggaopaigangjia.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/RS_chengshiguanggaopaigangjia_I.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/RS_deng.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/RS_qidiangangjia.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/RS_deng_I.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ_beijing.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/hengliang1.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ.FBX
+- Assets/Resources/Scene/PrimaryTrack/Main/dingpeng1.tga
+- Assets/Resources/Scene/PrimaryTrack/Main/CJ_dimian3.tga
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/main/materials.unity3d

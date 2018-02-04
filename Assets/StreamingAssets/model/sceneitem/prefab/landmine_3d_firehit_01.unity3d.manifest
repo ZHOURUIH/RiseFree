@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2606317437
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a44789630594b020f9bea7b723e7455d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7d28664b0c2070176f0a5fd288fb3dcb
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Prefab/Landmine_3D_FireHit_01.prefab
+Dependencies:
+- Assets/StreamingAssets/model/sceneitem/resources/landmine/material.unity3d

@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 3285261926
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 74c06a809be3969e5a5966ed5f254364
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Atlas/GameAtlas/AtlasVolumeSetting.png
+- Assets/Resources/Atlas/GameAtlas/AtlasBottomPrompt.png
+- Assets/Resources/Atlas/GameAtlas/AtlasStandBy.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasConfirmSelection .mat
+- Assets/Resources/Atlas/GameAtlas/AtlasQuantifier.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasProps.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasVolumeSetting.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasLoading.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasStandBy.png
+- Assets/Resources/Atlas/GameAtlas/AtlasCommon.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasTrack.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasBottomPrompt.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasQuantifier.png
+- Assets/Resources/Atlas/GameAtlas/AtlasCommon.png
+- Assets/Resources/Atlas/GameAtlas/AtlasSelectTrack.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasConfirmSelection .png
+- Assets/Resources/Atlas/GameAtlas/AtlasProps.png
+- Assets/Resources/Atlas/GameAtlas/AtlasCountDown.png
+- Assets/Resources/Atlas/GameAtlas/AtlasLoading.png
+- Assets/Resources/Atlas/GameAtlas/AtlasCountDown.mat
+- Assets/Resources/Atlas/GameAtlas/AtlasSelectTrack.png
+- Assets/Resources/Atlas/GameAtlas/AtlasTrack.png
+Dependencies: []

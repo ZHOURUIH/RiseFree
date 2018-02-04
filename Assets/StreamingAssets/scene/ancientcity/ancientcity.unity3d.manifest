@@ -1,0 +1,61 @@
+ManifestFileVersion: 0
+CRC: 731156179
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e17ea945143fe1ffce6fa99309a2be0f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1bd4029f39724704953e80467c551a82
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a3d3ef1a5bbfb4e0a910fbbe5830b1f9, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 258
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/AncientCity/AncientCity.unity
+Dependencies:
+- Assets/StreamingAssets/scene/ancientcity/gc/materials.unity3d
+- Assets/StreamingAssets/scene/ancientcity/gc.unity3d
+- Assets/StreamingAssets/scene/ancientcity/lightmap.unity3d
+- Assets/StreamingAssets/scene/ancientcity/skybox/materials.unity3d
+- Assets/StreamingAssets/scene/ancientcity/standard assets/environment/water/water/prefabs/waterprodaytime.unity3d

@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 1408580876
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e194b5729054e5cc9da459c796b7d38b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_19.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_8.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_6.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_9.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_3.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_17.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_5.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_7.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_1.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_10.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_11.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_12.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_18.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_13.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_16.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_20.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_2.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_15.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_14.png
+- Assets/Resources/Texture/TextureAnim/Rinking/Rinking_4.png
+Dependencies: []

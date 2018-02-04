@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3295884358
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4ea91c67e8ac5af6174c460d089ee57f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1094ce4a8b63a0cc7870d736bb694a93
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Particle/Resources/Shield/Shader/SM_TransparentRim.shader
+Dependencies: []

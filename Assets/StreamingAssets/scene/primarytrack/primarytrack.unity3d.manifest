@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 2965468759
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a9a72872c50eefd09fac474e02b01236
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6a721d7b2a1a6a30ba87b5dc5db42c41
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 258
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/PrimaryTrack.unity
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/buildings.unity3d
+- Assets/StreamingAssets/scene/primarytrack/fx quest/_prefabs/rescale/somobilefx_energybeam_2
+  (6) (s=4.04).unity3d
+- Assets/StreamingAssets/scene/primarytrack/fx quest/_prefabs/rescale/somobilefx_headstars_2
+  (s=8.00).unity3d
+- Assets/StreamingAssets/scene/primarytrack/lightmap.unity3d
+- Assets/StreamingAssets/scene/primarytrack/main/materials.unity3d
+- Assets/StreamingAssets/scene/primarytrack/main.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/fbx/pipe 02.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/fbx/steps 02.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/materials.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/prefabs/pillar 01.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi_battery_pack_free/prefabs/battery_medium_05.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi_battery_pack_free/prefabs/battery_small_06.unity3d
+- Assets/StreamingAssets/scene/primarytrack/skybox volume 2/deepspacegreen.unity3d
+- Assets/StreamingAssets/scene/primarytrack/zhuzitexiao.unity3d
+- Assets/StreamingAssets/scene/primarytrack/zhuzitexiao/somobilefx_energybeam_2.unity3d

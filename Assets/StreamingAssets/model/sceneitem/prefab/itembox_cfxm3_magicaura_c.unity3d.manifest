@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 1596308986
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6ad7c672ed1aa2438fd645fb805b46fe
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 829e105bb96da2fd161c457bba45137d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Prefab/ItemBox_CFXM3_MagicAura_C.prefab
+Dependencies:
+- Assets/StreamingAssets/model/sceneitem/resources/itembox/material.unity3d
+- Assets/StreamingAssets/model/sceneitem/resources/itembox/mesh.unity3d

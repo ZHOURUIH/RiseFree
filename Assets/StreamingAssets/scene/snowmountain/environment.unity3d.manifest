@@ -1,0 +1,73 @@
+ManifestFileVersion: 0
+CRC: 3324376554
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 148176dc16e51727a687d08036de20f5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 467f8e042e74264547a41590dd4c7c86
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_saidao.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_yangshuye.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_yangshu.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_songshu.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_shan01.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xuedi.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xueshanshu.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_guta.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xuedi2.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_lupai.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_YJxueshan.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_mingju02.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xiaomuqiao.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_dianxiangan.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_bingsaidao02.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_yjsongshu02.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_qidian.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_saidaoqiqiu.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_chengshigongluzhixing.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xueshanshitou.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_guanggao.tga
+- Assets/Resources/Scene/SnowMountain/Environment/XS.FBX
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_bingsaidao.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xuesan.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_weilan.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_shanshu.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_lumian.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_shanshu01.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_shanshu02.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_daolubiaozhi.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_gouhe.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_mudui.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_shan02.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_mingju01.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_sky.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_bing.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_xueshanshu02.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_cao.tga
+- Assets/Resources/Scene/SnowMountain/Environment/6XS_minju201.tga
+Dependencies:
+- Assets/StreamingAssets/scene/snowmountain/environment/materials.unity3d

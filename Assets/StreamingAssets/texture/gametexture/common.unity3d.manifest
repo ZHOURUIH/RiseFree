@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 866911857
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 543737cc5aa13aef30dbb47d48f84e29
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/Common/LightBlueColon.png
+- Assets/Resources/Texture/GameTexture/Common/FadeOut.png
+- Assets/Resources/Texture/GameTexture/Common/BlueColon.png
+- Assets/Resources/Texture/GameTexture/Common/switch.png
+- Assets/Resources/Texture/GameTexture/Common/WhiteTimerSecond.png
+- Assets/Resources/Texture/GameTexture/Common/LastPageLabel.png
+- Assets/Resources/Texture/GameTexture/Common/HeartRateIcon.png
+- Assets/Resources/Texture/GameTexture/Common/HeadMask.png
+- Assets/Resources/Texture/GameTexture/Common/WhitePercent.png
+- Assets/Resources/Texture/GameTexture/Common/BlueKM.png
+- Assets/Resources/Texture/GameTexture/Common/BluePercent.png
+- Assets/Resources/Texture/GameTexture/Common/Overlay.png
+- Assets/Resources/Texture/GameTexture/Common/NumberRoot.png
+- Assets/Resources/Texture/GameTexture/Common/StartLogo.png
+- Assets/Resources/Texture/GameTexture/Common/pageArrow.png
+- Assets/Resources/Texture/GameTexture/Common/WhiteColon.png
+- Assets/Resources/Texture/GameTexture/Common/NextPageLabel.png
+Dependencies: []

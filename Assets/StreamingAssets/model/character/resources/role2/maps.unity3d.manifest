@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3714571736
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6c5e4b726bb8d6a099db6132b8b85e1e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Character/Resources/Role2/maps/Role_man2_d.tga
+- Assets/Resources/Model/Character/Resources/Role2/maps/Fr_Mtbike_a.tga
+- Assets/Resources/Model/Character/Resources/Role2/maps/Role_man2_a.tga
+- Assets/Resources/Model/Character/Resources/Role2/maps/Fr_Mtbike_c.tga
+- Assets/Resources/Model/Character/Resources/Role2/maps/Fr_Mtbike_b.tga
+- Assets/Resources/Model/Character/Resources/Role2/maps/Role_man2_c.tga
+- Assets/Resources/Model/Character/Resources/Role2/maps/Role_man2_b.tga
+Dependencies: []

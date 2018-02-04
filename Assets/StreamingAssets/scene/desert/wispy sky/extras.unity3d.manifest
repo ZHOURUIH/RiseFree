@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 4068442918
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7bee0ac4ddca65fc6fb6b887c27918df
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/Desert/Wispy Sky/Extras/SphericalRenderEXR.exr
+Dependencies: []

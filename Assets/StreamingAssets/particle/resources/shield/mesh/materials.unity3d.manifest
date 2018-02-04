@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 49156498
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 67beb7619977e0f1d58a4d4ce7a7e439
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb2757eac30f0cc0abd90c4f09c2db98
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Particle/Resources/Shield/Mesh/Materials/No Name.mat
+Dependencies: []

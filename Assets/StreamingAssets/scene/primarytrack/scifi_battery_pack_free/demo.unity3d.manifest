@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+CRC: 2498433433
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 44cf202dd4408d1ccc3f9e3b6aa3c6bf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d54e6da43781d75515e2c8568349edcc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 258
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/SciFi_Battery_Pack_free/Demo.unity
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/scifi_battery_pack_free/prefabs/battery_medium_05.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi_battery_pack_free/prefabs/battery_small_06.unity3d

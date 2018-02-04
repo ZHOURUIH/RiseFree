@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 1205023823
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e5aa61fcfe2c451d72d7e4bb8cef94da
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cf54ab8e43d8757e64486cbd36f014d8
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Mesh/DJ_dilei.FBX
+Dependencies: []

@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 2673292814
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7da5fd6a6ca7185a65a77534ae660432
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1fe232c900b90f00b717ae1dc7a4da42
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b9.fbx
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b1.fbx
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b7.fbx
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b10.fbx
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b2.fbx
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b4.fbx
+- Assets/Resources/Scene/PrimaryTrack/Buildings/b5.fbx
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/buildings/materials.unity3d

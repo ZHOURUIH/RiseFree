@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 722188505
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e376363c9a2eba40a555e7879b0e7f91
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2505a22665f5603f29b33758bba03db1
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Prefabs/Floor big 01.prefab
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/materials.unity3d

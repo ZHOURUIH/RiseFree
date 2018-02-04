@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 1762891648
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b38a46bba953df88fe14979652f89b24
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_4.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_8.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_14.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_6.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_15.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_11.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_10.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_5.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_1.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_3.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_7.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_9.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_12.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_2.png
+- Assets/Resources/Texture/TextureAnim/Aiming/Aiming_13.png
+Dependencies: []

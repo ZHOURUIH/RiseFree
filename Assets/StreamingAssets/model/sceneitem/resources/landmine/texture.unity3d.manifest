@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 479190664
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 854b357ea86168c61d643bbb51b48097
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/D_Smoke_01.tga
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/CFX3_T_RayStraight.png
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/CFX3_T_AuraRays.png
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/D_Dust_01A.tga
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/D_Glow_01A.tga
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/D_Ray_01A.tga
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/CFX3_T_IceSmoke.png
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/DJ_dilei.tga
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/D_Fragments_02.tga
+- Assets/Resources/Model/SceneItem/Resources/Landmine/Texture/CFX3_T_IceBulk.png
+Dependencies: []

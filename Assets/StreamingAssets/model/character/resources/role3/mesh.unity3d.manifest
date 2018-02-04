@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2213011073
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b0515410608674c8fc5db311be7c9f1f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0a707bac915ed57c09004f4047213e5f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Character/Resources/Role3/Mesh/Role3_Model.FBX
+Dependencies:
+- Assets/StreamingAssets/model/character/resources/role3/materials.unity3d

@@ -1,0 +1,75 @@
+ManifestFileVersion: 0
+CRC: 913060220
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4edd49f6d2d14ad2283237667b91e121
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_47.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_39.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_42.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_54.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_55.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_31.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_27.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_25.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_16.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_32.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_52.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_45.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_6.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_2.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_9.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_30.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_58.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_49.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_33.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_14.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_11.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_19.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_43.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_1.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_40.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_22.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_35.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_13.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_38.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_18.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_15.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_4.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_34.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_51.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_50.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_12.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_37.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_21.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_28.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_29.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_48.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_36.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_44.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_60.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_3.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_41.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_53.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_26.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_24.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_7.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_46.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_5.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_10.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_56.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_23.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_59.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_57.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_20.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_8.png
+- Assets/Resources/Texture/TextureAnim/SelectTrackTitle/SelectTrackTitle_17.png
+Dependencies: []

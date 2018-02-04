@@ -1,0 +1,64 @@
+ManifestFileVersion: 0
+CRC: 3091130910
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 153478a0105770aeca553e518b16eb53
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_43.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_17.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_32.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_9.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_46.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_6.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_26.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_40.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_8.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_31.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_42.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_13.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_37.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_48.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_35.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_5.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_23.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_49.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_30.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_33.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_38.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_25.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_45.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_29.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_28.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_1.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_18.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_36.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_3.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_11.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_21.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_12.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_34.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_15.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_10.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_2.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_14.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_27.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_44.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_22.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_39.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_16.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_19.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_4.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_47.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_24.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_41.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_7.png
+- Assets/Resources/Texture/TextureAnim/Role2/Role2_20.png
+Dependencies: []

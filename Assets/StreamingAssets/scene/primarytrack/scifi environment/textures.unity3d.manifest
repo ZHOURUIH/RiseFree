@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 1358871116
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9e3e4845c6f7801f93685fa42e411c06
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Pillar 01 luminosity.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Floor 01 big NORM.tga
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Floor 01.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Pillar 01.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/pipe 01.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Floor 01 luminosity.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Pillar 01 NORM.tga
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/pipe 01 NORM.tga
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Steps 01 luminosity.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Pillar 01_I.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Floor 01 NORM.tga
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Floor 01 big.png
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Steps 01 NORM.tga
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Textures/Steps 01.png
+Dependencies: []

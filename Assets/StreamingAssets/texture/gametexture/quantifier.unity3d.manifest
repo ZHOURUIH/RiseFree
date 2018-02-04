@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 2799046569
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ce0be8e4544e477e9d530e7ed8734fb2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Three.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Kcal.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Slash.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Four.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Five.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Two.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Kmh.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_One.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Lab.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Ming.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Time.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Di.png
+- Assets/Resources/Texture/GameTexture/Quantifier/Quantifier_Km.png
+Dependencies: []

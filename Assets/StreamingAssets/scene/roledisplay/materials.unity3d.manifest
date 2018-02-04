@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 155595580
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 883f79b5516f207966b5a27c2d24a362
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7698f067aba18f6587c7bb752f83f10e
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/RoleDisplay/Materials/chengshibeijing.tga
+- Assets/Resources/Scene/RoleDisplay/Materials/chengshibeijing.mat
+- Assets/Resources/Scene/RoleDisplay/Materials/dimian1.mat
+- Assets/Resources/Scene/RoleDisplay/Materials/dimian2.mat
+- Assets/Resources/Scene/RoleDisplay/Materials/dimian1.tga
+Dependencies: []

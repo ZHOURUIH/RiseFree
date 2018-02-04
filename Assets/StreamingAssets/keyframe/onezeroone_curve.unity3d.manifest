@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3408312868
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 522cb86a4a24c87a6784831cc5a4ba7c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: df34d79de4fbc43863e699fdd4439a15
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/KeyFrame/OneZeroOne_Curve.prefab
+Dependencies: []

@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 2997793045
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 02a6a6c8bfbf7c135edf4c4784e0c6ee
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_41.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_31.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_48.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_45.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_60.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_57.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_53.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_29.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_56.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_7.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_32.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_22.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_18.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_2.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_17.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_26.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_14.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_38.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_55.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_43.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_27.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_19.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_3.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_20.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_52.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_33.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_6.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_13.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_59.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_46.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_58.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_49.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_42.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_16.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_47.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_39.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_35.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_4.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_1.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_54.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_12.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_28.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_50.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_34.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_37.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_23.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_21.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_10.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_11.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_51.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_25.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_24.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_30.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_40.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_62.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_44.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_8.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_36.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_15.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_9.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_61.png
+- Assets/Resources/Texture/TextureAnim/FourthCircle/FourthCircle_5.png
+Dependencies: []

@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 69066350
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a8d641ee994d780e9ce81b9b959a7804
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_19.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_3.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_15.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_12.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_8.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_17.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_9.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_20.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_10.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_16.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_7.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_5.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_4.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_11.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_14.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_6.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_13.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_1.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_2.png
+- Assets/Resources/Texture/TextureAnim/AverageSpeed/AverageSpeed_18.png
+Dependencies: []

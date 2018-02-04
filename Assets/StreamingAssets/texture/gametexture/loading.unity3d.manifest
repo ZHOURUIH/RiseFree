@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 3631862226
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4449432ca9bf6ee70eaed025a3f65061
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/Loading/LoadingSnowMountain.png
+- Assets/Resources/Texture/GameTexture/Loading/LoadingProgressBarBackground.png
+- Assets/Resources/Texture/GameTexture/Loading/LoadingDesert.png
+- Assets/Resources/Texture/GameTexture/Loading/loadingProgressBar.png
+- Assets/Resources/Texture/GameTexture/Loading/LoadingAncientCity.png
+- Assets/Resources/Texture/GameTexture/Loading/LoadingText.png
+- Assets/Resources/Texture/GameTexture/Loading/LoadingPrimaryTrack.png
+- Assets/Resources/Texture/GameTexture/Loading/LoadingBackground.png
+Dependencies: []

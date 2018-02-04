@@ -1,0 +1,54 @@
+ManifestFileVersion: 0
+CRC: 369683935
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 01d06521e431371308f2d0ab5ef77f3a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_mudui.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_qidian.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_songshu.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_xuesan.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_yjsongshu02.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_gouhe.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_saidao.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_yangshuye.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_yangshu.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_daolubiaozhi.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_mingju01.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_YJxueshan.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_xueshanshitou.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_xiaomuqiao.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_dianxiangan.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_weilan.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_shan01.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_guta.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/No Name.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_saidaoqiqiu.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_xuedi.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_guanggao.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_xueshanshu02.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_minju201.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_bingsaidao02.mat
+- "Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_lumian\uFF08N\uFF09.tga"
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_xueshanshu.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_shan02.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_bing.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_cao.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_lupai.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_mingju02.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_bingsaidao.mat
+- Assets/Resources/Scene/SnowMountain/Environment/Materials/6XS_lumian.mat
+Dependencies:
+- Assets/StreamingAssets/scene/snowmountain/environment.unity3d

@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 270674529
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5de27379631039903f52456c68b47d7f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Character/Resources/Role0/Materials/che1.mat
+- Assets/Resources/Model/Character/Resources/Role0/Materials/man1-3.mat
+- Assets/Resources/Model/Character/Resources/Role0/Materials/man1-1.mat
+- Assets/Resources/Model/Character/Resources/Role0/Materials/che3.mat
+- Assets/Resources/Model/Character/Resources/Role0/Materials/man1-4.mat
+- Assets/Resources/Model/Character/Resources/Role0/Materials/che2.mat
+- Assets/Resources/Model/Character/Resources/Role0/Materials/man1-2.mat
+Dependencies:
+- Assets/StreamingAssets/model/character/resources/role0/maps.unity3d

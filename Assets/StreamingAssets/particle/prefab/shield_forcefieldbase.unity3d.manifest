@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 1434316545
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1b68631f00862592d238428e073a9d59
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9cfc9200aeb07f768b745c6be8857ffa
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Particle/Prefab/Shield_forceFieldBase.prefab
+Dependencies:
+- Assets/StreamingAssets/particle/resources/shield/material.unity3d
+- Assets/StreamingAssets/particle/resources/shield/mesh.unity3d

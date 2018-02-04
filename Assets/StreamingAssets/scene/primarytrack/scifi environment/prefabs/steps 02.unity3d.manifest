@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 3419834035
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 58176e5cc90952533c00117ea9c62aba
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 13e42dd76490ad1864575cab35d9e28c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Prefabs/Steps 02.prefab
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/fbx.unity3d
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/materials.unity3d

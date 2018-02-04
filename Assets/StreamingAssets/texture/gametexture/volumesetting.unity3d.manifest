@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 856396136
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f21eee57a323ad310723b964789f0c72
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeReturn.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeBrightBottomBar.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeX.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeAdd.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeBackGround.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/NumberRoot.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeA.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeTips.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeDarkBottomBar.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeMinus.png
+- Assets/Resources/Texture/GameTexture/VolumeSetting/VolumeB.png
+Dependencies: []

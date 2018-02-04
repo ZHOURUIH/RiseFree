@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 2604714275
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 981da4d402a4c526426845fa186441a6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_4.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_10.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_17.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_14.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_12.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_20.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_1.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_3.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_16.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_18.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_2.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_8.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_15.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_11.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_6.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_7.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_9.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_19.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_5.png
+- Assets/Resources/Texture/TextureAnim/MaxSpeed/MaxSpeed_13.png
+Dependencies: []

@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 788691476
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a886fe4d93b109fd98644a2842926613
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2fce90f025fafea623380304543d808e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Skybox/Assets_By_Unluck_Activeden/skyboxes/skyboxBlueNebula/scenes/SkyboxBlueNebula_Scene.unity
+Dependencies:
+- Assets/StreamingAssets/skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/materials.unity3d

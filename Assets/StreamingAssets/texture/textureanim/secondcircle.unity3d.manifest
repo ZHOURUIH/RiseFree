@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 2870435917
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cb47bb3ce85c5e3e80f52938009167e3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_59.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_3.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_17.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_28.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_47.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_45.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_34.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_31.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_20.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_15.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_13.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_53.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_25.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_14.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_38.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_55.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_61.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_43.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_1.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_7.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_39.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_2.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_16.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_51.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_26.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_36.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_10.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_9.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_11.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_24.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_48.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_22.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_33.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_8.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_46.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_52.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_56.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_37.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_40.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_5.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_27.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_29.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_42.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_19.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_12.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_57.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_18.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_32.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_62.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_54.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_4.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_60.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_41.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_49.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_6.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_44.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_23.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_21.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_35.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_50.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_58.png
+- Assets/Resources/Texture/TextureAnim/SecondCircle/SecondCircle_30.png
+Dependencies: []

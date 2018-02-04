@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 675730337
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fb83aaa2691a1caa622d5ae4580a7b29
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2505a22665f5603f29b33758bba03db1
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Scifi Environment/Prefabs/Railing 01.prefab
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/scifi environment/materials.unity3d

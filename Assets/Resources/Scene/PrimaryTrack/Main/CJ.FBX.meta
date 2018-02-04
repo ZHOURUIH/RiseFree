@@ -1,0 +1,1008 @@
+fileFormatVersion: 2
+guid: 4d41503e93edbb541a51d7cc16adfd0a
+timeCreated: 1515143068
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone021
+    100002: Bone022
+    100004: Bone023
+    100006: Bone024
+    100008: Bone025
+    100010: Bone026
+    100012: Bone027
+    100014: Bone028
+    100016: Bone029
+    100018: Bone030
+    100020: Bone031
+    100022: Bone032
+    100024: Bone033
+    100026: Bone034
+    100028: Bone035
+    100030: Bone036
+    100032: Bone037
+    100034: Bone038
+    100036: //RootNode
+    100038: CJ_deng1
+    100040: CJ_deng2
+    100042: CJ_deng3
+    100044: CJ_deng4
+    100046: CJ_deng5
+    100048: CJ_deng6
+    100050: CJ_gangjia2
+    100052: CJ_gaodeng
+    100054: CJ_gaojia
+    100056: CJ_guang
+    100058: CJ_guangzhu
+    100060: CJ_guanzhong
+    100062: CJ_hengliang
+    100064: CJ_hulan
+    100066: CJ_jiantou
+    100068: CJ_qiang
+    100070: CJ_saidao1
+    100072: CJ_saidao2
+    100074: CJ_saidao_huan
+    100076: CJ_tmq
+    100078: CJ_wuding
+    100080: CJ_zhongchang
+    100082: daoju1_1
+    100084: daoju1_2
+    100086: daoju1_3
+    100088: daoju1_4
+    100090: daoju1_5
+    100092: daoju2_1
+    100094: daoju2_2
+    100096: daoju2_3
+    100098: daoju2_4
+    100100: daoju2_5
+    100102: ludian1_0
+    100104: ludian1_1
+    100106: ludian1_10
+    100108: ludian1_11
+    100110: ludian1_12
+    100112: ludian1_13
+    100114: ludian1_14
+    100116: ludian1_15
+    100118: ludian1_16
+    100120: ludian1_17
+    100122: ludian1_18
+    100124: ludian1_19
+    100126: ludian1_2
+    100128: ludian1_20
+    100130: ludian1_21
+    100132: ludian1_22
+    100134: ludian1_23
+    100136: ludian1_24
+    100138: ludian1_25
+    100140: ludian1_26
+    100142: ludian1_27
+    100144: ludian1_28
+    100146: ludian1_29
+    100148: ludian1_3
+    100150: ludian1_30
+    100152: ludian1_31
+    100154: ludian1_32
+    100156: ludian1_33
+    100158: ludian1_34
+    100160: ludian1_35
+    100162: ludian1_36
+    100164: ludian1_37
+    100166: ludian1_38
+    100168: ludian1_39
+    100170: ludian1_4
+    100172: ludian1_40
+    100174: ludian1_41
+    100176: ludian1_42
+    100178: ludian1_43
+    100180: ludian1_44
+    100182: ludian1_45
+    100184: ludian1_46
+    100186: ludian1_47
+    100188: ludian1_48
+    100190: ludian1_49
+    100192: ludian1_5
+    100194: ludian1_50
+    100196: ludian1_51
+    100198: ludian1_52
+    100200: ludian1_53
+    100202: ludian1_54
+    100204: ludian1_55
+    100206: ludian1_56
+    100208: ludian1_57
+    100210: ludian1_58
+    100212: ludian1_59
+    100214: ludian1_6
+    100216: ludian1_60
+    100218: ludian1_61
+    100220: ludian1_62
+    100222: ludian1_63
+    100224: ludian1_64
+    100226: ludian1_65
+    100228: ludian1_66
+    100230: ludian1_67
+    100232: ludian1_68
+    100234: ludian1_69
+    100236: ludian1_7
+    100238: ludian1_70
+    100240: ludian1_71
+    100242: ludian1_72
+    100244: ludian1_73
+    100246: ludian1_74
+    100248: ludian1_75
+    100250: ludian1_76
+    100252: ludian1_77
+    100254: ludian1_78
+    100256: ludian1_79
+    100258: ludian1_8
+    100260: ludian1_80
+    100262: ludian1_81
+    100264: ludian1_82
+    100266: ludian1_83
+    100268: ludian1_9
+    100270: "\u5BF9\u8C61001"
+    100272: CJ_tmqY
+    100274: CJ_tmqZ
+    100276: CJ_qidian
+    400000: Bone021
+    400002: Bone022
+    400004: Bone023
+    400006: Bone024
+    400008: Bone025
+    400010: Bone026
+    400012: Bone027
+    400014: Bone028
+    400016: Bone029
+    400018: Bone030
+    400020: Bone031
+    400022: Bone032
+    400024: Bone033
+    400026: Bone034
+    400028: Bone035
+    400030: Bone036
+    400032: Bone037
+    400034: Bone038
+    400036: //RootNode
+    400038: CJ_deng1
+    400040: CJ_deng2
+    400042: CJ_deng3
+    400044: CJ_deng4
+    400046: CJ_deng5
+    400048: CJ_deng6
+    400050: CJ_gangjia2
+    400052: CJ_gaodeng
+    400054: CJ_gaojia
+    400056: CJ_guang
+    400058: CJ_guangzhu
+    400060: CJ_guanzhong
+    400062: CJ_hengliang
+    400064: CJ_hulan
+    400066: CJ_jiantou
+    400068: CJ_qiang
+    400070: CJ_saidao1
+    400072: CJ_saidao2
+    400074: CJ_saidao_huan
+    400076: CJ_tmq
+    400078: CJ_wuding
+    400080: CJ_zhongchang
+    400082: daoju1_1
+    400084: daoju1_2
+    400086: daoju1_3
+    400088: daoju1_4
+    400090: daoju1_5
+    400092: daoju2_1
+    400094: daoju2_2
+    400096: daoju2_3
+    400098: daoju2_4
+    400100: daoju2_5
+    400102: ludian1_0
+    400104: ludian1_1
+    400106: ludian1_10
+    400108: ludian1_11
+    400110: ludian1_12
+    400112: ludian1_13
+    400114: ludian1_14
+    400116: ludian1_15
+    400118: ludian1_16
+    400120: ludian1_17
+    400122: ludian1_18
+    400124: ludian1_19
+    400126: ludian1_2
+    400128: ludian1_20
+    400130: ludian1_21
+    400132: ludian1_22
+    400134: ludian1_23
+    400136: ludian1_24
+    400138: ludian1_25
+    400140: ludian1_26
+    400142: ludian1_27
+    400144: ludian1_28
+    400146: ludian1_29
+    400148: ludian1_3
+    400150: ludian1_30
+    400152: ludian1_31
+    400154: ludian1_32
+    400156: ludian1_33
+    400158: ludian1_34
+    400160: ludian1_35
+    400162: ludian1_36
+    400164: ludian1_37
+    400166: ludian1_38
+    400168: ludian1_39
+    400170: ludian1_4
+    400172: ludian1_40
+    400174: ludian1_41
+    400176: ludian1_42
+    400178: ludian1_43
+    400180: ludian1_44
+    400182: ludian1_45
+    400184: ludian1_46
+    400186: ludian1_47
+    400188: ludian1_48
+    400190: ludian1_49
+    400192: ludian1_5
+    400194: ludian1_50
+    400196: ludian1_51
+    400198: ludian1_52
+    400200: ludian1_53
+    400202: ludian1_54
+    400204: ludian1_55
+    400206: ludian1_56
+    400208: ludian1_57
+    400210: ludian1_58
+    400212: ludian1_59
+    400214: ludian1_6
+    400216: ludian1_60
+    400218: ludian1_61
+    400220: ludian1_62
+    400222: ludian1_63
+    400224: ludian1_64
+    400226: ludian1_65
+    400228: ludian1_66
+    400230: ludian1_67
+    400232: ludian1_68
+    400234: ludian1_69
+    400236: ludian1_7
+    400238: ludian1_70
+    400240: ludian1_71
+    400242: ludian1_72
+    400244: ludian1_73
+    400246: ludian1_74
+    400248: ludian1_75
+    400250: ludian1_76
+    400252: ludian1_77
+    400254: ludian1_78
+    400256: ludian1_79
+    400258: ludian1_8
+    400260: ludian1_80
+    400262: ludian1_81
+    400264: ludian1_82
+    400266: ludian1_83
+    400268: ludian1_9
+    400270: "\u5BF9\u8C61001"
+    400272: CJ_tmqY
+    400274: CJ_tmqZ
+    400276: CJ_qidian
+    2300000: CJ_gangjia2
+    2300002: CJ_gaodeng
+    2300004: CJ_gaojia
+    2300006: CJ_guang
+    2300008: CJ_guangzhu
+    2300010: CJ_guanzhong
+    2300012: CJ_hengliang
+    2300014: CJ_hulan
+    2300016: CJ_jiantou
+    2300018: CJ_qiang
+    2300020: CJ_saidao1
+    2300022: CJ_saidao2
+    2300024: CJ_saidao_huan
+    2300026: CJ_tmq
+    2300028: CJ_wuding
+    2300030: CJ_zhongchang
+    2300032: daoju1_1
+    2300034: daoju1_2
+    2300036: daoju1_3
+    2300038: daoju1_4
+    2300040: daoju1_5
+    2300042: daoju2_1
+    2300044: daoju2_2
+    2300046: daoju2_3
+    2300048: daoju2_4
+    2300050: daoju2_5
+    2300052: ludian1_0
+    2300054: ludian1_1
+    2300056: ludian1_10
+    2300058: ludian1_11
+    2300060: ludian1_12
+    2300062: ludian1_13
+    2300064: ludian1_14
+    2300066: ludian1_15
+    2300068: ludian1_16
+    2300070: ludian1_17
+    2300072: ludian1_18
+    2300074: ludian1_19
+    2300076: ludian1_2
+    2300078: ludian1_20
+    2300080: ludian1_21
+    2300082: ludian1_22
+    2300084: ludian1_23
+    2300086: ludian1_24
+    2300088: ludian1_25
+    2300090: ludian1_26
+    2300092: ludian1_27
+    2300094: ludian1_28
+    2300096: ludian1_29
+    2300098: ludian1_3
+    2300100: ludian1_30
+    2300102: ludian1_31
+    2300104: ludian1_32
+    2300106: ludian1_33
+    2300108: ludian1_34
+    2300110: ludian1_35
+    2300112: ludian1_36
+    2300114: ludian1_37
+    2300116: ludian1_38
+    2300118: ludian1_39
+    2300120: ludian1_4
+    2300122: ludian1_40
+    2300124: ludian1_41
+    2300126: ludian1_42
+    2300128: ludian1_43
+    2300130: ludian1_44
+    2300132: ludian1_45
+    2300134: ludian1_46
+    2300136: ludian1_47
+    2300138: ludian1_48
+    2300140: ludian1_49
+    2300142: ludian1_5
+    2300144: ludian1_50
+    2300146: ludian1_51
+    2300148: ludian1_52
+    2300150: ludian1_53
+    2300152: ludian1_54
+    2300154: ludian1_55
+    2300156: ludian1_56
+    2300158: ludian1_57
+    2300160: ludian1_58
+    2300162: ludian1_59
+    2300164: ludian1_6
+    2300166: ludian1_60
+    2300168: ludian1_61
+    2300170: ludian1_62
+    2300172: ludian1_63
+    2300174: ludian1_64
+    2300176: ludian1_65
+    2300178: ludian1_66
+    2300180: ludian1_67
+    2300182: ludian1_68
+    2300184: ludian1_69
+    2300186: ludian1_7
+    2300188: ludian1_70
+    2300190: ludian1_71
+    2300192: ludian1_72
+    2300194: ludian1_73
+    2300196: ludian1_74
+    2300198: ludian1_75
+    2300200: ludian1_76
+    2300202: ludian1_77
+    2300204: ludian1_78
+    2300206: ludian1_79
+    2300208: ludian1_8
+    2300210: ludian1_80
+    2300212: ludian1_81
+    2300214: ludian1_82
+    2300216: ludian1_83
+    2300218: ludian1_9
+    2300220: "\u5BF9\u8C61001"
+    2300222: CJ_tmqY
+    2300224: CJ_tmqZ
+    2300226: CJ_qidian
+    3300000: CJ_gangjia2
+    3300002: CJ_gaodeng
+    3300004: CJ_gaojia
+    3300006: CJ_guang
+    3300008: CJ_guangzhu
+    3300010: CJ_guanzhong
+    3300012: CJ_hengliang
+    3300014: CJ_hulan
+    3300016: CJ_jiantou
+    3300018: CJ_qiang
+    3300020: CJ_saidao1
+    3300022: CJ_saidao2
+    3300024: CJ_saidao_huan
+    3300026: CJ_tmq
+    3300028: CJ_wuding
+    3300030: CJ_zhongchang
+    3300032: daoju1_1
+    3300034: daoju1_2
+    3300036: daoju1_3
+    3300038: daoju1_4
+    3300040: daoju1_5
+    3300042: daoju2_1
+    3300044: daoju2_2
+    3300046: daoju2_3
+    3300048: daoju2_4
+    3300050: daoju2_5
+    3300052: ludian1_0
+    3300054: ludian1_1
+    3300056: ludian1_10
+    3300058: ludian1_11
+    3300060: ludian1_12
+    3300062: ludian1_13
+    3300064: ludian1_14
+    3300066: ludian1_15
+    3300068: ludian1_16
+    3300070: ludian1_17
+    3300072: ludian1_18
+    3300074: ludian1_19
+    3300076: ludian1_2
+    3300078: ludian1_20
+    3300080: ludian1_21
+    3300082: ludian1_22
+    3300084: ludian1_23
+    3300086: ludian1_24
+    3300088: ludian1_25
+    3300090: ludian1_26
+    3300092: ludian1_27
+    3300094: ludian1_28
+    3300096: ludian1_29
+    3300098: ludian1_3
+    3300100: ludian1_30
+    3300102: ludian1_31
+    3300104: ludian1_32
+    3300106: ludian1_33
+    3300108: ludian1_34
+    3300110: ludian1_35
+    3300112: ludian1_36
+    3300114: ludian1_37
+    3300116: ludian1_38
+    3300118: ludian1_39
+    3300120: ludian1_4
+    3300122: ludian1_40
+    3300124: ludian1_41
+    3300126: ludian1_42
+    3300128: ludian1_43
+    3300130: ludian1_44
+    3300132: ludian1_45
+    3300134: ludian1_46
+    3300136: ludian1_47
+    3300138: ludian1_48
+    3300140: ludian1_49
+    3300142: ludian1_5
+    3300144: ludian1_50
+    3300146: ludian1_51
+    3300148: ludian1_52
+    3300150: ludian1_53
+    3300152: ludian1_54
+    3300154: ludian1_55
+    3300156: ludian1_56
+    3300158: ludian1_57
+    3300160: ludian1_58
+    3300162: ludian1_59
+    3300164: ludian1_6
+    3300166: ludian1_60
+    3300168: ludian1_61
+    3300170: ludian1_62
+    3300172: ludian1_63
+    3300174: ludian1_64
+    3300176: ludian1_65
+    3300178: ludian1_66
+    3300180: ludian1_67
+    3300182: ludian1_68
+    3300184: ludian1_69
+    3300186: ludian1_7
+    3300188: ludian1_70
+    3300190: ludian1_71
+    3300192: ludian1_72
+    3300194: ludian1_73
+    3300196: ludian1_74
+    3300198: ludian1_75
+    3300200: ludian1_76
+    3300202: ludian1_77
+    3300204: ludian1_78
+    3300206: ludian1_79
+    3300208: ludian1_8
+    3300210: ludian1_80
+    3300212: ludian1_81
+    3300214: ludian1_82
+    3300216: ludian1_83
+    3300218: ludian1_9
+    3300220: "\u5BF9\u8C61001"
+    3300222: CJ_tmqY
+    3300224: CJ_tmqZ
+    3300226: CJ_qidian
+    4300000: CJ_saidao1
+    4300002: CJ_saidao2
+    4300004: CJ_saidao_huan
+    4300006: CJ_guanzhong
+    4300008: CJ_wuding
+    4300010: CJ_zhongchang
+    4300012: CJ_tmq
+    4300014: CJ_hengliang
+    4300016: CJ_guangzhu
+    4300018: CJ_guang
+    4300020: CJ_deng1
+    4300022: CJ_jiantou
+    4300024: CJ_gaodeng
+    4300026: CJ_gangjia2
+    4300028: CJ_gaojia
+    4300030: CJ_deng4
+    4300032: CJ_deng3
+    4300034: CJ_deng2
+    4300036: CJ_deng5
+    4300038: CJ_deng6
+    4300040: CJ_qiang
+    4300042: CJ_hulan
+    4300044: ludian1_0
+    4300046: ludian1_1
+    4300048: ludian1_2
+    4300050: ludian1_3
+    4300052: ludian1_4
+    4300054: ludian1_5
+    4300056: ludian1_6
+    4300058: ludian1_7
+    4300060: ludian1_8
+    4300062: ludian1_9
+    4300064: ludian1_10
+    4300066: ludian1_11
+    4300068: ludian1_12
+    4300070: ludian1_13
+    4300072: ludian1_14
+    4300074: ludian1_15
+    4300076: ludian1_16
+    4300078: ludian1_17
+    4300080: ludian1_18
+    4300082: ludian1_19
+    4300084: ludian1_20
+    4300086: ludian1_21
+    4300088: ludian1_22
+    4300090: ludian1_23
+    4300092: ludian1_24
+    4300094: ludian1_25
+    4300096: ludian1_26
+    4300098: ludian1_27
+    4300100: ludian1_28
+    4300102: ludian1_29
+    4300104: ludian1_30
+    4300106: ludian1_31
+    4300108: ludian1_32
+    4300110: ludian1_33
+    4300112: ludian1_34
+    4300114: ludian1_35
+    4300116: ludian1_36
+    4300118: ludian1_37
+    4300120: ludian1_38
+    4300122: ludian1_39
+    4300124: ludian1_40
+    4300126: ludian1_41
+    4300128: ludian1_42
+    4300130: ludian1_43
+    4300132: ludian1_44
+    4300134: ludian1_45
+    4300136: ludian1_46
+    4300138: ludian1_47
+    4300140: ludian1_48
+    4300142: ludian1_49
+    4300144: ludian1_50
+    4300146: ludian1_51
+    4300148: ludian1_52
+    4300150: ludian1_53
+    4300152: ludian1_54
+    4300154: ludian1_55
+    4300156: ludian1_56
+    4300158: ludian1_57
+    4300160: ludian1_58
+    4300162: ludian1_59
+    4300164: ludian1_60
+    4300166: ludian1_61
+    4300168: ludian1_62
+    4300170: ludian1_63
+    4300172: ludian1_64
+    4300174: ludian1_65
+    4300176: ludian1_66
+    4300178: ludian1_67
+    4300180: ludian1_68
+    4300182: ludian1_69
+    4300184: ludian1_70
+    4300186: ludian1_71
+    4300188: ludian1_72
+    4300190: ludian1_73
+    4300192: ludian1_74
+    4300194: ludian1_75
+    4300196: ludian1_76
+    4300198: ludian1_77
+    4300200: ludian1_78
+    4300202: ludian1_79
+    4300204: ludian1_80
+    4300206: ludian1_81
+    4300208: ludian1_82
+    4300210: ludian1_83
+    4300212: daoju1_1
+    4300214: daoju1_2
+    4300216: daoju1_3
+    4300218: daoju1_4
+    4300220: daoju1_5
+    4300222: daoju2_1
+    4300224: daoju2_2
+    4300226: daoju2_3
+    4300228: daoju2_4
+    4300230: daoju2_5
+    4300232: "\u5BF9\u8C61001"
+    4300234: CJ_tmqY
+    4300236: CJ_tmqZ
+    4300238: CJ_qidian
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: CJ_deng1
+    13700002: CJ_deng2
+    13700004: CJ_deng3
+    13700006: CJ_deng4
+    13700008: CJ_deng5
+    13700010: CJ_deng6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone021
+        weight: 1
+      - path: Bone022
+        weight: 1
+      - path: Bone023
+        weight: 1
+      - path: Bone024
+        weight: 1
+      - path: Bone025
+        weight: 1
+      - path: Bone026
+        weight: 1
+      - path: Bone027
+        weight: 1
+      - path: Bone028
+        weight: 1
+      - path: Bone029
+        weight: 1
+      - path: Bone030
+        weight: 1
+      - path: Bone031
+        weight: 1
+      - path: Bone032
+        weight: 1
+      - path: Bone033
+        weight: 1
+      - path: Bone034
+        weight: 1
+      - path: Bone035
+        weight: 1
+      - path: Bone036
+        weight: 1
+      - path: Bone037
+        weight: 1
+      - path: Bone038
+        weight: 1
+      - path: CJ_deng1
+        weight: 1
+      - path: CJ_deng2
+        weight: 1
+      - path: CJ_deng3
+        weight: 1
+      - path: CJ_deng4
+        weight: 1
+      - path: CJ_deng5
+        weight: 1
+      - path: CJ_deng6
+        weight: 1
+      - path: CJ_gangjia2
+        weight: 1
+      - path: CJ_gaodeng
+        weight: 1
+      - path: CJ_gaojia
+        weight: 1
+      - path: CJ_guang
+        weight: 1
+      - path: CJ_guangzhu
+        weight: 1
+      - path: CJ_guanzhong
+        weight: 1
+      - path: CJ_hengliang
+        weight: 1
+      - path: CJ_hulan
+        weight: 1
+      - path: CJ_jiantou
+        weight: 1
+      - path: CJ_qiang
+        weight: 1
+      - path: CJ_qidian
+        weight: 1
+      - path: CJ_saidao1
+        weight: 1
+      - path: CJ_saidao2
+        weight: 1
+      - path: CJ_saidao_huan
+        weight: 1
+      - path: CJ_tmqY
+        weight: 1
+      - path: CJ_tmqZ
+        weight: 1
+      - path: CJ_wuding
+        weight: 1
+      - path: CJ_zhongchang
+        weight: 1
+      - path: daoju1_1
+        weight: 1
+      - path: daoju1_2
+        weight: 1
+      - path: daoju1_3
+        weight: 1
+      - path: daoju1_4
+        weight: 1
+      - path: daoju1_5
+        weight: 1
+      - path: daoju2_1
+        weight: 1
+      - path: daoju2_2
+        weight: 1
+      - path: daoju2_3
+        weight: 1
+      - path: daoju2_4
+        weight: 1
+      - path: daoju2_5
+        weight: 1
+      - path: ludian1_0
+        weight: 1
+      - path: ludian1_1
+        weight: 1
+      - path: ludian1_2
+        weight: 1
+      - path: ludian1_3
+        weight: 1
+      - path: ludian1_4
+        weight: 1
+      - path: ludian1_5
+        weight: 1
+      - path: ludian1_6
+        weight: 1
+      - path: ludian1_7
+        weight: 1
+      - path: ludian1_8
+        weight: 1
+      - path: ludian1_9
+        weight: 1
+      - path: ludian1_10
+        weight: 1
+      - path: ludian1_11
+        weight: 1
+      - path: ludian1_12
+        weight: 1
+      - path: ludian1_13
+        weight: 1
+      - path: ludian1_14
+        weight: 1
+      - path: ludian1_15
+        weight: 1
+      - path: ludian1_16
+        weight: 1
+      - path: ludian1_17
+        weight: 1
+      - path: ludian1_18
+        weight: 1
+      - path: ludian1_19
+        weight: 1
+      - path: ludian1_20
+        weight: 1
+      - path: ludian1_21
+        weight: 1
+      - path: ludian1_22
+        weight: 1
+      - path: ludian1_23
+        weight: 1
+      - path: ludian1_24
+        weight: 1
+      - path: ludian1_25
+        weight: 1
+      - path: ludian1_26
+        weight: 1
+      - path: ludian1_27
+        weight: 1
+      - path: ludian1_28
+        weight: 1
+      - path: ludian1_29
+        weight: 1
+      - path: ludian1_30
+        weight: 1
+      - path: ludian1_31
+        weight: 1
+      - path: ludian1_32
+        weight: 1
+      - path: ludian1_33
+        weight: 1
+      - path: ludian1_34
+        weight: 1
+      - path: ludian1_35
+        weight: 1
+      - path: ludian1_36
+        weight: 1
+      - path: ludian1_37
+        weight: 1
+      - path: ludian1_38
+        weight: 1
+      - path: ludian1_39
+        weight: 1
+      - path: ludian1_40
+        weight: 1
+      - path: ludian1_41
+        weight: 1
+      - path: ludian1_42
+        weight: 1
+      - path: ludian1_43
+        weight: 1
+      - path: ludian1_44
+        weight: 1
+      - path: ludian1_45
+        weight: 1
+      - path: ludian1_46
+        weight: 1
+      - path: ludian1_47
+        weight: 1
+      - path: ludian1_48
+        weight: 1
+      - path: ludian1_49
+        weight: 1
+      - path: ludian1_50
+        weight: 1
+      - path: ludian1_51
+        weight: 1
+      - path: ludian1_52
+        weight: 1
+      - path: ludian1_53
+        weight: 1
+      - path: ludian1_54
+        weight: 1
+      - path: ludian1_55
+        weight: 1
+      - path: ludian1_56
+        weight: 1
+      - path: ludian1_57
+        weight: 1
+      - path: ludian1_58
+        weight: 1
+      - path: ludian1_59
+        weight: 1
+      - path: ludian1_60
+        weight: 1
+      - path: ludian1_61
+        weight: 1
+      - path: ludian1_62
+        weight: 1
+      - path: ludian1_63
+        weight: 1
+      - path: ludian1_64
+        weight: 1
+      - path: ludian1_65
+        weight: 1
+      - path: ludian1_66
+        weight: 1
+      - path: ludian1_67
+        weight: 1
+      - path: ludian1_68
+        weight: 1
+      - path: ludian1_69
+        weight: 1
+      - path: ludian1_70
+        weight: 1
+      - path: ludian1_71
+        weight: 1
+      - path: ludian1_72
+        weight: 1
+      - path: ludian1_73
+        weight: 1
+      - path: ludian1_74
+        weight: 1
+      - path: ludian1_75
+        weight: 1
+      - path: ludian1_76
+        weight: 1
+      - path: ludian1_77
+        weight: 1
+      - path: ludian1_78
+        weight: 1
+      - path: ludian1_79
+        weight: 1
+      - path: ludian1_80
+        weight: 1
+      - path: ludian1_81
+        weight: 1
+      - path: ludian1_82
+        weight: 1
+      - path: ludian1_83
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: scene/primarytrack/main.unity3d
+  assetBundleVariant: 

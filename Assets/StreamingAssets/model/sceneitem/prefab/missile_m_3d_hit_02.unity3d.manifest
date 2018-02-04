@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 273919007
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4088350f5e27b3ca1f37bfd1fb655491
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7d28664b0c2070176f0a5fd288fb3dcb
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Prefab/Missile_M_3D_Hit_02.prefab
+Dependencies:
+- Assets/StreamingAssets/model/sceneitem/resources/missile/material.unity3d

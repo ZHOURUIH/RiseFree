@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 2275302291
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a919d6db10ecff2304f224aeb9e56d52
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/hengliang1.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/dingpeng1.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/CJ_dimian3.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/deng.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/CJ_guanzhongpsd.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/RS_chengshiguanggaopaigangjia.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/neiqiang2.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/RS_qidiangangjia.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/CJ_qidian.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/CJ_dimian2.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/14 - Default.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/jiantou.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/RS_deng.mat
+- Assets/Resources/Scene/PrimaryTrack/Main/Materials/CJ_dimian1.mat
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/main.unity3d

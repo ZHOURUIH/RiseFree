@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 3361765621
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b57da58cd7c6e53890c0de831820532d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_3.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_20.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_5.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_4.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_13.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_16.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_18.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_7.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_8.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_19.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_17.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_1.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_6.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_11.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_2.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_12.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_9.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_10.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_14.png
+- Assets/Resources/Texture/TextureAnim/Kcal/Kcal_15.png
+Dependencies: []

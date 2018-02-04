@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1356184309
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b059ee43481d8bc974750e6337319016
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 94d2d5564da5c15bc13008130eab8242
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Prefab/ItemBox.prefab
+Dependencies:
+- Assets/StreamingAssets/model/sceneitem/resources/itembox/material.unity3d
+- Assets/StreamingAssets/model/sceneitem/resources/itembox/mesh.unity3d

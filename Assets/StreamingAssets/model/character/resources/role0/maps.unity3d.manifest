@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 4088045670
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f8dd21d021865f4d5b48796d937a6756
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Character/Resources/Role0/maps/man1-3.tga
+- Assets/Resources/Model/Character/Resources/Role0/maps/man1-1.tga
+- Assets/Resources/Model/Character/Resources/Role0/maps/man1-2.tga
+- Assets/Resources/Model/Character/Resources/Role0/maps/che3.tga
+- Assets/Resources/Model/Character/Resources/Role0/maps/che1.tga
+- Assets/Resources/Model/Character/Resources/Role0/maps/che2.tga
+- Assets/Resources/Model/Character/Resources/Role0/maps/man1-4.tga
+Dependencies: []

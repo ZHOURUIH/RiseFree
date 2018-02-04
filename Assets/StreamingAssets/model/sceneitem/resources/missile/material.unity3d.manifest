@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 2142905569
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6a17880c6c0c75f4cc85531cbb911088
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Ring_01.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Ray_03.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Smoke_02.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Glow_01C.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Smoke_03.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Hit_02.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/DJ_daodan.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Fragments_01.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Sparkles_01.mat
+- Assets/Resources/Model/SceneItem/Resources/Missile/Material/M_Ray_01B.mat
+Dependencies:
+- Assets/StreamingAssets/model/sceneitem/resources/missile/texture.unity3d

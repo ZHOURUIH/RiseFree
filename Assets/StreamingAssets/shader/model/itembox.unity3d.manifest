@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 1276254177
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f550a55d12aad6d4874a09862a6bbbcc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1094ce4a8b63a0cc7870d736bb694a93
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Shader/Model/ItemBox/SOmobileFX_ParticleAdditive.shader
+- Assets/Resources/Shader/Model/ItemBox/CFXM_MobileParticleAdd_Alpha8.shader
+Dependencies: []

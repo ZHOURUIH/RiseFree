@@ -1,0 +1,75 @@
+ManifestFileVersion: 0
+CRC: 2779455996
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a68c1285abfbd59e63ed1c5b9675d37d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_5.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_32.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_52.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_48.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_43.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_38.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_8.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_50.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_29.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_20.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_53.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_22.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_7.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_59.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_21.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_18.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_54.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_13.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_34.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_35.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_4.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_41.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_27.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_33.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_19.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_6.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_47.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_30.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_45.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_51.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_40.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_12.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_39.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_58.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_16.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_23.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_24.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_31.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_28.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_26.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_55.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_42.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_36.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_15.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_3.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_9.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_49.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_60.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_2.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_11.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_25.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_56.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_14.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_46.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_37.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_10.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_1.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_44.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_17.png
+- Assets/Resources/Texture/TextureAnim/DataRanking/DataRanking_57.png
+Dependencies: []

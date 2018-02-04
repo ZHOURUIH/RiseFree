@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2936849177
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6d75918d23db51d871d578332687c07a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6859c75ed1e35643ac4a8f1d82371212
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Particle/Prefab/Turbo.prefab
+Dependencies:
+- Assets/StreamingAssets/particle/resources/turbo/material.unity3d

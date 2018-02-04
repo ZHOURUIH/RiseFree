@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 3210403913
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a12b4c3e14d954a679290cb378a5c39e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_12.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_1.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_8.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_5.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_10.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_15.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_7.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_14.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_13.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_11.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_6.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_9.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_3.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_4.png
+- Assets/Resources/Texture/TextureAnim/GreenAiming/GreenAiming_2.png
+Dependencies: []

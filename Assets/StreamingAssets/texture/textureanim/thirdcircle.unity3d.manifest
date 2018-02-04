@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 2423175571
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: accdd810029f97a1e5675cdca9d13ac4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_12.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_4.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_40.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_27.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_45.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_48.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_2.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_55.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_41.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_9.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_22.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_28.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_39.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_14.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_32.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_13.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_5.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_58.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_38.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_35.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_26.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_3.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_60.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_44.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_16.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_52.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_10.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_37.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_24.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_54.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_1.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_59.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_56.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_50.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_7.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_15.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_19.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_25.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_53.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_61.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_31.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_20.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_47.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_42.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_46.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_18.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_6.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_23.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_21.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_51.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_11.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_49.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_57.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_34.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_36.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_33.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_30.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_29.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_8.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_62.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_17.png
+- Assets/Resources/Texture/TextureAnim/ThirdCircle/ThirdCircle_43.png
+Dependencies: []

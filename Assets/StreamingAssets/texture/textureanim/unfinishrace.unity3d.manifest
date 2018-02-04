@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 908425386
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b1338daa21898d4e12d3c6acc8ba92ca
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_36.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_11.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_44.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_48.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_33.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_61.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_42.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_10.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_17.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_58.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_28.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_13.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_21.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_51.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_56.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_41.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_19.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_7.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_16.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_6.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_50.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_8.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_22.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_55.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_54.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_35.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_5.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_37.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_24.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_25.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_57.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_29.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_30.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_43.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_38.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_15.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_40.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_60.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_12.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_47.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_1.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_31.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_14.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_3.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_39.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_34.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_26.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_52.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_4.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_20.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_2.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_9.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_49.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_32.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_59.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_62.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_27.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_18.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_45.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_23.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_53.png
+- Assets/Resources/Texture/TextureAnim/UnfinishRace/UnfinishRace_46.png
+Dependencies: []

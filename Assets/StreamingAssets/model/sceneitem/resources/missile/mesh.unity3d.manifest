@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 667005726
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d77f5f3f67d0a34765eb8d7cfe0ea3a8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cf54ab8e43d8757e64486cbd36f014d8
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Resources/Missile/Mesh/DJ_daodan.FBX
+Dependencies: []

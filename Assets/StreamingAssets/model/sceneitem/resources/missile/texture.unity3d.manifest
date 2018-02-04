@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 3127191600
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 166207399fbaa93ac5f4297690488baa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/DJ_daodan.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Ray_01B.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Glow_01A.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Fragments_01.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Ray_03.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Sparkles_01.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Ring_01.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Smoke_03.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Hit_02.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Smoke_02.tga
+Dependencies: []

@@ -1,0 +1,64 @@
+ManifestFileVersion: 0
+CRC: 1950908871
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0013db90eaf33e6f3f5d4299b88d1aed
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_11.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_42.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_47.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_29.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_32.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_3.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_45.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_20.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_18.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_22.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_9.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_35.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_12.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_2.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_16.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_39.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_37.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_27.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_4.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_33.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_31.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_34.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_1.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_43.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_15.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_30.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_25.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_14.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_48.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_44.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_24.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_6.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_38.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_28.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_36.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_41.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_21.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_49.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_40.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_8.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_19.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_46.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_5.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_23.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_13.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_26.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_17.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_10.png
+- Assets/Resources/Texture/TextureAnim/Role3/Role3_7.png
+Dependencies: []

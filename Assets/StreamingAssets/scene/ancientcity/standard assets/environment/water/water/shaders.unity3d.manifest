@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3308321759
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 147636c89eb149fb82ea1447df5d741c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1094ce4a8b63a0cc7870d736bb694a93
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/AncientCity/Standard Assets/Environment/Water/Water/Shaders/FXWaterPro.shader
+Dependencies: []

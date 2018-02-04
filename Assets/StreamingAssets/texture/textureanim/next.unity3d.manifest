@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1392691648
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5505d9386492c938c1d33cd694f928fb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/TextureAnim/Next/Next_6.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_21.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_19.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_13.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_8.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_15.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_16.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_10.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_5.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_12.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_17.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_14.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_20.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_11.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_4.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_2.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_1.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_3.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_9.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_18.png
+- Assets/Resources/Texture/TextureAnim/Next/Next_7.png
+Dependencies: []

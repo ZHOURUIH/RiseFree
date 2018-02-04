@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2924612987
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 568f17b598f03353ec352da2e4759c6d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20d2a047ae4e99a3eaf853982df4d9aa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/PrimaryTrack/Buildings/Materials/accent.mat
+- Assets/Resources/Scene/PrimaryTrack/Buildings/Materials/glass.mat
+- Assets/Resources/Scene/PrimaryTrack/Buildings/Materials/accent_2.mat
+- Assets/Resources/Scene/PrimaryTrack/Buildings/Materials/main_color_1.mat
+Dependencies:
+- Assets/StreamingAssets/scene/primarytrack/buildings/textures.unity3d

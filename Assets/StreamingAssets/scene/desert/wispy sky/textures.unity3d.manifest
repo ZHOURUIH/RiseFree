@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 4006883362
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4555e58eb6001570ac674c5c4e8c4583
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Scene/Desert/Wispy Sky/Textures/SkyBox02b0005.tif
+- Assets/Resources/Scene/Desert/Wispy Sky/Textures/SkyBox02b0004.tif
+- Assets/Resources/Scene/Desert/Wispy Sky/Textures/SkyBox02b0003.tif
+- Assets/Resources/Scene/Desert/Wispy Sky/Textures/SkyBox02b0006.tif
+- Assets/Resources/Scene/Desert/Wispy Sky/Textures/SkyBox02b0002.tif
+- Assets/Resources/Scene/Desert/Wispy Sky/Textures/SkyBox02b0001.tif
+Dependencies: []

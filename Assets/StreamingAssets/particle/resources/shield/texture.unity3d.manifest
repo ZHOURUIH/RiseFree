@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 3810989299
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e169be8e8f7662c4f5f911ac44a5ac0e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Particle/Resources/Shield/Texture/ritualLightning.png
+- Assets/Resources/Particle/Resources/Shield/Texture/smokyRing.png
+- Assets/Resources/Particle/Resources/Shield/Texture/simpleArrow.png
+- Assets/Resources/Particle/Resources/Shield/Texture/lightning2.png
+- Assets/Resources/Particle/Resources/Shield/Texture/simpleFlash.png
+- Assets/Resources/Particle/Resources/Shield/Texture/falloffLightbeam.png
+- Assets/Resources/Particle/Resources/Shield/Texture/lightning1.png
+- Assets/Resources/Particle/Resources/Shield/Texture/lightning3.png
+- Assets/Resources/Particle/Resources/Shield/Texture/lightning4.png
+Dependencies: []
