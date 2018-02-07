@@ -7,7 +7,7 @@ public class PrimaryTrack : GameTrackBase
 	public PrimaryTrack(string name)
 		:base(name)
 	{
-		mCircleCount = 3;
+		;
 	}
 	public override void init()
 	{

@@ -20,8 +20,9 @@ public class SprintState : PlayerState
 		// 保存当前速度,将速度提升到60km/h
 		CharacterSpeedHardware component = mPlayer.getFirstComponent<CharacterSpeedHardware>();
 		mLastTargetSpeed = component.getTargetSpeed();
+		float speed = mPlayer.getCharacterData().mSpeed;
 		CommandCharacterHardwareSpeed cmd = newCmd(out cmd);
-		cmd.mSpeed = MathUtility.KMHtoMS(60.0f);
+		cmd.mSpeed = speed + GameUtility.getSprintIncreaseSpeed(speed);
 		cmd.mExternalSpeed = false;
 		pushCommand(cmd, mPlayer);
 		// 提升加速度,加速度会自动恢复到正常值

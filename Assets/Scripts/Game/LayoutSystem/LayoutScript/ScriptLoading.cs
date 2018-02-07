@@ -10,9 +10,9 @@ public class ScriptLoading : LayoutScript
 	public txUIStaticTexture mProgressBack;
 	public int mSeclectIndex = 0;
 	public int mTrackCount;
-	public ScriptLoading(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptLoading(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mTrackCount = mRaceSystem.getTrackCount();
 		mBackground = new txUIStaticTexture[mTrackCount];
@@ -21,12 +21,14 @@ public class ScriptLoading : LayoutScript
 	{
 		for (int i = 0; i < mTrackCount; ++i)
 		{
-			mBackground[i] = newObject<txUIStaticTexture>("Background" + i, 0);
+			txUIStaticTexture background = null;
+			newObject<txUIStaticTexture>(ref background, "Background" + i, 0);
+			mBackground[i] = background;
 		}
-		mProgressLabel = newObject<txUIText>("ProgressLabel", 1);
-		mTitle = newObject<txUIStaticSprite>("Title", 1);
-		mProgressBar = newObject<txUIStaticTexture>("ProgressBar", 1);
-		mProgressBack = newObject<txUIStaticTexture>(mProgressBar, "ProgressBack", 1);
+		newObject(ref mProgressLabel, "ProgressLabel", 1);
+		newObject(ref mTitle, "Title", 1);
+		newObject(ref mProgressBar, "ProgressBar", 1);
+		newObject(ref mProgressBack, mProgressBar, "ProgressBack", 1);
 	}
 	public override void init()
 	{

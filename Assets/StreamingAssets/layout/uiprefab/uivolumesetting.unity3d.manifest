@@ -1,21 +1,17 @@
 ManifestFileVersion: 0
-CRC: 3241058541
+CRC: 3663625361
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 792bc84d457e96397c23a1487647ed61
+    Hash: 243c242e2243b1b7ddaa1deb1f1107c2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e20d366fca59f74e37b3e60256b5ead5
+    Hash: 36d49ae874f34d99112d05d3b8420a9b
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
-  Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
-- Class: 48
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
@@ -23,8 +19,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
 - Class: 114
@@ -37,4 +31,3 @@ Assets:
 - Assets/Resources/Layout/UIPrefab/UIVolumeSetting.prefab
 Dependencies:
 - Assets/StreamingAssets/atlas/gameatlas/atlasvolumesetting.unity3d
-- Assets/StreamingAssets/texture/gametexture/volumesetting.unity3d

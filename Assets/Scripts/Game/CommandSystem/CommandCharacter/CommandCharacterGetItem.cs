@@ -31,7 +31,7 @@ class CommandCharacterGetItem : Command
 			else
 			{
 			  CharacterControllerAI characterControllerAI = player.getFirstActiveComponent<CharacterControllerAI>();
-				characterControllerAI.notifyAIGetBoxItem(pack.getCurItem());
+			  characterControllerAI.notifyAIGetBoxItem(pack.getCurItem());
 			}
 		}
 	}

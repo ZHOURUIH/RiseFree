@@ -8,9 +8,9 @@ public class MoveGround : MonoBehaviour
 	protected Transform[] mGround;
 	protected Vector3 mLeftPos;
 	protected Vector3 mRightPos;
-	protected float mSpeed = 2.0f;
+	protected float mSpeed = 6.0f;
 	protected int mGroundCount = 4;
-	protected float mSingleLength = 42.0f;
+	protected float mSingleLength = 41.24f;
 	void Awake()
 	{
 		mGround = new Transform[mGroundCount];

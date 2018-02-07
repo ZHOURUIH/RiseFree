@@ -11,20 +11,20 @@ public class ScriptStandBy : LayoutScript
 	protected txUIObject	   mGameOut;
 	protected txUIText		   mGameOutText;
 	protected txUIStaticSprite mGameOutSprite;
-	public ScriptStandBy(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptStandBy(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{ }
 	public override void assignWindow()
 	{
-		mBackground = newObject<txUIStaticSprite>("Background", 1);
-		mStartRiding = newObject<txUITextureAnim>("StartRiding", 1);
-		mGameIn = newObject<txUIObject>("GameIn", 0);
-		mGameInText = newObject<txUIText>(mGameIn, "GameInText", 1);
-		mGameInSprite = newObject<txUIStaticSprite>(mGameIn, "GameInSprite", 1);
-		mGameOut = newObject<txUIObject>("GameOut", 0);
-		mGameOutText = newObject<txUIText>(mGameOut, "GameOutText", 1);
-		mGameOutSprite = newObject<txUIStaticSprite>(mGameOut, "GameOutSprite", 1);
+		newObject(ref mBackground, "Background", 1);
+		newObject(ref mStartRiding, "StartRiding", 1);
+		newObject(ref mGameIn, "GameIn", 0);
+		newObject(ref mGameInText, mGameIn, "GameInText", 1);
+		newObject(ref mGameInSprite, mGameIn, "GameInSprite", 1);
+		newObject(ref mGameOut, "GameOut", 0);
+		newObject(ref mGameOutText, mGameOut, "GameOutText", 1);
+		newObject(ref mGameOutSprite, mGameOut, "GameOutSprite", 1);
 	}
 	public override void init()
 	{

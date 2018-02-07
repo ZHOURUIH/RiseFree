@@ -6,7 +6,7 @@ public class CharacterSpeedHardware : GameComponent
 {
 	protected float mNormalAcceleration;	// 默认的从当前速度加速到目标速度的快慢
 	protected float mAcceleration;			// 实际的从当前速度加速到目标速度的快慢,如果与默认值不一致,则会逐渐向默认值靠近
-	protected float mmAccelerationFactor;	// mCurAddSpeedFactor向mNormalAddSpeedFactor靠近的快慢
+	protected float mAccelerationFactor;	// mCurAddSpeedFactor向mNormalAddSpeedFactor靠近的快慢
 	protected float mMinDeltaSpeed;			// 最小速度差,当速度差小于该值时就直接设置为目标速度
 	protected float mTargetSpeed;           // 当前的目标速度
 	protected CharacterOther mCharacter;
@@ -19,7 +19,7 @@ public class CharacterSpeedHardware : GameComponent
 		mMinDeltaSpeed = 0.1f;
 		mNormalAcceleration = 15.0f;
 		mAcceleration = mNormalAcceleration;
-		mmAccelerationFactor = 0.05f;
+		mAccelerationFactor = 0.015f;
 	}
 	public override void init(ComponentOwner owner)
 	{
@@ -33,7 +33,7 @@ public class CharacterSpeedHardware : GameComponent
 		{
 			if(!MathUtility.isFloatEqual(mNormalAcceleration, mAcceleration))
 			{
-				mAcceleration = MathUtility.lerp(mAcceleration, mNormalAcceleration, mmAccelerationFactor * elaspedTime);
+				mAcceleration = MathUtility.lerp(mAcceleration, mNormalAcceleration, mAccelerationFactor * elaspedTime);
 			}
 			// 当前速度逐渐向目标速度靠近
 			float speed = MathUtility.lerp(mData.mSpeed, mTargetSpeed, mAcceleration * elaspedTime);

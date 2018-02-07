@@ -21,6 +21,7 @@ public class CharacterData : CharacterBaseData
 		mMaxSpeed = 0.0f;
 		mRank = 0;
 		mRunTime = 0.0f;
+		mTurnSensitive = 1.0f;
 	}
 	public float mSpeed;			// 水平方向上的速度
 	public float mVerticalSpeed;	// 竖直方向上的速度
@@ -37,5 +38,6 @@ public class CharacterData : CharacterBaseData
 	public float mAverageSpeed;		// 平均速度
 	public float mMaxSpeed;			// 最大速度
 	public int	 mRank;				// 名次
-	public float mRunTime;			// 骑行时间
+	public float mRunTime;          // 骑行时间
+	public float mTurnSensitive;	// 转向灵敏度
 }

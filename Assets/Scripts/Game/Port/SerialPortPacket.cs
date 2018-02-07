@@ -24,5 +24,9 @@ public class SerialPortPacket : GameBase
 		mKeyID = BinaryUtility.readByte(data, ref offset);
 		mValueLength = BinaryUtility.readByte(data, ref offset);
 	}
+	public virtual byte[] toBytes()
+	{
+		return null;
+	}
 	public virtual void execute() { }
 }

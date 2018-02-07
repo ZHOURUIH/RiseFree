@@ -12,6 +12,7 @@ using Microsoft.Win32;
 public class GameUtility : FrameComponent
 {
 	protected static float mSpeedRatio = 1.0f;
+	public static bool mReadRPM = true;
 	public static int mGroundLayer;
 	public static int mWallLayer;
 	public GameUtility(string name)
@@ -21,6 +22,7 @@ public class GameUtility : FrameComponent
 	{
 		mGroundLayer = 1 << LayerMask.NameToLayer(GameDefine.LAYER_GROUND);
 		mWallLayer = 1 << LayerMask.NameToLayer(GameDefine.LAYER_WALL);
+		mReadRPM = (int)mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_READ_RPM) != 0;
 	}
 	public static Color getTrailColorByModelName(string modelName)
 	{
@@ -124,5 +126,13 @@ public class GameUtility : FrameComponent
 		str1 = paramValue;
 		newtext = str0 + str1 + str2;
 		FileUtility.writeFile(CommonDefine.F_CONFIG_PATH + fileName, newtext);
+	}
+	public static float getSprintIncreaseSpeed(float speed)
+	{
+		float min = 10;
+		float max = 20;
+		float increaseSpeed = speed *0.2f;
+		MathUtility.clamp(ref increaseSpeed, min, max);
+		return increaseSpeed;
 	}
 }

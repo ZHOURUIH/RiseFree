@@ -13,7 +13,8 @@ class UnSelectRoleState : SelecteState
 	}
 	public override void enter()
 	{
-		UnityUtility.playAnimation(mPlayer.getAnimation(), GameDefine.ANIM_TURN_RIGHT, false, GameDefine.ANIM_RIDE, true);
+		mAnimation.CrossFade(GameDefine.ANIM_TURN_RIGHT);
+		mAnimation.CrossFadeQueued(GameDefine.ANIM_RIDE);
 		RoleDisplay scene = mSceneSystem.getScene<RoleDisplay>(GameDefine.ROLE_DISPLAY);
 		ObjectTools.MOVE_OBJECT_EX(mPlayer, scene.mRolePosition0, scene.mRolePosition2, 1.0f, onMoveDone);
 	}
@@ -24,5 +25,16 @@ class UnSelectRoleState : SelecteState
 			return;
 		}
 		mCharacterManager.activeCharacter(mPlayer, false);
+	}
+	public override void leave()
+	{
+		// 恢复动作的播放速度
+		List<string> animList = mPlayer.getSelectAnimation();
+		int count = animList.Count;
+		for(int i = 0; i < count; ++i)
+		{
+			mAnimation[animList[i]].speed = 1.0f;
+		}
+		animList.Clear();
 	}
 }

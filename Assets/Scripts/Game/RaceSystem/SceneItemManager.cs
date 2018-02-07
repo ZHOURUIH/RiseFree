@@ -102,18 +102,35 @@ public class SceneItemManager : FrameComponent
 		mDelayDestroyList.Add(cmd.mAssignID);
 	}
 	// 销毁所有指定类型的道具
-	public void destroyAllItem(SCENE_ITEM type)
+	public void destroyAllItem(SCENE_ITEM type = SCENE_ITEM.SI_MAX)
 	{
-		if (!mItemList.ContainsKey(type))
+		// 销毁所有道具
+		if(type == SCENE_ITEM.SI_MAX)
 		{
-			return;
+			foreach(var item in mItemList)
+			{
+				int count = item.Value.Count;
+				for (int i = 0; i < count; ++i)
+				{
+					(item.Value)[i].destroy();
+				}
+			}
+			mItemList.Clear();
 		}
-		int count = mItemList[type].Count;
-		for(int i = 0; i < count; ++i)
+		// 销毁指定类型的道具
+		else
 		{
-			mItemList[type][i].destroy();
+			if (!mItemList.ContainsKey(type))
+			{
+				return;
+			}
+			int count = mItemList[type].Count;
+			for (int i = 0; i < count; ++i)
+			{
+				mItemList[type][i].destroy();
+			}
+			mItemList[type].Clear();
 		}
-		mItemList[type].Clear();
 	}
 	// 通知本局比赛已经结束
 	public void notifyTrackFinish()

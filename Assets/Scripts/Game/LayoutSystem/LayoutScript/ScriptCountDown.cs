@@ -6,15 +6,15 @@ public class ScriptCountDown : LayoutScript
 	protected txUIStaticSprite mNumber;
 	protected string[] mNumberNameList;
 	protected float mMaxTime = 4.0f;
-	public ScriptCountDown(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptCountDown(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mNumberNameList = new string[] { "uigo", "ui1", "ui2", "ui3" };
 	}
 	public override void assignWindow()
 	{
-		mNumber = newObject<txUIStaticSprite>("Number");
+		newObject(ref mNumber, "Number");
 	}
 	public override void init()
 	{

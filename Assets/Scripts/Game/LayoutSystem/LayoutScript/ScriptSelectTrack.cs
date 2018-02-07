@@ -9,6 +9,8 @@ public class TrackItem
 	public txUIStaticSprite mChecked;
 	public txUIText mLabel;
 	public txUIStaticSprite mTexture;
+	public txUIObject mUIGrid;
+	public List<txUIObject> mStarList;
 	public Vector3 mOriginPosition;
 	public Vector3 mOriginScale;
 	public int mOriginTextureDepth;
@@ -16,16 +18,26 @@ public class TrackItem
 	public int mOriginCheckedDepth;
 	public int mOriginLabelDepth;
 	public float mControlValueOffset;
+	public string mTrackName;
 	public TrackItem(ScriptSelectTrack script)
 	{
 		mScript = script;
+		mStarList = new List<txUIObject>() ;
 	}
 	public void assignWindow(txUIStaticSprite root, string trackName)
 	{
-		mTrack = mScript.newObject<txUIStaticSprite>(root, trackName);
-		mChecked = mScript.newObject<txUIStaticSprite>(mTrack, "Cheaked", 0);
-		mLabel = mScript.newObject<txUIText>(mChecked, "Label", 1);
-		mTexture = mScript.newObject<txUIStaticSprite>(mTrack, "Texture");
+		mScript.newObject(ref mTrack, root, trackName);
+		mScript.newObject(ref mChecked, mTrack, "Cheaked", 0);
+		mScript.newObject(ref mLabel, mChecked, "Label", 1);
+		mScript.newObject(ref mTexture, mTrack, "Texture");
+		mScript.newObject(ref mUIGrid, mChecked, "UIGrid");
+		for (int i = 0; i < mUIGrid.getChildCount(); i++)
+		{
+			txUIObject star = null;
+			mScript.newObject(ref star, mUIGrid, "Star" + i, 0);
+			mStarList.Add(star);
+		}
+		mTrackName = trackName;
 	}
 	public void init()
 	{
@@ -53,6 +65,14 @@ public class TrackItem
 		mLabel.setDepth((int)MathUtility.lerp(curItem.mOriginLabelDepth, nextItem.mOriginLabelDepth, percent));
 		mTexture.setDepth((int)MathUtility.lerp(curItem.mOriginTextureDepth, nextItem.mOriginTextureDepth, percent));
 	}
+	public void setStar(int star)
+	{
+		int count = mStarList.Count;
+		for(int i = 0; i < count; ++i)
+		{
+			LayoutTools.ACTIVE_WINDOW(mStarList[i], i < star);
+		}
+	}
 }
 
 public class ScriptSelectTrack : LayoutScript
@@ -72,20 +92,20 @@ public class ScriptSelectTrack : LayoutScript
 	protected float mTargetOffsetValue;		// 本次移动的目标值
 	protected float mCurOffsetValue;		// 当前实际的偏移值
 	protected int mShowIndex;				// 当前显示选中的下标
-	public ScriptSelectTrack(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptSelectTrack(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mTrackList = new List<TrackItem>();
 	}
 	public override void assignWindow()
 	{
-		mTrackRoot = newObject<txUIStaticSprite>("TrackRoot");
-		mTrackRootStart = newObject<txUIStaticSprite>("TrackPosStart");
-		mSelectTrackTitle = newObject<txUISpriteAnim>("SelectTrackTitle");
-		mLeftArrow = newObject<txUIStaticSprite>("LeftArrow", 0);
-		mRightArrow = newObject<txUIStaticSprite>("RightArrow", 0);
-		mControlHelper = newObject<txUIObject>("ControlHelper", 1);
+		newObject(ref mTrackRoot, "TrackRoot");
+		newObject(ref mTrackRootStart, "TrackPosStart");
+		newObject(ref mSelectTrackTitle, "SelectTrackTitle");
+		newObject(ref mLeftArrow, "LeftArrow", 0);
+		newObject(ref mRightArrow, "RightArrow", 0);
+		newObject(ref mControlHelper, "ControlHelper", 1);
 		for (int i = 0; i < GameDefine.TRACK_COUNT; ++i)
 		{
 			TrackItem item = new TrackItem(this);
@@ -113,6 +133,14 @@ public class ScriptSelectTrack : LayoutScript
 	{
 		LayoutTools.MOVE_WINDOW(mTrackRoot, mTrackRootStartPos);
 		LayoutTools.ALPHA_WINDOW(mTrackRoot, 0.3f);
+	}
+	public override void onGameState()
+	{
+		int trackCount = mRaceSystem.getTrackCount();
+		for(int i = 0; i < trackCount; ++i)
+		{
+			mTrackList[i].setStar(mRaceSystem.getTrackDifficultyStart(i));
+		}
 	}
 	public override void onShow(bool immediately, string param)
 	{

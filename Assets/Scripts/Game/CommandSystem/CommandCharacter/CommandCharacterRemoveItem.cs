@@ -21,15 +21,16 @@ class CommandCharacterRemoveItem : Command
 		}
 		PlayerPack pack = player.getPlayerPack();
 		int itemIndex = -1;
-		if(mItem != null)
+		if (mItem != null)
 		{
 			itemIndex = pack.removeItem(mItem);
 		}
 		// 通知布局
-		if(player.isType(CHARACTER_TYPE.CT_MYSELF))
+		if (player.isType(CHARACTER_TYPE.CT_MYSELF))
 		{
 			mScriptProps.removeProps(itemIndex);
 		}
+		pushCommand<CommandCharacterSelectItem>(player);
 	}
 	public override string showDebugInfo()
 	{

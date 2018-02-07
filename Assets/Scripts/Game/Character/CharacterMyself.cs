@@ -13,6 +13,7 @@ public class CharacterMyself : CharacterOther
 	public override void initComponents()
 	{
 		base.initComponents();
+		mCharacterData.mTurnSensitive = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_SENSITIVE);
 	}
 	public override void update(float elapsedTime)
 	{

@@ -6,7 +6,7 @@ public class Desert : GameTrackBase
 	public Desert(string name)
 		:base(name)
 	{
-		mCircleCount = 3;
+		;
 	}
 	public override void init()
 	{

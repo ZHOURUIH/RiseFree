@@ -51,7 +51,11 @@ public class StateMachine
 		assignGroup(2, PLAYER_STATE.PS_RIDING);
 		assignGroup(2, PLAYER_STATE.PS_JUMP);
 		assignGroup(2, PLAYER_STATE.PS_IDLE);
-		assignGroup(2, PLAYER_STATE.PS_ATTACKED);
+		// 增益状态和负面状态
+		assignGroup(3, PLAYER_STATE.PS_ATTACKED);
+		assignGroup(3, PLAYER_STATE.PS_SPRINT);
+		assignGroup(3, PLAYER_STATE.PS_PROTECTED);
+		assignGroup(3, PLAYER_STATE.PS_AIM);
 	}
 	public void assignGroup(int group, PLAYER_STATE state)
 	{

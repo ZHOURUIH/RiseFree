@@ -26,6 +26,8 @@ public enum LAYOUT_TYPE
 	LT_CIRCLE_TIP,
 	LT_END_COUNT_DOWN,
 	LT_DIRECTION_TIPS,
+	LT_PLAYER_RACE_INFO,
+	LT_ATTACK_TIP,
 	LT_MAX,
 }
 // 所有的音效定义
@@ -108,6 +110,19 @@ public enum GAME_DEFINE_FLOAT
 	GDF_GAME_MIN,
 	GDF_VOLUME,                     // 游戏整体音量
 	GDF_KEYBOARD_ENABLE,			// 是否在已连接设备时也可以使用键盘操作
+	GDF_TURN_THRESHHOLD,			// 转向阈值,当转向角度大于该值时认为左转或者右转一次
+	GDF_TURN_ANGLE_OFFSET,			// 转向角度的校正值,在使用时会将硬件角度减去该值作为最后的转向角度
+	GDF_TURN_SENSITIVE,				// 骑行过程中转向的灵敏度
+	GDF_READ_RPM,					// 是否读取转速作为速度值,不为0表示读取转速,为0表示读取功率
+	GDF_NORMAL_FRICTION,			// 平地的正常阻力
+	GDF_MIN_UPHILL_ANGLE,           // 最小上坡角度,符号为负表示向上
+	GDF_MAX_UPHILL_ANGLE,           // 最大上坡角度,符号为负表示向上
+	GDF_MIN_DOWNHILL_ANGLE,         // 最小下坡角度,符号为正表示向下
+	GDF_MAX_DOWNHILL_ANGLE,         // 最大下坡角度,符号为正表示向下
+	GDF_MIN_UPHILL_FRICTION,        // 最小上坡角度对应的阻力值
+	GDF_MAX_UPHILL_FRICTION,        // 最大上坡角度对应的阻力值
+	GDF_MIN_DOWNHILL_FRICTION,      // 最小下坡角度对应的阻力值
+	GDF_MAX_DOWNHILL_FRICTION,      // 最大下坡角度对应的阻力值
 	GDF_GAME_MAX,
 };
 public enum GAME_DEFINE_STRING
@@ -219,6 +234,7 @@ public class GameDefine : CommonDefine
 	public const string LAYER_GROUND = "Ground";
 	public const string LAYER_WALL = "Wall";
 	public const string LAYER_JUMP_POINT = "JumpPoint";
+	public const string LAYER_CHARACTER = "Character";
 	// 角色动作定义
 	public const string ANIM_STANDING = "Standing";
 	public const string ANIM_STARTING = "Starting";
@@ -238,6 +254,7 @@ public class GameDefine : CommonDefine
 	public const string ANIM_FALL_DOWN = "FallDown";
 	public const string ANIM_SPEED_UP_SHARP = "SpeedUpSharp";
 	public const string ANIM_SHAKE_BIKE = "ShakeBike";
+	public const string QUEUE_SUFFIX = " - Queued Clone";
 	// 角色的数量
 	public const int ROLE_COUNT = 4;
 	// 赛道的数量
@@ -268,7 +285,7 @@ public class GameDefine : CommonDefine
 	public const float WHEEL_RADIUS = 0.33f;
 	// 撞墙后反弹的最大和最小反射角度,反射角是反射方向与法线的夹角
 	public const float MAX_REFLECT_ANGLE = 80.0f;
-	public const float MIN_REFLECT_ANGLE = 45.0f;
+	public const float MIN_REFLECT_ANGLE = 70.0f;
 	// 判断落地时的高度最大误差范围
 	public const float LAND_OFFSET = 0.2f;
 	// 角色中心在前车轮接触点和后接触点之间的位置
@@ -281,6 +298,10 @@ public class GameDefine : CommonDefine
 	public const float WRONG_DIRECTION_TIME = 4.0f;
 	// 方向时间,显示方向的错误提示
 	public const float WRONG_DIRECTION_TIPS_TIME = 2.0f;
+	// 显示的里程或速度数值系数,实际里程或速度乘以该系数为显示的值
+	public const float DISPLAY_MILEAGE_SCALE = 0.33f;
+	// 瞄准准星的偏移量
+	public static Vector3 AIM_OFFSET = new Vector3(0.0f, 2.0f, 0.0f);
 	public static Vector3 CAMERA_RELATIVE = new Vector3(0.0f, 1.8f, -6.7f);
 	public static Vector3 CAMERA_LOOKAT_OFFSET = new Vector3(0.0f, 0.7f, 0.0f);
 	public static string[] ROLE_MODEL_NAME = new string[ROLE_COUNT] { "Role0", "Role1", "Role2", "Role3" };

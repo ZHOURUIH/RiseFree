@@ -19,7 +19,8 @@ public class GameInputManager : InputManager
 	protected float mStickAngle = 0.0f;			// 轴的转向角度,向左为负,向右为正,范围-90~90
 	protected bool mTurnLeft = false;			// 是否做了左转操作,只检测单次左转操作
 	protected bool mTurnRight = false;			// 是否做了右转操作,只检测单次右转操作
-	protected float mTurnThreshold = 30.0f;     // 转向判断阈值
+	protected float mTurnThreshold = 15.0f;     // 转向判断阈值
+	protected float mTurnAngleOffset = 0.0f;    // 角度矫正值
 	protected float mStickTurnSpeed = 90.0f;    // 使用键盘模拟时转向的速度
 	protected float mStickRevertSpeed = 360.0f;	// 转向回弹速度
 	protected Dictionary<KeyCode, KEY_STATE> mKeyState; // 按键状态列表
@@ -38,6 +39,8 @@ public class GameInputManager : InputManager
 	{
 		base.init();
 		mKeyboardEnable = (int)mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_KEYBOARD_ENABLE) != 0;
+		mTurnThreshold = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_THRESHHOLD);
+		mTurnAngleOffset = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_ANGLE_OFFSET);
 	}
 	public override void destroy()
 	{
@@ -47,7 +50,8 @@ public class GameInputManager : InputManager
 	{
 		base.update(elapsedTime);
 		mDeviceConnected = mSerialPortManager.isDeviceConnect();
-		if (keyboardEnabled())
+		// 此处只能判断设备是否连接,否则未按下键盘时,自动回弹逻辑会影响设备转向
+		if (!mDeviceConnected)
 		{
 			// 使用键盘模拟转向
 			bool leftDown = base.getKeyDown(KeyCode.LeftArrow);
@@ -106,6 +110,8 @@ public class GameInputManager : InputManager
 	public void setStickAngle(float stickAngle)
 	{
 		mStickAngle = stickAngle;
+		// 再使用偏移值校正
+		mStickAngle -= mTurnAngleOffset;
 	}
 	public float getStickAngle()
 	{
@@ -113,65 +119,63 @@ public class GameInputManager : InputManager
 	}
 	public override bool getKeyCurrentDown(KeyCode key)
 	{
-		// 如果设备未连接,则可以读取键盘消息
-		if(keyboardEnabled())
+		bool ret = false;
+		// 先判断设备按键
+		if (mKeyState.ContainsKey(key))
 		{
-			return base.getKeyCurrentDown(key);
+			ret = (mKeyState[key] == KEY_STATE.KS_CURRENT_DOWN);
 		}
-		// 设备已连接,则只读取设备状态
-		else
+		// 如果设备按键未按下,并且可以读取键盘消息,则先读取键盘消息
+		if (!ret && keyboardEnabled())
 		{
-			if (mKeyState.ContainsKey(key))
-			{
-				return mKeyState[key] == KEY_STATE.KS_CURRENT_DOWN;
-			}
+			ret = base.getKeyCurrentDown(key);
 		}
-		return false;
+		return ret;
 	}
 	public override bool getKeyCurrentUp(KeyCode key)
 	{
-		if (keyboardEnabled())
+		bool ret = false;
+		// 先判断设备按键
+		if (mKeyState.ContainsKey(key))
 		{
-			base.getKeyCurrentUp(key);
+			ret = (mKeyState[key] == KEY_STATE.KS_CURRENT_UP);
 		}
-		else
+		// 如果设备按键未按下,并且可以读取键盘消息,则先读取键盘消息
+		if (!ret && keyboardEnabled())
 		{
-			if (mKeyState.ContainsKey(key))
-			{
-				return mKeyState[key] == KEY_STATE.KS_CURRENT_UP;
-			}
+			ret = base.getKeyCurrentUp(key);
 		}
-		return false;
+		return ret;
 	}
 	public override bool getKeyDown(KeyCode key)
 	{
-		if (keyboardEnabled())
+		bool ret = false;
+		// 先判断设备按键
+		if (mKeyState.ContainsKey(key))
 		{
-			return base.getKeyDown(key);
+			ret = (mKeyState[key] == KEY_STATE.KS_KEEP_DOWN || mKeyState[key] == KEY_STATE.KS_CURRENT_DOWN);
 		}
-		else
+		// 如果设备按键未按下,并且可以读取键盘消息,则先读取键盘消息
+		if (!ret && keyboardEnabled())
 		{
-			if (mKeyState.ContainsKey(key))
-			{
-				return mKeyState[key] == KEY_STATE.KS_KEEP_DOWN || mKeyState[key] == KEY_STATE.KS_CURRENT_DOWN;
-			}
+			ret = base.getKeyDown(key);
 		}
-		return false;
+		return ret;
 	}
 	public override bool getKeyUp(KeyCode key)
 	{
-		if (keyboardEnabled())
+		bool ret = false;
+		// 先判断设备按键
+		if (mKeyState.ContainsKey(key))
 		{
-			return base.getKeyUp(key);
+			ret = (mKeyState[key] == KEY_STATE.KS_KEEP_UP || mKeyState[key] == KEY_STATE.KS_CURRENT_UP);
 		}
-		else
+		// 如果设备按键未按下,并且可以读取键盘消息,则先读取键盘消息
+		if (!ret && keyboardEnabled())
 		{
-			if (mKeyState.ContainsKey(key))
-			{
-				return mKeyState[key] == KEY_STATE.KS_KEEP_UP || mKeyState[key] == KEY_STATE.KS_CURRENT_UP;
-			}
+			ret = base.getKeyUp(key);
 		}
-		return false;
+		return ret;
 	}
 	public void setKeyState(KeyCode key, bool state)
 	{

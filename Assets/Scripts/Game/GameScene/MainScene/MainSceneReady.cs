@@ -24,12 +24,14 @@ public class MainSceneReady : SceneProcedure
 		// 给所有角色添加准备状态
 		mRoleSystem.notifyAllPlayerReady();
 		// 显示游戏界面
-		LayoutTools.LOAD_LAYOUT(LAYOUT_TYPE.LT_DIRECTION_TIPS, 20,false ,false ,"");
+		LayoutTools.LOAD_LAYOUT_HIDE(LAYOUT_TYPE.LT_DIRECTION_TIPS, 20);
 		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 0);
 		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_TOP_TIME, 0);
 		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_TRACK, 0);
 		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_PROPS, 0);
 		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_COUNT_DOWN, 5);
+		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_PLAYER_RACE_INFO, 10);
+		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_ATTACK_TIP, 10);
 		LayoutTools.HIDE_LAYOUT_DELAY(null, 10.0f, LAYOUT_TYPE.LT_BUTTOM_PROMPT);
 	}
 	protected override void onUpdate(float elapsedTime)

@@ -7,6 +7,8 @@ using System.Threading;
 
 public class SerialPortManager : FrameComponent
 {
+	protected const int MAX_RECEIVE_PACKET_COUNT = 256;
+	protected const int MAX_SEND_PACKET_COUNT = 256;
 	protected Dictionary<COM_PACKET, Type> mComPacketRegisteList;
 	protected SerialPort mComDevice;
 	protected int mInputBufferSize;
@@ -23,13 +25,16 @@ public class SerialPortManager : FrameComponent
 	protected ThreadLock mInputBufferLock;
 	protected ThreadLock mOutputBufferLock;
 	protected ThreadLock mReceivedPacketLock;
+	protected ThreadLock mSendPacketLock;
 	protected List<SerialPortPacket> mReceivedPacket;
+	protected List<SerialPortPacket> mSendPacket;
 	protected List<string> mSerialPortList;
 	public SerialPortManager(string name)
 		:base(name)
 	{
 		mComPacketRegisteList = new Dictionary<COM_PACKET, Type>();
 		mReceivedPacket = new List<SerialPortPacket>();
+		mSendPacket = new List<SerialPortPacket>();
 		mSerialPortList = new List<string>();
 		mInputBufferSize = 1024;
 		mInputBuffer = new byte[mInputBufferSize];
@@ -38,6 +43,7 @@ public class SerialPortManager : FrameComponent
 		mInputBufferLock = new ThreadLock();
 		mOutputBufferLock = new ThreadLock();
 		mReceivedPacketLock = new ThreadLock();
+		mSendPacketLock = new ThreadLock();
 	}
 	public override void init()
 	{
@@ -128,6 +134,29 @@ public class SerialPortManager : FrameComponent
 			closeDevice();
 		}
 	}
+	public void sendPacket(SerialPortPacket packet)
+	{
+		mSendPacketLock.waitForUnlock();
+		if(mSendPacket.Count < MAX_SEND_PACKET_COUNT)
+		{
+			mSendPacket.Add(packet);
+		}
+		mSendPacketLock.unlock();
+		UnityUtility.logInfo("send packet friction");
+	}
+	public SerialPortPacket createPacket(COM_PACKET type)
+	{
+		if (mComPacketRegisteList.ContainsKey(type))
+		{
+			return UnityUtility.createInstance<SerialPortPacket>(mComPacketRegisteList[type], type);
+		}
+		return null;
+	}
+	public T createPacket<T>(out T packet, COM_PACKET type) where T : SerialPortPacket
+	{
+		packet = createPacket(type) as T;
+		return packet;
+	}
 	//------------------------------------------------------------------------------------------------------------------------------
 	protected void processReceived()
 	{
@@ -143,6 +172,7 @@ public class SerialPortManager : FrameComponent
 	protected void receiveThread()
 	{
 		mReceiveFinish = false;
+		byte[] recvBytes = null;
 		ThreadTimeLock timeLock = new ThreadTimeLock(10);
 		while (mRunning)
 		{
@@ -153,10 +183,35 @@ public class SerialPortManager : FrameComponent
 				{
 					continue;
 				}
-				string receivedData = mComDevice.ReadExisting();
+				if(recvBytes == null)
+				{
+					int readCount = mComDevice.ReadBufferSize;
+					recvBytes = new byte[readCount];
+				}
+				int recvCount = mComDevice.Read(recvBytes, 0, recvBytes.Length);
 				mInputBufferLock.waitForUnlock();
-				addDataToInputBuffer(BinaryUtility.stringToBytes(receivedData));
+				addDataToInputBuffer(recvBytes, recvCount);
 				mInputBufferLock.unlock();
+
+				// 先同步发送列表
+				mSendPacketLock.waitForUnlock();
+				int count = mSendPacket.Count;
+				for (int i = 0; i < count; ++i)
+				{
+					mOutputBufferList.Add(mSendPacket[i].toBytes());
+				}
+				mSendPacket.Clear();
+				mSendPacketLock.unlock();
+				// 发送所有需要发送的数据
+				int sendCount = mOutputBufferList.Count;
+				for (int i = 0; i < sendCount; ++i)
+				{
+					if(mOutputBufferList[i] != null)
+					{
+						mComDevice.Write(mOutputBufferList[i], 0, mOutputBufferList[i].Length);
+					}
+				}
+				mOutputBufferList.Clear();
 			}
 			catch (Exception e)
 			{
@@ -180,6 +235,24 @@ public class SerialPortManager : FrameComponent
 				{
 					continue;
 				}
+				//// 先同步发送列表
+				//mSendPacketLock.waitForUnlock();
+				//int count = mSendPacket.Count;
+				//for(int i = 0; i < count; ++i)
+				//{
+				//	mOutputBufferList.Add(mSendPacket[i].toBytes());
+				//}
+				//mSendPacket.Clear();
+				//mSendPacketLock.unlock();
+				//// 发送所有需要发送的数据
+				//int sendCount = mOutputBufferList.Count;
+				//for(int i = 0; i < sendCount; ++i)
+				//{
+				//	UnityUtility.logInfo("start send data friction");
+				//	mComDevice.Write(mOutputBufferList[i], 0, mOutputBufferList[i].Length);
+				//	UnityUtility.logInfo("finish send data friction");
+				//}
+				//mOutputBufferList.Clear();
 			}
 			catch (Exception e)
 			{
@@ -234,7 +307,10 @@ public class SerialPortManager : FrameComponent
 								removeDataFromInputBuffer(0, offset);
 								// 加入接收的消息包列表
 								mReceivedPacketLock.waitForUnlock();
-								mReceivedPacket.Add(packet);
+								if (mReceivedPacket.Count < MAX_RECEIVE_PACKET_COUNT)
+								{
+									mReceivedPacket.Add(packet);
+								}
 								mReceivedPacketLock.unlock();
 							}
 						}
@@ -255,13 +331,13 @@ public class SerialPortManager : FrameComponent
 		UnityUtility.logInfo("退出串口解析线程!");
 		mParseFinish = true;
 	}
-	protected void addDataToInputBuffer(byte[] data)
+	protected void addDataToInputBuffer(byte[] data, int count)
 	{
 		// 缓冲区足够放下数据时才处理
-		if (data.Length <= mInputBuffer.Length - mInputDataSize)
+		if (count <= mInputBuffer.Length - mInputDataSize)
 		{
-			BinaryUtility.memcpy(mInputBuffer, data, mInputDataSize);
-			mInputDataSize += data.Length;
+			BinaryUtility.memcpy(mInputBuffer, data, mInputDataSize, 0, count);
+			mInputDataSize += count;
 		}
 	}
 	protected void removeDataFromInputBuffer(int start, int count)
@@ -305,13 +381,5 @@ public class SerialPortManager : FrameComponent
 	protected SerialPortPacket createPacket(int cmdID)
 	{
 		return createPacket(getPacketType(cmdID));
-	}
-	protected SerialPortPacket createPacket(COM_PACKET type)
-	{
-		if(mComPacketRegisteList.ContainsKey(type))
-		{
-			return UnityUtility.createInstance<SerialPortPacket>(mComPacketRegisteList[type], type);
-		}
-		return null;
 	}
 }

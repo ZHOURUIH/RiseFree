@@ -6,7 +6,7 @@ public class SnowMountain : GameTrackBase
 	public SnowMountain(string name)
 		:base(name)
 	{
-		mCircleCount = 3;
+		;
 	}
 	public override void init()
 	{

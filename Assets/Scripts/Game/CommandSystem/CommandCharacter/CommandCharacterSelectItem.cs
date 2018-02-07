@@ -5,11 +5,11 @@ using System.Text;
 
 class CommandCharacterSelectItem : Command
 {
-	public int mItemIndex;
+	public int mIndex;
 	public override void init()
 	{
 		base.init();
-		mItemIndex = 0;
+		mIndex = -1;
 	}
 	public override void execute()
 	{
@@ -20,15 +20,20 @@ class CommandCharacterSelectItem : Command
 			return;
 		}
 		PlayerPack pack = player.getPlayerPack();
-		pack.setItemIndex(mItemIndex);
+		int nextNotNullIndex = mIndex != -1 ? mIndex : pack.getNextNotEmptyIndex();
+		if (nextNotNullIndex == -1)
+		{
+			return;
+		}
+		pack.setItemIndex(nextNotNullIndex);
 		// 通知布局
 		if(player.isType(CHARACTER_TYPE.CT_MYSELF))
 		{
-			mScriptProps.showIndex(mItemIndex);
+			mScriptProps.showIndex(nextNotNullIndex);
 		}
 	}
 	public override string showDebugInfo()
 	{
-		return this.GetType().ToString() + " : item index : " + mItemIndex;
+		return this.GetType().ToString() + " : index : " + mIndex;
 	}
 }

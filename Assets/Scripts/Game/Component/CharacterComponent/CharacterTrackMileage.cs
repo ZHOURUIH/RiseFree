@@ -63,17 +63,16 @@ public class CharacterTrackMileage : GameComponent
 				cmdDistance.mDistance = runDistance;
 				pushCommand(cmdDistance, mCharacter);
 				mWrongDirectionTime = 0.0f;
+				//方向正确后退出游戏中的错误方向状态
+				if (mCharacter.hasState(PLAYER_STATE.PT_WRONG_DIRECTION))
+				{
+					CommandCharacterRemoveState cmdRemoveState = newCmd(out cmdRemoveState);
+					cmdRemoveState.mState = PLAYER_STATE.PT_WRONG_DIRECTION;
+					pushCommand(cmdRemoveState, mCharacter);
+				}
 			}
 			else
 			{
-				//游戏中反向后如果在瞄准状态就退出瞄准状态
-				if (mCharacter.hasState(PLAYER_STATE.PS_AIM))
-				{
-					CommandCharacterRemoveState cmdRemoveState = newCmd(out cmdRemoveState);
-					cmdRemoveState.mState = PLAYER_STATE.PS_AIM;
-					pushCommand(cmdRemoveState,mCharacter);
-				}
-				
 				if(!mCharacter.hasState(PLAYER_STATE.PT_WRONG_DIRECTION))
 				{
 					mWrongDirectionTime += elapsedTime;

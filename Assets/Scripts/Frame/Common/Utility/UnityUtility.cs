@@ -250,22 +250,17 @@ public class UnityUtility : FrameComponent
 		Vector2 pos = (effectDepth / -camera.getPosition().z + 1) * screenPos - parentWorldPos;
 		return new Vector2(pos.x / parentWorldScale.x, pos.y / parentWorldScale.y);
 	}
-	public static Vector2 worldPosToScreenPos(Vector3 worldPos)
+	public static Vector3 worldPosToScreenPos(Vector3 worldPos)
 	{
 		Camera camera = mCameraManager.getMainCamera().getCamera();
 		return camera.WorldToScreenPoint(worldPos);
 	}
 	public static bool whetherGameObjectInScreen(Vector3 worldPos)
 	{
-		Vector2 screenPos = worldPosToScreenPos(worldPos);
-		if ((screenPos.x > 0 && screenPos.x < UnityEngine.Screen.currentResolution.width) && (screenPos.y > 0 && screenPos.y < UnityEngine.Screen.currentResolution.height))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		Vector3 screenPos = worldPosToScreenPos(worldPos);
+		return screenPos.z >= 0.0f && 
+			(screenPos.x > 0 && screenPos.x < UnityEngine.Screen.currentResolution.width) && 
+			(screenPos.y > 0 && screenPos.y < UnityEngine.Screen.currentResolution.height);
 	}
 	public static Vector2 screenPosToWindowPos(Vector2 screenPos, txUIObject parent, bool screenCenterOsZero = false)
 	{
@@ -299,6 +294,15 @@ public class UnityUtility : FrameComponent
 			t.gameObject.layer = layer;
 		}
 	}
+	public static void setGameObjectLayer(txUIObject obj, int layer)
+	{
+		GameObject go = obj.mObject;
+		go.layer = layer;
+		foreach (Transform t in go.transform.GetComponentsInChildren<Transform>(true))
+		{
+			t.gameObject.layer = layer;
+		}
+	}
 	// preFrameCount为1表示返回调用getLineNum的行号
 	public static int getLineNum(int preFrameCount = 1)
 	{
@@ -310,20 +314,6 @@ public class UnityUtility : FrameComponent
 	{
 		StackTrace st = new StackTrace(preFrameCount, true);
 	    return st.GetFrame(0).GetFileName();
-	}
-	public static void playAnimation(Animation animation, string anim, bool loop, string nextAnim = "", bool nextLoop = true)
-	{
-		if (animation != null)
-		{
-			animation.CrossFade(anim);
-			animation.wrapMode = loop ? WrapMode.Loop : WrapMode.Once;
-			// 非循环播放动作时才能连接下一个动作
-			if (!loop && nextAnim != "")
-			{
-				AnimationState state = animation.CrossFadeQueued(nextAnim);//QueueMode.CompleteOthers
-				state.wrapMode = nextLoop ? WrapMode.Loop : WrapMode.Once;
-			}
-		}
 	}
 	public static int makeID() { return ++mIDMaker; }
 	public static void notifyIDUsed(int id)

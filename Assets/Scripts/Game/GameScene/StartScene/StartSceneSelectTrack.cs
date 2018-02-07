@@ -15,6 +15,10 @@ public class StartSceneSelectTrack : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
+		if (lastProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SETTING))
+		{
+			LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 0);
+		}
 		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_SELECT_TRACK, 0);
 		RoleDisplay roleDisplay = mSceneSystem.getScene<RoleDisplay>(GameDefine.ROLE_DISPLAY);
 		Transform cameraPos1 = roleDisplay.mCameraTransform1;
@@ -35,7 +39,7 @@ public class StartSceneSelectTrack : SceneProcedure
 		if (nextProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SELECT_ROLE))
 		{
 			LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_SELECT_TRACK);
-		}		
+		}
 	}
 	protected override void onExit(SceneProcedure nextProcedure)
 	{
@@ -53,7 +57,12 @@ public class StartSceneSelectTrack : SceneProcedure
 		}
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.X))
 		{
-			;
+			LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_BUTTOM_PROMPT);
+			CommandGameScenePrepareChangeProcedure cmd = newCmd(out cmd);
+			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SETTING;
+			cmd.mPrepareTime = 0.5f;
+			pushCommand(cmd, mGameScene);
+			return;
 		}
 		if (mGameInputManager.turnLeft())
 		{

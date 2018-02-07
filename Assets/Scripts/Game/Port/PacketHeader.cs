@@ -53,4 +53,15 @@ public class PacketHeader
 		mCRC16 = crc;
 		return PARSE_RESULT.PR_SUCCESS;
 	}
+	public byte[] toBytes()
+	{
+		byte[] data = new byte[mHeaderLength];
+		int offset = 0;
+		BinaryUtility.writeByte(data, ref offset, mMagicByte);
+		BinaryUtility.writeByte(data, ref offset, mVersion);
+		BinaryUtility.writeShort(data, ref offset, (short)mPayloadLength, true);
+		BinaryUtility.writeShort(data, ref offset, (short)mCRC16, true);
+		BinaryUtility.writeShort(data, ref offset, (short)mSeqID, true);
+		return data;
+	}
 }

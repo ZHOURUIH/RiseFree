@@ -25,7 +25,6 @@ public class SceneMissile : SceneItemBase
 	protected string mExplodeParticleName1;
 	protected string mMissileModelName;
 	protected MovableObject mTarget;
-	protected CharacterOther mCharacterOther;
 	public SceneMissile(SCENE_ITEM type)
 		:
 		base(type)
@@ -43,21 +42,37 @@ public class SceneMissile : SceneItemBase
 		createObject(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.MISSILE, missileParam.mPosition);
 		mMissileComponent = mObject.AddComponent<MissileObject>();
 		mMissileComponent.setItem(this);
-		ObjectTools.TRACK_TARGET(this, 30.0f, Vector3.up, missileParam.mTarget, null);
+		ObjectTools.TRACK_TARGET(this, 60.0f, Vector3.up, missileParam.mTarget, null);
 		mTarget = missileParam.mTarget;
 		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
 		UnityUtility.getGameObject(mObject, mExplodeParticleName1, true).SetActive(false);
+	}
+	public override void destroy()
+	{
+		base.destroy();
+		// 如果导弹销毁时仍然锁定了玩家,则通知被导弹锁定的玩家导弹解除锁定
+		if (mTarget != null && mTarget as CharacterOther != null)
+		{
+			CommandCharacterNotifyMissileLocked cmdLocked = newCmd(out cmdLocked);
+			cmdLocked.mLocked = false;
+			cmdLocked.mMissile = this;
+			pushCommand(cmdLocked, mTarget);
+			mTarget = null;
+		}
 	}
 	public override void update(float elapsedTime)
 	{
 		base.update(elapsedTime);
 		//计算导弹的朝向
-		Vector3 originRot = Vector3.up;
-		Vector3 targetDir = mTarget.getWorldPosition() - getWorldPosition();
-		Vector3 normal = MathUtility.normalize(Vector3.Cross(originRot, targetDir));
-		float angle = MathUtility.getAngleBetweenVector(originRot, targetDir) * Mathf.Rad2Deg;
-		resetRotation();
-		rotateAround(normal, angle);
+		if(mTarget != null)
+		{
+			Vector3 originRot = Vector3.up;
+			Vector3 targetDir = mTarget.getWorldPosition() - getWorldPosition();
+			Vector3 normal = MathUtility.normalize(Vector3.Cross(originRot, targetDir));
+			float angle = MathUtility.getAngleBetweenVector(originRot, targetDir) * Mathf.Rad2Deg;
+			resetRotation();
+			rotateAround(normal, angle);
+		}
 	}
 	public override void onEffective(Character player)
 	{
@@ -65,9 +80,16 @@ public class SceneMissile : SceneItemBase
 		CommandCharacterAttacked cmdAttack = newCmd(out cmdAttack);
 		cmdAttack.mAttackSource = mType;
 		pushCommand(cmdAttack, player);
+		// 通知被导弹锁定的玩家导弹解除锁定
+		if(mTarget != null && mTarget as CharacterOther != null)
+		{
+			CommandCharacterNotifyMissileLocked cmdLocked = newCmd(out cmdLocked);
+			cmdLocked.mLocked = false;
+			pushCommand(cmdLocked, mTarget);
+		}
+		mTarget = null;
 		// 开始销毁导弹
 		mItemManager.destroyItem(this);
-		mCharacterOther = player as CharacterOther;
 	}
 	// 通知开始销毁
 	public override void notifyDestroy()

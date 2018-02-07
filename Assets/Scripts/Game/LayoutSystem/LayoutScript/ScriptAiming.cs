@@ -8,16 +8,16 @@ public class ScriptAiming : LayoutScript
 	protected txUITextureAnim mAiming;
 	protected txUITextureAnim mGreenAimingAnim;
 	protected float mOriginHeight;
-	public ScriptAiming(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptAiming(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		;
 	}
 	public override void assignWindow()
 	{
-		mAiming = newObject<txUITextureAnim>("AimingAnim");
-		mGreenAimingAnim = newObject<txUITextureAnim>("GreenAimingAnim");
+		newObject(ref mAiming, "AimingAnim");
+		newObject(ref mGreenAimingAnim, "GreenAimingAnim");
 	}
 	public override void init()
 	{

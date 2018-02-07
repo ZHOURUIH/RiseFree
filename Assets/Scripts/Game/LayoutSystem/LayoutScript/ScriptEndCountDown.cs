@@ -4,15 +4,15 @@ using System.Collections;
 public class ScriptEndCountDown : LayoutScript
 {
 	public txUITextureAnim mTimeCountDown;
-	public ScriptEndCountDown(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptEndCountDown(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		;
 	}
 	public override void assignWindow()
 	{
-		mTimeCountDown = newObject<txUITextureAnim>("TimeCountDown", 0);
+		newObject(ref mTimeCountDown, "TimeCountDown", 0);
 	}
 	public override void init()
 	{

@@ -37,7 +37,8 @@ public class GameBase : FrameBase
 	public static ScriptCountDown mScriptCountDown;
 	public static ScriptSettlement mScriptSettlement;
 	public static ScriptCircleTip mScriptCircleTip;
-
+	public static ScriptPlayerRaceInfo mScriptPlayerRaceInfo;
+	public static ScriptAttackTip mScriptAttackTip;
 	public override void notifyConstructDone()
 	{
 		base.notifyConstructDone();

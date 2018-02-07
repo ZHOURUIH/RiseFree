@@ -13,9 +13,10 @@ public class GamingState : PlayerState
 	public override void enter()
 	{
 		// 确认当前道具选择
-		CommandCharacterSelectItem cmd = newCmd(out cmd);
-		cmd.mItemIndex = mPlayer.getPlayerPack().getSelectedIndex();
-		pushCommand(cmd, mPlayer);
+		pushCommand<CommandCharacterSelectItem>(mPlayer);
+		CommandCharacterAddState cmdState = newCmd(out cmdState, true, true);
+		cmdState.mState = PLAYER_STATE.PS_SPRINT;
+		pushDelayCommand(cmdState, mPlayer);
 	}
 	public override void update(float elapsedTime)
 	{
@@ -40,9 +41,10 @@ public class GamingState : PlayerState
 				cmdState.mState = PLAYER_STATE.PS_AIM;
 				pushCommand(cmdState, mPlayer);
 			}
-			CommandCharacterSelectItem cmd = newCmd(out cmd);
-			cmd.mItemIndex = mPlayer.getPlayerPack().getNextItem();
-			pushCommand(cmd, mPlayer);
+			if(mPlayer.getPlayerPack().canChangeSelection())
+			{
+				pushCommand<CommandCharacterSelectItem>(mPlayer);
+			}
 		}
 		// 仅测试用
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.Alpha1))

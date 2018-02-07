@@ -7,13 +7,13 @@ public class ScriptLogo : LayoutScript
 	protected float             mFadeInTime  = 1.0f;
 	protected float             mFadeOutTime = 1.0f;
 	protected float				mStayTime = 2.0f;
-	public ScriptLogo(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptLogo(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{ }
 	public override void assignWindow()
 	{
-		mLogoWindow = newObject<txUIStaticTexture>("UILogoStartLoading", 1);
+		newObject(ref mLogoWindow, "UILogoStartLoading", 1);
 	}
 	public override void init()
 	{

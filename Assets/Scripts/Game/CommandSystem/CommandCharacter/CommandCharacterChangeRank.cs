@@ -16,6 +16,11 @@ class CommandCharacterChangeRank : Command
 		Character character = mReceiver as Character;
 		CharacterData data = character.getCharacterData();
 		data.mRank = mRank;
+		// 通知布局
+		if(character.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			mScriptPlayerRaceInfo.setRank(data.mRank);
+		}
 	}
 	public override string showDebugInfo()
 	{

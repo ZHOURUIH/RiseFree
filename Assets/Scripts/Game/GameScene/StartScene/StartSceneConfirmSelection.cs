@@ -29,6 +29,7 @@ public class StartSceneConfirmSelection : SceneProcedure
 	{
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.A))
 		{
+			LayoutTools.UNLOAD_LAYOUT(LAYOUT_TYPE.LT_BUTTOM_PROMPT);
 			CommandGameSceneManagerEnter cmd = newCmd(out cmd);
 			cmd.mSceneType = GAME_SCENE_TYPE.GST_MAIN;
 			pushCommand(cmd, mGameSceneManager);

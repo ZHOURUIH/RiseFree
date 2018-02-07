@@ -19,9 +19,9 @@ public class RoleSelection
 	}
 	public void assignWindow(string name)
 	{
-		mRoleRoot = mScript.newObject<txUIObject>(name, 1);
-		mRole = mScript.newObject<txUITextureAnim>(mRoleRoot, "Role");
-		mEnd = mScript.newObject<txUIObject>(mRoleRoot, "End", 0);
+		mScript.newObject(ref mRoleRoot, name, 1);
+		mScript.newObject(ref mRole, mRoleRoot, "Role");
+		mScript.newObject(ref mEnd, mRoleRoot, "End", 0);
 	}
 	public void init()
 	{
@@ -127,15 +127,15 @@ public class ScriptSelectRole : LayoutScript
 	protected txUISpriteAnim mFemale;                  // 女角色按钮
 	protected List<RoleSelection> mRoleSelectionList;
 	protected bool mShowDone = false;
-	public ScriptSelectRole(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptSelectRole(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mRoleSelectionList = new List<RoleSelection>();
 	}
 	public override void assignWindow()
 	{
-		mSelectionRoleTitle = newObject<txUISpriteAnim>("SelectionRoleTitle", 0);
+		newObject(ref mSelectionRoleTitle, "SelectionRoleTitle", 0);
 		for(int i = 0; i < GameDefine.ROLE_COUNT; ++i)
 		{
 			RoleSelection selection = new RoleSelection(this);

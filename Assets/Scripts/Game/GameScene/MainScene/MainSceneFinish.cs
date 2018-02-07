@@ -34,6 +34,8 @@ public class MainSceneFinish : SceneProcedure
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_TRACK);
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_PROPS);
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_TOP_TIME);
+		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_PLAYER_RACE_INFO);
+		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_ATTACK_TIP);
 	}
 	protected override void onKeyProcess(float elapsedTime)
 	{

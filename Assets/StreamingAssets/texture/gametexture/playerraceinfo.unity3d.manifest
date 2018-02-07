@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 4231610479
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 811c08712587c82c3845f84d89acdd3c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6759894fca659e2049f05064db45ce61
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/InfoIcon1.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/KcalUnit.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/KMUnit.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/RankPreLabel.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/InfoIcon0.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/KMHUnit.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/InfoIcon2.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/GreeSeperate.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/SpeedColorIcon.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/CircleUnit.png
+- Assets/Resources/Texture/GameTexture/PlayerRaceInfo/RankEndLabel.png
+Dependencies: []

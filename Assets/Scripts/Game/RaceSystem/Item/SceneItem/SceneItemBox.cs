@@ -32,14 +32,15 @@ public class SceneItemBox : SceneItemBase
 		ItemBoxParam boxParam = param as ItemBoxParam;
 		// 创建道具箱子模型并添加脚本
 		createObject(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.ITEM_BOX, boxParam.mPosition);
+		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
 		mBoxObjectComponent = mObject.AddComponent<ItemBoxObject>();
 		mBoxObjectComponent.setItem(this);
 		// 播放箱子动画(并且设置播放的速度为0.5f)
 		GameObject diXiangzi = UnityUtility.getGameObject(mObject, mBoxModelNodeName, true);
 		Animation animation = diXiangzi.GetComponent<Animation>();
-		string aniName = "idle";
-		UnityUtility.playAnimation(animation, aniName, true, "", false);
-		animation[aniName].speed = 0.5f;
+		string animName = "idle";
+		animation.Play(animName);
+		animation[animName].speed = 0.5f;
 	}
 	// 道具箱子生效的效果
 	public override void onEffective(Character player)

@@ -38,34 +38,31 @@ public class SerialPortPacketFitData : SerialPortPacket
 	public override void execute()
 	{
 		CharacterMyself myself = mCharacterManager.getMyself();
-		if (myself == null)
-		{
-			return;
-		}
 		// 速度
-		if(myself.getProcessExternalSpeed())
+		if(myself != null && myself.getProcessExternalSpeed())
 		{
-			CommandCharacterHardwareSpeed cmdSpeed = newCmd(out cmdSpeed);
+			CommandCharacterHardwareSpeed cmdSpeed = newCmd(out cmdSpeed, false);
 			cmdSpeed.mDirectSpeed = false;
 			cmdSpeed.mExternalSpeed = true;
-			cmdSpeed.mSpeed = GameUtility.HWSToMS(mRPM);
+			if(GameUtility.mReadRPM)
+			{
+				cmdSpeed.mSpeed = GameUtility.HWSToMS(mRPM);
+			}
+			else
+			{
+				cmdSpeed.mSpeed = GameUtility.HWSToMS(mPower);
+			}
 			pushCommand(cmdSpeed, mCharacterManager.getMyself());
 		}
 		// 按键
-		if(myself.getProcessKey())
+		KeyCode[] key = new KeyCode[] {KeyCode.A, KeyCode.B, KeyCode.X, KeyCode.Y};
+		int count = key.Length;
+		for(int i = 0; i < count; ++i)
 		{
-			KeyCode[] key = new KeyCode[] {KeyCode.A, KeyCode.B, KeyCode.X, KeyCode.Y};
-			int count = key.Length;
-			for(int i = 0; i < count; ++i)
-			{
-				mGameInputManager.setKeyState(key[i], isKeyDown(i));
-			}
+			mGameInputManager.setKeyState(key[i], isKeyDown(i));
 		}
 		// 转向
-		if(myself.getProcessTurn())
-		{
-			mGameInputManager.setStickAngle(mAngle);
-		}
+		mGameInputManager.setStickAngle(mAngle);
 	}
 	bool isKeyDown(int index)
 	{

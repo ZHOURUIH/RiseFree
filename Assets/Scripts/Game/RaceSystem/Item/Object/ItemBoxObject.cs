@@ -14,12 +14,12 @@ public class ItemBoxObject : MonoBehaviour
 	}
 	public void OnTriggerEnter(Collider other)
 	{
-		if (mEffentive)
+		if (mEffentive && LayerMask.NameToLayer(GameDefine.LAYER_CHARACTER) == other.gameObject.layer)
 		{
 			Character character = GameBase.mCharacterManager.getCharacter(other.name);
 			mItemBox.onEffective(character);
 			mEffentive = false;
-		}	
+		}
 	}
 	public void setItem(SceneItemBox item) { mItemBox = item; }
 }

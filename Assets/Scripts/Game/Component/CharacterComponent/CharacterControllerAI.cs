@@ -46,45 +46,44 @@ public class CharacterControllerAI : CharacterController
 			cmd.mExternalSpeed = true;
 			pushCommand(cmd, mCharacter);
 		}
-		List<CharacterOther> allCharacterList = mRoleSystem.getAllCharacterList();
-		// 如果是AI,则一旦发现视野内有人,就会发射导弹
-		foreach (CharacterOther item in allCharacterList)
+		// 如果AI背包中有导弹,则一直搜寻可以瞄准的目标
+		int missileIndex = mCharacter.getPlayerPack().getFirstItemIndex(PLAYER_ITEM.PI_MISSILE);
+		if (missileIndex != -1 && !mCharacter.hasState(PLAYER_STATE.PS_AIM))
 		{
-			if (item != mCharacter)
+			bool hasAvailbleTarget = false;
+			List<CharacterOther> allCharacterList = mRoleSystem.getAllCharacterList();
+			float playerDistance = mCharacter.getCharacterData().mRunDistance;
+			foreach (CharacterOther item in allCharacterList)
 			{
-				Vector3 mPos = item.getWorldPosition();
-				if (MathUtility.isInRange(item.getCharacterData().mRunDistance - mCharacter.getCharacterData().mRunDistance, 0.0f, 100.0f))
+				if (item != mCharacter)
 				{
-					if (UnityUtility.whetherGameObjectInScreen(mPos))
+					float curDistance = item.getCharacterData().mRunDistance - playerDistance;
+					if (MathUtility.isInRange(curDistance, 0.0f, GameDefine.MAX_LAUNCH_MISSILE_DISTANCE))
 					{
-						if (mCharacter.getStateMachine().hasState(PLAYER_STATE.PS_AIM))
+						if (UnityUtility.whetherGameObjectInScreen(item.getWorldPosition()))
 						{
-							// 给角色添加瞄准状态
-							CommandCharacterAddState cmdCharacterAddState = newCmd(out cmdCharacterAddState);
-							cmdCharacterAddState.mState = PLAYER_STATE.PS_AIM;
-							pushCommand(cmdCharacterAddState, mCharacter);
+							hasAvailbleTarget = true;
 							break;
-						}	
+						}
 					}
 				}
+			}
+			if (hasAvailbleTarget)
+			{
+				// 需要选中导弹
+				CommandCharacterSelectItem cmdSelect = newCmd(out cmdSelect);
+				cmdSelect.mIndex = missileIndex;
+				pushCommand(cmdSelect, mCharacter);
+				// 给角色添加瞄准状态
+				CommandCharacterAddState cmdCharacterAddState = newCmd(out cmdCharacterAddState);
+				cmdCharacterAddState.mState = PLAYER_STATE.PS_AIM;
+				pushCommand(cmdCharacterAddState, mCharacter);
 			}
 		}
 	}
 	public void notifyAIGetBoxItem(PlayerItemBase playerItem )
 	{
-		if (playerItem.getItemType() == PLAYER_ITEM.PI_MISSILE)
-		{
-			// 如果已经在瞄准状态中,则不能使用
-			if (mCharacter.hasState(PLAYER_STATE.PS_AIM))
-			{
-				return;
-			}
-			// 给角色添加瞄准状态
-			CommandCharacterAddState cmdCharacterAddState = newCmd(out cmdCharacterAddState);
-			cmdCharacterAddState.mState = PLAYER_STATE.PS_AIM;
-			pushCommand(cmdCharacterAddState, mCharacter);
-		}
-		else
+		if (playerItem.getItemType() != PLAYER_ITEM.PI_MISSILE)
 		{
 			CommandCharacterUseItem cmd = newCmd(out cmd);
 			cmd.mItemIndex = mCharacter.getPlayerPack().getSelectedIndex();

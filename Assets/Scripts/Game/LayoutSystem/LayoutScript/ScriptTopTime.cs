@@ -10,19 +10,19 @@ public class ScriptTopTime : LayoutScript
 	public txUIStaticSprite mTimeStart;
 	public Vector3 mTimeStartPos;
 	public Vector3 mTimeEndPos;
-	public ScriptTopTime(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptTopTime(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		;
 	}
 	public override void assignWindow()
 	{
-		mTimeRoot = newObject<txUIStaticSprite>("TimeRoot");
-		mTime = newObject<txUIStaticSprite>(mTimeRoot, "Time");
-		mMin = newObject<txUINumber>(mTime, "Min");
-		mSecond = newObject<txUINumber>(mTime, "Second");
-		mTimeStart = newObject<txUIStaticSprite>("TimeStartPos", 0);
+		newObject(ref mTimeRoot, "TimeRoot");
+		newObject(ref mTime, mTimeRoot, "Time");
+		newObject(ref mMin, mTime, "Min");
+		newObject(ref mSecond, mTime, "Second");
+		newObject(ref mTimeStart, "TimeStartPos", 0);
 	}
 	public override void init()
 	{

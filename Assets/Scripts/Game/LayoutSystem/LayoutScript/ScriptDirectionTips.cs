@@ -6,15 +6,15 @@ using System.Text;
 class ScriptDirectionTips :LayoutScript
 {
 	protected txUIStaticTexture mDirectionTexture;
-	public ScriptDirectionTips(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptDirectionTips(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		;
 	}
 	public override void assignWindow()
 	{
-		mDirectionTexture = newObject<txUIStaticTexture>("DirectionTexture");
+		newObject(ref mDirectionTexture, "DirectionTexture");
 	}
 	public override void init()
 	{

@@ -18,7 +18,7 @@ public class PlayerPack : GameBase
 	{
 		mPackItem = new PlayerItemBase[GameDefine.PACK_ITEM_COUNT];
 		mItemCount = 0;
-		mSelectedIndex = 0;
+		mSelectedIndex = -1;
 		if (mRegisteList == null)
 		{
 			mRegisteList = new Dictionary<PLAYER_ITEM, Type>();
@@ -52,19 +52,25 @@ public class PlayerPack : GameBase
 	{
 		PlayerItemBase item = createPlayerItem(type);
 		int maxCount = mPackItem.Length;
-		for(int i = 0; i < maxCount; ++i)
+		int startIndex = mSelectedIndex == -1 ? 0 : mSelectedIndex;
+		for (int i = 0; i < maxCount; ++i)
 		{
-			if(mPackItem[i] == null)
+			int index = (startIndex + i) % maxCount;
+			if (mPackItem[index] == null)
 			{
 				++mItemCount;
-				mPackItem[i] = item;
-				return i;
+				mPackItem[index] = item;
+				return index;
 			}
 		}
 		return 0;
 	}
 	public void useItem(int index)
 	{
+		if(index < 0 || index >= mPackItem.Length)
+		{
+			return;
+		}
 		if(mPackItem[index] != null)
 		{
 			mPackItem[index].use(mPlayer);
@@ -86,14 +92,57 @@ public class PlayerPack : GameBase
 		}
 		return itemIndex;
 	}
-	public PlayerItemBase getCurItem() { return mPackItem[mSelectedIndex]; }
+	public bool canChangeSelection()
+	{
+		if (mItemCount == 0 || (mItemCount == 1 && getCurItem() != null))
+		{
+			return false;
+		}
+		return true;
+	}
+	public PlayerItemBase getCurItem()
+	{
+		if(mSelectedIndex == -1)
+		{
+			return null;
+		}
+		return mPackItem[mSelectedIndex];
+	}
+	public int getFirstItemIndex(PLAYER_ITEM item)
+	{
+		int maxCount = mPackItem.Length;
+		for (int i = 0; i < maxCount; ++i)
+		{
+			if(mPackItem[i] != null && mPackItem[i].getItemType() == item)
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
 	public bool isFull() { return getItemCount() >= mPackItem.Length; }
 	public int getItemCount() { return mItemCount; }
 	public int getSelectedIndex() { return mSelectedIndex; }
 	public void setItemIndex(int index){ mSelectedIndex = index;}
-	public int getNextItem()
+	public int getNextNotEmptyIndex()
 	{
-		return (mSelectedIndex + 1) % GameDefine.PACK_ITEM_COUNT;
+		if(mSelectedIndex == -1)
+		{
+			return 0;
+		}
+		int nextIndex = -1;
+		int curIndex = mSelectedIndex;
+		int maxCount = mPackItem.Length;
+		for (int i = 0; i < maxCount - 1; ++i)
+		{
+			int index = (curIndex + 1 + i) % maxCount;
+			if (mPackItem[index] != null)
+			{
+				nextIndex = index;
+				break;
+			}
+		}
+		return nextIndex;
 	}
 	//----------------------------------------------------------------------------------------------------------------
 	protected PlayerItemBase createPlayerItem(PLAYER_ITEM type)

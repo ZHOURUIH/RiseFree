@@ -10,19 +10,19 @@ public class ScriptCircleTip : LayoutScript
 	protected txUITextureAnim mFinishRace;
 	protected txUITextureAnim mUnfinishRace;
 	protected List<txUITextureAnim> mCircleTipList;
-	public ScriptCircleTip(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptCircleTip(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mCircleTipList = new List<txUITextureAnim>();
 	}
 	public override void assignWindow()
 	{
-		mSecondCircle = newObject<txUITextureAnim>("SecondCircle", 0);
-		mThirdCircle = newObject<txUITextureAnim>("ThirdCircle", 0);
-		mFourthCircle = newObject<txUITextureAnim>("FourthCircle", 0);
-		mFinishRace = newObject<txUITextureAnim>("FinishRace", 0);
-		mUnfinishRace = newObject<txUITextureAnim>("UnfinishRace", 0);
+		newObject(ref mSecondCircle, "SecondCircle", 0);
+		newObject(ref mThirdCircle, "ThirdCircle", 0);
+		newObject(ref mFourthCircle, "FourthCircle", 0);
+		newObject(ref mFinishRace, "FinishRace", 0);
+		newObject(ref mUnfinishRace, "UnfinishRace", 0);
 	}
 	public override void init()
 	{

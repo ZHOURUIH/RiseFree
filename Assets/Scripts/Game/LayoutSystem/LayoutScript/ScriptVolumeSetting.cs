@@ -4,24 +4,22 @@ using System.Collections;
 public class ScriptVolumeSetting : LayoutScript
 {
 	protected txUIObject mUIVolumeRoot;
-	protected txUIStaticTexture mUIBackGroundBlack;
 	protected txUISlider mUIVolumeScrollBar;
 	protected txUIObject mUIVolumeRootStart;
 	protected Vector3 mPosRootStart;
 	protected Vector3 mPosRootEnd;
 	protected float mVolume;
-	public ScriptVolumeSetting(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptVolumeSetting(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		;
 	}
 	public override void assignWindow()
 	{
-		mUIVolumeRoot = newObject<txUIObject>("UIVolumeRoot");
-		mUIBackGroundBlack = newObject<txUIStaticTexture>("UIBackGroundBlack");
-		mUIVolumeScrollBar = newObject<txUISlider>(mUIVolumeRoot, "UIVolumeScrollBar");
-		mUIVolumeRootStart = newObject<txUIObject>("UIVolumeRootStart");
+		newObject(ref mUIVolumeRoot, "UIVolumeRoot");
+		newObject(ref mUIVolumeScrollBar, mUIVolumeRoot, "UIVolumeScrollBar");
+		newObject(ref mUIVolumeRootStart, "UIVolumeRootStart");
 	}
 	public override void init()
 	{
@@ -35,7 +33,6 @@ public class ScriptVolumeSetting : LayoutScript
 		setVolume(mVolume);
 		LayoutTools.MOVE_WINDOW(mUIVolumeRoot, mPosRootStart);
 		LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 0.0f);
-		LayoutTools.ALPHA_WINDOW(mUIBackGroundBlack, 0.0f);
 	}
 	public override void update(float elapsedTime)
 	{
@@ -47,13 +44,11 @@ public class ScriptVolumeSetting : LayoutScript
 		{
 			LayoutTools.MOVE_WINDOW(mUIVolumeRoot, mPosRootEnd);
 			LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 1.0f);
-			LayoutTools.ALPHA_WINDOW(mUIBackGroundBlack, 0.7f);
 		}
 		else
 		{
-			LayoutTools.MOVE_WINDOW(mUIVolumeRoot, mPosRootStart, mPosRootEnd, 0.5f);
-			LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 0.0f, 1.0f, 0.5f);
-			LayoutTools.ALPHA_WINDOW(mUIBackGroundBlack, 0.0f, 0.7f, 0.2f);
+			LayoutTools.MOVE_WINDOW(mUIVolumeRoot, mPosRootStart, mPosRootEnd, 0.25f);
+			LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 0.0f, 1.0f, 0.25f);
 		}
 	}
 	public override void onHide(bool immediately, string param)
@@ -62,14 +57,12 @@ public class ScriptVolumeSetting : LayoutScript
 		{
 			LayoutTools.MOVE_WINDOW(mUIVolumeRoot, mPosRootStart);
 			LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 0.0f);
-			LayoutTools.ALPHA_WINDOW(mUIBackGroundBlack, 0.0f);
 			LayoutTools.HIDE_LAYOUT_FORCE(mType);
 		}
 		else
 		{
-			LayoutTools.MOVE_WINDOW_EX(mUIVolumeRoot, mPosRootEnd, mPosRootStart, 0.45f, onMoveBackDone);
-			LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 1.0f, 0.0f, 0.45f);
-			LayoutTools.ALPHA_WINDOW(mUIBackGroundBlack, 0.7f, 0.0f, 0.2f);
+			LayoutTools.MOVE_WINDOW_EX(mUIVolumeRoot, mPosRootEnd, mPosRootStart, 0.25f, onMoveBackDone);
+			LayoutTools.ALPHA_WINDOW(mUIVolumeRoot, 1.0f, 0.0f, 0.25f);
 		}
 	}
 	public void setVolume(float value)

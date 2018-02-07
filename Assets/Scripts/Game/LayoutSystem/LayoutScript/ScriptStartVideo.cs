@@ -5,14 +5,13 @@ using RenderHeads.Media.AVProVideo;
 public class ScriptStartVideo : LayoutScript
 {
 	protected txUIVideo		  mStartVideo;
-	public ScriptStartVideo(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptStartVideo(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{ }
 	public override void assignWindow()
 	{
-		mStartVideo = newObject<txUIVideo>("StartVideo", 1);
-		
+		newObject<txUIVideo>(ref mStartVideo, "StartVideo", 1);
 	}
 	public override void init()
 	{

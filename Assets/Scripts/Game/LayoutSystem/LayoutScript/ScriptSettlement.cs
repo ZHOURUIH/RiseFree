@@ -25,9 +25,9 @@ public class ScriptSettlement : LayoutScript
 	protected List<txUIStaticSprite> mLabelList;
 	protected List<txUINumber> mNumberList;
 
-	public ScriptSettlement(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptSettlement(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mAminList = new List<txUISpriteAnim>();
 		mLabelList = new List<txUIStaticSprite>();
@@ -35,24 +35,24 @@ public class ScriptSettlement : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		mDataRanking = newObject<txUISpriteAnim>("DataRanking");
-		mNext = newObject<txUISpriteAnim>("Next", 0);
-		mRinking = newObject<txUISpriteAnim>("Rinking", 0);
-		mRinkingLabelRoot = newObject<txUIStaticSprite>(mRinking, "RinkingLabelRoot", 0);
-		mRinkingNumber = newObject<txUINumber>(mRinkingLabelRoot, "Number");
-		mKcal = newObject<txUISpriteAnim>("Kcal", 0);
-		mKcalLabelRoot = newObject<txUIStaticSprite>(mKcal, "KcalLabelRoot", 0);
-		mKcalNumber = newObject<txUINumber>(mKcalLabelRoot, "Number");
-		mAverageSpeed = newObject<txUISpriteAnim>("AverageSpeed", 0);
-		mAverageSpeedLabelRoot = newObject<txUIStaticSprite>(mAverageSpeed, "AverageLabelRoot", 0);
-		mAverageSpeedNumber = newObject<txUINumber>(mAverageSpeedLabelRoot, "Number");
-		mMileage = newObject<txUISpriteAnim>("Mileage", 0);
-		mMileageLabelRoot = newObject<txUIStaticSprite>(mMileage, "MileageLabelRoot", 0);
-		mMileageNumber = newObject<txUINumber>(mMileageLabelRoot, "Number");
-		mMaxSpeed = newObject<txUISpriteAnim>("MaxSpeed", 0);
-		mMaxSpeedLabelRoot = newObject<txUIStaticSprite>(mMaxSpeed, "MaxSpeedLabelRoot", 0);
-		mMaxSpeedNumber = newObject<txUINumber>(mMaxSpeedLabelRoot, "Number");
-		mAIcon = newObject<txUIStaticSprite>("AIcon", 0);
+		newObject(ref mDataRanking, "DataRanking");
+		newObject(ref mNext, "Next", 0);
+		newObject(ref mRinking, "Rinking", 0);
+		newObject(ref mRinkingLabelRoot, mRinking, "RinkingLabelRoot", 0);
+		newObject(ref mRinkingNumber, mRinkingLabelRoot, "Number");
+		newObject(ref mKcal, "Kcal", 0);
+		newObject(ref mKcalLabelRoot, mKcal, "KcalLabelRoot", 0);
+		newObject(ref mKcalNumber, mKcalLabelRoot, "Number");
+		newObject(ref mAverageSpeed, "AverageSpeed", 0);
+		newObject(ref mAverageSpeedLabelRoot, mAverageSpeed, "AverageLabelRoot", 0);
+		newObject(ref mAverageSpeedNumber, mAverageSpeedLabelRoot, "Number");
+		newObject(ref mMileage, "Mileage", 0);
+		newObject(ref mMileageLabelRoot, mMileage, "MileageLabelRoot", 0);
+		newObject(ref mMileageNumber, mMileageLabelRoot, "Number");
+		newObject(ref mMaxSpeed, "MaxSpeed", 0);
+		newObject(ref mMaxSpeedLabelRoot, mMaxSpeed, "MaxSpeedLabelRoot", 0);
+		newObject(ref mMaxSpeedNumber, mMaxSpeedLabelRoot, "Number");
+		newObject(ref mAIcon, "AIcon", 0);
 	}
 	public override void init()
 	{
@@ -144,10 +144,10 @@ public class ScriptSettlement : LayoutScript
 		// 名次下标是从0开始 这里显示要加1
 		int rank = data.mRank + 1;
 		mRinkingNumber.setNumber(rank);
-		mKcalNumber.setNumber(StringUtility.floatToString(data.mKcal,1));
-		mAverageSpeedNumber.setNumber(StringUtility.floatToString(MathUtility.MStoKMH(data.mAverageSpeed),1));
-		mMileageNumber.setNumber(StringUtility.floatToString(MathUtility.MtoKM(data.mTotalDistance),1));
-		mMaxSpeedNumber.setNumber(StringUtility.floatToString(MathUtility.MStoKMH(data.mMaxSpeed),1));
+		mKcalNumber.setNumber(StringUtility.floatToString(data.mKcal, 1));
+		mAverageSpeedNumber.setNumber(StringUtility.floatToString(MathUtility.MStoKMH(data.mAverageSpeed) * GameDefine.DISPLAY_MILEAGE_SCALE, 1));
+		mMileageNumber.setNumber(StringUtility.floatToString(MathUtility.MtoKM(data.mTotalDistance) * GameDefine.DISPLAY_MILEAGE_SCALE, 1));
+		mMaxSpeedNumber.setNumber(StringUtility.floatToString(MathUtility.MStoKMH(data.mMaxSpeed) * GameDefine.DISPLAY_MILEAGE_SCALE, 1));
 	}
 	protected void onLabelShow(object user_data, Command cmd)
 	{

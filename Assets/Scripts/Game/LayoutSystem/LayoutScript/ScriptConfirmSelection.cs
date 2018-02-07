@@ -7,14 +7,14 @@ public class ScriptConfirmSelection : LayoutScript
 {
 	protected txUIObject mConfirmSelectionRoot;
 	protected txUIObject mConfirmTextRoot;
-	public ScriptConfirmSelection(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptConfirmSelection(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{ }
 	public override void assignWindow()
 	{
-		mConfirmSelectionRoot = newObject<txUIObject>("ConfirmSelectionRoot");
-		mConfirmTextRoot = newObject<txUIObject>(mConfirmSelectionRoot, "ConfirmTextRoot",0);
+		newObject(ref mConfirmSelectionRoot, "ConfirmSelectionRoot");
+		newObject(ref mConfirmTextRoot, mConfirmSelectionRoot, "ConfirmTextRoot",0);
 
 	}
 	public override void onGameState()

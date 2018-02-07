@@ -7,4 +7,43 @@
 GDF_VOLUME = 0.91
 
 // 是否在已连接设备时也可以使用键盘操作
-GDF_KEYBOARD_ENABLE = 1
+GDF_KEYBOARD_ENABLE = 0
+
+// 转向阈值,当转向角度大于该值时认为左转或者右转一次
+GDF_TURN_THRESHHOLD = 15.0
+
+// 转向角度的校正值,在使用时会将硬件角度减去该值作为最后的转向角度
+GDF_TURN_ANGLE_OFFSET = 6
+
+// 骑行过程中转向的灵敏度
+GDF_TURN_SENSITIVE = 1.3
+
+// 是否读取转速作为速度值,不为0表示读取转速,为0表示读取功率
+GDF_READ_RPM = 1
+
+// 平地的正常阻力
+GDF_NORMAL_FRICTION = 50
+
+// 最小上坡角度,符号为负表示向上
+GDF_MIN_UPHILL_ANGLE = -5
+
+// 最大上坡角度,符号为负表示向上
+GDF_MAX_UPHILL_ANGLE = -13
+
+// 最小下坡角度,符号为正表示向下
+GDF_MIN_DOWNHILL_ANGLE = 5
+
+// 最大下坡角度,符号为正表示向下
+GDF_MAX_DOWNHILL_ANGLE = 13
+
+// 最大上坡角度对应的阻力值
+GDF_MAX_UPHILL_FRICTION = 100
+
+// 最小上坡角度对应的阻力值
+GDF_MIN_UPHILL_FRICTION = 60
+
+// 最小下坡角度对应的阻力值
+GDF_MIN_DOWNHILL_FRICTION = 40
+
+// 最大下坡角度对应的阻力值
+GDF_MAX_DOWNHILL_FRICTION = 0

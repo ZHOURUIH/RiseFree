@@ -32,7 +32,7 @@ public class StartSceneSetting : SceneProcedure
 	protected override void onPrepareExit(SceneProcedure nextProcedure)
 	{
 		base.onPrepareExit(nextProcedure);
-		if(nextProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SELECT_ROLE))
+		if (nextProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SELECT_ROLE) || nextProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SELECT_TRACK))
 		{
 			LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_VOLUME_SETTING);
 		}
@@ -41,10 +41,10 @@ public class StartSceneSetting : SceneProcedure
 	{
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.X))
 		{
-			// 准备在1.5秒之后跳转到选择角色流程
+			// 准备在0.5秒之后跳转到选择角色流程
 			CommandGameScenePrepareChangeProcedure cmd = newCmd(out cmd);
-			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SELECT_ROLE;
-			cmd.mPrepareTime = 1.5f;
+			cmd.mProcedure = mGameScene.getLastProcedureType();
+			cmd.mPrepareTime = 0.5f;
 			pushCommand(cmd, mGameScene);
 			return;
 		}

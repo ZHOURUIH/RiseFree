@@ -24,6 +24,7 @@ public class StartSceneSelectRole : SceneProcedure
 			if (!lastProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SELECT_TRACK))
 			{
 				mainCamera.copyCamera(roleDisplay.mCameraPositionObject0);
+				LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 9);
 			}
 			else
 			{
@@ -32,7 +33,6 @@ public class StartSceneSelectRole : SceneProcedure
 				ObjectTools.ROTATE_OBJECT(mainCamera, mainCamera.getRotation(), cameraPos0.localEulerAngles, 0.5f);
 			}
 			LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_SELECT_ROLE, 9);
-			LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 9);
 		}
 		// 从设置流程跳转过来,立即显示布局
 		else
@@ -69,7 +69,6 @@ public class StartSceneSelectRole : SceneProcedure
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.A))
 		{
 			LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_SELECT_ROLE);
-			LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_BUTTOM_PROMPT);
 			CommandGameScenePrepareChangeProcedure cmd = newCmd(out cmd);
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SELECT_TRACK;
 			cmd.mPrepareTime = 0.5f;
@@ -82,7 +81,7 @@ public class StartSceneSelectRole : SceneProcedure
 			LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_BUTTOM_PROMPT);
 			CommandGameScenePrepareChangeProcedure cmd = newCmd(out cmd);
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SETTING;
-			cmd.mPrepareTime = 1.5f;
+			cmd.mPrepareTime = 0.5f;
 			pushCommand(cmd, mGameScene);
 			return;
 		}

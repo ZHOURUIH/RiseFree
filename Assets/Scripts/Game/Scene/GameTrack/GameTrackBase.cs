@@ -11,6 +11,7 @@ public class GameTrackBase : SceneInstance
 	public List<Vector3> mStartPointList;
 	public List<Vector3> mJumpPointList;
 	public int mCircleCount;
+	public int mDifficultyStart;
 	public GameTrackBase(string name)
 		:base(name)
 	{
@@ -21,15 +22,14 @@ public class GameTrackBase : SceneInstance
 	public override void init()
 	{
 		base.init();
+		TrackInfo info = mRaceSystem.getTrackInfo(mName);
+		mCircleCount = info.mCircleCount;
+		mDifficultyStart = info.mDifficultyStart;
 	}
 	public override void destroy()
 	{
-		// 销毁所有道具箱子
-		mItemManager.destroyAllItem(SCENE_ITEM.SI_ITEM_BOX);
-		//销毁场景中所有的地雷
-		mItemManager.destroyAllItem(SCENE_ITEM.SI_LAND_MINE);
-		//销毁场景中所欲偶的导弹
-		mItemManager.destroyAllItem(SCENE_ITEM.SI_MISSILE);
+		// 销毁所有道具
+		mItemManager.destroyAllItem();
 		mItemManager.notifyTrackFinish();
 		// 清空路点
 		mWayPointManager.clear();

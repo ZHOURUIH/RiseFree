@@ -24,6 +24,11 @@ public class CommandCharacterChangeSpeed : Command
 		{
 			data.mMaxSpeed = mSpeed;
 		}
+		// 通知布局
+		if (character.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			mScriptPlayerRaceInfo.setSpeedMS(data.mSpeed);
+		}
 	}
 	public override string showDebugInfo()
 	{

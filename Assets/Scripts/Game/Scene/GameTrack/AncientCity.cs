@@ -7,7 +7,7 @@ public class AncientCity : GameTrackBase
 	public AncientCity(string name)
 		:base(name)
 	{
-		mCircleCount = 2;
+		;
 	}
 	public override void init()
 	{

@@ -22,14 +22,13 @@ public class RidingState : PlayerState
 			MathUtility.clamp(ref animSpeed, 0.0f, 3.0f);
 			mAnimation[GameDefine.ANIM_RIDE].speed = animSpeed;
 			mAnimation[GameDefine.ANIM_SHAKE_BIKE].speed = animSpeed;
-			string queuedCloneSuffix = " - Queued Clone";
-			if (mAnimation[GameDefine.ANIM_RIDE + queuedCloneSuffix] != null)
+			if (mAnimation[GameDefine.ANIM_RIDE + GameDefine.QUEUE_SUFFIX] != null)
 			{
-				mAnimation[GameDefine.ANIM_RIDE + queuedCloneSuffix].speed = animSpeed;
+				mAnimation[GameDefine.ANIM_RIDE + GameDefine.QUEUE_SUFFIX].speed = animSpeed;
 			}
-			if (mAnimation[GameDefine.ANIM_SHAKE_BIKE + queuedCloneSuffix] != null)
+			if (mAnimation[GameDefine.ANIM_SHAKE_BIKE + GameDefine.QUEUE_SUFFIX] != null)
 			{
-				mAnimation[GameDefine.ANIM_SHAKE_BIKE + queuedCloneSuffix].speed = animSpeed;
+				mAnimation[GameDefine.ANIM_SHAKE_BIKE + GameDefine.QUEUE_SUFFIX].speed = animSpeed;
 			}
 		}
 	}

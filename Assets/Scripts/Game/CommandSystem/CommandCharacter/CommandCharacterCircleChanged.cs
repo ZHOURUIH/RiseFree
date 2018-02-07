@@ -14,6 +14,11 @@ public class CommandCharacterCircleChanged : Command
 		Character character = mReceiver as Character;
 		CharacterData data = character.getCharacterData();
 		data.mCircle = mCircle;
+		// 通知布局
+		if (character.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			mScriptPlayerRaceInfo.setCurCircle(data.mCircle);
+		}
 		// 如果已经达到赛道的最大圈数,则完成比赛
 		if (data.mCircle >= mRaceSystem.getCurGameTrack().mCircleCount)
 		{

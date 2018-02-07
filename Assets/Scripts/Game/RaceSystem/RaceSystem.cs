@@ -7,24 +7,37 @@ using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using UnityEngine;
 
+public class TrackInfo
+{
+	public string mName;
+	public int mCircleCount;
+	public int mDifficultyStart;
+	public TrackInfo(string name, int circle, int star)
+	{
+		mName = name;
+		mCircleCount = circle;
+		mDifficultyStart = star;
+	}
+}
+
 public class RaceSystem : FrameComponent
 {
 	protected float mSystemTime;
-	protected int mTrack;
-	protected List<string> mTrackNameList;
+	protected int mTrackIndex;
+	protected List<TrackInfo> mTrackInfoList;
 	public RaceSystem(string name)
 		:
 		base(name)
 	{
-		mTrackNameList = new List<string>();
+		mTrackInfoList = new List<TrackInfo>();
 		mSystemTime = 0.0f;
 	}
 	public override void init()
 	{
-		mTrackNameList.Add(GameDefine.PRIMARY_TRACK);
-		mTrackNameList.Add(GameDefine.SNOW_MOUNTAIN);
-		mTrackNameList.Add(GameDefine.DESERT);
-		mTrackNameList.Add(GameDefine.ANCIENT_CITY);
+		mTrackInfoList.Add(new TrackInfo(GameDefine.PRIMARY_TRACK, 3, 1));
+		mTrackInfoList.Add(new TrackInfo(GameDefine.SNOW_MOUNTAIN, 3, 2));
+		mTrackInfoList.Add(new TrackInfo(GameDefine.DESERT, 3, 3));
+		mTrackInfoList.Add(new TrackInfo(GameDefine.ANCIENT_CITY, 2, 4));
 	}
 	public override void destroy()
 	{
@@ -77,25 +90,25 @@ public class RaceSystem : FrameComponent
 	{
 		mSystemTime = 0.0f;
 	}
-	public void setTrack(int track)
+	public void setTrackIndex(int track)
 	{
-		mTrack = track;
+		mTrackIndex = track;
 	}
 	public int getTrackIndex()
 	{
-		return mTrack;
+		return mTrackIndex;
 	}
 	public int getTrackCount()
 	{
-		return mTrackNameList.Count;
+		return mTrackInfoList.Count;
 	}
 	public int getLastTrackIndex()
 	{
-		return (mTrack - 1 + getTrackCount()) % getTrackCount();
+		return (mTrackIndex - 1 + getTrackCount()) % getTrackCount();
 	}
 	public int getNextTrackIndex()
 	{
-		return (mTrack + 1) % getTrackCount();
+		return (mTrackIndex + 1) % getTrackCount();
 	}
 	public GameTrackBase getCurGameTrack()
 	{
@@ -103,6 +116,22 @@ public class RaceSystem : FrameComponent
 	}
 	public string getTrackName()
 	{
-		return mTrackNameList[mTrack];
+		return mTrackInfoList[mTrackIndex].mName;
+	}
+	public int getTrackDifficultyStart(int index)
+	{
+		return mTrackInfoList[index].mDifficultyStart;
+	}
+	public TrackInfo getTrackInfo(string name)
+	{
+		int count = mTrackInfoList.Count;
+		for(int i = 0; i < count; ++i)
+		{
+			if(mTrackInfoList[i].mName == name)
+			{
+				return mTrackInfoList[i];
+			}
+		}
+		return null;
 	}
 }

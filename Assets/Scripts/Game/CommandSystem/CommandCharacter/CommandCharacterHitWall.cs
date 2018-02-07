@@ -13,6 +13,7 @@ public class CommandCharacterHitWall : Command
 	public override void execute()
 	{
 		Character character = mReceiver as Character;
+		MathUtility.clamp(ref mAngle, 0.0f, 45.0f);
 		CommandCharacterChangeSpeed cmdSpeed = newCmd(out cmdSpeed);
 		cmdSpeed.mSpeed = Mathf.Sin(Mathf.Abs(mAngle * Mathf.Deg2Rad)) * character.getCharacterData().mSpeed;
 		pushCommand(cmdSpeed, character);

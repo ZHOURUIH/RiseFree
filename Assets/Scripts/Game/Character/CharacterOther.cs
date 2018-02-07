@@ -31,6 +31,8 @@ public class CharacterOther : Character
 	protected float mCurTimeCount;
 	protected const float TIME_INTERVAL = 1.0f;
 	protected float mLastMileage;
+	protected List<string> mSelectAnimation;
+	protected List<SceneMissile> mMissileLockList;	// 锁定玩家的导弹列表
 	public CharacterOther(CHARACTER_TYPE type, string name)
 		:
 		base(type, name)
@@ -40,6 +42,8 @@ public class CharacterOther : Character
 		mRibbonTrailDynamic = new RibbonTrailDynamic();
 		mStateMachine = new StateMachine();
 		mEnableStatus = new EnableStatus();
+		mSelectAnimation = new List<string>();
+		mMissileLockList = new List<SceneMissile>();
 	}
 	public override void init()
 	{
@@ -108,17 +112,9 @@ public class CharacterOther : Character
 	public void activeTrail(bool staticTrail, bool active = true)
 	{
 		// 隐藏时只能都隐藏
-		if(!active)
-		{
-			mRibbonTrailDynamic.setActive(false);
-			mRibbonTrailStatic.setActive(false);
-		}
 		// 显示时只能显示一个
-		else
-		{
-			mRibbonTrailStatic.setActive(staticTrail);
-			mRibbonTrailDynamic.setActive(!staticTrail);
-		}
+		mRibbonTrailStatic.setActive(active && staticTrail);
+		mRibbonTrailDynamic.setActive(active && !staticTrail);
 	}
 	public RibbonTrailDynamic getRibbonTrailDynamic() { return mRibbonTrailDynamic; }
 	public RibbonTrailStatic getRibbonTrailStatic(){return mRibbonTrailStatic; }
@@ -132,6 +128,22 @@ public class CharacterOther : Character
 			mEnableStatus.and(item.Value.getEnableStatus());
 		}
 	}
+	public bool isLockedByMissile() { return mMissileLockList.Count > 0; }
+	public void notifyMissileLocked(SceneMissile missile, bool locked)
+	{
+		if(locked)
+		{
+			if(!mMissileLockList.Contains(missile))
+			{
+				mMissileLockList.Add(missile);
+			}
+		}
+		else
+		{
+			mMissileLockList.Remove(missile);
+		}
+	}
+	public List<string> getSelectAnimation() { return mSelectAnimation; }
 	public bool getProcessKey() { return mEnableStatus.mProcessKey; }
 	public bool getProcessTurn(){ return mEnableStatus.mProcessTurn; }
 	public bool getProcessExternalSpeed(){ return mEnableStatus.mProcessExternalSpeed; }

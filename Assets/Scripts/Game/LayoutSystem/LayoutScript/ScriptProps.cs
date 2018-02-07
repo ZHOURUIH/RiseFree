@@ -23,11 +23,11 @@ public class PropsItem
 	}
 	public void assignWindow(txUIStaticSprite root, string trackName, int index)
 	{
-		mProp = mScript.newObject<txUIStaticSprite>(root, trackName);
-		mBackground = mScript.newObject<txUIStaticSprite>(mProp, "Background");
-		mSelect = mScript.newObject<txUIStaticSprite>(mProp, "Select");
-		mLabel = mScript.newObject<txUIText>(mProp, "Label", 0);
-		mIcon = mScript.newObject<txUIStaticSprite>(mProp, "Icon", 0);
+		mScript.newObject(ref mProp, root, trackName);
+		mScript.newObject(ref mBackground, mProp, "Background");
+		mScript.newObject(ref mSelect, mProp, "Select");
+		mScript.newObject(ref mLabel, mProp, "Label", 0);
+		mScript.newObject(ref mIcon, mProp, "Icon", 0);
 	}
 	public void init()
 	{
@@ -113,17 +113,17 @@ public class ScriptProps : LayoutScript
 	protected float mTargetOffsetValue;		// 本次移动的目标值
 	protected float mCurOffsetValue;		// 当前实际的偏移值
 	protected int mShowIndex;				// 当前显示选中的下标
-	public ScriptProps(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptProps(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mPropsList = new List<PropsItem>();
 		mItemInfoList = new Dictionary<PLAYER_ITEM, ItemInfo>();
 	}
 	public override void assignWindow()
 	{
-		mControlHelper = newObject<txUIObject>("ControlHelper", 1);
-		mPropsRoot = newObject<txUIStaticSprite>("PropsRoot");
+		newObject(ref mControlHelper, "ControlHelper", 1);
+		newObject(ref mPropsRoot, "PropsRoot");
 		for (int i = 0; i < GameDefine.PACK_ITEM_COUNT; ++i)
 		{
 			PropsItem item = new PropsItem(this);

@@ -11,7 +11,7 @@ public class CommandStartSceneSelectTrack : Command
 	}
 	public override void execute()
 	{
-		mRaceSystem.setTrack(mTrack);
+		mRaceSystem.setTrackIndex(mTrack);
 		// 通知布局
 		mScriptSelectTrack.showIndex(mTrack);
 	}

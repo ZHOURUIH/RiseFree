@@ -11,11 +11,22 @@ public class CharacterBikePhysics : GameComponent
 	protected Rigidbody mRigidbody;
 	protected Transform[] mWheelCenter;    // 车轮的中心点,第0个是前轮,第1个是后轮
 	protected float mLastTurnAngle;
+	protected float mNormalFriction;		// 平地的正常阻力
+	protected float mMinUphillAngle;		// 最小上坡角度
+	protected float mMaxUphillAngle;		// 最大上坡角度
+	protected float mMinDownhillAngle;		// 最小下坡角度
+	protected float mMaxDownhillAngle;		// 最大下坡角度
+	protected float mMinUphillFriction;		// 最小上坡阻力
+	protected float mMaxUphillFriction;		// 最大上坡阻力
+	protected float mMinDownhillFriction;	// 最小下坡阻力
+	protected float mMaxDownhillFriction;   // 最大下坡阻力
+	protected int mCurFriction;
 	public CharacterBikePhysics(Type type, string name)
 		:
 	   base(type, name)
 	{
 		mWheelCenter = new Transform[2];
+		mCurFriction = -1;
 	}
 	public override void init(ComponentOwner owner)
 	{
@@ -26,6 +37,15 @@ public class CharacterBikePhysics : GameComponent
 			UnityUtility.logError("CharacterBikePhysics can only attach to CharacterOther!");
 		}
 		mData = mCharacter.getCharacterData();
+		mNormalFriction = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_NORMAL_FRICTION);
+		mMinUphillAngle = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MIN_UPHILL_ANGLE);
+		mMaxUphillAngle = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MAX_UPHILL_ANGLE);
+		mMinDownhillAngle = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MIN_DOWNHILL_ANGLE);
+		mMaxDownhillAngle = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MAX_DOWNHILL_ANGLE);
+		mMinUphillFriction = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MIN_UPHILL_FRICTION);
+		mMaxUphillFriction = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MAX_UPHILL_FRICTION);
+		mMinDownhillFriction = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MIN_DOWNHILL_FRICTION);
+		mMaxDownhillFriction = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_MAX_DOWNHILL_FRICTION);
 	}
 	public void notifyModelInited()
 	{
@@ -62,7 +82,7 @@ public class CharacterBikePhysics : GameComponent
 		// 方向
 		if (!MathUtility.isFloatZero(turnAngle))
 		{
-			float angleDelta = turnAngle * elapsedTime;
+			float angleDelta = turnAngle * elapsedTime * mData.mTurnSensitive;
 			// 一帧的旋转角度不能太大
 			MathUtility.clamp(ref angleDelta, -GameDefine.MAX_REFLECT_ANGLE, GameDefine.MAX_REFLECT_ANGLE);
 			mData.mSpeedRotation.y += angleDelta;
@@ -115,15 +135,49 @@ public class CharacterBikePhysics : GameComponent
 				mData.mSpeedRotation.y = MathUtility.getVectorYaw(newDir) * Mathf.Rad2Deg;
 				// 此处仍然同步设置角色的旋转,暂时保证速度方向与角色的旋转值一致
 				mCharacter.setYaw(mData.mSpeedRotation.y);
-				// 根据碰撞的角度,计算出速度损失量
+				// 根据碰撞的入射角度,计算出速度损失量
+				float inAngle = MathUtility.getAngleBetweenVector(-moveDir, dirRet.normal) * Mathf.Rad2Deg;
 				CommandCharacterHitWall cmdHitWall = newCmd(out cmdHitWall);
-				cmdHitWall.mAngle = reflectAngle;
+				cmdHitWall.mAngle = inAngle;
 				pushCommand(cmdHitWall, mCharacter);
 			}
 		}
 
 		// 调整自身位置
 		correctTransform(elapsedTime);
+
+		// 在地面上时,根据自身的旋转值,判断地面的坡度,计算当前阻力值
+		if (!mCharacter.hasState(PLAYER_STATE.PS_JUMP) && mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			float pitch = mCharacter.getPitch();
+			MathUtility.adjustAngle180(ref pitch);
+			float friction = -1.0f;
+			// 先将俯仰角限制在一定范围内
+			MathUtility.clamp(ref pitch, mMaxUphillAngle, mMaxDownhillAngle);
+			// 判断是否在正常范围内
+			if(MathUtility.isInRange(pitch, mMinUphillAngle, mMinDownhillAngle))
+			{
+				friction = mNormalFriction;
+			}
+			// 是否为上坡,当角度为负时为上坡
+			else if(pitch < mMinUphillAngle)
+			{
+				float percent = (pitch - mMinUphillAngle) / (mMaxUphillAngle - mMinUphillAngle);
+				friction = MathUtility.lerp(mMinUphillFriction, mMaxUphillFriction, percent);
+			}
+			else if(pitch > mMinDownhillAngle)
+			{
+				float percent = (pitch - mMinDownhillAngle) / (mMaxDownhillAngle - mMinDownhillAngle);
+				friction = MathUtility.lerp(mMinDownhillFriction, mMaxDownhillFriction, percent);
+			}
+			if(mCurFriction != (int)friction)
+			{
+				mCurFriction = (int)friction;
+				SerialPortPacketFriction packet = mSerialPortManager.createPacket(out packet, COM_PACKET.CP_FRICTION);
+				packet.setFriction((byte)mCurFriction);
+				mSerialPortManager.sendPacket(packet);
+			}
+		}
 		base.update(elapsedTime);
 	}
 	// 调整当前位置,自由落体时着地判断

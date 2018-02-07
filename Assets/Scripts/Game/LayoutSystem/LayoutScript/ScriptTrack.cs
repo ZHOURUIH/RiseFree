@@ -20,9 +20,9 @@ public class ScriptTrack : LayoutScript
 	protected Vector2 mBackgroundSize;
 	protected Vector2 mPlayerBackgroundSize;
 	protected Vector2[] mLapDividedPos;
-	public ScriptTrack(LAYOUT_TYPE type, string name, GameLayout layout)
+	public ScriptTrack(string name, GameLayout layout)
 		:
-		base(type, name, layout)
+		base(name, layout)
 	{
 		mAI = new txUIStaticSprite[AiIndex];
 		mLapDivided = new txUIStaticSprite[mRing];
@@ -30,21 +30,25 @@ public class ScriptTrack : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		mTrackRoot = newObject<txUIStaticSprite>("TrackRoot");
-		mBackgroundRoot = newObject<txUIStaticSprite>("BackgroundRoot");
+		newObject(ref mTrackRoot, "TrackRoot");
+		newObject(ref mBackgroundRoot, "BackgroundRoot");
 		for (int i = 0; i < mRing; i++)
 		{
-			mLapDivided[i] = newObject<txUIStaticSprite>(mBackgroundRoot, "LapDivided" + i, 0);
+			txUIStaticSprite divide = null;
+			newObject(ref divide, mBackgroundRoot, "LapDivided" + i, 0);
+			mLapDivided[i] = divide;
 		}
-		mPlayerBackground = newObject<txUIStaticSprite>(mTrackRoot, "PlayerBackground");
-		mPlayerIcon = newObject<txUIStaticSprite>(mPlayerBackground, "PlayerIcon");
-		mEnd = newObject<txUIStaticSprite>(mTrackRoot, "End");
-		mAIRoot = newObject<txUIObject>(mTrackRoot, "AIRoot");
+		newObject(ref mPlayerBackground, mTrackRoot, "PlayerBackground");
+		newObject(ref mPlayerIcon, mPlayerBackground, "PlayerIcon");
+		newObject(ref mEnd, mTrackRoot, "End");
+		newObject(ref mAIRoot, mTrackRoot, "AIRoot");
 		for (int i = 0; i < AiIndex; i++)
 		{
-			mAI[i] = newObject<txUIStaticSprite>(mAIRoot, "AI" + i, 0);
+			txUIStaticSprite AI = null;
+			newObject(ref AI, mAIRoot, "AI" + i, 0);
+			mAI[i] = AI;
 		}
-		mTrackStart = newObject<txUIStaticSprite>("TrackStartPos");
+		newObject(ref mTrackStart, "TrackStartPos");
 	}
 	public override void init()
 	{
