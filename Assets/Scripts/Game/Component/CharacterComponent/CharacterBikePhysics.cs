@@ -106,7 +106,7 @@ public class CharacterBikePhysics : GameComponent
 #endif
 		RaycastHit dirRet;
 		// 检测前方是否有墙
-		if (Physics.Raycast(dirRay, out dirRet, 1000.0f, GameUtility.mWallLayer))
+		if (Physics.Raycast(dirRay, out dirRet, 1000.0f, 1 << GameUtility.mWallLayer))
 		{
 			float wallDis = MathUtility.getLength(dirRet.point - lastPosition);
 			// 减去上一次的位置与当前位置的差值后,如果小于单车前半部分的长度则认为是碰到了墙,计算出反弹方向
@@ -192,8 +192,8 @@ public class CharacterBikePhysics : GameComponent
 		Debug.DrawLine(frontRay.origin, frontRay.origin + frontRay.direction * 10.0f, Color.red);
 		Debug.DrawLine(backRay.origin, backRay.origin + backRay.direction * 10.0f, Color.red);
 #endif
-		bool frontRet = Physics.Raycast(frontRay, out frontHit, 1000.0f, GameUtility.mGroundLayer);
-		bool backRet = Physics.Raycast(backRay, out backHit, 1000.0f, GameUtility.mGroundLayer);
+		bool frontRet = Physics.Raycast(frontRay, out frontHit, 1000.0f, 1 << GameUtility.mGroundLayer);
+		bool backRet = Physics.Raycast(backRay, out backHit, 1000.0f, 1 << GameUtility.mGroundLayer);
 		if (!frontRet)
 		{
 			UnityUtility.logError("front wheel is not on ground, pos : " + StringUtility.vector3ToString(mCharacter.getPosition()));

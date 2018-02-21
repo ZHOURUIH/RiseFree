@@ -15,13 +15,17 @@ public class GameUtility : FrameComponent
 	public static bool mReadRPM = true;
 	public static int mGroundLayer;
 	public static int mWallLayer;
+	public static int mCharacterLayer;
+	public static int mJumpPointLayer;
 	public GameUtility(string name)
 		:base(name)
 	{}
 	public override void init()
 	{
-		mGroundLayer = 1 << LayerMask.NameToLayer(GameDefine.LAYER_GROUND);
-		mWallLayer = 1 << LayerMask.NameToLayer(GameDefine.LAYER_WALL);
+		mGroundLayer = LayerMask.NameToLayer(GameDefine.LAYER_GROUND);
+		mWallLayer = LayerMask.NameToLayer(GameDefine.LAYER_WALL);
+		mCharacterLayer = LayerMask.NameToLayer(GameDefine.LAYER_CHARACTER);
+		mJumpPointLayer = LayerMask.NameToLayer(GameDefine.LAYER_JUMP_POINT);
 		mReadRPM = (int)mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_READ_RPM) != 0;
 	}
 	public static Color getTrailColorByModelName(string modelName)

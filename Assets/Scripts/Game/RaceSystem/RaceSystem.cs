@@ -20,17 +20,34 @@ public class TrackInfo
 	}
 }
 
+public class CollidePair
+{
+	public CharacterOther mPlayer0;
+	public CharacterOther mPlayer1;
+	public CollidePair(CharacterOther player0, CharacterOther player1)
+	{
+		mPlayer0 = player0;
+		mPlayer1 = player1;
+	}
+	public bool isPair(CharacterOther player0, CharacterOther player1)
+	{
+		return (mPlayer0 == player0 && mPlayer1 == player1) || (mPlayer0 == player1 && mPlayer1 == player0);
+	}
+}
+
 public class RaceSystem : FrameComponent
 {
 	protected float mSystemTime;
 	protected int mTrackIndex;
 	protected List<TrackInfo> mTrackInfoList;
+	protected List<CollidePair> mCollidePairList;
 	public RaceSystem(string name)
 		:
 		base(name)
 	{
 		mTrackInfoList = new List<TrackInfo>();
 		mSystemTime = 0.0f;
+		mCollidePairList = new List<CollidePair>();
 	}
 	public override void init()
 	{
@@ -84,6 +101,51 @@ public class RaceSystem : FrameComponent
 					++rank;
 				}
 			}
+			int count = mCollidePairList.Count;
+			if (count > 0)
+			{
+				// 计算每个碰撞对的碰撞效果
+				for(int i = 0; i < count; ++i)
+				{
+					CollidePair pair = mCollidePairList[i];
+					CharacterData data0 = pair.mPlayer0.getCharacterData();
+					CharacterData data1 = pair.mPlayer1.getCharacterData();
+					Vector3 playerSpeed0 = MathUtility.rotateVector3(Vector3.forward * data0.mSpeed, data0.mSpeedRotation.y * Mathf.Deg2Rad);
+					Vector3 playerSpeed1 = MathUtility.rotateVector3(Vector3.forward * data1.mSpeed, data1.mSpeedRotation.y * Mathf.Deg2Rad);
+					// 将速度分解为沿角色连线方向和连线的法线方向
+					Vector3 line = pair.mPlayer0.getPosition() - pair.mPlayer1.getPosition();
+					float lineYaw = MathUtility.getVectorYaw(line);
+					playerSpeed0 = MathUtility.rotateVector3(playerSpeed0, -lineYaw);
+					playerSpeed1 = MathUtility.rotateVector3(playerSpeed1, -lineYaw);
+					// 将沿连线方向的速度交换
+					MathUtility.swap(ref playerSpeed0.z, ref playerSpeed1.z);
+					playerSpeed0 = MathUtility.rotateVector3(playerSpeed0, lineYaw);
+					playerSpeed1 = MathUtility.rotateVector3(playerSpeed1, lineYaw);
+					data0.mSpeedRotation.y = MathUtility.getVectorYaw(playerSpeed0) * Mathf.Rad2Deg;
+					data1.mSpeedRotation.y = MathUtility.getVectorYaw(playerSpeed1) * Mathf.Rad2Deg;
+					data0.mSpeed = MathUtility.getLength(playerSpeed0);
+					data1.mSpeed = MathUtility.getLength(playerSpeed1);
+				}
+				mCollidePairList.Clear();
+			}
+		}
+	}
+	public void addCollidePair(CharacterOther player0, CharacterOther player1)
+	{
+		bool hasPair = false;
+		int count = mCollidePairList.Count;
+		for(int i = 0; i < count; ++i)
+		{
+			if(mCollidePairList[i].isPair(player0, player1))
+			{
+				hasPair = true;
+				break;
+			}
+		}
+		if(!hasPair)
+		{
+			UnityUtility.logInfo(player0.getName() + "碰撞了" + player1.getName(), LOG_LEVEL.LL_FORCE);
+			mCollidePairList.Add(new CollidePair(player0, player1));
 		}
 	}
 	public void notifyGameStart()

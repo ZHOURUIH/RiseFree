@@ -7,15 +7,20 @@ using UnityEngine;
 public class PlayerPhysics : MonoBehaviour
 {
 	public CharacterOther mPlayer;
-	protected int mJumpPointLayer;
 	public void Awake()
 	{
 		mPlayer = GameBase.mCharacterManager.getCharacter(gameObject.name) as CharacterOther;
-		mJumpPointLayer = LayerMask.NameToLayer(GameDefine.LAYER_JUMP_POINT);
 	}
 	public void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.layer == mJumpPointLayer && mPlayer.hasState(PLAYER_STATE.PS_GAMING))
+		// 角色之间的碰撞
+		if (other.gameObject.layer == GameUtility.mCharacterLayer)
+		{
+			CharacterOther otherPlayer = GameBase.mCharacterManager.getCharacter(other.name) as CharacterOther;
+			GameBase.mRaceSystem.addCollidePair(mPlayer, otherPlayer);
+		}
+		// 接触起跳点
+		else if(other.gameObject.layer == GameUtility.mJumpPointLayer && mPlayer.hasState(PLAYER_STATE.PS_GAMING))
 		{
 			CommandCharacterJump cmdJump = GameBase.newCmd(out cmdJump);
 			cmdJump.mJumpSpeed = GameDefine.JUMP_SPEED;
