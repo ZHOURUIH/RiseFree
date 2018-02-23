@@ -5,7 +5,7 @@ using System.Text;
 
 class ScriptDirectionTips :LayoutScript
 {
-	protected txUIStaticTexture mDirectionTexture;
+	protected txNGUIStaticTexture mDirectionTexture;
 	public ScriptDirectionTips(string name, GameLayout layout)
 		:
 		base(name, layout)

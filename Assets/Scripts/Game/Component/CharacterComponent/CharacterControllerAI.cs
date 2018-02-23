@@ -9,6 +9,7 @@ public class CharacterControllerAI : CharacterController
 	protected CharacterOther mCharacter;
 	protected CharacterData mData;
 	protected float mTargetDistanceOffset;
+	protected float mAIBaseSpeed;
 	public CharacterControllerAI(Type type, string name)
 		:base(type, name)
 	{
@@ -19,6 +20,7 @@ public class CharacterControllerAI : CharacterController
 		base.init(owner);
 		mCharacter = owner as CharacterOther;
 		mData = mCharacter.getCharacterData();
+		mAIBaseSpeed = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_AI_BASE_SPEED);
 	}
 	public override void update(float elapsedTime)
 	{
@@ -37,7 +39,7 @@ public class CharacterControllerAI : CharacterController
 			dirDelta = targetDirection - curDirection;
 		}
 		mData.mTurnAngle = MathUtility.lerp(mData.mTurnAngle, dirDelta, 0.1f);
-		float curTargetSpeed = 8.0f + mData.mNumber;
+		float curTargetSpeed = mAIBaseSpeed + mData.mNumber;
 		CharacterSpeedHardware speedHardware = mCharacter.getFirstComponent<CharacterSpeedHardware>();
 		if (!MathUtility.isFloatEqual(speedHardware.getTargetSpeed(), curTargetSpeed) && mCharacter.getProcessExternalSpeed())
 		{

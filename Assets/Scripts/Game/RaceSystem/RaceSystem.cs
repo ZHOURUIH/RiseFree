@@ -62,7 +62,8 @@ public class RaceSystem : FrameComponent
 	}
 	public override void update(float elapsedTime)
 	{
-		if (mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING))
+		// 在游戏中 并且不在游戏结束的时候 才会计时和计算名称
+		if (mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING) && !mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING_FINISH))
 		{
 			// 系统计时
 			int oldTime = (int)mSystemTime;

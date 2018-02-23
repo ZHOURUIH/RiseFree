@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ScriptLoading : LayoutScript
 {
-	public txUIStaticTexture[] mBackground;
-	public txUIText mProgressLabel;
-	public txUIStaticSprite mTitle;
-	public txUIStaticTexture mProgressBar;
-	public txUIStaticTexture mProgressBack;
+	public txNGUIStaticTexture[] mBackground;
+	public txNGUIText mProgressLabel;
+	public txNGUIStaticSprite mTitle;
+	public txNGUIStaticTexture mProgressBar;
+	public txNGUIStaticTexture mProgressBack;
 	public int mSeclectIndex = 0;
 	public int mTrackCount;
 	public ScriptLoading(string name, GameLayout layout)
@@ -15,14 +15,14 @@ public class ScriptLoading : LayoutScript
 		base(name, layout)
 	{
 		mTrackCount = mRaceSystem.getTrackCount();
-		mBackground = new txUIStaticTexture[mTrackCount];
+		mBackground = new txNGUIStaticTexture[mTrackCount];
 	}
 	public override void assignWindow()
 	{
 		for (int i = 0; i < mTrackCount; ++i)
 		{
-			txUIStaticTexture background = null;
-			newObject<txUIStaticTexture>(ref background, "Background" + i, 0);
+			txNGUIStaticTexture background = null;
+			newObject(ref background, "Background" + i, 0);
 			mBackground[i] = background;
 		}
 		newObject(ref mProgressLabel, "ProgressLabel", 1);

@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class ScriptAttackTip : LayoutScript
 {
-	protected txUIStaticSprite mAttackEffectRoot;
-	protected List<txUIStaticTextureHSLOffset> mEffectList;
+	protected txNGUIStaticSprite mAttackEffectRoot;
+	protected List<txNGUIStaticTextureHSLOffset> mEffectList;
 	public ScriptAttackTip(string name, GameLayout layout)
 		:
 		base(name, layout)
 	{
-		mEffectList = new List<txUIStaticTextureHSLOffset>();
+		mEffectList = new List<txNGUIStaticTextureHSLOffset>();
 	}
 	public override void assignWindow()
 	{
@@ -20,7 +20,7 @@ public class ScriptAttackTip : LayoutScript
 		int count = mAttackEffectRoot.mObject.transform.childCount;
 		for(int i = 0; i < count; ++i)
 		{
-			txUIStaticTextureHSLOffset effect = null;
+			txNGUIStaticTextureHSLOffset effect = null;
 			newObject(ref effect, mAttackEffectRoot, "Effect" + i);
 			mEffectList.Add(effect);
 		}

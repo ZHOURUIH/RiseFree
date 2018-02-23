@@ -1,15 +1,17 @@
 ManifestFileVersion: 0
-CRC: 4231610479
+CRC: 3727644369
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 811c08712587c82c3845f84d89acdd3c
+    Hash: 9081d6ef8536b59614dc2bf6491349b6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6759894fca659e2049f05064db45ce61
+    Hash: 9dea23ffc7e96552740e12d1ee5309d8
 HashAppended: 0
 ClassTypes:
 - Class: 28
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Texture/GameTexture/PlayerRaceInfo/InfoIcon1.png

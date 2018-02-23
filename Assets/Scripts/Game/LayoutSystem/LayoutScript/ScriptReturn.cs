@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScriptReturn : LayoutScript
 {
-	public txUIStaticSprite mReturn;						// 返回按钮
+	public txNGUIStaticSprite mReturn;						// 返回按钮
 	public ScriptReturn(string name, GameLayout layout)
 		:
 		base(name, layout)

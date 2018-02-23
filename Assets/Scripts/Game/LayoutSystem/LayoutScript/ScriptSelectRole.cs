@@ -7,7 +7,7 @@ public class RoleSelection
 {
 	public ScriptSelectRole mScript;
 	public txUIObject mRoleRoot;
-	public txUITextureAnim mRole;
+	public txNGUITextureAnim mRole;
 	public txUIObject mEnd;
 	public Vector3 mStartPosition;
 	public Vector3 mEndPosition;
@@ -55,7 +55,7 @@ public class RoleSelection
 	public void onHide()
 	{
 		// 当前选项已经显示,则执行正常隐藏逻辑
-		if(mRole.isActive())
+		if (mRole.isActive())
 		{
 			LayoutTools.MOVE_WINDOW(mRole, mRole.getPosition(), mEndPosition, 0.35f);
 			LayoutTools.ALPHA_WINDOW_EX(mRole, 1.0f, 0.0f, 0.35f, onRoleHide);
@@ -69,13 +69,13 @@ public class RoleSelection
 	public void select(bool select, bool force = false)
 	{
 		int curSel = select ? 1 : 0;
-		if(curSel == mSelected && !force)
+		if (curSel == mSelected && !force)
 		{
 			return;
 		}
 		mSelected = curSel;
 		// 只能在布局显示完毕后才能执行选中逻辑,否则会与显示逻辑发生冲突
-		if(mScript.isShowDone())
+		if (mScript.isShowDone())
 		{
 			if (mSelected == 1)
 			{
@@ -89,9 +89,10 @@ public class RoleSelection
 			}
 		}
 	}
-	public bool isSelected(){return mSelected == 1;}
+	public bool isSelected() { return mSelected == 1; }
 	public void hideSelection()
 	{
+		// 无法执行回调的原因是 物体还没被显示出来 就被切换流程 中断了 没有执行完大小的缩放的动作 所以没法达到执行回调的条件 没法正常的隐藏布局 和工具函数本身没关系
 		LayoutTools.SCALE_WINDOW_EX(mRole, mRole.getScale(), new Vector2(0.8f, 0.8f), 0.15f, onSelectionHide);
 	}
 	//-------------------------------------------------------------------------------------------------------
@@ -104,7 +105,7 @@ public class RoleSelection
 	}
 	protected void onRoleHide(ComponentKeyFrameBase component, object userData, bool breakTremling, bool done)
 	{
-		if(breakTremling)
+		if (breakTremling)
 		{
 			return;
 		}
@@ -123,8 +124,8 @@ public class RoleSelection
 
 public class ScriptSelectRole : LayoutScript
 {
-	protected txUISpriteAnim mSelectionRoleTitle;      // "角色选择"标题序列帧
-	protected txUISpriteAnim mFemale;                  // 女角色按钮
+	protected txNGUISpriteAnim mSelectionRoleTitle;      // "角色选择"标题序列帧
+	protected txNGUISpriteAnim mFemale;                  // 女角色按钮
 	protected List<RoleSelection> mRoleSelectionList;
 	protected bool mShowDone = false;
 	public ScriptSelectRole(string name, GameLayout layout)
@@ -136,7 +137,7 @@ public class ScriptSelectRole : LayoutScript
 	public override void assignWindow()
 	{
 		newObject(ref mSelectionRoleTitle, "SelectionRoleTitle", 0);
-		for(int i = 0; i < GameDefine.ROLE_COUNT; ++i)
+		for (int i = 0; i < GameDefine.ROLE_COUNT; ++i)
 		{
 			RoleSelection selection = new RoleSelection(this);
 			selection.assignWindow("RoleRoot" + i);
@@ -179,7 +180,7 @@ public class ScriptSelectRole : LayoutScript
 		LayoutTools.ACTIVE_WINDOW(mSelectionRoleTitle);
 		mSelectionRoleTitle.stop();
 		if (immediately)
-		{	
+		{
 			mSelectionRoleTitle.setCurFrameIndex(mSelectionRoleTitle.getTextureFrameCount() - 1);
 			showDone();
 		}
@@ -200,25 +201,34 @@ public class ScriptSelectRole : LayoutScript
 			hideDone();
 			return;
 		}
-		// 先隐藏选中的项
-		RoleSelection selection = null;
-		int count = mRoleSelectionList.Count;
-		for (int i = 0; i < count; ++i)
+		// 所有选项显示完成 才能正常隐藏 否则就强制隐藏
+		if (isShowDone())
 		{
-			if(mRoleSelectionList[i].mSelected == 1)
+			// 先隐藏选中的项
+			RoleSelection selection = null;
+			int count = mRoleSelectionList.Count;
+			for (int i = 0; i < count; ++i)
 			{
-				selection = mRoleSelectionList[i];
-				break;
+				if (mRoleSelectionList[i].mSelected == 1)
+				{
+					selection = mRoleSelectionList[i];
+					break;
+				}
+			}
+			if (selection != null)
+			{
+				selection.hideSelection();
+			}
+			// 如果没有选中的项,则直接开始隐藏布局
+			else
+			{
+				notifySelectionHideDone();
 			}
 		}
-		if(selection != null)
+		else 
 		{
-			selection.hideSelection();
-		}
-		// 如果没有选中的项,则直接开始隐藏布局
-		else
-		{
-			notifySelectionHideDone();
+			hideDone();
+			return;
 		}
 	}
 	public override void update(float elapsedTime)
@@ -237,7 +247,7 @@ public class ScriptSelectRole : LayoutScript
 	public void notifyRoleShowDone(RoleSelection role)
 	{
 		// 如果最后一个选项已经显示完毕,则设置布局显示完毕
-		if(role == mRoleSelectionList[mRoleSelectionList.Count - 1])
+		if (role == mRoleSelectionList[mRoleSelectionList.Count - 1])
 		{
 			showDone();
 		}
@@ -247,15 +257,15 @@ public class ScriptSelectRole : LayoutScript
 		// 如果所有选项都已经隐藏完毕,则隐藏布局
 		bool allHideDone = true;
 		int count = mRoleSelectionList.Count;
-		for(int i = 0; i < count; ++i)
+		for (int i = 0; i < count; ++i)
 		{
-			if(!mRoleSelectionList[i].mHideDone)
+			if (!mRoleSelectionList[i].mHideDone)
 			{
 				allHideDone = false;
 				break;
 			}
 		}
-		if(allHideDone)
+		if (allHideDone)
 		{
 			hideDone();
 		}

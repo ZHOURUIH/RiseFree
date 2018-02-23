@@ -3,35 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 public class ScriptSettlement : LayoutScript
 {
-	protected txUISpriteAnim mDataRanking;			// 数据排行序列帧
-	protected txUISpriteAnim mNext;					// 再战一局序列帧
-	protected txUISpriteAnim mRinking;				// 名次
-	protected txUIStaticSprite mRinkingLabelRoot;
-	protected txUINumber mRinkingNumber;
-	protected txUISpriteAnim mKcal;					// 能量
-	protected txUIStaticSprite mKcalLabelRoot;
-	protected txUINumber mKcalNumber;
-	protected txUISpriteAnim mAverageSpeed;			// 平均速度
-	protected txUIStaticSprite mAverageSpeedLabelRoot;
-	protected txUINumber mAverageSpeedNumber;
-	protected txUISpriteAnim mMileage;				// 里程
-	protected txUIStaticSprite mMileageLabelRoot;
-	protected txUINumber mMileageNumber;
-	protected txUISpriteAnim mMaxSpeed;				// 最大速度
-	protected txUIStaticSprite mMaxSpeedLabelRoot;
-	protected txUINumber mMaxSpeedNumber;
-	protected txUIStaticSprite mAIcon;					// A图标
-	protected List<txUISpriteAnim> mAminList;
-	protected List<txUIStaticSprite> mLabelList;
-	protected List<txUINumber> mNumberList;
+	protected txNGUISpriteAnim mDataRanking;			// 数据排行序列帧
+	protected txNGUISpriteAnim mNext;					// 再战一局序列帧
+	protected txNGUISpriteAnim mRinking;				// 名次
+	protected txNGUIStaticSprite mRinkingLabelRoot;
+	protected txNGUINumber mRinkingNumber;
+	protected txNGUISpriteAnim mKcal;					// 能量
+	protected txNGUIStaticSprite mKcalLabelRoot;
+	protected txNGUINumber mKcalNumber;
+	protected txNGUISpriteAnim mAverageSpeed;			// 平均速度
+	protected txNGUIStaticSprite mAverageSpeedLabelRoot;
+	protected txNGUINumber mAverageSpeedNumber;
+	protected txNGUISpriteAnim mMileage;				// 里程
+	protected txNGUIStaticSprite mMileageLabelRoot;
+	protected txNGUINumber mMileageNumber;
+	protected txNGUISpriteAnim mMaxSpeed;				// 最大速度
+	protected txNGUIStaticSprite mMaxSpeedLabelRoot;
+	protected txNGUINumber mMaxSpeedNumber;
+	protected txNGUIStaticSprite mAIcon;					// A图标
+	protected List<txNGUISpriteAnim> mAminList;
+	protected List<txNGUIStaticSprite> mLabelList;
+	protected List<txNGUINumber> mNumberList;
 
 	public ScriptSettlement(string name, GameLayout layout)
 		:
 		base(name, layout)
 	{
-		mAminList = new List<txUISpriteAnim>();
-		mLabelList = new List<txUIStaticSprite>();
-		mNumberList = new List<txUINumber>();
+		mAminList = new List<txNGUISpriteAnim>();
+		mLabelList = new List<txNGUIStaticSprite>();
+		mNumberList = new List<txNGUINumber>();
 	}
 	public override void assignWindow()
 	{

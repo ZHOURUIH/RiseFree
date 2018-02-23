@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 3690235724
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 45871767637f3d8ebcd765ebcf395900
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9c3b4f91d157417db2daaba3523e2324
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Layout/NGUIPrefab/UIStandBy.prefab
+Dependencies:
+- Assets/StreamingAssets/atlas/gameatlas/atlasstandby.unity3d
+- Assets/StreamingAssets/font.unity3d
+- Assets/StreamingAssets/texture/textureanim/startriding.unity3d

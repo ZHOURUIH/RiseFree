@@ -5,8 +5,8 @@ using System.Text;
 using UnityEngine;
 public class ScriptAiming : LayoutScript
 {
-	protected txUITextureAnim mAiming;
-	protected txUITextureAnim mGreenAimingAnim;
+	protected txNGUITextureAnim mAiming;
+	protected txNGUITextureAnim mGreenAimingAnim;
 	protected float mOriginHeight;
 	public ScriptAiming(string name, GameLayout layout)
 		:

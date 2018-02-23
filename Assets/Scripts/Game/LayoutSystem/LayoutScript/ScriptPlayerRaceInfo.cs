@@ -6,12 +6,12 @@ using UnityEngine;
 public class ScriptPlayerRaceInfo : LayoutScript
 {
 	protected txUIObject mSpeedRoot;
-	protected txUINumber mSpeedNumber;
+	protected txNGUINumber mSpeedNumber;
 	protected txUIObject mRankRoot;
-	protected txUINumber mRankNumber;
+	protected txNGUINumber mRankNumber;
 	protected txUIObject mCircleRoot;
-	protected txUINumber mCurCircleNumber;
-	protected txUINumber mMaxCircleNumber;
+	protected txNGUINumber mCurCircleNumber;
+	protected txNGUINumber mMaxCircleNumber;
 	public ScriptPlayerRaceInfo(string name, GameLayout layout)
 		:
 		base(name, layout)
@@ -74,8 +74,14 @@ public class ScriptPlayerRaceInfo : LayoutScript
 	// circle是玩家已完成的圈数
 	public void setCurCircle(int circle)
 	{
+		// 当前圈数 下标从0开始的圈数+1 如果大于最大圈数那么就等于最大圈数 不能比最大圈数大
+		int newCircle = circle + 1;
+		if (newCircle >= mRaceSystem.getCurGameTrack().mCircleCount)
+		{
+			newCircle = mRaceSystem.getCurGameTrack().mCircleCount;
+		}
 		// 需要显示为玩家当前所在的圈数
-		mCurCircleNumber.setNumber(circle + 1);
+		mCurCircleNumber.setNumber(circle);
 	}
 }
 

@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ScriptTopTime : LayoutScript
 {
-	public txUIStaticSprite mTimeRoot;
-	public txUIStaticSprite mTime;
-	public txUINumber mMin;
-	public txUINumber mSecond;
-	public txUIStaticSprite mTimeStart;
+	public txNGUIStaticSprite mTimeRoot;
+	public txNGUIStaticSprite mTime;
+	public txNGUINumber mMin;
+	public txNGUINumber mSecond;
+	public txNGUIStaticSprite mTimeStart;
 	public Vector3 mTimeStartPos;
 	public Vector3 mTimeEndPos;
 	public ScriptTopTime(string name, GameLayout layout)

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScriptEndCountDown : LayoutScript
 {
-	public txUITextureAnim mTimeCountDown;
+	public txNGUITextureAnim mTimeCountDown;
 	public ScriptEndCountDown(string name, GameLayout layout)
 		:
 		base(name, layout)

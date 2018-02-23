@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 2523237612
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a5f3362cfe911a1994bf25567f4ae397
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e689af829a4d8e6e0f7f6d37c4ac41bb
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 638c870cac4da414fba921606d504407, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Layout/NGUIPrefab/UIStartVideo.prefab
+Dependencies: []

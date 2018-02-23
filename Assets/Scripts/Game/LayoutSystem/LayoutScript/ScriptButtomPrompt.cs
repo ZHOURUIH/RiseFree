@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public class ScriptButtomPrompt : LayoutScript
 {
-	protected txUIStaticSprite mBottomPromptBackground;	// 下方提示背景
-	protected txUIStaticSprite mLabelRoot;				// 下方提示所有按钮父级
-	protected txUIStaticSprite mGeneralPromptLabel;		// 普通布局要显示的提示
-	protected txUIStaticSprite mGamingPromptLabel;		// 游戏中要显示的提示
-	protected txUIStaticSprite mBackgroundStart;
-	protected txUIStaticSprite mBackgroundEnd;
-	protected txUIStaticSprite mLabelAndSoundStart;
-	protected txUIStaticSprite mLabelAndSoundEnd;
+	protected txNGUIStaticSprite mBottomPromptBackground;	// 下方提示背景
+	protected txNGUIStaticSprite mLabelRoot;				// 下方提示所有按钮父级
+	protected txNGUIStaticSprite mGeneralPromptLabel;		// 普通布局要显示的提示
+	protected txNGUIStaticSprite mGamingPromptLabel;		// 游戏中要显示的提示
+	protected txNGUIStaticSprite mBackgroundStart;
+	protected txNGUIStaticSprite mBackgroundEnd;
+	protected txNGUIStaticSprite mLabelAndSoundStart;
+	protected txNGUIStaticSprite mLabelAndSoundEnd;
 	protected Vector3 mBackgroundStartPos;				// 下方提示移动开始移动的位置
 	protected Vector3 mBackgroundEndPos;				// 结束的位置
 	protected Vector3 mLabelAndSoundStartPos;			// 下方文字 和 音乐 开始移动的位置

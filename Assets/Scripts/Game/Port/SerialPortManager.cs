@@ -17,10 +17,12 @@ public class SerialPortManager : FrameComponent
 	protected Thread mReceiveThread;
 	protected Thread mSendThread;
 	protected Thread mParseThread;
+	protected Thread mDisconnectDeviceTryOpenThread;
 	protected bool mRunning = false;
 	protected bool mReceiveFinish = true;
 	protected bool mSendFinish = true;
 	protected bool mParseFinish = true;
+	protected bool mDisconnectDeviceTryOpen = true;
 	protected List<byte[]> mOutputBufferList;
 	protected ThreadLock mInputBufferLock;
 	protected ThreadLock mOutputBufferLock;
@@ -51,13 +53,16 @@ public class SerialPortManager : FrameComponent
 		mReceiveFinish = true;
 		mSendFinish = true;
 		mParseFinish = true;
+		mDisconnectDeviceTryOpen = true;
 		mRunning = true;
 		mReceiveThread = new Thread(receiveThread);
 		mSendThread = new Thread(sendThread);
 		mParseThread = new Thread(parseThread);
+		mDisconnectDeviceTryOpenThread = new Thread(disconnectDeviceTryOpenThread);
 		mReceiveThread.Start();
 		mSendThread.Start();
 		mParseThread.Start();
+		mDisconnectDeviceTryOpenThread.Start();
 	}
 	public override void destroy()
 	{
@@ -81,27 +86,18 @@ public class SerialPortManager : FrameComponent
 			mParseThread.Abort();
 			mParseThread = null;
 		}
+		while (!mDisconnectDeviceTryOpen) { }
+		if (mDisconnectDeviceTryOpenThread != null)
+		{
+			mDisconnectDeviceTryOpenThread.Abort();
+			mDisconnectDeviceTryOpenThread = null;
+		}
 		base.destroy();
 		UnityUtility.logInfo("串口管理器退出完毕!");
 	}
 	public override void update(float elapsedTime)
 	{
 		processReceived();
-		// 如果串口设备有变化,则需要关闭当前串口
-		if(mSerialPortList.Count != SerialPort.GetPortNames().Length)
-		{
-			mSerialPortList.Clear();
-			foreach (string item in SerialPort.GetPortNames())
-			{
-				mSerialPortList.Add(item);
-			}
-			closeDevice();
-		}
-		// 如果发现设备串口被关闭,则一直尝试打开串口
-		if (!isDeviceConnect())
-		{
-			openDevice();
-		}
 	}
 	public bool isDeviceConnect()
 	{
@@ -330,6 +326,30 @@ public class SerialPortManager : FrameComponent
 		}
 		UnityUtility.logInfo("退出串口解析线程!");
 		mParseFinish = true;
+	}
+	public void disconnectDeviceTryOpenThread()
+	{
+		mDisconnectDeviceTryOpen = false;
+		while (mRunning)
+		{
+			// 如果串口设备有变化,则需要关闭当前串口
+			if (mSerialPortList.Count != SerialPort.GetPortNames().Length)
+			{
+				mSerialPortList.Clear();
+				foreach (string item in SerialPort.GetPortNames())
+				{
+					mSerialPortList.Add(item);
+				}
+				closeDevice();
+			}
+			// 如果串口设备有变化,则需要关闭当前串口
+			// 如果发现设备串口被关闭,则一直尝试打开串口
+			if (!isDeviceConnect())
+			{
+				openDevice();
+			}
+		}
+		mDisconnectDeviceTryOpen = true;
 	}
 	protected void addDataToInputBuffer(byte[] data, int count)
 	{

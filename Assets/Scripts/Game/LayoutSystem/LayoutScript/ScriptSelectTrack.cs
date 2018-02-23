@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class TrackItem
 {
 	public ScriptSelectTrack mScript;
-	public txUIStaticSprite mTrack;
-	public txUIStaticSprite mChecked;
-	public txUIText mLabel;
-	public txUIStaticSprite mTexture;
+	public txNGUIStaticSprite mTrack;
+	public txNGUIStaticSprite mChecked;
+	public txNGUIText mLabel;
+	public txNGUIStaticSprite mTexture;
 	public txUIObject mUIGrid;
 	public List<txUIObject> mStarList;
 	public Vector3 mOriginPosition;
@@ -24,7 +24,7 @@ public class TrackItem
 		mScript = script;
 		mStarList = new List<txUIObject>() ;
 	}
-	public void assignWindow(txUIStaticSprite root, string trackName)
+	public void assignWindow(txNGUIStaticSprite root, string trackName)
 	{
 		mScript.newObject(ref mTrack, root, trackName);
 		mScript.newObject(ref mChecked, mTrack, "Cheaked", 0);
@@ -77,13 +77,13 @@ public class TrackItem
 
 public class ScriptSelectTrack : LayoutScript
 {
-	protected txUIStaticSprite mTrackRoot;				//	三个赛道的父级
+	protected txNGUIStaticSprite mTrackRoot;				//	三个赛道的父级
 	protected List<TrackItem> mTrackList;				//	赛道
-	protected txUISpriteAnim mSelectTrackTitle;			//	角色 变 赛道序列帧
-	protected txUIStaticSprite mLeftArrow;              //	左箭头
-	protected txUIStaticSprite mRightArrow;				//	右箭头
+	protected txNGUISpriteAnim mSelectTrackTitle;			//	角色 变 赛道序列帧
+	protected txNGUIStaticSprite mLeftArrow;              //	左箭头
+	protected txNGUIStaticSprite mRightArrow;				//	右箭头
 	// 整体UI移动的标识
-	protected txUIStaticSprite mTrackRootStart;
+	protected txNGUIStaticSprite mTrackRootStart;
 	protected Vector3 mTrackRootStartPos;
 	protected Vector3 mTrackRootEndPos;
 

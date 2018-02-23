@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class PropsItem
 {
 	public ScriptProps mScript;
-	public txUIStaticSprite mProp;
-	public txUIStaticSprite mBackground;		// 底图 不用管
-	public txUIStaticSprite mSelect;			// 高亮的底图
-	public txUIText mLabel;						// 道具的名称
-	public txUIStaticSprite mIcon;				// 道具的图标	
+	public txNGUIStaticSprite mProp;
+	public txNGUIStaticSprite mBackground;		// 底图 不用管
+	public txNGUIStaticSprite mSelect;			// 高亮的底图
+	public txNGUIText mLabel;						// 道具的名称
+	public txNGUIStaticSprite mIcon;				// 道具的图标	
 	public Vector3 mOriginPosition;
 	public Vector3 mOriginScale;
 	public int mOriginPropDepth;
@@ -21,7 +21,7 @@ public class PropsItem
 	{
 		mScript = script;
 	}
-	public void assignWindow(txUIStaticSprite root, string trackName, int index)
+	public void assignWindow(txNGUIStaticSprite root, string trackName, int index)
 	{
 		mScript.newObject(ref mProp, root, trackName);
 		mScript.newObject(ref mBackground, mProp, "Background");
@@ -106,7 +106,7 @@ public class ItemInfo
 public class ScriptProps : LayoutScript
 {
 	public Dictionary<PLAYER_ITEM, ItemInfo> mItemInfoList;
-	protected txUIStaticSprite mPropsRoot;
+	protected txNGUIStaticSprite mPropsRoot;
 	protected List<PropsItem> mPropsList;				//	道具
 	protected txUIObject mControlHelper;
 	protected float mStartOffsetValue;		// 本次移动的起始值

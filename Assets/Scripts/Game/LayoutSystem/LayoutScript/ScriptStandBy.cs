@@ -3,14 +3,14 @@ using System.Collections;
 
 public class ScriptStandBy : LayoutScript
 {
-	protected txUIStaticSprite mBackground;
-	protected txUITextureAnim  mStartRiding;
+	protected txNGUIStaticSprite mBackground;
+	protected txNGUITextureAnim mStartRiding;
 	protected txUIObject	   mGameIn;
-	protected txUIText		   mGameInText;
-	protected txUIStaticSprite mGameInSprite;
+	protected txNGUIText mGameInText;
+	protected txNGUIStaticSprite mGameInSprite;
 	protected txUIObject	   mGameOut;
-	protected txUIText		   mGameOutText;
-	protected txUIStaticSprite mGameOutSprite;
+	protected txNGUIText mGameOutText;
+	protected txNGUIStaticSprite mGameOutSprite;
 	public ScriptStandBy(string name, GameLayout layout)
 		:
 		base(name, layout)
@@ -58,7 +58,7 @@ public class ScriptStandBy : LayoutScript
 		LayoutTools.ACTIVE_WINDOW(mGameIn);
 		LayoutTools.ACTIVE_WINDOW(mGameOut);
 	}
-	protected void onPlayDone(txUITextureAnim window, object userData, bool isBreak)
+	protected void onPlayDone(txNGUITextureAnim window, object userData, bool isBreak)
 	{
 		if (isBreak)
 		{

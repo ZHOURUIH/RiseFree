@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2120462614
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0349d1884b0e3e3d00e51f3d543e8ddb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f8aa2a62bcec291b87e4b4acbd0324b6
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Layout/NGUIPrefab/UICountDown.prefab
+Dependencies:
+- Assets/StreamingAssets/atlas/gameatlas/atlascountdown.unity3d

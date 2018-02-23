@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScriptLogo : LayoutScript
 {
-	protected txUIStaticTexture mLogoWindow;  //游戏Logo启动图
+	protected txNGUIStaticTexture mLogoWindow;  //游戏Logo启动图
 	protected float             mFadeInTime  = 1.0f;
 	protected float             mFadeOutTime = 1.0f;
 	protected float				mStayTime = 2.0f;

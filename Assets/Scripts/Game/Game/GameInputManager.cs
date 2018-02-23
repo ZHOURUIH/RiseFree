@@ -23,7 +23,8 @@ public class GameInputManager : InputManager
 	protected float mTurnAngleOffset = 0.0f;    // 角度矫正值
 	protected float mStickTurnSpeed = 90.0f;    // 使用键盘模拟时转向的速度
 	protected float mStickRevertSpeed = 360.0f;	// 转向回弹速度
-	protected Dictionary<KeyCode, KEY_STATE> mKeyState; // 按键状态列表
+	protected Dictionary<KeyCode, KEY_STATE> mKeyState;	// 按键状态列表
+	protected Dictionary<KeyCode, bool> mKeyStateCache;	// 按键状态列表缓存,用于接收当前按键设置
 	protected bool mKeyboardEnable;
 	protected bool mDeviceConnected;			// 保存设备的连接状态,提高访问效率
 	public GameInputManager(string name)
@@ -34,12 +35,17 @@ public class GameInputManager : InputManager
 		mKeyState.Add(KeyCode.B, KEY_STATE.KS_KEEP_UP);
 		mKeyState.Add(KeyCode.X, KEY_STATE.KS_KEEP_UP);
 		mKeyState.Add(KeyCode.Y, KEY_STATE.KS_KEEP_UP);
+		mKeyStateCache = new Dictionary<KeyCode, bool>();
+		mKeyStateCache.Add(KeyCode.A, false);
+		mKeyStateCache.Add(KeyCode.B, false);
+		mKeyStateCache.Add(KeyCode.X, false);
+		mKeyStateCache.Add(KeyCode.Y, false);
 	}
 	public override void init()
 	{
 		base.init();
 		mKeyboardEnable = (int)mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_KEYBOARD_ENABLE) != 0;
-		mTurnThreshold = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_THRESHHOLD);
+		mTurnThreshold = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_THRESHOLD);
 		mTurnAngleOffset = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_ANGLE_OFFSET);
 	}
 	public override void destroy()
@@ -84,6 +90,34 @@ public class GameInputManager : InputManager
 					{
 						mStickAngle += mStickRevertSpeed * elapsedTime;
 					}
+				}
+			}
+		}
+		// 更新按键状态
+		List<KeyCode> keys = new List<KeyCode>(mKeyState.Keys);
+		int count = keys.Count;
+		for(int i = 0; i < count; ++i)
+		{
+			if (mKeyStateCache[keys[i]])
+			{
+				if (mKeyState[keys[i]] == KEY_STATE.KS_CURRENT_UP || mKeyState[keys[i]] == KEY_STATE.KS_KEEP_UP)
+				{
+					mKeyState[keys[i]] = KEY_STATE.KS_CURRENT_DOWN;
+				}
+				else if (mKeyState[keys[i]] == KEY_STATE.KS_CURRENT_DOWN || mKeyState[keys[i]] == KEY_STATE.KS_KEEP_DOWN)
+				{
+					mKeyState[keys[i]] = KEY_STATE.KS_KEEP_DOWN;
+				}
+			}
+			else
+			{
+				if (mKeyState[keys[i]] == KEY_STATE.KS_CURRENT_UP || mKeyState[keys[i]] == KEY_STATE.KS_KEEP_UP)
+				{
+					mKeyState[keys[i]] = KEY_STATE.KS_KEEP_UP;
+				}
+				else if (mKeyState[keys[i]] == KEY_STATE.KS_CURRENT_DOWN || mKeyState[keys[i]] == KEY_STATE.KS_KEEP_DOWN)
+				{
+					mKeyState[keys[i]] = KEY_STATE.KS_CURRENT_UP;
 				}
 			}
 		}
@@ -179,32 +213,11 @@ public class GameInputManager : InputManager
 	}
 	public void setKeyState(KeyCode key, bool state)
 	{
-		if (!mKeyState.ContainsKey(key))
+		if (!mKeyStateCache.ContainsKey(key))
 		{
 			return;
 		}
-		if (state)
-		{
-			if (mKeyState[key] == KEY_STATE.KS_KEEP_UP || mKeyState[key] == KEY_STATE.KS_CURRENT_UP)
-			{
-				mKeyState[key] = KEY_STATE.KS_CURRENT_DOWN;
-			}
-			else if (mKeyState[key] == KEY_STATE.KS_CURRENT_DOWN)
-			{
-				mKeyState[key] = KEY_STATE.KS_KEEP_DOWN;
-			}
-		}
-		else
-		{
-			if (mKeyState[key] == KEY_STATE.KS_KEEP_DOWN || mKeyState[key] == KEY_STATE.KS_CURRENT_DOWN)
-			{
-				mKeyState[key] = KEY_STATE.KS_CURRENT_UP;
-			}
-			else if (mKeyState[key] == KEY_STATE.KS_CURRENT_UP)
-			{
-				mKeyState[key] = KEY_STATE.KS_KEEP_UP;
-			}
-		}
+		mKeyStateCache[key] = state;
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	protected bool keyboardEnabled()

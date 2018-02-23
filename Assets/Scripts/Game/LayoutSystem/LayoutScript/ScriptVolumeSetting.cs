@@ -4,7 +4,7 @@ using System.Collections;
 public class ScriptVolumeSetting : LayoutScript
 {
 	protected txUIObject mUIVolumeRoot;
-	protected txUISlider mUIVolumeScrollBar;
+	protected txNGUISlider mUIVolumeScrollBar;
 	protected txUIObject mUIVolumeRootStart;
 	protected Vector3 mPosRootStart;
 	protected Vector3 mPosRootEnd;

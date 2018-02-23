@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScriptCountDown : LayoutScript
 {
-	protected txUIStaticSprite mNumber;
+	protected txNGUIStaticSprite mNumber;
 	protected string[] mNumberNameList;
 	protected float mMaxTime = 4.0f;
 	public ScriptCountDown(string name, GameLayout layout)

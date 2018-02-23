@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 public class ScriptCircleTip : LayoutScript
 {
-	protected txUITextureAnim mSecondCircle;
-	protected txUITextureAnim mThirdCircle;
-	protected txUITextureAnim mFourthCircle;
-	protected txUITextureAnim mFinishRace;
-	protected txUITextureAnim mUnfinishRace;
-	protected List<txUITextureAnim> mCircleTipList;
+	protected txNGUITextureAnim mSecondCircle;
+	protected txNGUITextureAnim mThirdCircle;
+	protected txNGUITextureAnim mFourthCircle;
+	protected txNGUITextureAnim mFinishRace;
+	protected txNGUITextureAnim mUnfinishRace;
+	protected List<txNGUITextureAnim> mCircleTipList;
 	public ScriptCircleTip(string name, GameLayout layout)
 		:
 		base(name, layout)
 	{
-		mCircleTipList = new List<txUITextureAnim>();
+		mCircleTipList = new List<txNGUITextureAnim>();
 	}
 	public override void assignWindow()
 	{
@@ -48,7 +48,7 @@ public class ScriptCircleTip : LayoutScript
 	}
 	public void notifyFinishRace(bool finish)
 	{
-		txUITextureAnim window = finish ? mFinishRace : mUnfinishRace;
+		txNGUITextureAnim window = finish ? mFinishRace : mUnfinishRace;
 		LayoutTools.ACTIVE_WINDOW(window);
 		window.stop();
 		window.play();

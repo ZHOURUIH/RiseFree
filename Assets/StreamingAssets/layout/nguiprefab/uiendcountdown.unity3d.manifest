@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 3631288316
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cb052af6b95d3f7cbbde1c9b2e0bbbbf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8b459978547ce532b85ba0675022b1ec
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Layout/NGUIPrefab/UIEndCountDown.prefab
+Dependencies:
+- Assets/StreamingAssets/texture/textureanim/timecountdown.unity3d

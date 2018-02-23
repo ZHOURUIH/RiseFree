@@ -6,15 +6,15 @@ public class ScriptTrack : LayoutScript
 {
 	public int AiIndex = 4;										// AI的数量
 	public int mRing = 3;										// 最大的分割圈数
-	protected txUIStaticSprite mTrackRoot;
-	protected txUIStaticSprite mBackgroundRoot;
-	protected txUIStaticSprite[] mLapDivided;
-	protected txUIStaticSprite mPlayerBackground;
-	protected txUIStaticSprite mPlayerIcon;
-	protected txUIStaticSprite mEnd;
+	protected txNGUIStaticSprite mTrackRoot;
+	protected txNGUIStaticSprite mBackgroundRoot;
+	protected txNGUIStaticSprite[] mLapDivided;
+	protected txNGUIStaticSprite mPlayerBackground;
+	protected txNGUIStaticSprite mPlayerIcon;
+	protected txNGUIStaticSprite mEnd;
 	protected txUIObject mAIRoot;
-	protected txUIStaticSprite[] mAI;
-	protected txUIStaticSprite mTrackStart;
+	protected txNGUIStaticSprite[] mAI;
+	protected txNGUIStaticSprite mTrackStart;
 	protected Vector3 mTrackStartPos;
 	protected Vector3 mTrackEndPos;
 	protected Vector2 mBackgroundSize;
@@ -24,8 +24,8 @@ public class ScriptTrack : LayoutScript
 		:
 		base(name, layout)
 	{
-		mAI = new txUIStaticSprite[AiIndex];
-		mLapDivided = new txUIStaticSprite[mRing];
+		mAI = new txNGUIStaticSprite[AiIndex];
+		mLapDivided = new txNGUIStaticSprite[mRing];
 		mLapDividedPos = new Vector2[mRing];
 	}
 	public override void assignWindow()
@@ -34,7 +34,7 @@ public class ScriptTrack : LayoutScript
 		newObject(ref mBackgroundRoot, "BackgroundRoot");
 		for (int i = 0; i < mRing; i++)
 		{
-			txUIStaticSprite divide = null;
+			txNGUIStaticSprite divide = null;
 			newObject(ref divide, mBackgroundRoot, "LapDivided" + i, 0);
 			mLapDivided[i] = divide;
 		}
@@ -44,7 +44,7 @@ public class ScriptTrack : LayoutScript
 		newObject(ref mAIRoot, mTrackRoot, "AIRoot");
 		for (int i = 0; i < AiIndex; i++)
 		{
-			txUIStaticSprite AI = null;
+			txNGUIStaticSprite AI = null;
 			newObject(ref AI, mAIRoot, "AI" + i, 0);
 			mAI[i] = AI;
 		}

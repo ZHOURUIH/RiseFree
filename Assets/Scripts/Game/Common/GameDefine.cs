@@ -110,7 +110,7 @@ public enum GAME_DEFINE_FLOAT
 	GDF_GAME_MIN,
 	GDF_VOLUME,                     // 游戏整体音量
 	GDF_KEYBOARD_ENABLE,			// 是否在已连接设备时也可以使用键盘操作
-	GDF_TURN_THRESHHOLD,			// 转向阈值,当转向角度大于该值时认为左转或者右转一次
+	GDF_TURN_THRESHOLD,				// 转向阈值,当转向角度大于该值时认为左转或者右转一次
 	GDF_TURN_ANGLE_OFFSET,			// 转向角度的校正值,在使用时会将硬件角度减去该值作为最后的转向角度
 	GDF_TURN_SENSITIVE,				// 骑行过程中转向的灵敏度
 	GDF_READ_RPM,					// 是否读取转速作为速度值,不为0表示读取转速,为0表示读取功率
@@ -123,6 +123,7 @@ public enum GAME_DEFINE_FLOAT
 	GDF_MAX_UPHILL_FRICTION,        // 最大上坡角度对应的阻力值
 	GDF_MIN_DOWNHILL_FRICTION,      // 最小下坡角度对应的阻力值
 	GDF_MAX_DOWNHILL_FRICTION,      // 最大下坡角度对应的阻力值
+	GDF_AI_BASE_SPEED,				// AI的基础速度
 	GDF_GAME_MAX,
 };
 public enum GAME_DEFINE_STRING

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2354796029
+CRC: 4019881653
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1e680b5c42cc1c905224e29a3183af35
+    Hash: 4d4f90bdffb165c5b14d77fe5c01cff5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6759894fca659e2049f05064db45ce61
@@ -17,6 +17,7 @@ Assets:
 - Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Primary.png
 - Assets/Resources/Texture/GameTexture/SelectTrack/AncientCity.png
 - Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_PendingBox.png
+- Assets/Resources/Texture/GameTexture/SelectTrack/Star.png
 - Assets/Resources/Texture/GameTexture/SelectTrack/Desert.png
 - Assets/Resources/Texture/GameTexture/SelectTrack/SelectTrack_Expect.png
 - Assets/Resources/Texture/GameTexture/SelectTrack/SnowMountain.png
