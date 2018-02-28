@@ -52,25 +52,25 @@ public class CharacterControllerAI : CharacterController
 		int missileIndex = mCharacter.getPlayerPack().getFirstItemIndex(PLAYER_ITEM.PI_MISSILE);
 		if (missileIndex != -1 && !mCharacter.hasState(PLAYER_STATE.PS_AIM))
 		{
-			bool hasAvailbleTarget = false;
-			List<CharacterOther> allCharacterList = mRoleSystem.getAllCharacterList();
+			bool hasAvailableTarget = false;
+			SortedDictionary<int, CharacterOther> allCharacterList = mRoleSystem.getAllPlayer();
 			float playerDistance = mCharacter.getCharacterData().mRunDistance;
-			foreach (CharacterOther item in allCharacterList)
+			foreach (var item in allCharacterList)
 			{
-				if (item != mCharacter)
+				if (item.Value != mCharacter)
 				{
-					float curDistance = item.getCharacterData().mRunDistance - playerDistance;
+					float curDistance = item.Value.getCharacterData().mRunDistance - playerDistance;
 					if (MathUtility.isInRange(curDistance, 0.0f, GameDefine.MAX_LAUNCH_MISSILE_DISTANCE))
 					{
-						if (UnityUtility.whetherGameObjectInScreen(item.getWorldPosition()))
+						if (UnityUtility.whetherGameObjectInScreen(item.Value.getWorldPosition()))
 						{
-							hasAvailbleTarget = true;
+							hasAvailableTarget = true;
 							break;
 						}
 					}
 				}
 			}
-			if (hasAvailbleTarget)
+			if (hasAvailableTarget)
 			{
 				// 需要选中导弹
 				CommandCharacterSelectItem cmdSelect = newCmd(out cmdSelect);

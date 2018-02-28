@@ -31,6 +31,8 @@ public class SerialPortManager : FrameComponent
 	protected List<SerialPortPacket> mReceivedPacket;
 	protected List<SerialPortPacket> mSendPacket;
 	protected List<string> mSerialPortList;
+	protected DateTime mLastPacketTime;
+	protected DEVICE_CONNENT mDeviceConnect = DEVICE_CONNENT.DC_NONE;
 	public SerialPortManager(string name)
 		:base(name)
 	{
@@ -120,9 +122,13 @@ public class SerialPortManager : FrameComponent
 		{
 			if(mSerialPortList.Count > 1)
 			{
+				mDeviceConnect = DEVICE_CONNENT.DC_PROCEED;
+				// 正在连接设备
 				// 因为列表中第0个始终都是COM1,所以只打开第1个串口
 				mComDevice = new SerialPort(mSerialPortList[1], 115200, Parity.None, 8, StopBits.One);
 				mComDevice.Open();
+				// 设备已连接
+				mDeviceConnect = DEVICE_CONNENT.DC_SUCCESS;
 			}
 		}
 		catch(Exception)
@@ -138,7 +144,6 @@ public class SerialPortManager : FrameComponent
 			mSendPacket.Add(packet);
 		}
 		mSendPacketLock.unlock();
-		UnityUtility.logInfo("send packet friction");
 	}
 	public SerialPortPacket createPacket(COM_PACKET type)
 	{
@@ -153,6 +158,8 @@ public class SerialPortManager : FrameComponent
 		packet = createPacket(type) as T;
 		return packet;
 	}
+	public DateTime getLastPacketTime() { return mLastPacketTime; }
+	public DEVICE_CONNENT getDeviceConnect() { return mDeviceConnect; }
 	//------------------------------------------------------------------------------------------------------------------------------
 	protected void processReceived()
 	{
@@ -309,6 +316,7 @@ public class SerialPortManager : FrameComponent
 								}
 								mReceivedPacketLock.unlock();
 							}
+							mLastPacketTime = DateTime.Now;
 						}
 						else
 						{
@@ -332,22 +340,32 @@ public class SerialPortManager : FrameComponent
 		mDisconnectDeviceTryOpen = false;
 		while (mRunning)
 		{
-			// 如果串口设备有变化,则需要关闭当前串口
-			if (mSerialPortList.Count != SerialPort.GetPortNames().Length)
+			try
 			{
-				mSerialPortList.Clear();
-				foreach (string item in SerialPort.GetPortNames())
+				// 如果串口设备有变化,则需要关闭当前串口
+				if (mSerialPortList.Count != SerialPort.GetPortNames().Length)
 				{
-					mSerialPortList.Add(item);
+					mSerialPortList.Clear();
+					foreach (string item in SerialPort.GetPortNames())
+					{
+						mSerialPortList.Add(item);
+					}
+					closeDevice();
 				}
-				closeDevice();
+				// 如果串口设备有变化,则需要关闭当前串口
+				// 如果发现设备串口被关闭,则一直尝试打开串口
+				if (!isDeviceConnect())
+				{
+					// 设备已断开
+					mDeviceConnect = DEVICE_CONNENT.DC_CLOSE;
+					openDevice();
+				}
 			}
-			// 如果串口设备有变化,则需要关闭当前串口
-			// 如果发现设备串口被关闭,则一直尝试打开串口
-			if (!isDeviceConnect())
+			catch(Exception ex)
 			{
-				openDevice();
+				UnityUtility.logInfo("Device change! Close Device and open Device :"+ ex.Message);
 			}
+			
 		}
 		mDisconnectDeviceTryOpen = true;
 	}

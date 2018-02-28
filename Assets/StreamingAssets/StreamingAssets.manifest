@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2282643727
+CRC: 1763585301
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -197,32 +197,30 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: atlas/gameatlas/atlascountdown.unity3d
     Info_50:
+      Name: layout/nguiprefab/uidebuginfo.unity3d
+      Dependencies:
+        Dependency_0: font/fzzyjw.unity3d
+    Info_51:
       Name: layout/nguiprefab/uidirectiontips.unity3d
       Dependencies:
         Dependency_0: texture/gametexture/directiontips.unity3d
-    Info_51:
+    Info_52:
       Name: layout/nguiprefab/uiendcountdown.unity3d
       Dependencies:
         Dependency_0: texture/textureanim/timecountdown.unity3d
-    Info_52:
+    Info_53:
       Name: layout/nguiprefab/uiglobaltouch.unity3d
       Dependencies: {}
-    Info_53:
+    Info_54:
       Name: layout/nguiprefab/uiloading.unity3d
       Dependencies:
         Dependency_0: atlas/gameatlas/atlasloading.unity3d
         Dependency_1: font/simhei.unity3d
         Dependency_2: texture/gametexture/loading.unity3d
-    Info_54:
+    Info_55:
       Name: layout/nguiprefab/uilogo.unity3d
       Dependencies:
         Dependency_0: texture/gametexture/common.unity3d
-    Info_55:
-      Name: layout/nguiprefab/uiplayerraceinfo.unity3d
-      Dependencies:
-        Dependency_0: atlas/gameatlas/atlasgreennumber.unity3d
-        Dependency_1: atlas/gameatlas/atlasplayerraceinfo.unity3d
-        Dependency_2: atlas/numberstyle/atlasranknumber.unity3d
     Info_56:
       Name: layout/nguiprefab/uiprops.unity3d
       Dependencies:
@@ -287,6 +285,8 @@ AssetBundleManifest:
       Name: layout/uguiprefab/uiplayerraceinfo.unity3d
       Dependencies:
         Dependency_0: texture/gametexture/playerraceinfo.unity3d
+        Dependency_1: texture/numberstyle/lightbluenumber.unity3d
+        Dependency_2: texture/numberstyle/ranknumber.unity3d
     Info_67:
       Name: material.unity3d
       Dependencies:
@@ -396,518 +396,244 @@ AssetBundleManifest:
         Dependency_0: model/sceneitem/resources/missile/material.unity3d
         Dependency_1: model/sceneitem/resources/missile/mesh.unity3d
     Info_92:
-      Name: model/sceneitem/prefab/missile_m_3d_earthmagic_02.unity3d
+      Name: model/sceneitem/prefab/missileflame.unity3d
       Dependencies:
         Dependency_0: model/sceneitem/resources/missile/material.unity3d
     Info_93:
-      Name: model/sceneitem/prefab/missile_m_3d_hit_02.unity3d
+      Name: model/sceneitem/prefab/missile_m_3d_earthmagic_02.unity3d
       Dependencies:
         Dependency_0: model/sceneitem/resources/missile/material.unity3d
     Info_94:
+      Name: model/sceneitem/prefab/missile_m_3d_hit_02.unity3d
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/missile/material.unity3d
+    Info_95:
       Name: model/sceneitem/resources/itembox/material.unity3d
       Dependencies:
         Dependency_0: model/sceneitem/resources/itembox/texture.unity3d
         Dependency_1: shader/model/itembox.unity3d
-    Info_95:
-      Name: model/sceneitem/resources/itembox/mesh.unity3d
-      Dependencies: {}
     Info_96:
+      Name: model/sceneitem/resources/itembox/mesh/materials.unity3d
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/itembox/texture.unity3d
+    Info_97:
+      Name: model/sceneitem/resources/itembox/mesh.unity3d
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/itembox/mesh/materials.unity3d
+    Info_98:
       Name: model/sceneitem/resources/itembox/texture.unity3d
       Dependencies: {}
-    Info_97:
+    Info_99:
       Name: model/sceneitem/resources/landmine/material.unity3d
       Dependencies:
         Dependency_0: model/sceneitem/resources/landmine/texture.unity3d
-    Info_98:
+    Info_100:
+      Name: model/sceneitem/resources/landmine/mesh/materials.unity3d
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/landmine/texture.unity3d
+    Info_101:
       Name: model/sceneitem/resources/landmine/mesh.unity3d
-      Dependencies: {}
-    Info_99:
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/landmine/mesh/materials.unity3d
+    Info_102:
       Name: model/sceneitem/resources/landmine/texture.unity3d
       Dependencies: {}
-    Info_100:
+    Info_103:
       Name: model/sceneitem/resources/missile/material.unity3d
       Dependencies:
         Dependency_0: model/sceneitem/resources/missile/texture.unity3d
-    Info_101:
+    Info_104:
+      Name: model/sceneitem/resources/missile/mesh/materials.unity3d
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/missile/texture.unity3d
+    Info_105:
       Name: model/sceneitem/resources/missile/mesh.unity3d
-      Dependencies: {}
-    Info_102:
+      Dependencies:
+        Dependency_0: model/sceneitem/resources/missile/mesh/materials.unity3d
+    Info_106:
       Name: model/sceneitem/resources/missile/texture.unity3d
       Dependencies: {}
-    Info_103:
+    Info_107:
       Name: particle/prefab/shield.unity3d
       Dependencies:
         Dependency_0: particle/resources/shield/material.unity3d
         Dependency_1: particle/resources/shield/mesh.unity3d
-    Info_104:
+    Info_108:
       Name: particle/prefab/shield_forcefieldbase.unity3d
       Dependencies:
         Dependency_0: particle/resources/shield/material.unity3d
         Dependency_1: particle/resources/shield/mesh.unity3d
-    Info_105:
+    Info_109:
       Name: particle/prefab/shield_lightningexplosionbase.unity3d
       Dependencies:
         Dependency_0: particle/resources/shield/material.unity3d
-    Info_106:
+    Info_110:
       Name: particle/prefab/turbo.unity3d
       Dependencies:
         Dependency_0: particle/resources/turbo/material.unity3d
-    Info_107:
+    Info_111:
       Name: particle/prefab/turbo_shot02_loop.unity3d
       Dependencies:
         Dependency_0: particle/resources/turbo/material.unity3d
-    Info_108:
+    Info_112:
       Name: particle/resources/shield/material.unity3d
       Dependencies:
         Dependency_0: particle/resources/shield/texture.unity3d
         Dependency_1: shader/model/shield.unity3d
-    Info_109:
+    Info_113:
       Name: particle/resources/shield/mesh/materials.unity3d
       Dependencies: {}
-    Info_110:
+    Info_114:
       Name: particle/resources/shield/mesh.unity3d
       Dependencies:
         Dependency_0: particle/resources/shield/mesh/materials.unity3d
-    Info_111:
+    Info_115:
       Name: particle/resources/shield/shader.unity3d
       Dependencies: {}
-    Info_112:
+    Info_116:
       Name: particle/resources/shield/texture.unity3d
       Dependencies: {}
-    Info_113:
+    Info_117:
       Name: particle/resources/turbo/material.unity3d
       Dependencies:
         Dependency_0: particle/resources/turbo/texture.unity3d
-    Info_114:
+    Info_118:
       Name: particle/resources/turbo/texture.unity3d
       Dependencies: {}
-    Info_115:
-      Name: scene/ancientcity/gc/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/gc.unity3d
-    Info_116:
-      Name: scene/ancientcity/gc.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/gc/materials.unity3d
-    Info_117:
-      Name: scene/ancientcity/lightmap.unity3d
-      Dependencies: {}
-    Info_118:
-      Name: scene/ancientcity/skybox/cubemaps.unity3d
-      Dependencies: {}
     Info_119:
-      Name: scene/ancientcity/skybox/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/skybox/cubemaps.unity3d
-    Info_120:
-      Name: scene/ancientcity/standard assets/environment/water/water/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/standard assets/environment/water/water/shaders.unity3d
-        Dependency_1: scene/ancientcity/standard assets/environment/water/water/textures.unity3d
-    Info_121:
-      Name: scene/ancientcity/standard assets/environment/water/water/models.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/standard assets/environment/water/water/materials.unity3d
-    Info_122:
-      Name: scene/ancientcity/standard assets/environment/water/water/prefabs/waterprodaytime.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/standard assets/environment/water/water/materials.unity3d
-        Dependency_1: scene/ancientcity/standard assets/environment/water/water/models.unity3d
-    Info_123:
-      Name: scene/ancientcity/standard assets/environment/water/water/prefabs/waterpronighttime.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/standard assets/environment/water/water/materials.unity3d
-        Dependency_1: scene/ancientcity/standard assets/environment/water/water/models.unity3d
-    Info_124:
-      Name: scene/ancientcity/standard assets/environment/water/water/shaders.unity3d
-      Dependencies: {}
-    Info_125:
-      Name: scene/ancientcity/standard assets/environment/water/water/textures.unity3d
-      Dependencies: {}
-    Info_126:
-      Name: scene/ancientcity/ancientcity.unity3d
-      Dependencies:
-        Dependency_0: scene/ancientcity/gc/materials.unity3d
-        Dependency_1: scene/ancientcity/gc.unity3d
-        Dependency_2: scene/ancientcity/lightmap.unity3d
-        Dependency_3: scene/ancientcity/skybox/materials.unity3d
-        Dependency_4: scene/ancientcity/standard assets/environment/water/water/prefabs/waterprodaytime.unity3d
-    Info_127:
-      Name: scene/desert/main/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/desert/main.unity3d
-    Info_128:
-      Name: scene/desert/main.unity3d
-      Dependencies:
-        Dependency_0: scene/desert/main/materials.unity3d
-    Info_129:
-      Name: scene/desert/meshes/bushes/bush 02/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/desert/meshes/bushes/bush 02/textures.unity3d
-    Info_130:
-      Name: scene/desert/meshes/bushes/bush 02/meshes.unity3d
-      Dependencies: {}
-    Info_131:
-      Name: scene/desert/meshes/bushes/bush 02/textures.unity3d
-      Dependencies: {}
-    Info_132:
-      Name: scene/desert/meshes/bushes/bush 02/bush 02 prefab.unity3d
-      Dependencies:
-        Dependency_0: scene/desert/meshes/bushes/bush 02/materials.unity3d
-        Dependency_1: scene/desert/meshes/bushes/bush 02/meshes.unity3d
-    Info_133:
-      Name: scene/desert/wispy sky/extras.unity3d
-      Dependencies: {}
-    Info_134:
-      Name: scene/desert/wispy sky/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/desert/wispy sky/textures.unity3d
-    Info_135:
-      Name: scene/desert/wispy sky/textures.unity3d
-      Dependencies: {}
-    Info_136:
-      Name: scene/desert/desert.unity3d
-      Dependencies:
-        Dependency_0: scene/desert/main/materials.unity3d
-        Dependency_1: scene/desert/main.unity3d
-        Dependency_2: scene/desert/meshes/bushes/bush 02/bush 02 prefab.unity3d
-        Dependency_3: scene/desert/wispy sky/materials.unity3d
-    Info_137:
-      Name: scene/primarytrack/buildings/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/buildings/textures.unity3d
-    Info_138:
-      Name: scene/primarytrack/buildings/textures.unity3d
-      Dependencies: {}
-    Info_139:
-      Name: scene/primarytrack/buildings.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/buildings/materials.unity3d
-    Info_140:
-      Name: scene/primarytrack/fx quest/_prefabs/rescale/somobilefx_energybeam_2 (6)
-        (s=4.04).unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/zhuzitexiao.unity3d
-    Info_141:
-      Name: scene/primarytrack/fx quest/_prefabs/rescale/somobilefx_headstars_2 (s=8.00).unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/shanguangdeng.unity3d
-    Info_142:
-      Name: scene/primarytrack/lightmap.unity3d
-      Dependencies: {}
-    Info_143:
-      Name: scene/primarytrack/main/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/main.unity3d
-    Info_144:
-      Name: scene/primarytrack/main.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/main/materials.unity3d
-    Info_145:
-      Name: scene/primarytrack/scifi environment/fbx.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_146:
-      Name: scene/primarytrack/scifi environment/fbx/pipe 02.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi environment/materials.unity3d
-    Info_147:
-      Name: scene/primarytrack/scifi environment/fbx/steps 02.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi environment/materials.unity3d
-    Info_148:
-      Name: scene/primarytrack/scifi environment/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/textures.unity3d
-        Dependency_1: scene/primarytrack/shanguangdeng.unity3d
-    Info_149:
-      Name: scene/primarytrack/scifi environment/prefabs/floor 01.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_150:
-      Name: scene/primarytrack/scifi environment/prefabs/floor big 01.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_151:
-      Name: scene/primarytrack/scifi environment/prefabs/pillar 01.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi environment/materials.unity3d
-    Info_152:
-      Name: scene/primarytrack/scifi environment/prefabs/pipe 01.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_153:
-      Name: scene/primarytrack/scifi environment/prefabs/pipe 02.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi environment/materials.unity3d
-    Info_154:
-      Name: scene/primarytrack/scifi environment/prefabs/railing 01.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_155:
-      Name: scene/primarytrack/scifi environment/prefabs/railing 02.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_156:
-      Name: scene/primarytrack/scifi environment/prefabs/steps 01.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/materials.unity3d
-    Info_157:
-      Name: scene/primarytrack/scifi environment/prefabs/steps 02.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi environment/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi environment/materials.unity3d
-    Info_158:
-      Name: scene/primarytrack/scifi environment/textures.unity3d
-      Dependencies: {}
-    Info_159:
-      Name: scene/primarytrack/scifi_battery_pack_free/fbx.unity3d
-      Dependencies: {}
-    Info_160:
-      Name: scene/primarytrack/scifi_battery_pack_free/prefabs/battery_medium_05.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi_battery_pack_free/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi_battery_pack_free/textures.unity3d
-    Info_161:
-      Name: scene/primarytrack/scifi_battery_pack_free/prefabs/battery_small_06.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi_battery_pack_free/fbx.unity3d
-        Dependency_1: scene/primarytrack/scifi_battery_pack_free/textures.unity3d
-    Info_162:
-      Name: scene/primarytrack/scifi_battery_pack_free/textures.unity3d
-      Dependencies: {}
-    Info_163:
-      Name: scene/primarytrack/scifi_battery_pack_free/demo.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/scifi_battery_pack_free/prefabs/battery_medium_05.unity3d
-        Dependency_1: scene/primarytrack/scifi_battery_pack_free/prefabs/battery_small_06.unity3d
-    Info_164:
-      Name: scene/primarytrack/shanguangdeng/somobilefx_headstars_2.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/shanguangdeng.unity3d
-    Info_165:
-      Name: scene/primarytrack/shanguangdeng.unity3d
-      Dependencies: {}
-    Info_166:
-      Name: scene/primarytrack/skybox volume 2/deepspacegreen.unity3d
-      Dependencies: {}
-    Info_167:
-      Name: scene/primarytrack/zhuzitexiao.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/shanguangdeng.unity3d
-    Info_168:
-      Name: scene/primarytrack/zhuzitexiao/somobilefx_energybeam_2.unity3d
-      Dependencies: {}
-    Info_169:
-      Name: scene/primarytrack/primarytrack.unity3d
-      Dependencies:
-        Dependency_0: scene/primarytrack/buildings.unity3d
-        Dependency_1: scene/primarytrack/fx quest/_prefabs/rescale/somobilefx_energybeam_2
-          (6) (s=4.04).unity3d
-        Dependency_2: scene/primarytrack/fx quest/_prefabs/rescale/somobilefx_headstars_2
-          (s=8.00).unity3d
-        Dependency_3: scene/primarytrack/lightmap.unity3d
-        Dependency_4: scene/primarytrack/main/materials.unity3d
-        Dependency_5: scene/primarytrack/main.unity3d
-        Dependency_6: scene/primarytrack/scifi environment/fbx/pipe 02.unity3d
-        Dependency_7: scene/primarytrack/scifi environment/fbx/steps 02.unity3d
-        Dependency_8: scene/primarytrack/scifi environment/materials.unity3d
-        Dependency_9: scene/primarytrack/scifi environment/prefabs/pillar 01.unity3d
-        Dependency_10: scene/primarytrack/scifi_battery_pack_free/prefabs/battery_medium_05.unity3d
-        Dependency_11: scene/primarytrack/scifi_battery_pack_free/prefabs/battery_small_06.unity3d
-        Dependency_12: scene/primarytrack/skybox volume 2/deepspacegreen.unity3d
-        Dependency_13: scene/primarytrack/zhuzitexiao.unity3d
-        Dependency_14: scene/primarytrack/zhuzitexiao/somobilefx_energybeam_2.unity3d
-    Info_170:
-      Name: scene/roledisplay/fbx.unity3d
-      Dependencies:
-        Dependency_0: scene/roledisplay/materials.unity3d
-    Info_171:
-      Name: scene/roledisplay/materials.unity3d
-      Dependencies: {}
-    Info_172:
-      Name: scene/roledisplay/roledisplay.unity3d
-      Dependencies:
-        Dependency_0: scene/roledisplay/fbx.unity3d
-        Dependency_1: scene/roledisplay/materials.unity3d
-    Info_173:
-      Name: scene/snowmountain/environment/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/snowmountain/environment.unity3d
-    Info_174:
-      Name: scene/snowmountain/environment/mountain/materials.unity3d
-      Dependencies:
-        Dependency_0: scene/snowmountain/environment/mountain/source/tga.unity3d
-    Info_175:
-      Name: scene/snowmountain/environment/mountain/prefab/mountain_snow_000.unity3d
-      Dependencies:
-        Dependency_0: scene/snowmountain/environment/mountain/materials.unity3d
-        Dependency_1: scene/snowmountain/environment/mountain/source/fbx.unity3d
-    Info_176:
-      Name: scene/snowmountain/environment/mountain/source/fbx/materials.unity3d
-      Dependencies: {}
-    Info_177:
-      Name: scene/snowmountain/environment/mountain/source/fbx.unity3d
-      Dependencies:
-        Dependency_0: scene/snowmountain/environment/mountain/source/fbx/materials.unity3d
-    Info_178:
-      Name: scene/snowmountain/environment/mountain/source/tga.unity3d
-      Dependencies: {}
-    Info_179:
-      Name: scene/snowmountain/environment.unity3d
-      Dependencies:
-        Dependency_0: scene/snowmountain/environment/materials.unity3d
-    Info_180:
-      Name: scene/snowmountain/lightmap.unity3d
-      Dependencies: {}
-    Info_181:
-      Name: scene/snowmountain/skybox.unity3d
-      Dependencies: {}
-    Info_182:
-      Name: scene/snowmountain/snowmountain.unity3d
-      Dependencies:
-        Dependency_0: scene/snowmountain/environment/materials.unity3d
-        Dependency_1: scene/snowmountain/environment/mountain/materials.unity3d
-        Dependency_2: scene/snowmountain/environment/mountain/source/fbx.unity3d
-        Dependency_3: scene/snowmountain/environment.unity3d
-        Dependency_4: scene/snowmountain/skybox.unity3d
-    Info_183:
-      Name: scene/start/start.unity3d
-      Dependencies:
-        Dependency_0: shader/frame.unity3d
-        Dependency_1: skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/materials.unity3d
-    Info_184:
       Name: shader/frame.unity3d
       Dependencies: {}
-    Info_185:
+    Info_120:
       Name: shader/model/itembox.unity3d
       Dependencies: {}
-    Info_186:
+    Info_121:
       Name: shader/model/shield.unity3d
       Dependencies: {}
-    Info_187:
+    Info_122:
       Name: skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/images.unity3d
       Dependencies: {}
-    Info_188:
+    Info_123:
       Name: skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/materials.unity3d
       Dependencies:
         Dependency_0: skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/images.unity3d
-    Info_189:
+    Info_124:
       Name: skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/scenes/skyboxbluenebula_scene.unity3d
       Dependencies:
         Dependency_0: skybox/assets_by_unluck_activeden/skyboxes/skyboxbluenebula/materials.unity3d
-    Info_190:
+    Info_125:
       Name: sound/gamesound.unity3d
       Dependencies: {}
-    Info_191:
+    Info_126:
       Name: texture/gametexture/attacktip.unity3d
       Dependencies: {}
-    Info_192:
+    Info_127:
       Name: texture/gametexture/bottomprompt.unity3d
       Dependencies: {}
-    Info_193:
+    Info_128:
       Name: texture/gametexture/common.unity3d
       Dependencies: {}
-    Info_194:
+    Info_129:
       Name: texture/gametexture/confirmselection.unity3d
       Dependencies: {}
-    Info_195:
+    Info_130:
       Name: texture/gametexture/countdown.unity3d
       Dependencies: {}
-    Info_196:
+    Info_131:
       Name: texture/gametexture/directiontips.unity3d
       Dependencies: {}
-    Info_197:
+    Info_132:
       Name: texture/gametexture/loading.unity3d
       Dependencies: {}
-    Info_198:
+    Info_133:
       Name: texture/gametexture/playerraceinfo.unity3d
       Dependencies: {}
-    Info_199:
+    Info_134:
       Name: texture/gametexture/props.unity3d
       Dependencies: {}
-    Info_200:
+    Info_135:
       Name: texture/gametexture/quantifier.unity3d
       Dependencies: {}
-    Info_201:
+    Info_136:
       Name: texture/gametexture/selecttrack.unity3d
       Dependencies: {}
-    Info_202:
+    Info_137:
       Name: texture/gametexture/standby.unity3d
       Dependencies: {}
-    Info_203:
+    Info_138:
       Name: texture/gametexture/track.unity3d
       Dependencies: {}
-    Info_204:
+    Info_139:
       Name: texture/gametexture/volumesetting.unity3d
       Dependencies: {}
-    Info_205:
+    Info_140:
+      Name: texture/numberstyle/lightbluenumber.unity3d
+      Dependencies: {}
+    Info_141:
+      Name: texture/numberstyle/ranknumber.unity3d
+      Dependencies: {}
+    Info_142:
       Name: texture/textureanim/aiming.unity3d
       Dependencies: {}
-    Info_206:
+    Info_143:
       Name: texture/textureanim/averagespeed.unity3d
       Dependencies: {}
-    Info_207:
+    Info_144:
       Name: texture/textureanim/dataranking.unity3d
       Dependencies: {}
-    Info_208:
+    Info_145:
       Name: texture/textureanim/finishrace.unity3d
       Dependencies: {}
-    Info_209:
+    Info_146:
       Name: texture/textureanim/fourthcircle.unity3d
       Dependencies: {}
-    Info_210:
+    Info_147:
       Name: texture/textureanim/greenaiming.unity3d
       Dependencies: {}
-    Info_211:
+    Info_148:
       Name: texture/textureanim/kcal.unity3d
       Dependencies: {}
-    Info_212:
+    Info_149:
       Name: texture/textureanim/maxspeed.unity3d
       Dependencies: {}
-    Info_213:
+    Info_150:
       Name: texture/textureanim/mileage.unity3d
       Dependencies: {}
-    Info_214:
+    Info_151:
       Name: texture/textureanim/next.unity3d
       Dependencies: {}
-    Info_215:
+    Info_152:
       Name: texture/textureanim/rinking.unity3d
       Dependencies: {}
-    Info_216:
+    Info_153:
       Name: texture/textureanim/role0.unity3d
       Dependencies: {}
-    Info_217:
+    Info_154:
       Name: texture/textureanim/role1.unity3d
       Dependencies: {}
-    Info_218:
+    Info_155:
       Name: texture/textureanim/role2.unity3d
       Dependencies: {}
-    Info_219:
+    Info_156:
       Name: texture/textureanim/role3.unity3d
       Dependencies: {}
-    Info_220:
+    Info_157:
       Name: texture/textureanim/roleselectiontitle.unity3d
       Dependencies: {}
-    Info_221:
+    Info_158:
       Name: texture/textureanim/secondcircle.unity3d
       Dependencies: {}
-    Info_222:
+    Info_159:
       Name: texture/textureanim/selecttracktitle.unity3d
       Dependencies: {}
-    Info_223:
+    Info_160:
       Name: texture/textureanim/startriding.unity3d
       Dependencies: {}
-    Info_224:
+    Info_161:
       Name: texture/textureanim/thirdcircle.unity3d
       Dependencies: {}
-    Info_225:
+    Info_162:
       Name: texture/textureanim/timecountdown.unity3d
       Dependencies: {}
-    Info_226:
+    Info_163:
       Name: texture/textureanim/unfinishrace.unity3d
       Dependencies: {}

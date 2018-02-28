@@ -12,10 +12,11 @@ public class ScriptEndCountDown : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mTimeCountDown, "TimeCountDown", 0);
+		newObject(out mTimeCountDown, "TimeCountDown", 0);
 	}
 	public override void init()
 	{
+		mTimeCountDown.setAutoAdjustWindowSize(true);
 		mTimeCountDown.setInterval(0.08f);
 	}
 	public override void onReset()

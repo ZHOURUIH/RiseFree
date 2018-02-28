@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class ScriptTrack : LayoutScript
 {
-	public int AiIndex = 4;										// AI的数量
-	public int mRing = 3;										// 最大的分割圈数
 	protected txNGUIStaticSprite mTrackRoot;
 	protected txNGUIStaticSprite mBackgroundRoot;
 	protected txNGUIStaticSprite[] mLapDivided;
@@ -24,31 +22,29 @@ public class ScriptTrack : LayoutScript
 		:
 		base(name, layout)
 	{
-		mAI = new txNGUIStaticSprite[AiIndex];
-		mLapDivided = new txNGUIStaticSprite[mRing];
-		mLapDividedPos = new Vector2[mRing];
+		mAI = new txNGUIStaticSprite[GameDefine.MAX_AI_COUNT];
+		mLapDivided = new txNGUIStaticSprite[GameDefine.MAX_CIRCLE_COUNT - 1];
+		mLapDividedPos = new Vector2[GameDefine.MAX_CIRCLE_COUNT - 1];
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mTrackRoot, "TrackRoot");
-		newObject(ref mBackgroundRoot, "BackgroundRoot");
-		for (int i = 0; i < mRing; i++)
+		newObject(out mTrackRoot, "TrackRoot");
+		newObject(out mBackgroundRoot, "BackgroundRoot");
+		int count0 = mLapDivided.Length;
+		for (int i = 0; i < count0; ++i)
 		{
-			txNGUIStaticSprite divide = null;
-			newObject(ref divide, mBackgroundRoot, "LapDivided" + i, 0);
-			mLapDivided[i] = divide;
+			newObject(out mLapDivided[i], mBackgroundRoot, "LapDivided" + i, 0);
 		}
-		newObject(ref mPlayerBackground, mTrackRoot, "PlayerBackground");
-		newObject(ref mPlayerIcon, mPlayerBackground, "PlayerIcon");
-		newObject(ref mEnd, mTrackRoot, "End");
-		newObject(ref mAIRoot, mTrackRoot, "AIRoot");
-		for (int i = 0; i < AiIndex; i++)
+		newObject(out mPlayerBackground, mTrackRoot, "PlayerBackground");
+		newObject(out mPlayerIcon, mPlayerBackground, "PlayerIcon");
+		newObject(out mEnd, mTrackRoot, "End");
+		newObject(out mAIRoot, mTrackRoot, "AIRoot");
+		int count1 = mAI.Length;
+		for (int i = 0; i < count1; ++i)
 		{
-			txNGUIStaticSprite AI = null;
-			newObject(ref AI, mAIRoot, "AI" + i, 0);
-			mAI[i] = AI;
+			newObject(out mAI[i], mAIRoot, "AI" + i, 0);
 		}
-		newObject(ref mTrackStart, "TrackStartPos");
+		newObject(out mTrackStart, "TrackStartPos");
 	}
 	public override void init()
 	{
@@ -56,7 +52,8 @@ public class ScriptTrack : LayoutScript
 		mTrackEndPos = mTrackRoot.getPosition();
 		mBackgroundSize = mBackgroundRoot.getWindowSize();
 		mPlayerBackgroundSize = mPlayerBackground.getWindowSize();
-		for (int i = 0; i < mRing; i++)
+		int count = mLapDividedPos.Length;
+		for (int i = 0; i < count; ++i)
 		{
 			mLapDividedPos[i] = mLapDivided[i].getPosition();
 		}
@@ -64,11 +61,13 @@ public class ScriptTrack : LayoutScript
 	public override void onReset()
 	{
 		LayoutTools.MOVE_WINDOW(mTrackRoot, mTrackStartPos);
-		for (int i = 0; i < AiIndex; i++)
+		int count0 = mAI.Length;
+		for (int i = 0; i < count0; ++i)
 		{
 			LayoutTools.ACTIVE_WINDOW(mAI[i], false);
 		}
-		for (int i = 0; i < mRing; i++)
+		int count1 = mLapDivided.Length;
+		for (int i = 0; i < count1; ++i)
 		{
 			LayoutTools.ACTIVE_WINDOW(mLapDivided[i], false);
 		}

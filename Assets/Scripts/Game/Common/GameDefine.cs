@@ -28,6 +28,7 @@ public enum LAYOUT_TYPE
 	LT_DIRECTION_TIPS,
 	LT_PLAYER_RACE_INFO,
 	LT_ATTACK_TIP,
+	LT_DEBUG_INFO,
 	LT_MAX,
 }
 // 所有的音效定义
@@ -199,6 +200,14 @@ public enum PARSE_RESULT
 	PR_ERROR,       // 内容错误
 	PR_NOT_ENOUGH,  // 数据不足
 };
+public enum DEVICE_CONNENT
+{
+	DC_NONE,
+	DC_PROCEED,
+	DC_SUCCESS,
+	DC_CLOSE,
+	DC_MAX,
+}
 
 // 游戏常量定义-------------------------------------------------------------------------------------------------------------
 public class GameDefine : CommonDefine
@@ -256,12 +265,18 @@ public class GameDefine : CommonDefine
 	public const string ANIM_SPEED_UP_SHARP = "SpeedUpSharp";
 	public const string ANIM_SHAKE_BIKE = "ShakeBike";
 	public const string QUEUE_SUFFIX = " - Queued Clone";
-	// 角色的数量
+	// 角色模型的数量
 	public const int ROLE_COUNT = 4;
 	// 赛道的数量
 	public const int TRACK_COUNT = 4;
+	// AI的最大数量
+	public const int MAX_AI_COUNT = 4;
+	// 最大的赛道圈数
+	public const int MAX_CIRCLE_COUNT = 4;
 	// 角色背包中物品的最大数量
 	public const int PACK_ITEM_COUNT = 3;
+	// 导弹的飞行速度
+	public const float MISSILE_SPEED = 40.0f;
 	// 强着地的速度
 	public const float FORCE_LAND_SPEED = 10.0f;
 	// 判断角色是否加速的差值

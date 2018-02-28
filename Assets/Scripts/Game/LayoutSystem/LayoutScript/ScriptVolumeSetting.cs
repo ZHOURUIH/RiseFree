@@ -17,9 +17,9 @@ public class ScriptVolumeSetting : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mUIVolumeRoot, "UIVolumeRoot");
-		newObject(ref mUIVolumeScrollBar, mUIVolumeRoot, "UIVolumeScrollBar");
-		newObject(ref mUIVolumeRootStart, "UIVolumeRootStart");
+		newObject(out mUIVolumeRoot, "UIVolumeRoot");
+		newObject(out mUIVolumeScrollBar, mUIVolumeRoot, "UIVolumeScrollBar");
+		newObject(out mUIVolumeRootStart, "UIVolumeRootStart");
 	}
 	public override void init()
 	{

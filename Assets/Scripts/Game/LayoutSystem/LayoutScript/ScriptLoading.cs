@@ -21,14 +21,12 @@ public class ScriptLoading : LayoutScript
 	{
 		for (int i = 0; i < mTrackCount; ++i)
 		{
-			txNGUIStaticTexture background = null;
-			newObject(ref background, "Background" + i, 0);
-			mBackground[i] = background;
+			newObject(out mBackground[i], "Background" + i, 0);
 		}
-		newObject(ref mProgressLabel, "ProgressLabel", 1);
-		newObject(ref mTitle, "Title", 1);
-		newObject(ref mProgressBar, "ProgressBar", 1);
-		newObject(ref mProgressBack, mProgressBar, "ProgressBack", 1);
+		newObject(out mProgressLabel, "ProgressLabel", 1);
+		newObject(out mTitle, "Title", 1);
+		newObject(out mProgressBar, "ProgressBar", 1);
+		newObject(out mProgressBack, mProgressBar, "ProgressBack", 1);
 	}
 	public override void init()
 	{

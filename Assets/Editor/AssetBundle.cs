@@ -28,6 +28,8 @@ public class AssetBundleBuild
 {
 	// 清理时需要保留的目录和目录的meta
 	protected static string[] mKeepFolder = new string[] {"Config", "GameDataFile", "DataBase", "Video", "DataTemplate", "HelperExe", "CustomSound"};
+	// Resources下的目录,带相对路径,且如果前缀符合,也会认为是不打包的目录
+	protected static string[] mUnPackFolder = new string[] {"Scene" };
 	protected const string mAssetMenuRoot = "AssetBundle/";
 	private static string RES_SRC_PATH = "Assets/Resources/";
 	// 打包输出目录
@@ -63,7 +65,6 @@ public class AssetBundleBuild
 		{
 			setAssetBundleName(dir);
 		}
-
 		// 打包
 		BuildPipeline.BuildAssetBundles(RES_OUTPUT_PATH, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows);
 		AssetDatabase.Refresh();
@@ -126,15 +127,23 @@ public class AssetBundleBuild
 	}
 	protected static void setAssetBundleName(string fullPath)
 	{
-		string[] files = System.IO.Directory.GetFiles(fullPath);
+		string[] files = Directory.GetFiles(fullPath);
 		if (files == null || files.Length == 0)
 		{
 			return;
 		}
-
+		string pathUnderResources = fullPath.Substring(RES_SRC_PATH.Length);
+		int unpackCount = mUnPackFolder.Length;
+		for(int i = 0; i < unpackCount; ++i)
+		{
+			// 如果该文件夹是不打包的文件夹,则直接返回
+			if (StringUtility.startWith(pathUnderResources, mUnPackFolder[i]))
+			{
+				return;
+			}
+		}
 		Debug.Log("Set AssetBundleName Start......");
-		string dirBundleName = fullPath.Substring(RES_SRC_PATH.Length);
-		dirBundleName = dirBundleName.Replace("/", "@") + ASSET_BUNDLE_SUFFIX;
+		string dirBundleName = pathUnderResources.Replace("/", "@") + ASSET_BUNDLE_SUFFIX;
 		foreach (string file in files)
 		{
 			// .asset文件和.meta不打包
@@ -145,11 +154,11 @@ public class AssetBundleBuild
 			AssetImporter importer = AssetImporter.GetAtPath(file);
 			if (importer != null)
 			{
-				string ext = System.IO.Path.GetExtension(file);
+				string ext = Path.GetExtension(file);
 				string bundleName = dirBundleName;
-				if (null != ext && (ext.Equals(".prefab") || ext.Equals(".unity")))
+				// prefab和unity(但是一般情况下unity场景文件不打包)单个文件打包
+				if (ext != null && (ext.Equals(".prefab") || ext.Equals(".unity")))
 				{
-					// prefab单个文件打包
 					bundleName = file.Substring(RES_SRC_PATH.Length);
 					bundleName = bundleName.Replace("/", "@");
 					if (null != ext)

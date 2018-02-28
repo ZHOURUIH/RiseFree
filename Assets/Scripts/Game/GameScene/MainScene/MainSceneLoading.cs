@@ -13,7 +13,7 @@ public class MainSceneLoading : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_LOADING, 1);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_LOADING, 1);
 		mSceneSystem.loadSceneAsync(mRaceSystem.getTrackName(), true, onSceneLoad);
 
 		mSceneInstance = mSceneSystem.getScene<SceneInstance>(mRaceSystem.getTrackName());

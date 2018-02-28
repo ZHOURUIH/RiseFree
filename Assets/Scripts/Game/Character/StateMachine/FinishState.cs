@@ -23,7 +23,7 @@ public class FinishState : PlayerState
 	public override void leave()
 	{
 		// 速度设置为0
-		CommandCharacterChangeSpeed cmdSpeed = newCmd(out cmdSpeed);
+		CommandCharacterChangeSpeed cmdSpeed = newCmd(out cmdSpeed,false);
 		cmdSpeed.mSpeed = 0.0f;
 		pushCommand(cmdSpeed, mPlayer);
 		// 禁用自行车物理组件,禁用硬件速度组件

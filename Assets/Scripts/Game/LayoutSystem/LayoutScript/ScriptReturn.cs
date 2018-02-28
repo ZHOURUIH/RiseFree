@@ -12,7 +12,7 @@ public class ScriptReturn : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mReturn, "Return", 0);
+		newObject(out mReturn, "Return", 0);
 	}
 	public override void init()
 	{

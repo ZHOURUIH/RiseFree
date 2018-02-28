@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1655027130
+CRC: 3158237072
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a75466065d4e57b34670eb6262eb776e
+    Hash: 6042cf777c102946c0000280f83fa7ed
   TypeTreeHash:
     serializedVersion: 2
     Hash: 20d2a047ae4e99a3eaf853982df4d9aa
@@ -17,8 +17,8 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Material/MaskCut.mat
+- Assets/Resources/Material/UGUIDefault.mat
 - Assets/Resources/Material/HSLOffsetLinearDodge.mat
-- Assets/Resources/Material/Gray.mat
 - Assets/Resources/Material/CriticalMaskFadeOutLinearDodge.mat
 - Assets/Resources/Material/CriticalMask.mat
 - Assets/Resources/Material/HSLOffset.mat

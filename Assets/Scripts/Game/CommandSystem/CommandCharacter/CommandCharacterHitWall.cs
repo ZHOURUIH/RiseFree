@@ -14,7 +14,7 @@ public class CommandCharacterHitWall : Command
 	{
 		Character character = mReceiver as Character;
 		MathUtility.clamp(ref mAngle, 0.0f, 45.0f);
-		CommandCharacterChangeSpeed cmdSpeed = newCmd(out cmdSpeed);
+		CommandCharacterChangeSpeed cmdSpeed = newCmd(out cmdSpeed,false);
 		cmdSpeed.mSpeed = Mathf.Sin(Mathf.Abs(mAngle * Mathf.Deg2Rad)) * character.getCharacterData().mSpeed;
 		pushCommand(cmdSpeed, character);
 		// 同时需要降低硬件速度组件中从当前速度加速到目标速度的快慢

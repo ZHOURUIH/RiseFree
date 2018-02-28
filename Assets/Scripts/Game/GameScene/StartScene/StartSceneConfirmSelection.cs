@@ -15,7 +15,7 @@ public class StartSceneConfirmSelection : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_CONFIRM_SELECTION,10);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_CONFIRM_SELECTION,10);
 	}
 	protected override void onUpdate(float elapsedTime)
 	{

@@ -24,7 +24,7 @@ public class StartSceneSelectRole : SceneProcedure
 			if (!lastProcedure.isThisOrParent(PROCEDURE_TYPE.PT_START_SELECT_TRACK))
 			{
 				mainCamera.copyCamera(roleDisplay.mCameraPositionObject0);
-				LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 9);
+				LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 9);
 			}
 			else
 			{
@@ -32,14 +32,14 @@ public class StartSceneSelectRole : SceneProcedure
 				ObjectTools.MOVE_OBJECT(mainCamera, mainCamera.getPosition(), cameraPos0.localPosition, 0.5f);
 				ObjectTools.ROTATE_OBJECT(mainCamera, mainCamera.getRotation(), cameraPos0.localEulerAngles, 0.5f);
 			}
-			LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_SELECT_ROLE, 9);
+			LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_SELECT_ROLE, 9);
 		}
 		// 从设置流程跳转过来,立即显示布局
 		else
 		{
-			LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 9);
+			LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_BUTTOM_PROMPT, 9);
 		}
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_RETURN, 0);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_RETURN, 0);
 		// 设置当前选中角色
 		CommandStartSceneSelectRole cmd = newCmd(out cmd);
 		cmd.mIndex = mRoleSystem.getSelectedIndex();

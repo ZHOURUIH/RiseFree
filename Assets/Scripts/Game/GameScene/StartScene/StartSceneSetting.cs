@@ -17,7 +17,7 @@ public class StartSceneSetting : SceneProcedure
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
 		mVolume = mGameSetting.getCurVolume();
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_VOLUME_SETTING, 10);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_VOLUME_SETTING, 10);
 	}
 	protected override void onUpdate(float elapsedTime)
 	{

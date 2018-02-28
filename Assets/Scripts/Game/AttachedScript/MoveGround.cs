@@ -10,7 +10,7 @@ public class MoveGround : MonoBehaviour
 	protected Vector3 mRightPos;
 	protected float mSpeed = 6.0f;
 	protected int mGroundCount = 4;
-	protected float mSingleLength = 41.24f;
+	protected float mSingleLength = 41.5f;
 	void Awake()
 	{
 		mGround = new Transform[mGroundCount];

@@ -18,14 +18,19 @@ public class ScriptCircleTip : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mSecondCircle, "SecondCircle", 0);
-		newObject(ref mThirdCircle, "ThirdCircle", 0);
-		newObject(ref mFourthCircle, "FourthCircle", 0);
-		newObject(ref mFinishRace, "FinishRace", 0);
-		newObject(ref mUnfinishRace, "UnfinishRace", 0);
+		newObject(out mSecondCircle, "SecondCircle", 0);
+		newObject(out mThirdCircle, "ThirdCircle", 0);
+		newObject(out mFourthCircle, "FourthCircle", 0);
+		newObject(out mFinishRace, "FinishRace", 0);
+		newObject(out mUnfinishRace, "UnfinishRace", 0);
 	}
 	public override void init()
 	{
+		mSecondCircle.setAutoAdjustWindowSize(true);
+		mThirdCircle.setAutoAdjustWindowSize(true);
+		mFourthCircle.setAutoAdjustWindowSize(true);
+		mFinishRace.setAutoAdjustWindowSize(true);
+		mUnfinishRace.setAutoAdjustWindowSize(true);
 		mCircleTipList.Add(mSecondCircle);
 		mCircleTipList.Add(mThirdCircle);
 		mCircleTipList.Add(mFourthCircle);

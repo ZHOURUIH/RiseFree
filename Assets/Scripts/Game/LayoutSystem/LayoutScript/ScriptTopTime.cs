@@ -18,11 +18,11 @@ public class ScriptTopTime : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mTimeRoot, "TimeRoot");
-		newObject(ref mTime, mTimeRoot, "Time");
-		newObject(ref mMin, mTime, "Min");
-		newObject(ref mSecond, mTime, "Second");
-		newObject(ref mTimeStart, "TimeStartPos", 0);
+		newObject(out mTimeRoot, "TimeRoot");
+		newObject(out mTime, mTimeRoot, "Time");
+		newObject(out mMin, mTime, "Min");
+		newObject(out mSecond, mTime, "Second");
+		newObject(out mTimeStart, "TimeStartPos", 0);
 	}
 	public override void init()
 	{

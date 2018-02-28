@@ -16,13 +16,15 @@ public class ScriptAiming : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mAiming, "AimingAnim");
-		newObject(ref mGreenAimingAnim, "GreenAimingAnim");
+		newObject(out mAiming, "AimingAnim");
+		newObject(out mGreenAimingAnim, "GreenAimingAnim");
 	}
 	public override void init()
 	{
+		mAiming.setAutoAdjustWindowSize(true);
 		mAiming.setAutoHide(false);
 		mAiming.setLoop(LOOP_MODE.LM_LOOP);
+		mGreenAimingAnim.setAutoAdjustWindowSize(true);
 		mGreenAimingAnim.setLoop(LOOP_MODE.LM_LOOP);
 		mOriginHeight = mAiming.getWindowSize().y;
 	}

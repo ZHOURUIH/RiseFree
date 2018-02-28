@@ -7,7 +7,7 @@ public class CommandCharacterNotifyFinish : Command
 	public override void init()
 	{
 		base.init();
-		mFinish = false;
+		mFinish = true;
 	}
 	public override void execute()
 	{
@@ -20,6 +20,13 @@ public class CommandCharacterNotifyFinish : Command
 		if (character.isType(CHARACTER_TYPE.CT_MYSELF))
 		{
 			mScriptCircleTip.notifyFinishRace(mFinish);
+		}
+		// 移除瞄准状态
+		if ((character as CharacterOther).getStateMachine().hasState(PLAYER_STATE.PS_AIM))
+		{
+			CommandCharacterRemoveState cmdRemoveState = newCmd(out cmdRemoveState);
+			cmdRemoveState.mState = PLAYER_STATE.PS_AIM;
+			pushCommand(cmdRemoveState, character as CharacterOther);
 		}
 	}
 	public override string showDebugInfo()

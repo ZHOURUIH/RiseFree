@@ -15,7 +15,7 @@ public class MainSceneSettlement : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_SETTLEMENT, 10);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_SETTLEMENT, 10);
 		// 卸载除了角色展示以外的所有场景
 		mSceneSystem.unloadOtherScene(GameDefine.ROLE_DISPLAY);
 		// 激活场景,初始化场景

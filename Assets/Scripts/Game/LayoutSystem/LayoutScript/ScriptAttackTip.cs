@@ -16,12 +16,11 @@ public class ScriptAttackTip : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mAttackEffectRoot, "AttackedEffectRoot");
+		newObject(out mAttackEffectRoot, "AttackedEffectRoot");
 		int count = mAttackEffectRoot.mObject.transform.childCount;
 		for(int i = 0; i < count; ++i)
 		{
-			txNGUIStaticTextureHSLOffset effect = null;
-			newObject(ref effect, mAttackEffectRoot, "Effect" + i);
+			txNGUIStaticTextureHSLOffset effect = newObject(out effect, mAttackEffectRoot, "Effect" + i);
 			mEffectList.Add(effect);
 		}
 	}

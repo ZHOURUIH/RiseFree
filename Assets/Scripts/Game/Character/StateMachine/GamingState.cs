@@ -34,13 +34,6 @@ public class GamingState : PlayerState
 		//切换道具
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.B))
 		{
-			if (mPlayer.getStateMachine().hasState(PLAYER_STATE.PS_AIM))
-			{
-				// 移除瞄准状态
-				CommandCharacterRemoveState cmdState = newCmd(out cmdState);
-				cmdState.mState = PLAYER_STATE.PS_AIM;
-				pushCommand(cmdState, mPlayer);
-			}
 			if(mPlayer.getPlayerPack().canChangeSelection())
 			{
 				pushCommand<CommandCharacterSelectItem>(mPlayer);

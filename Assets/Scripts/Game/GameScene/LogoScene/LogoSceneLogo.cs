@@ -18,7 +18,7 @@ public class LogoSceneLogo : SceneProcedure
 		// 先加载关键帧资源
 		mKeyFrameManager.loadAll(false);
 		// 加载并显示logo布局
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_LOGO, 0);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_LOGO, 0);
 		// 隐藏完毕后跳转到启动视频流程
 		CommandGameSceneChangeProcedure cmdProcedure = newCmd(out cmdProcedure, true, true);
 		cmdProcedure.mProcedure = PROCEDURE_TYPE.PT_LOGO_START_VIDEO;

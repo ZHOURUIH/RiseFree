@@ -13,9 +13,8 @@ public class ScriptConfirmSelection : LayoutScript
 	{ }
 	public override void assignWindow()
 	{
-		newObject(ref mConfirmSelectionRoot, "ConfirmSelectionRoot");
-		newObject(ref mConfirmTextRoot, mConfirmSelectionRoot, "ConfirmTextRoot",0);
-
+		newObject(out mConfirmSelectionRoot, "ConfirmSelectionRoot");
+		newObject(out mConfirmTextRoot, mConfirmSelectionRoot, "ConfirmTextRoot",0);
 	}
 	public override void onGameState()
 	{
@@ -48,6 +47,5 @@ public class ScriptConfirmSelection : LayoutScript
 			return;
 		}
 		LayoutTools.ACTIVE_WINDOW(mConfirmTextRoot);
-
 	}
 }

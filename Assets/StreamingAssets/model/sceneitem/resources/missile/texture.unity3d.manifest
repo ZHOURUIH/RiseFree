@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3127191600
+CRC: 317257156
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 166207399fbaa93ac5f4297690488baa
+    Hash: 4cf00c22a24327263492e19a5fed5d3e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6759894fca659e2049f05064db45ce61
@@ -13,13 +13,16 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/DJ_daodan.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/len_02.png
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Ray_01B.tga
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Glow_01A.tga
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Fragments_01.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/len_glow1_blue.png
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Ray_03.tga
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Sparkles_01.tga
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Ring_01.tga
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Smoke_03.tga
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Hit_02.tga
+- Assets/Resources/Model/SceneItem/Resources/Missile/Texture/lightning2x4_blue.png
 - Assets/Resources/Model/SceneItem/Resources/Missile/Texture/M_Smoke_02.tga
 Dependencies: []

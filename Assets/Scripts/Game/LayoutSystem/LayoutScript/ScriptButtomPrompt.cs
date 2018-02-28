@@ -24,14 +24,14 @@ public class ScriptButtomPrompt : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mBottomPromptBackground, "BottomPromptBackground", 1);
-		newObject(ref mLabelRoot, "LabelRoot", 0);
-		newObject(ref mGeneralPromptLabel, mLabelRoot, "GeneralPromptLabel", 0);
-		newObject(ref mGamingPromptLabel, mLabelRoot, "GamingPromptLabel", 0);
-		newObject(ref mBackgroundStart, "BackgroundStartPos", 0);
-		newObject(ref mBackgroundEnd, "BackgroundEndPos", 0);
-		newObject(ref mLabelAndSoundStart, "LabelAndSoundStartPos", 0);
-		newObject(ref mLabelAndSoundEnd, "LabelAndSoundEndPos", 0);
+		newObject(out mBottomPromptBackground, "BottomPromptBackground", 1);
+		newObject(out mLabelRoot, "LabelRoot", 0);
+		newObject(out mGeneralPromptLabel, mLabelRoot, "GeneralPromptLabel", 0);
+		newObject(out mGamingPromptLabel, mLabelRoot, "GamingPromptLabel", 0);
+		newObject(out mBackgroundStart, "BackgroundStartPos", 0);
+		newObject(out mBackgroundEnd, "BackgroundEndPos", 0);
+		newObject(out mLabelAndSoundStart, "LabelAndSoundStartPos", 0);
+		newObject(out mLabelAndSoundEnd, "LabelAndSoundEndPos", 0);
 	}
 	public override void init()
 	{
@@ -63,12 +63,12 @@ public class ScriptButtomPrompt : LayoutScript
 		if (mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_START_SELECT_ROLE) || mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_START_SELECT_TRACK))
 		{
 			LayoutTools.ACTIVE_WINDOW(mGeneralPromptLabel);
-			LayoutTools.ALPHA_WINDOW(mGeneralPromptLabel, 1.0f);
+			LayoutTools.ALPHA_WINDOW(mGeneralPromptLabel,0.0f,1.0f,0.25f);
 		}
 		else if (mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_READY))
 		{
 			LayoutTools.ACTIVE_WINDOW(mGamingPromptLabel);
-			LayoutTools.ALPHA_WINDOW(mGamingPromptLabel, 1.0f);
+			LayoutTools.ALPHA_WINDOW(mGamingPromptLabel, 0.0f, 1.0f, 0.25f);
 		}
 	}
 	public override void onShow(bool immediately, string param)

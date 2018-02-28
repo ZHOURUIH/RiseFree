@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1805384007
+CRC: 595829742
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a1837b6c2532c3efcf3df03fba282a89
+    Hash: d3160e3a0355274888d83ec705830c45
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1094ce4a8b63a0cc7870d736bb694a93
@@ -17,9 +17,9 @@ Assets:
 - Assets/Resources/Shader/Frame/MotionBlurCriticalMask.shader
 - Assets/Resources/Shader/Frame/HSLOffsetLinearDodge.shader
 - Assets/Resources/Shader/Frame/Feather.shader
+- Assets/Resources/Shader/Frame/UGUIDefault.shader
 - Assets/Resources/Shader/Frame/HSLOffset.shader
 - Assets/Resources/Shader/Frame/MaskCut.shader
 - Assets/Resources/Shader/Frame/CriticalMask.shader
 - Assets/Resources/Shader/Frame/MotionBlur.shader
-- Assets/Resources/Shader/Frame/Gray.shader
 Dependencies: []

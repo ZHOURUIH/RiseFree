@@ -11,7 +11,7 @@ public class ScriptStartVideo : LayoutScript
 	{ }
 	public override void assignWindow()
 	{
-		newObject<txNGUIVideo>(ref mStartVideo, "StartVideo", 1);
+		newObject(out mStartVideo, "StartVideo", 1);
 	}
 	public override void init()
 	{

@@ -20,15 +20,16 @@ public class CommandCharacterChangeSpeed : Command
 			return;
 		}
 		data.mSpeed = mSpeed;
-		if (mSpeed > data.mMaxSpeed)
-		{
-			data.mMaxSpeed = mSpeed;
-		}
+		data.mMaxSpeed = MathUtility.getMax(mSpeed, data.mMaxSpeed);
 		// 通知布局
+		mScriptPlayerRaceInfo.notifySpeedMS(data.mNumber, data.mSpeed);
 		if (character.isType(CHARACTER_TYPE.CT_MYSELF))
 		{
-			mScriptPlayerRaceInfo.setSpeedMS(data.mSpeed);
-		}
+			if (mScriptDebugInfo != null)
+			{
+				mScriptDebugInfo.notitySpeed(data.mSpeed);
+			}
+		}	
 	}
 	public override string showDebugInfo()
 	{

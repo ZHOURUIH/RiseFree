@@ -13,7 +13,7 @@ public class ScriptLogo : LayoutScript
 	{ }
 	public override void assignWindow()
 	{
-		newObject(ref mLogoWindow, "UILogoStartLoading", 1);
+		newObject(out mLogoWindow, "UILogoStartLoading", 1);
 	}
 	public override void init()
 	{

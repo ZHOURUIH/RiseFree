@@ -23,11 +23,11 @@ public class PropsItem
 	}
 	public void assignWindow(txNGUIStaticSprite root, string trackName, int index)
 	{
-		mScript.newObject(ref mProp, root, trackName);
-		mScript.newObject(ref mBackground, mProp, "Background");
-		mScript.newObject(ref mSelect, mProp, "Select");
-		mScript.newObject(ref mLabel, mProp, "Label", 0);
-		mScript.newObject(ref mIcon, mProp, "Icon", 0);
+		mScript.newObject(out mProp, root, trackName);
+		mScript.newObject(out mBackground, mProp, "Background");
+		mScript.newObject(out mSelect, mProp, "Select");
+		mScript.newObject(out mLabel, mProp, "Label", 0);
+		mScript.newObject(out mIcon, mProp, "Icon", 0);
 	}
 	public void init()
 	{
@@ -122,8 +122,8 @@ public class ScriptProps : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mControlHelper, "ControlHelper", 1);
-		newObject(ref mPropsRoot, "PropsRoot");
+		newObject(out mControlHelper, "ControlHelper", 1);
+		newObject(out mPropsRoot, "PropsRoot");
 		for (int i = 0; i < GameDefine.PACK_ITEM_COUNT; ++i)
 		{
 			PropsItem item = new PropsItem(this);

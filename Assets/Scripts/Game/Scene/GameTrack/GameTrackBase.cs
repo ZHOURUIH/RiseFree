@@ -11,7 +11,7 @@ public class GameTrackBase : SceneInstance
 	public List<Vector3> mStartPointList;
 	public List<Vector3> mJumpPointList;
 	public int mCircleCount;
-	public int mDifficultyStart;
+	public int mDifficultyStar;
 	public GameTrackBase(string name)
 		:base(name)
 	{
@@ -24,7 +24,7 @@ public class GameTrackBase : SceneInstance
 		base.init();
 		TrackInfo info = mRaceSystem.getTrackInfo(mName);
 		mCircleCount = info.mCircleCount;
-		mDifficultyStart = info.mDifficultyStart;
+		mDifficultyStar = info.mDifficultyStar;
 	}
 	public override void destroy()
 	{

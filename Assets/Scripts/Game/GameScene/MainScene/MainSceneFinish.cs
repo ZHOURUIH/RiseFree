@@ -13,6 +13,8 @@ public class MainSceneFinish : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
+		//隐藏调试信息
+		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_DEBUG_INFO);
 		// 给所有角色添加比赛结束状态,如果已经有比赛结束状态的则不会再次添加
 		mRoleSystem.notifyAllPlayerFinish();
 		// 2秒后显示比赛结束的布局
@@ -30,6 +32,8 @@ public class MainSceneFinish : SceneProcedure
 		mRoleSystem.clearAllPlayerState();
 		// 隐藏除了主角以外的所有角色
 		mRoleSystem.hideAllPlayerExceptMyself();
+		// 通知本局游戏结束
+		mRaceSystem.notifyGameFinish();
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_CIRCLE_TIP);
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_TRACK);
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_PROPS);

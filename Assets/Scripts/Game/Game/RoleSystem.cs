@@ -10,12 +10,12 @@ using UnityEngine;
 public class RoleSystem : FrameComponent
 {
 	protected int mSelectedIndex;
-	protected List<CharacterOther> mPlayerList;	// 比赛中的所有角色,包括主角
-	protected List<CharacterOther> mSelectRoleList; // 用于角色选择的所有角色
+	protected SortedDictionary<int, CharacterOther> mPlayerList;	// key是角色的编号,比赛中的所有角色,包括主角
+	protected List<CharacterOther> mSelectRoleList;					// 用于角色选择的所有角色
 	public RoleSystem(string name)
 		:base(name)
 	{
-		mPlayerList = new List<CharacterOther>();
+		mPlayerList = new SortedDictionary<int, CharacterOther>();
 		mSelectRoleList = new List<CharacterOther>();
 		mSelectedIndex = 0;
 	}
@@ -50,8 +50,8 @@ public class RoleSystem : FrameComponent
 		CharacterOther player = mCharacterManager.getMyself();
 		player.getCharacterData().mStartIndex = startIndex;
 		player.initModel(mSelectRoleList[mSelectedIndex].getAvatar().getModelPath());
-		// 将玩家加入比赛角色列表
-		mPlayerList.Add(player);
+		// 将玩家加入比赛角色列表,并确保位于第一个
+		mPlayerList.Add(player.getCharacterData().mNumber, player);
 	}
 	// 创建用于比赛的玩家,number是玩家编号
 	public void createAI(string name, string model, int startIndex, int number)
@@ -62,11 +62,12 @@ public class RoleSystem : FrameComponent
 		cmdCreate.mName = name;
 		pushCommand(cmdCreate, mCharacterManager);
 		CharacterOther player = mCharacterManager.getCharacter(name) as CharacterOther;
-		player.getCharacterData().mStartIndex = startIndex;
-		player.getCharacterData().mNumber = number;
+		CharacterData data = player.getCharacterData();
+		data.mStartIndex = startIndex;
+		data.mNumber = number;
 		player.initModel(GameDefine.R_CHARACTER_PREFAB_PATH + model);
 		// 将玩家加入比赛角色列表
-		mPlayerList.Add(player);
+		mPlayerList.Add(data.mNumber, player);
 	}
 	protected void notifyPlayerCreated(CharacterOther player)
 	{
@@ -92,40 +93,13 @@ public class RoleSystem : FrameComponent
 	// 销毁所有比赛角色
 	public void destroyAllPlayer()
 	{
-		int playerCount = mPlayerList.Count;
-		for (int i = 0; i < playerCount; ++i)
+		foreach (var item in mPlayerList)
 		{
 			CommandCharacterManagerDestroy cmd = newCmd(out cmd);
-			cmd.mName = mPlayerList[i].getName();
+			cmd.mName = item.Value.getName();
 			pushCommand(cmd, mCharacterManager);
 		}
 		mPlayerList.Clear();
-	}
-	// 销毁比赛角色
-	public void destroyPlayer(string name)
-	{
-		// 不能销毁用于选择的角色
-		int roleCount = mSelectRoleList.Count;
-		for(int i = 0; i < roleCount; ++i)
-		{
-			if(mSelectRoleList[i].getName() == name)
-			{
-				UnityUtility.logError("can not destroy select role!");
-				return;
-			}
-		}
-		int playerCount = mPlayerList.Count;
-		for(int i = 0; i < playerCount; ++i)
-		{
-			if(mPlayerList[i].getName() == name)
-			{
-				mPlayerList.RemoveAt(i);
-				break;
-			}
-		}
-		CommandCharacterManagerDestroy cmd = newCmd(out cmd);
-		cmd.mName = name;
-		pushCommand(cmd, mCharacterManager);
 	}
 	public int getLastIndex() { return (mSelectedIndex - 1 + mSelectRoleList.Count) % mSelectRoleList.Count; }
 	public int getNextIndex() { return (mSelectedIndex + 1) % mSelectRoleList.Count; }
@@ -136,12 +110,11 @@ public class RoleSystem : FrameComponent
 	// 隐藏所有除了主角以外的角色
 	public void hideAllPlayerExceptMyself()
 	{
-		int count = mPlayerList.Count;
-		for (int i = 0; i < count; ++i)
+		foreach (var item in mPlayerList)
 		{
-			if(!mPlayerList[i].isType(CHARACTER_TYPE.CT_MYSELF))
+			if(!item.Value.isType(CHARACTER_TYPE.CT_MYSELF))
 			{
-				mCharacterManager.activeCharacter(mPlayerList[i], false);
+				mCharacterManager.activeCharacter(item.Value, false);
 			}
 		}
 	}
@@ -157,38 +130,34 @@ public class RoleSystem : FrameComponent
 	// 通知所有玩家准备
 	public void notifyAllPlayerReady()
 	{
-		int count = mPlayerList.Count;
-		for (int i = 0; i < count; ++i)
+		foreach (var item in mPlayerList)
 		{
 			CommandCharacterAddState cmdState = newCmd(out cmdState);
 			cmdState.mState = PLAYER_STATE.PS_READY;
-			pushCommand(cmdState, mPlayerList[i]);
+			pushCommand(cmdState, item.Value);
 		}
 	}
 	// 通知所有玩家比赛开始
 	public void notifyAllPlayerGame()
 	{
-		int count = mPlayerList.Count;
-		for(int i = 0; i < count; ++i)
+		foreach (var item in mPlayerList)
 		{
 			CommandCharacterAddState cmdState = newCmd(out cmdState);
 			cmdState.mState = PLAYER_STATE.PS_GAMING;
-			pushCommand(cmdState, mPlayerList[i]);
+			pushCommand(cmdState, item.Value);
 		}
 	}
 	// 通知所有玩家比赛结束
 	public void notifyAllPlayerFinish()
 	{
-		int curTrackCircle = mRaceSystem.getCurGameTrack().mCircleCount;
-		int count = mPlayerList.Count;
-		for(int i = 0; i < count; ++i)
+		foreach (var item in mPlayerList)
 		{
 			// 只通知未完成比赛的玩家
-			if(mPlayerList[i].getCharacterData().mCircle < curTrackCircle)
+			if (!item.Value.hasState(PLAYER_STATE.PS_FINISH))
 			{
 				CommandCharacterNotifyFinish cmdFinish = newCmd(out cmdFinish);
 				cmdFinish.mFinish = false;
-				pushCommand(cmdFinish, mPlayerList[i]);
+				pushCommand(cmdFinish, item.Value);
 			}
 		}
 	}
@@ -204,18 +173,19 @@ public class RoleSystem : FrameComponent
 	// 清空所有玩家的所有状态
 	public void clearAllPlayerState()
 	{
-		int count = mPlayerList.Count;
-		for (int i = 0; i < count; ++i)
+		foreach (var item in mPlayerList)
 		{
-			mPlayerList[i].getStateMachine().clearState();
+			item.Value.getStateMachine().clearState();
 		}
 	}
-	public int getPlayerCount()
+	public int getPlayerCount(){return mPlayerList.Count;}
+	public SortedDictionary<int, CharacterOther> getAllPlayer(){return mPlayerList;}
+	public CharacterOther getPlayer(int number)
 	{
-		return mPlayerList.Count;
-	}
-	public List<CharacterOther> getAllCharacterList()
-	{
-		return mPlayerList;
+		if(mPlayerList.ContainsKey(number))
+		{
+			return mPlayerList[number];
+		}
+		return null;
 	}
 }

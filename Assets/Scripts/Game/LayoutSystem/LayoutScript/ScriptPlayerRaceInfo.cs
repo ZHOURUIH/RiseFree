@@ -3,60 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-public class ScriptPlayerRaceInfo : LayoutScript
+
+public class RaceInfo : GameBase
 {
-	protected txUIObject mSpeedRoot;
-	protected txNGUINumber mSpeedNumber;
-	protected txUIObject mRankRoot;
-	protected txNGUINumber mRankNumber;
+	protected ScriptPlayerRaceInfo mScript;
+	protected txUGUICanvas mCanvas;
 	protected txUIObject mCircleRoot;
-	protected txNGUINumber mCurCircleNumber;
-	protected txNGUINumber mMaxCircleNumber;
-	public ScriptPlayerRaceInfo(string name, GameLayout layout)
-		:
-		base(name, layout)
+	protected txUGUIStaticImage mCircleLabel;
+	protected txUGUINumber mCurCircleNumber;
+	protected txUGUIStaticImage mSeperate;
+	protected txUGUINumber mMaxCircleNumber;
+	protected txUGUIStaticImage mCircleIcon;
+	protected txUIObject mRankRoot;
+	protected txUGUIStaticImage mPreLabel;
+	protected txUGUINumber mRankNumber;
+	protected txUGUIStaticImage mEndLabel;
+	protected txUGUIStaticImage mRankIcon;
+	protected txUIObject mSpeedRoot;
+	protected txUGUINumber mSpeedNumber;
+	protected txUGUIStaticImage mSpeedUnit;
+	protected txUGUIStaticImage mSpeedIcon;
+	protected txUGUIStaticImage mSpeedColorIcon;
+	public RaceInfo(ScriptPlayerRaceInfo script)
 	{
-		;
+		mScript = script;
 	}
-	public override void assignWindow()
+	public void assignWindow(string rootName)
 	{
-		newObject(ref mSpeedRoot, "SpeedRoot");
-		newObject(ref mSpeedNumber, mSpeedRoot, "SpeedNumber");
-		newObject(ref mRankRoot, "RankRoot");
-		newObject(ref mRankNumber, mRankRoot, "RankNumber");
-		newObject(ref mCircleRoot, "CircleRoot");
-		newObject(ref mCurCircleNumber, mCircleRoot, "CurCircleNumber");
-		newObject(ref mMaxCircleNumber, mCircleRoot, "MaxCircleNumber");
+		mScript.newObject(out mCanvas, rootName);
+		mScript.newObject(out mCircleRoot, mCanvas, "CircleRoot");
+		mScript.newObject(out mCircleLabel, mCircleRoot, "CircleLabel");
+		mScript.newObject(out mCurCircleNumber, mCircleRoot, "CurCircleNumber");
+		mScript.newObject(out mSeperate, mCircleRoot, "Seperate");
+		mScript.newObject(out mMaxCircleNumber, mCircleRoot, "MaxCircleNumber");
+		mScript.newObject(out mCircleIcon, mCircleRoot, "CircleIcon");
+		mScript.newObject(out mRankRoot, mCanvas, "RankRoot");
+		mScript.newObject(out mPreLabel, mRankRoot, "PreLabel");
+		mScript.newObject(out mRankNumber, mRankRoot, "RankNumber");
+		mScript.newObject(out mEndLabel, mRankRoot, "EndLabel");
+		mScript.newObject(out mRankIcon, mRankRoot, "RankIcon");
+		mScript.newObject(out mSpeedRoot, mCanvas, "SpeedRoot");
+		mScript.newObject(out mSpeedNumber, mSpeedRoot, "SpeedNumber");
+		mScript.newObject(out mSpeedUnit, mSpeedRoot, "SpeedUnit");
+		mScript.newObject(out mSpeedIcon, mSpeedRoot, "SpeedIcon");
+		mScript.newObject(out mSpeedColorIcon, mSpeedRoot, "SpeedColorIcon");
 	}
-	public override void init()
+	public void init()
 	{
 		mSpeedNumber.setDockingPosition(DOCKING_POSITION.DP_RIGHT);
 	}
-	public override void onReset()
-	{
-		;
-	}
-	public override void onGameState()
-	{
-		setMaxCircle(mRaceSystem.getCurGameTrack().mCircleCount);
-		CharacterMyself myself = mCharacterManager.getMyself();
-		CharacterData myselfData = myself.getCharacterData();
-		setCurCircle(myselfData.mCircle);
-		setSpeedMS(myselfData.mSpeed);
-		setRank(myselfData.mRank);
-	}
-	public override void onShow(bool immediately, string param)
-	{
-		;
-	}
-	public override void update(float elapsedTime)
-	{
-		;
-	}
-	public override void onHide(bool immediately, string param)
-	{
-		;
-	}
+	public void onReset() { }
 	public void setSpeedMS(float speed)
 	{
 		int speedKMH = (int)(MathUtility.MStoKMH(speed) * GameDefine.DISPLAY_MILEAGE_SCALE);
@@ -74,14 +70,122 @@ public class ScriptPlayerRaceInfo : LayoutScript
 	// circle是玩家已完成的圈数
 	public void setCurCircle(int circle)
 	{
-		// 当前圈数 下标从0开始的圈数+1 如果大于最大圈数那么就等于最大圈数 不能比最大圈数大
-		int newCircle = circle + 1;
-		if (newCircle >= mRaceSystem.getCurGameTrack().mCircleCount)
-		{
-			newCircle = mRaceSystem.getCurGameTrack().mCircleCount;
-		}
+		circle += 1;
+		MathUtility.clamp(ref circle, 0, mRaceSystem.getCurGameTrack().mCircleCount);
 		// 需要显示为玩家当前所在的圈数
 		mCurCircleNumber.setNumber(circle);
+	}
+	public void setConnectPlayer(CharacterOther player)
+	{
+		if(player != null)
+		{
+			mCanvas.setConnectParent(player.getObject(), new Vector3(0.0f, 1.0f, 0.0f));
+		}
+		else
+		{
+			mCanvas.setConnectParent(mScript.getRoot().mObject);
+		}
+	}
+}
+
+public class ScriptPlayerRaceInfo : LayoutScript
+{
+	protected RaceInfo[] mRaceInfoList;
+	public ScriptPlayerRaceInfo(string name, GameLayout layout)
+		:
+		base(name, layout)
+	{
+		mRaceInfoList = new RaceInfo[GameDefine.MAX_AI_COUNT + 1];
+		int count = mRaceInfoList.Length;
+		for (int i = 0; i < count; ++i)
+		{
+			mRaceInfoList[i] = new RaceInfo(this);
+		}
+	}
+	public override void assignWindow()
+	{
+		int count = mRaceInfoList.Length;
+		for (int i = 0; i < count; ++i)
+		{
+			mRaceInfoList[i].assignWindow("info" + i);
+		}
+	}
+	public override void init()
+	{
+		int count = mRaceInfoList.Length;
+		for (int i = 0; i < count; ++i)
+		{
+			mRaceInfoList[i].init();
+		}
+	}
+	public override void onReset()
+	{
+		int count = mRaceInfoList.Length;
+		for (int i = 0; i < count; ++i)
+		{
+			mRaceInfoList[i].onReset();
+		}
+	}
+	public override void onGameState()
+	{
+		int count = mRaceInfoList.Length;
+		for (int i = 0; i < count; ++i)
+		{
+			CharacterOther player = mRoleSystem.getPlayer(indexToNumber(i));
+			CharacterData data = player.getCharacterData();
+			mRaceInfoList[i].setCurCircle(data.mCircle);
+			mRaceInfoList[i].setSpeedMS(data.mSpeed);
+			mRaceInfoList[i].setRank(data.mRank);
+			mRaceInfoList[i].setMaxCircle(mRaceSystem.getCurGameTrack().mCircleCount);
+			mRaceInfoList[i].setConnectPlayer(player);
+		}
+	}
+	public override void onShow(bool immediately, string param)
+	{
+		;
+	}
+	public override void update(float elapsedTime)
+	{
+		;
+	}
+	public override void onHide(bool immediately, string param)
+	{
+		int count = mRaceInfoList.Length;
+		for (int i = 0; i < count; ++i)
+		{
+			mRaceInfoList[i].setConnectPlayer(null);
+		}
+	}
+	public void notifySpeedMS(int number, float speedMS)
+	{
+		mRaceInfoList[numberToIndex(number)].setSpeedMS(speedMS);
+	}
+	public void notifyCurCircle(int number, int circle)
+	{
+		mRaceInfoList[numberToIndex(number)].setCurCircle(circle);
+	}
+	public void notifyRank(int number, int rank)
+	{
+		mRaceInfoList[numberToIndex(number)].setRank(rank);
+	}
+	//------------------------------------------------------------------------------------------------------------
+	// 通过角色的编号获得在数组中的下标
+	protected int numberToIndex(int number)
+	{
+		if(number < 0)
+		{
+			return 0;
+		}
+		return number + 1;
+	}
+	// 通过数组中的下标获得角色编号
+	protected int indexToNumber(int index)
+	{
+		if(index == 0)
+		{
+			return -1;
+		}
+		return index - 1;
 	}
 }
 

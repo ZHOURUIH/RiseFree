@@ -85,7 +85,7 @@ public class CharacterSpeedHardware : GameComponent
 		mTargetSpeed = speed;
 		if (directSpeed)
 		{
-			CommandCharacterChangeSpeed cmd = newCmd(out cmd);
+			CommandCharacterChangeSpeed cmd = newCmd(out cmd,false);
 			cmd.mSpeed = mTargetSpeed;
 			pushCommand(cmd, mComponentOwner);
 		}

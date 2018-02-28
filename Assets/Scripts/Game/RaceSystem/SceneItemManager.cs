@@ -27,7 +27,8 @@ public class SceneItemManager : FrameComponent
 		registeItem<SceneItemBox>(SCENE_ITEM.SI_ITEM_BOX);
 		registeItem<SceneLandMine>(SCENE_ITEM.SI_LAND_MINE);
 		registeItem<SceneMissile>(SCENE_ITEM.SI_MISSILE);
-		mItemManagerObject = UnityUtility.getGameObject(mGameFramework.getGameFrameObject(), "ItemManager", true);
+		mItemManagerObject = new GameObject("ItemManager");
+		mItemManagerObject.transform.SetParent(mGameFramework.getGameFrameObject().transform);
 	}
 	public override void destroy()
 	{

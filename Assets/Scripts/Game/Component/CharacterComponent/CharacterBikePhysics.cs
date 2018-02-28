@@ -137,12 +137,11 @@ public class CharacterBikePhysics : GameComponent
 				mCharacter.setYaw(mData.mSpeedRotation.y);
 				// 根据碰撞的入射角度,计算出速度损失量
 				float inAngle = MathUtility.getAngleBetweenVector(-moveDir, dirRet.normal) * Mathf.Rad2Deg;
-				CommandCharacterHitWall cmdHitWall = newCmd(out cmdHitWall);
+				CommandCharacterHitWall cmdHitWall = newCmd(out cmdHitWall,false);
 				cmdHitWall.mAngle = inAngle;
 				pushCommand(cmdHitWall, mCharacter);
 			}
 		}
-
 		// 调整自身位置
 		correctTransform(elapsedTime);
 
@@ -170,12 +169,26 @@ public class CharacterBikePhysics : GameComponent
 				float percent = (pitch - mMinDownhillAngle) / (mMaxDownhillAngle - mMinDownhillAngle);
 				friction = MathUtility.lerp(mMinDownhillFriction, mMaxDownhillFriction, percent);
 			}
-			if(mCurFriction != (int)friction)
+			if (mCurFriction != (int)friction)
 			{
 				mCurFriction = (int)friction;
 				SerialPortPacketFriction packet = mSerialPortManager.createPacket(out packet, COM_PACKET.CP_FRICTION);
 				packet.setFriction((byte)mCurFriction);
 				mSerialPortManager.sendPacket(packet);
+				if (mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
+				{
+					if (mScriptDebugInfo != null)
+					{
+						mScriptDebugInfo.notityFriction(mCurFriction);
+					}
+				}
+			}
+			if (mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
+			{
+				if (mScriptDebugInfo != null)
+				{
+					mScriptDebugInfo.notityPitch(pitch);
+				}
 			}
 		}
 		base.update(elapsedTime);
@@ -201,7 +214,7 @@ public class CharacterBikePhysics : GameComponent
 		}
 		if (!backRet)
 		{
-			UnityUtility.logError("back wheel is not on ground, pos : " + StringUtility.vector3ToString(mCharacter.getPosition()));
+			UnityUtility.logInfo("back wheel is not on ground, pos : " + StringUtility.vector3ToString(mCharacter.getPosition()));
 			return;
 		}
 

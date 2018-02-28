@@ -18,9 +18,11 @@ public class CommandCharacterDistanceChanged : Command
 		data.mCurWayPoint = mWayPoint;
 		data.mRunDistance = mDistance;
 		data.mTotalDistance = data.mCircle * mWayPointManager.getTotalLength() + data.mRunDistance;
-		// 通知布局
 		int totalCircleCount = mRaceSystem.getCurGameTrack().mCircleCount;
+		// 确保跑的里程不能超过赛道长度
+		MathUtility.clamp(ref data.mTotalDistance, 0.0f, mWayPointManager.getTotalLength() * totalCircleCount);
 		float progress = data.mTotalDistance / (mWayPointManager.getTotalLength() * totalCircleCount);
+		// 通知布局
 		mScriptTrack.setPlayerProgress(progress, data.mNumber);
 	}
 	public override string showDebugInfo()

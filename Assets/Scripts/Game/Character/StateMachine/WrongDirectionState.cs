@@ -17,7 +17,7 @@ public class WrongDirectionState : PlayerState
 		// 显示方向提示界面,只有玩家自己进入瞄准状态才显示
 		if (mPlayer.isType(CHARACTER_TYPE.CT_MYSELF))
 		{
-			LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_DIRECTION_TIPS, 20);
+			LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_DIRECTION_TIPS, 20);
 		}
 	}
 	public override void update(float elapsedTime)

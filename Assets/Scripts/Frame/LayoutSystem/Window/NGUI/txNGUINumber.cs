@@ -16,7 +16,7 @@ public class txNGUINumber : txNGUIStaticSprite
 	protected string				 mNumber = "";
 	public txNGUINumber()
 	{
-		mType = UI_OBJECT_TYPE.UBT_NUMBER;
+		mType = UI_TYPE.UT_NGUI_NUMBER;
 		mSpriteNameList = new string[11];
 		mSpriteDataList = new UISpriteData[11];
 		mNumberList = new List<txNGUIStaticSprite>();
@@ -195,24 +195,9 @@ public class txNGUINumber : txNGUIStaticSprite
 		}
 		refreshNumber();
 	}
-	public int getMaxCount()
-	{
-		return mMaxCount;
-	}
-	public string getNumber()
-	{
-		return mNumber;
-	}
-	public int getInterval()
-	{
-		return mInterval;
-	}
-	public string getNumberStyle()
-	{
-		return mNumberStyle;
-	}
-	public DOCKING_POSITION getDockingPosition()
-	{
-		return mDockingPosition;
-	}
+	public int getMaxCount(){return mMaxCount;}
+	public string getNumber(){return mNumber;}
+	public int getInterval(){return mInterval;}
+	public string getNumberStyle(){return mNumberStyle;}
+	public DOCKING_POSITION getDockingPosition(){return mDockingPosition;}
 }

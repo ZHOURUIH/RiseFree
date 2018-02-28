@@ -15,7 +15,7 @@ public class StartSceneStandBy : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_STAND_BY, 1);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_STAND_BY, 1);
 		mSceneSystem.activeScene(GameDefine.ROLE_DISPLAY);
 		mSceneSystem.initScene(GameDefine.ROLE_DISPLAY);
 	}

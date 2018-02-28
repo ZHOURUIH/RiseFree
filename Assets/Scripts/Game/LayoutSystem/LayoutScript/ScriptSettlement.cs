@@ -35,24 +35,24 @@ public class ScriptSettlement : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mDataRanking, "DataRanking");
-		newObject(ref mNext, "Next", 0);
-		newObject(ref mRinking, "Rinking", 0);
-		newObject(ref mRinkingLabelRoot, mRinking, "RinkingLabelRoot", 0);
-		newObject(ref mRinkingNumber, mRinkingLabelRoot, "Number");
-		newObject(ref mKcal, "Kcal", 0);
-		newObject(ref mKcalLabelRoot, mKcal, "KcalLabelRoot", 0);
-		newObject(ref mKcalNumber, mKcalLabelRoot, "Number");
-		newObject(ref mAverageSpeed, "AverageSpeed", 0);
-		newObject(ref mAverageSpeedLabelRoot, mAverageSpeed, "AverageLabelRoot", 0);
-		newObject(ref mAverageSpeedNumber, mAverageSpeedLabelRoot, "Number");
-		newObject(ref mMileage, "Mileage", 0);
-		newObject(ref mMileageLabelRoot, mMileage, "MileageLabelRoot", 0);
-		newObject(ref mMileageNumber, mMileageLabelRoot, "Number");
-		newObject(ref mMaxSpeed, "MaxSpeed", 0);
-		newObject(ref mMaxSpeedLabelRoot, mMaxSpeed, "MaxSpeedLabelRoot", 0);
-		newObject(ref mMaxSpeedNumber, mMaxSpeedLabelRoot, "Number");
-		newObject(ref mAIcon, "AIcon", 0);
+		newObject(out mDataRanking, "DataRanking");
+		newObject(out mNext, "Next", 0);
+		newObject(out mRinking, "Rinking", 0);
+		newObject(out mRinkingLabelRoot, mRinking, "RinkingLabelRoot", 0);
+		newObject(out mRinkingNumber, mRinkingLabelRoot, "Number");
+		newObject(out mKcal, "Kcal", 0);
+		newObject(out mKcalLabelRoot, mKcal, "KcalLabelRoot", 0);
+		newObject(out mKcalNumber, mKcalLabelRoot, "Number");
+		newObject(out mAverageSpeed, "AverageSpeed", 0);
+		newObject(out mAverageSpeedLabelRoot, mAverageSpeed, "AverageLabelRoot", 0);
+		newObject(out mAverageSpeedNumber, mAverageSpeedLabelRoot, "Number");
+		newObject(out mMileage, "Mileage", 0);
+		newObject(out mMileageLabelRoot, mMileage, "MileageLabelRoot", 0);
+		newObject(out mMileageNumber, mMileageLabelRoot, "Number");
+		newObject(out mMaxSpeed, "MaxSpeed", 0);
+		newObject(out mMaxSpeedLabelRoot, mMaxSpeed, "MaxSpeedLabelRoot", 0);
+		newObject(out mMaxSpeedNumber, mMaxSpeedLabelRoot, "Number");
+		newObject(out mAIcon, "AIcon", 0);
 	}
 	public override void init()
 	{

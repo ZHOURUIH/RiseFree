@@ -42,7 +42,7 @@ public class SceneMissile : SceneItemBase
 		createObject(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.MISSILE, missileParam.mPosition);
 		mMissileComponent = mObject.AddComponent<MissileObject>();
 		mMissileComponent.setItem(this);
-		ObjectTools.TRACK_TARGET(this, 60.0f, Vector3.up, missileParam.mTarget, null);
+		ObjectTools.TRACK_TARGET(this, GameDefine.MISSILE_SPEED, missileParam.mTarget, Vector3.up);
 		mTarget = missileParam.mTarget;
 		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
 		UnityUtility.getGameObject(mObject, mExplodeParticleName1, true).SetActive(false);
@@ -96,7 +96,7 @@ public class SceneMissile : SceneItemBase
 	{
 		base.notifyDestroy();
 		// 停止追踪,播放爆炸特效并隐藏导弹模型
-		ObjectTools.TRACK_TARGET(this, 10.0f, null, null);
+		ObjectTools.TRACK_TARGET(this, 10.0f, null);
 		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(true);
 		UnityUtility.getGameObject(mObject, mExplodeParticleName1, true).SetActive(true);
 		UnityUtility.getGameObject(mObject, mMissileModelName, true).SetActive(false);

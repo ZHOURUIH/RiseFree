@@ -19,6 +19,14 @@ class CommandCharacterSelectItem : Command
 		{
 			return;
 		}
+		// 移除瞄准状态
+		if(player.hasState(PLAYER_STATE.PS_AIM))
+		{
+			CommandCharacterRemoveState cmdState = newCmd(out cmdState);
+			cmdState.mState = PLAYER_STATE.PS_AIM;
+			pushCommand(cmdState, character);
+		}
+
 		PlayerPack pack = player.getPlayerPack();
 		int nextNotNullIndex = mIndex != -1 ? mIndex : pack.getNextNotEmptyIndex();
 		if (nextNotNullIndex == -1)

@@ -16,7 +16,7 @@ public class LogoSceneStartVideo : SceneProcedure
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
 		// 显示启动视频,等待视频准备完毕
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_START_VIDEO, 1);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_START_VIDEO, 1);
 		mAudioManager.createAudio(CommonDefine.GAME_SOUND + "/LogoVideo", true, false);
 	}
 	protected override void onUpdate(float elapsedTime)
@@ -46,7 +46,7 @@ public class LogoSceneStartVideo : SceneProcedure
 	public void notifyStartVideoDone()
 	{
 		// 为保视频与待机界面之间无缝衔接,在播放完后就立即加载并且显示待机界面
-		LayoutTools.LOAD_LAYOUT_SHOW(LAYOUT_TYPE.LT_STAND_BY, 1, false, "FirstStart");
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_STAND_BY, 1, false, "FirstStart");
 		// 停止视频音乐
 		pushCommand<CommandGameSceneStopAudio>(mGameScene);
 		// 进入开始场景

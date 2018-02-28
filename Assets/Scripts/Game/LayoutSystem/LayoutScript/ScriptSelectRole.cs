@@ -19,12 +19,13 @@ public class RoleSelection
 	}
 	public void assignWindow(string name)
 	{
-		mScript.newObject(ref mRoleRoot, name, 1);
-		mScript.newObject(ref mRole, mRoleRoot, "Role");
-		mScript.newObject(ref mEnd, mRoleRoot, "End", 0);
+		mScript.newObject(out mRoleRoot, name, 1);
+		mScript.newObject(out mRole, mRoleRoot, "Role");
+		mScript.newObject(out mEnd, mRoleRoot, "End", 0);
 	}
 	public void init()
 	{
+		mRole.setAutoAdjustWindowSize(true);
 		mStartPosition = mRole.getPosition();
 		mEndPosition = mEnd.getPosition();
 		mRole.setAutoHide(false);
@@ -136,7 +137,7 @@ public class ScriptSelectRole : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mSelectionRoleTitle, "SelectionRoleTitle", 0);
+		newObject(out mSelectionRoleTitle, "SelectionRoleTitle", 0);
 		for (int i = 0; i < GameDefine.ROLE_COUNT; ++i)
 		{
 			RoleSelection selection = new RoleSelection(this);

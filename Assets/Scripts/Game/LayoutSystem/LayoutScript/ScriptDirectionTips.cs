@@ -14,7 +14,7 @@ class ScriptDirectionTips :LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mDirectionTexture, "DirectionTexture");
+		newObject(out mDirectionTexture, "DirectionTexture");
 	}
 	public override void init()
 	{

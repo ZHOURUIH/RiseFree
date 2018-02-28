@@ -11,12 +11,13 @@ public class TrackInfo
 {
 	public string mName;
 	public int mCircleCount;
-	public int mDifficultyStart;
+	public int mDifficultyStar;
 	public TrackInfo(string name, int circle, int star)
 	{
 		mName = name;
 		mCircleCount = circle;
-		mDifficultyStart = star;
+		MathUtility.clamp(ref mCircleCount, 1, GameDefine.MAX_CIRCLE_COUNT);
+		mDifficultyStar = star;
 	}
 }
 
@@ -32,6 +33,38 @@ public class CollidePair
 	public bool isPair(CharacterOther player0, CharacterOther player1)
 	{
 		return (mPlayer0 == player0 && mPlayer1 == player1) || (mPlayer0 == player1 && mPlayer1 == player0);
+	}
+}
+
+public class RankInfo
+{
+	public float mTotalDistance;
+	public float mRunTime;
+	public RankInfo(CharacterOther player)
+	{
+		mTotalDistance = player.getCharacterData().mTotalDistance;
+		mRunTime = player.getCharacterData().mRunTime;
+	}
+}
+
+public class RankCompare : IComparer<RankInfo>
+{
+	int IComparer<RankInfo>.Compare(RankInfo value0, RankInfo value1)
+	{
+		// 距离越短,排名越低
+		// 距离一致,则时间越长排名越低
+		if (value0.mTotalDistance < value1.mTotalDistance || value0.mRunTime > value1.mRunTime)
+		{
+			return -1;
+		}
+		else if(value0.mTotalDistance > value1.mTotalDistance || value0.mRunTime < value1.mRunTime)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
 	}
 }
 
@@ -62,8 +95,8 @@ public class RaceSystem : FrameComponent
 	}
 	public override void update(float elapsedTime)
 	{
-		// 在游戏中 并且不在游戏结束的时候 才会计时和计算名称
-		if (mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING) && !mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING_FINISH))
+		// 在游戏中才会计时和计算名称
+		if (mGameSceneManager.getCurScene().atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING))
 		{
 			// 系统计时
 			int oldTime = (int)mSystemTime;
@@ -72,28 +105,27 @@ public class RaceSystem : FrameComponent
 			{
 				mScriptTopTime.setTime((int)mSystemTime);
 			}
-			// 计算名次
-			SortedDictionary<float, List<CharacterOther>> distanceList = new SortedDictionary<float, List<CharacterOther>>();
-			List<CharacterOther> playerList = mRoleSystem.getAllCharacterList();
-			int playerCount = playerList.Count;
-			for (int i = 0; i < playerCount; ++i)
+			// 计算名次,先判断里程,如果里程一致则判断时间
+			SortedDictionary<RankInfo, List<CharacterOther>> distanceList = new SortedDictionary<RankInfo, List<CharacterOther>>(new RankCompare());
+			SortedDictionary<int, CharacterOther> playerList = mRoleSystem.getAllPlayer();
+			foreach(var item in playerList)
 			{
-				float dis = playerList[i].getCharacterData().mTotalDistance;
-				if (!distanceList.ContainsKey(dis))
+				RankInfo rankInfo = new RankInfo(item.Value);
+				if (!distanceList.ContainsKey(rankInfo))
 				{
-					distanceList.Add(dis, new List<CharacterOther>());
+					distanceList.Add(rankInfo, new List<CharacterOther>());
 				}
-				distanceList[dis].Add(playerList[i]);
+				distanceList[rankInfo].Add(item.Value);
 			}
 			int rank = 0;
+			int playerCount = playerList.Count;
 			foreach (var item in distanceList)
 			{
 				int listCount = item.Value.Count;
 				for (int i = 0; i < listCount; ++i)
 				{
-					CharacterOther character = item.Value[i];
 					int curRank = playerCount - 1 - rank;
-					if (curRank != character.getCharacterData().mRank)
+					if (curRank != item.Value[i].getCharacterData().mRank)
 					{
 						CommandCharacterChangeRank cmdRank = newCmd(out cmdRank);
 						cmdRank.mRank = curRank;
@@ -145,7 +177,6 @@ public class RaceSystem : FrameComponent
 		}
 		if(!hasPair)
 		{
-			UnityUtility.logInfo(player0.getName() + "碰撞了" + player1.getName(), LOG_LEVEL.LL_FORCE);
 			mCollidePairList.Add(new CollidePair(player0, player1));
 		}
 	}
@@ -153,18 +184,13 @@ public class RaceSystem : FrameComponent
 	{
 		mSystemTime = 0.0f;
 	}
-	public void setTrackIndex(int track)
+	public void notifyGameFinish()
 	{
-		mTrackIndex = track;
+		mCollidePairList.Clear();
 	}
-	public int getTrackIndex()
-	{
-		return mTrackIndex;
-	}
-	public int getTrackCount()
-	{
-		return mTrackInfoList.Count;
-	}
+	public void setTrackIndex(int track){mTrackIndex = track;}
+	public int getTrackIndex(){return mTrackIndex;}
+	public int getTrackCount(){return mTrackInfoList.Count;}
 	public int getLastTrackIndex()
 	{
 		return (mTrackIndex - 1 + getTrackCount()) % getTrackCount();
@@ -181,9 +207,9 @@ public class RaceSystem : FrameComponent
 	{
 		return mTrackInfoList[mTrackIndex].mName;
 	}
-	public int getTrackDifficultyStart(int index)
+	public int getTrackDifficultyStar(int index)
 	{
-		return mTrackInfoList[index].mDifficultyStart;
+		return mTrackInfoList[index].mDifficultyStar;
 	}
 	public TrackInfo getTrackInfo(string name)
 	{

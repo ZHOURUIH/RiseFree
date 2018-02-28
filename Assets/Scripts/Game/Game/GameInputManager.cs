@@ -16,7 +16,8 @@ public enum KEY_STATE
 public class GameInputManager : InputManager
 {
 	protected float mLastStickAngle = 0.0f;
-	protected float mStickAngle = 0.0f;			// 轴的转向角度,向左为负,向右为正,范围-90~90
+	protected float mOriginStickAngle = 0.0f;   // 轴的转向角度,向左为负,向右为正,范围-90~90,未矫正的值
+	protected float mStickAngle = 0.0f;			// 轴的转向角度,向左为负,向右为正,范围-90~90,矫正后的值
 	protected bool mTurnLeft = false;			// 是否做了左转操作,只检测单次左转操作
 	protected bool mTurnRight = false;			// 是否做了右转操作,只检测单次右转操作
 	protected float mTurnThreshold = 15.0f;     // 转向判断阈值
@@ -143,13 +144,17 @@ public class GameInputManager : InputManager
 	}
 	public void setStickAngle(float stickAngle)
 	{
-		mStickAngle = stickAngle;
+		mOriginStickAngle = stickAngle;
 		// 再使用偏移值校正
-		mStickAngle -= mTurnAngleOffset;
+		mStickAngle = mOriginStickAngle - mTurnAngleOffset;
 	}
 	public float getStickAngle()
 	{
 		return mStickAngle;
+	}
+	public float getOriginStickAngle()
+	{
+		return mOriginStickAngle;
 	}
 	public override bool getKeyCurrentDown(KeyCode key)
 	{

@@ -27,7 +27,8 @@ public class LayoutRegister : GameBase
 		registeLayout<ScriptEndCountDown>(LAYOUT_TYPE.LT_END_COUNT_DOWN, "UIEndCountDown");                 // 比赛结束的倒计时
 		registeLayout<ScriptDirectionTips>(LAYOUT_TYPE.LT_DIRECTION_TIPS, "UIDirectionTips");               // 方向错误提示
 		registeLayout<ScriptPlayerRaceInfo>(LAYOUT_TYPE.LT_PLAYER_RACE_INFO, "UIPlayerRaceInfo");           // 比赛中显示的当前比赛信息
-		registeLayout<ScriptAttackTip>(LAYOUT_TYPE.LT_ATTACK_TIP, "UIAttackTip");							// 攻击相关信息
+		registeLayout<ScriptAttackTip>(LAYOUT_TYPE.LT_ATTACK_TIP, "UIAttackTip");                           // 攻击相关信息
+		registeLayout<ScriptDebugInfo>(LAYOUT_TYPE.LT_DEBUG_INFO, "UIDebugInfo");                           // 游戏测试的日志
 		if (mLayoutManager.getLayoutCount() < (int)LAYOUT_TYPE.LT_MAX)
 		{
 			UnityUtility.logError("error : not all script added! max count : " + (int)LAYOUT_TYPE.LT_MAX + ", added count :" + mLayoutManager.getLayoutCount());
@@ -59,6 +60,7 @@ public class LayoutRegister : GameBase
 		if (assign(ref mScriptCircleTip, script, created)) return;
 		if (assign(ref mScriptPlayerRaceInfo, script, created)) return;
 		if (assign(ref mScriptAttackTip, script, created)) return;
+		if (assign(ref mScriptDebugInfo, script, created)) return;
 	}
 	//----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	protected void registeLayout<T>(LAYOUT_TYPE layout, string name) where T : LayoutScript

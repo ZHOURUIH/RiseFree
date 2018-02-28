@@ -14,7 +14,7 @@ public class ScriptCountDown : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mNumber, "Number");
+		newObject(out mNumber, "Number");
 	}
 	public override void init()
 	{

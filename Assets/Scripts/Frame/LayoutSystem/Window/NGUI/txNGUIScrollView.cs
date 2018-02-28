@@ -9,7 +9,7 @@ public class txNGUIScrollView : txUIObject
 	public    List<txUIObject> mItemList = new List<txUIObject>();
 	public txNGUIScrollView()
 	{
-		mType = UI_OBJECT_TYPE.UBT_SCROLL_VIEW;
+		mType = UI_TYPE.UT_NGUI_SCROLL_VIEW;
 	}
 	public override void init(GameLayout layout, GameObject go, txUIObject parent)
 	{
@@ -21,7 +21,7 @@ public class txNGUIScrollView : txUIObject
 			GameObject gridGo = mScrollView.transform.GetChild(i).gameObject;
 			if(gridGo.GetComponent<UIGrid>() != null)
 			{
-				mLayout.getScript().newObject(ref mGrid, this, gridGo.name);
+				mLayout.getScript().newObject(out mGrid, this, gridGo.name);
 				break;
 			}
 		}
@@ -34,8 +34,7 @@ public class txNGUIScrollView : txUIObject
 		for(int i = 0; i < itemCount; ++i)
 		{
 			GameObject child = mGrid.getChild(i);
-			txUIObject item = null;
-			mLayout.getScript().newObject(ref item, mGrid, child.name);
+			txUIObject item = mLayout.getScript().newObject(out item, mGrid, child.name);
 			mItemList.Add(item);
 		}
 	}

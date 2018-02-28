@@ -14,18 +14,11 @@ public class CommandCharacterCircleChanged : Command
 		Character character = mReceiver as Character;
 		CharacterData data = character.getCharacterData();
 		data.mCircle = mCircle;
-		// 通知布局
-		if (character.isType(CHARACTER_TYPE.CT_MYSELF))
-		{
-			mScriptPlayerRaceInfo.setCurCircle(data.mCircle);
-		}
 		// 如果已经达到赛道的最大圈数,则完成比赛
 		if (data.mCircle >= mRaceSystem.getCurGameTrack().mCircleCount)
 		{
-			// 通知玩家是否完成比赛
-			CommandCharacterNotifyFinish cmdFinish = newCmd(out cmdFinish);
-			cmdFinish.mFinish = true;
-			pushCommand(cmdFinish, character);
+			// 通知玩家完成比赛
+			pushCommand<CommandCharacterNotifyFinish>(character);
 			// 只要有玩家完成了比赛,并且不在比赛结束倒计时流程,则跳转到比赛结束的倒计时流程
 			GameScene gameScene = mGameSceneManager.getCurScene();
 			if (!gameScene.atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING_FINISH))
@@ -34,10 +27,10 @@ public class CommandCharacterCircleChanged : Command
 				cmdProcedure.mProcedure = PROCEDURE_TYPE.PT_MAIN_GAMING_FINISH;
 				pushCommand(cmdProcedure, gameScene);
 			}
-			// 完成比赛 在倒计时流程 如果是玩家 那么就倒计时布局
+			// 完成比赛 在倒计时流程 如果是玩家 那么就隐藏倒计时布局
 			else if (character.isType(CHARACTER_TYPE.CT_MYSELF))
 			{
-				LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_END_COUNT_DOWN);			
+				LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_END_COUNT_DOWN);	
 			}
 		}
 		else
@@ -48,6 +41,8 @@ public class CommandCharacterCircleChanged : Command
 				mScriptCircleTip.notifyFinishedCircle(mCircle);
 			}
 		}
+		// 通知布局
+		mScriptPlayerRaceInfo.notifyCurCircle(data.mNumber, data.mCircle);
 	}
 	public override string showDebugInfo()
 	{

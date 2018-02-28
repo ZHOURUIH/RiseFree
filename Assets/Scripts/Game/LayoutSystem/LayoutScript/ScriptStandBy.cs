@@ -5,10 +5,10 @@ public class ScriptStandBy : LayoutScript
 {
 	protected txNGUIStaticSprite mBackground;
 	protected txNGUITextureAnim mStartRiding;
-	protected txUIObject	   mGameIn;
+	protected txUIObject mGameIn;
 	protected txNGUIText mGameInText;
 	protected txNGUIStaticSprite mGameInSprite;
-	protected txUIObject	   mGameOut;
+	protected txUIObject mGameOut;
 	protected txNGUIText mGameOutText;
 	protected txNGUIStaticSprite mGameOutSprite;
 	public ScriptStandBy(string name, GameLayout layout)
@@ -17,17 +17,18 @@ public class ScriptStandBy : LayoutScript
 	{ }
 	public override void assignWindow()
 	{
-		newObject(ref mBackground, "Background", 1);
-		newObject(ref mStartRiding, "StartRiding", 1);
-		newObject(ref mGameIn, "GameIn", 0);
-		newObject(ref mGameInText, mGameIn, "GameInText", 1);
-		newObject(ref mGameInSprite, mGameIn, "GameInSprite", 1);
-		newObject(ref mGameOut, "GameOut", 0);
-		newObject(ref mGameOutText, mGameOut, "GameOutText", 1);
-		newObject(ref mGameOutSprite, mGameOut, "GameOutSprite", 1);
+		newObject(out mBackground, "Background", 1);
+		newObject(out mStartRiding, "StartRiding", 1);
+		newObject(out mGameIn, "GameIn", 0);
+		newObject(out mGameInText, mGameIn, "GameInText", 1);
+		newObject(out mGameInSprite, mGameIn, "GameInSprite", 1);
+		newObject(out mGameOut, "GameOut", 0);
+		newObject(out mGameOutText, mGameOut, "GameOutText", 1);
+		newObject(out mGameOutSprite, mGameOut, "GameOutSprite", 1);
 	}
 	public override void init()
 	{
+		mStartRiding.setAutoAdjustWindowSize(true);
 		mStartRiding.setInterval(0.06f);
 		mStartRiding.setAutoHide(false);
 	}

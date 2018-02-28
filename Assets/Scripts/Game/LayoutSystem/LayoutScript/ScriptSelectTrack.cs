@@ -26,15 +26,14 @@ public class TrackItem
 	}
 	public void assignWindow(txNGUIStaticSprite root, string trackName)
 	{
-		mScript.newObject(ref mTrack, root, trackName);
-		mScript.newObject(ref mChecked, mTrack, "Cheaked", 0);
-		mScript.newObject(ref mLabel, mChecked, "Label", 1);
-		mScript.newObject(ref mTexture, mTrack, "Texture");
-		mScript.newObject(ref mUIGrid, mChecked, "UIGrid");
-		for (int i = 0; i < mUIGrid.getChildCount(); i++)
+		mScript.newObject(out mTrack, root, trackName);
+		mScript.newObject(out mChecked, mTrack, "Cheaked", 0);
+		mScript.newObject(out mLabel, mChecked, "Label", 1);
+		mScript.newObject(out mTexture, mTrack, "Texture");
+		mScript.newObject(out mUIGrid, mChecked, "UIGrid");
+		for (int i = 0; i < mUIGrid.getChildCount(); ++i)
 		{
-			txUIObject star = null;
-			mScript.newObject(ref star, mUIGrid, "Star" + i, 0);
+			txUIObject star = mScript.newObject(out star, mUIGrid, "Star" + i, 0);
 			mStarList.Add(star);
 		}
 		mTrackName = trackName;
@@ -100,12 +99,12 @@ public class ScriptSelectTrack : LayoutScript
 	}
 	public override void assignWindow()
 	{
-		newObject(ref mTrackRoot, "TrackRoot");
-		newObject(ref mTrackRootStart, "TrackPosStart");
-		newObject(ref mSelectTrackTitle, "SelectTrackTitle");
-		newObject(ref mLeftArrow, "LeftArrow", 0);
-		newObject(ref mRightArrow, "RightArrow", 0);
-		newObject(ref mControlHelper, "ControlHelper", 1);
+		newObject(out mTrackRoot, "TrackRoot");
+		newObject(out mTrackRootStart, "TrackPosStart");
+		newObject(out mSelectTrackTitle, "SelectTrackTitle");
+		newObject(out mLeftArrow, "LeftArrow", 0);
+		newObject(out mRightArrow, "RightArrow", 0);
+		newObject(out mControlHelper, "ControlHelper", 1);
 		for (int i = 0; i < GameDefine.TRACK_COUNT; ++i)
 		{
 			TrackItem item = new TrackItem(this);
@@ -139,13 +138,11 @@ public class ScriptSelectTrack : LayoutScript
 		int trackCount = mRaceSystem.getTrackCount();
 		for(int i = 0; i < trackCount; ++i)
 		{
-			mTrackList[i].setStar(mRaceSystem.getTrackDifficultyStart(i));
+			mTrackList[i].setStar(mRaceSystem.getTrackDifficultyStar(i));
 		}
 	}
 	public override void onShow(bool immediately, string param)
 	{
-		LayoutTools.ACTIVE_WINDOW(mLeftArrow);
-		LayoutTools.ACTIVE_WINDOW(mRightArrow);
 		LayoutTools.MOVE_WINDOW_EX(mTrackRoot, mTrackRootStartPos, mTrackRootEndPos, 1.0f, onTrackRootMoveEnd);
 		LayoutTools.ALPHA_WINDOW(mTrackRoot, 0.3f, 1.0f, 1.0f);
 
@@ -170,10 +167,10 @@ public class ScriptSelectTrack : LayoutScript
 		}
 		else
 		{
-			LayoutTools.SCALE_WINDOW(mLeftArrow, new Vector2(1.0f, 1.0f), new Vector2(0.3f, 0.3f), 0.5f);
-			LayoutTools.ALPHA_WINDOW(mLeftArrow, 1.0f, 0.3f, 0.5f);
-			LayoutTools.SCALE_WINDOW(mRightArrow, new Vector2(1.0f, 1.0f), new Vector2(0.3f, 0.3f), 0.5f);
-			LayoutTools.ALPHA_WINDOW_EX(mRightArrow, 1.0f, 0.3f, 0.5f, onArrowEnd);
+			LayoutTools.SCALE_WINDOW(mLeftArrow, new Vector2(1.0f, 1.0f), new Vector2(0.3f, 0.3f), 0.25f);
+			LayoutTools.ALPHA_WINDOW(mLeftArrow, 1.0f, 0.3f, 0.25f);
+			LayoutTools.SCALE_WINDOW(mRightArrow, new Vector2(1.0f, 1.0f), new Vector2(0.3f, 0.3f), 0.25f);
+			LayoutTools.ALPHA_WINDOW_EX(mRightArrow, 1.0f, 0.3f, 0.25f, onArrowEnd);
 		}
 	}
 	public override void update(float elapsedTime)
@@ -224,8 +221,8 @@ public class ScriptSelectTrack : LayoutScript
 	{
 		LayoutTools.ACTIVE_WINDOW(mLeftArrow, false);
 		LayoutTools.ACTIVE_WINDOW(mRightArrow, false);
-		LayoutTools.MOVE_WINDOW(mTrackRoot, mTrackRootEndPos, mTrackRootStartPos, 0.5f);
-		LayoutTools.ALPHA_WINDOW_EX(mTrackRoot, 1.0f, 0.0f, 0.5f, onArrowAlphaDone);
+		LayoutTools.MOVE_WINDOW(mTrackRoot, mTrackRootEndPos, mTrackRootStartPos, 0.25f);
+		LayoutTools.ALPHA_WINDOW_EX(mTrackRoot, 1.0f, 0.0f, 0.25f, onArrowAlphaDone);
 	}
 	protected void onArrowAlphaDone(ComponentKeyFrameBase component, object userData, bool breakTremling, bool done)
 	{
