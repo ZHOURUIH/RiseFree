@@ -25,17 +25,17 @@ public class CommandWindowPlayAudio : Command
 		WindowComponentAudio audioComponent = window.getFirstActiveComponent<WindowComponentAudio>();
 		if (audioComponent != null)
 		{
-			string soundName = mSound != SOUND_DEFINE.SD_MAX ? ComponentAudio.getAudioName(mSound) : mSoundFileName;
-			if (mUseVolumeCoe && WindowComponentAudio.mVolumeCoe.ContainsKey(mSound))
+			string soundName = mSound != SOUND_DEFINE.SD_MAX ? mAudioManager.getAudioName(mSound) : mSoundFileName;
+			if (mUseVolumeCoe)
 			{
-				mVolume *= WindowComponentAudio.mVolumeCoe[mSound];
+				mVolume *= mAudioManager.getVolumeScale(mSound);
 			}
 			audioComponent.play(soundName, mLoop, mVolume);
 		}
 	}
 	public override string showDebugInfo()
 	{
-		string soundName = mSound != SOUND_DEFINE.SD_MAX ? ComponentAudio.getAudioName(mSound) : mSoundFileName;
+		string soundName = mSound != SOUND_DEFINE.SD_MAX ? mAudioManager.getAudioName(mSound) : mSoundFileName;
 		return this.GetType().ToString() + " : sound : " + mSound + ", name : " + soundName + ", loop : " + mLoop + ", volume : " + mVolume + ", sound file name : " + mSoundFileName + ", use volume coe : " + mUseVolumeCoe;
 	}
 }

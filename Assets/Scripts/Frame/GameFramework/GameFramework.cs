@@ -43,6 +43,7 @@ public class GameFramework : MonoBehaviour
 		registeComponent<FrameConfig>();
 		registeComponent<UnityUtility>();
 		registeComponent<PluginUtility>();
+		registeComponent<DataBase>();
 		registeComponent<CommandSystem>();
 		registeComponent<CharacterManager>();
 		registeComponent<GameLayoutManager>();
@@ -52,7 +53,6 @@ public class GameFramework : MonoBehaviour
 		registeComponent<GlobalTouchSystem>();
 		registeComponent<DllImportExtern>();
 		registeComponent<ShaderManager>();
-		registeComponent<DataBase>();
 		registeComponent<CameraManager>();
 		registeComponent<LayoutPrefabManager>();
 		registeComponent<ModelManager>();

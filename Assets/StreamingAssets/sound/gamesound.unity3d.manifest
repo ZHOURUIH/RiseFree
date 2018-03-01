@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 901414141
+CRC: 876309921
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ffdb0d6b6e59e054b472727b469dfe60
+    Hash: 7ad459dd48d6802027779b27635a05ec
   TypeTreeHash:
     serializedVersion: 2
     Hash: c516f2a3b2b6b67ef759f6410a790acd
@@ -12,5 +12,26 @@ ClassTypes:
 - Class: 83
   Script: {instanceID: 0}
 Assets:
+- Assets/Resources/Sound/GameSound/Sprint.wav
+- Assets/Resources/Sound/GameSound/WrongDirection.wav
+- Assets/Resources/Sound/GameSound/UnFinish.wav
+- Assets/Resources/Sound/GameSound/FinishCountDown.mp3
+- Assets/Resources/Sound/GameSound/ShiledOpen.wav
+- Assets/Resources/Sound/GameSound/CircleTip.wav
+- Assets/Resources/Sound/GameSound/HitWall.mp3
+- Assets/Resources/Sound/GameSound/RaceBackground0.mp3
+- Assets/Resources/Sound/GameSound/SelectionChange.wav
+- Assets/Resources/Sound/GameSound/MenuBackground.mp3
+- Assets/Resources/Sound/GameSound/TipShow.wav
+- Assets/Resources/Sound/GameSound/RaceBackground2.mp3
+- Assets/Resources/Sound/GameSound/MissileHit.wav
 - Assets/Resources/Sound/GameSound/LogoVideo.wav
+- Assets/Resources/Sound/GameSound/GetItem.mp3
+- Assets/Resources/Sound/GameSound/PutLandmine.wav
+- Assets/Resources/Sound/GameSound/LandmineExplode.wav
+- Assets/Resources/Sound/GameSound/ClickButton.wav
+- Assets/Resources/Sound/GameSound/FireMissile.wav
+- Assets/Resources/Sound/GameSound/RaceBackground3.mp3
+- Assets/Resources/Sound/GameSound/Finish.wav
+- Assets/Resources/Sound/GameSound/RaceBackground1.mp3
 Dependencies: []

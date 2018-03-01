@@ -17,7 +17,6 @@ public class LogoSceneStartVideo : SceneProcedure
 	{
 		// 显示启动视频,等待视频准备完毕
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_START_VIDEO, 1);
-		mAudioManager.createAudio(CommonDefine.GAME_SOUND + "/LogoVideo", true, false);
 	}
 	protected override void onUpdate(float elapsedTime)
 	{

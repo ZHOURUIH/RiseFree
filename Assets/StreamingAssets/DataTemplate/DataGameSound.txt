@@ -1,6 +1,4 @@
 sound id	int
-sound owner	char *	32
-sound type	int
 sound file name	char *	64
 describe	char *	64
-VolumeCoe	float
+Volume Scale	float

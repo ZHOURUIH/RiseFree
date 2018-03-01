@@ -17,8 +17,11 @@ public class LogoSceneLogo : SceneProcedure
 	{
 		// 先加载关键帧资源
 		mKeyFrameManager.loadAll(false);
-		// 加载并显示logo布局
+		// 预先加载启动视频的背景音乐
+		mAudioManager.loadAudio(SOUND_DEFINE.SD_LOGO_VIDEO);
+		// 加载并显示logo布局,也加载全局音效布局
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_LOGO, 0);
+		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_GLOBAL_AUDIO, 0);
 		// 隐藏完毕后跳转到启动视频流程
 		CommandGameSceneChangeProcedure cmdProcedure = newCmd(out cmdProcedure, true, true);
 		cmdProcedure.mProcedure = PROCEDURE_TYPE.PT_LOGO_START_VIDEO;

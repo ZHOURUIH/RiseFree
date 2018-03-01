@@ -2601,11 +2601,12 @@ ModelImporter:
     4301030: XS_bingmian2_4
     4301032: XS_bingmian2_5
     4301034: XS_bingmian2_6
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

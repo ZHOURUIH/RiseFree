@@ -46,6 +46,10 @@ public class SceneLandMine : SceneItemBase
 		CommandCharacterAttacked cmdAttack = newCmd(out cmdAttack);
 		cmdAttack.mAttackSource = mType;
 		pushCommand(cmdAttack, player);
+		if (player.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			GameTools.PLAY_AUDIO_OBJECT(this, SOUND_DEFINE.SD_LANDMINE_EXPLODE);
+		}
 		// 开始销毁地雷
 		mItemManager.destroyItem(this);
 	}

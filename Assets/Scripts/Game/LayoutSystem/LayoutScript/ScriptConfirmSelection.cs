@@ -34,6 +34,7 @@ public class ScriptConfirmSelection : LayoutScript
 	{
 		LayoutTools.SCALE_WINDOW_EX(mConfirmSelectionRoot, new Vector2(0.0f, 1.0f), new Vector2(1.0f, 1.0f), 0.5f, onDoneScalePanel);
 		LayoutTools.ALPHA_WINDOW(mConfirmSelectionRoot, 0.0f, 1.0f, 0.5f);
+		GameTools.PLAY_AUDIO_UI(mRoot, SOUND_DEFINE.SD_TIP_SHOW);
 	}
 	public override void onHide(bool immediately, string param)
 	{

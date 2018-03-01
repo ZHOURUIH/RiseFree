@@ -24,6 +24,8 @@ public class StartSceneConfirmSelection : SceneProcedure
 	protected override void onExit(SceneProcedure nextProcedure)
 	{
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_CONFIRM_SELECTION);
+		// 停止背景音乐
+		ObjectTools.PLAY_AUDIO_SCENE();
 	}
 	protected override void onKeyProcess(float elapsedTime)
 	{
@@ -33,6 +35,7 @@ public class StartSceneConfirmSelection : SceneProcedure
 			CommandGameSceneManagerEnter cmd = newCmd(out cmd);
 			cmd.mSceneType = GAME_SCENE_TYPE.GST_MAIN;
 			pushCommand(cmd, mGameSceneManager);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.Y))
@@ -40,6 +43,7 @@ public class StartSceneConfirmSelection : SceneProcedure
 			CommandGameSceneChangeProcedure cmd = newCmd(out cmd);
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SELECT_TRACK;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 	}

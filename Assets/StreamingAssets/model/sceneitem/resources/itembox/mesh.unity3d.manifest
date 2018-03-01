@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1632444656
+CRC: 1801933569
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fa4ed4e5f252cb84c0e713bb76f7fc94
+    Hash: 0becf9fc1a7e85178d6379972ede041b
   TypeTreeHash:
     serializedVersion: 2
     Hash: e542d632573cc64a2fd8b25ebdc02dfc
@@ -31,4 +31,4 @@ Assets:
 - Assets/Resources/Model/SceneItem/Resources/ItemBox/Mesh/CFX_Mesh_Circular2.FBX
 - Assets/Resources/Model/SceneItem/Resources/ItemBox/Mesh/DJ_xiangzi.FBX
 Dependencies:
-- Assets/StreamingAssets/model/sceneitem/resources/itembox/mesh/materials.unity3d
+- Assets/StreamingAssets/model/sceneitem/resources/itembox/material.unity3d

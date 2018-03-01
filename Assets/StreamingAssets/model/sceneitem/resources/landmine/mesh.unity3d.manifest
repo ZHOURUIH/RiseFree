@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3252275539
+CRC: 4071206172
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4f53a5eec4cbedca657f4ae28c49c0f8
+    Hash: 91386342a256ba5c80cf44f201a1261e
   TypeTreeHash:
     serializedVersion: 2
     Hash: e62688ba90a60d41ebc1dc305a1055a9
@@ -28,4 +28,4 @@ ClassTypes:
 Assets:
 - Assets/Resources/Model/SceneItem/Resources/Landmine/Mesh/DJ_dilei.FBX
 Dependencies:
-- Assets/StreamingAssets/model/sceneitem/resources/landmine/mesh/materials.unity3d
+- Assets/StreamingAssets/model/sceneitem/resources/landmine/material.unity3d

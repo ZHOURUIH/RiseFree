@@ -28,6 +28,7 @@ public class ScriptEndCountDown : LayoutScript
 		LayoutTools.ACTIVE_WINDOW(mTimeCountDown);
 		mTimeCountDown.stop();
 		mTimeCountDown.play();
+		GameTools.PLAY_AUDIO_UI(mTimeCountDown, SOUND_DEFINE.SD_FINISH_COUNT_DOWN);
 	}
 	public override void onHide(bool immediately, string param)
 	{

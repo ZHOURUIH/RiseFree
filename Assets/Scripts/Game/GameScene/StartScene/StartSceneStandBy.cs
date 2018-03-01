@@ -16,8 +16,13 @@ public class StartSceneStandBy : SceneProcedure
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_STAND_BY, 1);
-		mSceneSystem.activeScene(GameDefine.ROLE_DISPLAY);
-		mSceneSystem.initScene(GameDefine.ROLE_DISPLAY);
+		if (lastProcedure.getProcedureType() != PROCEDURE_TYPE.PT_START_SELECT_ROLE)
+		{
+			mSceneSystem.activeScene(GameDefine.ROLE_DISPLAY);
+			mSceneSystem.initScene(GameDefine.ROLE_DISPLAY);
+			// 播放背景音乐
+			GameTools.PLAY_AUDIO_SCENE(SOUND_DEFINE.SD_MENU_BACKGROUND, true);
+		}
 	}
 	protected override void onUpdate(float elapsedTime)
 	{
@@ -35,6 +40,7 @@ public class StartSceneStandBy : SceneProcedure
 			CommandGameSceneChangeProcedure cmd = newCmd(out cmd);
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SELECT_ROLE;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		if(mGameInputManager.getKeyCurrentDown(KeyCode.Y))

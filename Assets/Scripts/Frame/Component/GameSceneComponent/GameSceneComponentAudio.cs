@@ -20,8 +20,4 @@ public class GameSceneComponentAudio : ComponentAudio
 		}
 		setAudioSource(audioSource);
 	}
-	protected override void setSoundOwner()
-	{
-		mSoundOwner = CommonDefine.SOUND_OWNER_NAME[(int)SOUND_OWNER.SO_SCENE];
-	}
 }

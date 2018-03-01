@@ -80,6 +80,10 @@ public class SceneMissile : SceneItemBase
 		CommandCharacterAttacked cmdAttack = newCmd(out cmdAttack);
 		cmdAttack.mAttackSource = mType;
 		pushCommand(cmdAttack, player);
+		if(player.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			GameTools.PLAY_AUDIO_OBJECT(this, SOUND_DEFINE.SD_MISSILE_HIT);
+		}
 		// 通知被导弹锁定的玩家导弹解除锁定
 		if(mTarget != null && mTarget as CharacterOther != null)
 		{

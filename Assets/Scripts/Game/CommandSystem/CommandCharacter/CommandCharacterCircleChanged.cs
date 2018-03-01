@@ -28,9 +28,12 @@ public class CommandCharacterCircleChanged : Command
 				pushCommand(cmdProcedure, gameScene);
 			}
 			// 完成比赛 在倒计时流程 如果是玩家 那么就隐藏倒计时布局
-			else if (character.isType(CHARACTER_TYPE.CT_MYSELF))
+			if (gameScene.atProcedure(PROCEDURE_TYPE.PT_MAIN_GAMING_FINISH))
 			{
-				LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_END_COUNT_DOWN);	
+				if (character.isType(CHARACTER_TYPE.CT_MYSELF))
+				{
+					LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_END_COUNT_DOWN, true);
+				}
 			}
 		}
 		else

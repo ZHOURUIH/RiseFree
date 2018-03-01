@@ -28,23 +28,27 @@ public class MoveGround : MonoBehaviour
 		for (int i = 0; i < mGroundCount; ++i)
 		{
 			mGround[i].transform.Translate(Vector3.up * mSpeed * Time.deltaTime);
+		}
+		// 等待所有地板移动完成
+		for (int i = 0; i < mGroundCount; ++i)
+		{
 			Vector3 pos = mGround[i].transform.position;
-			if(pos.z <= mLeftPos.z)
+			if (pos.z <= mLeftPos.z)
 			{
 				int targetIndex = 0;
-				if(i == 0)
+				if (i == 0)
 				{
 					targetIndex = 1;
 				}
-				else if(i == 1)
+				else if (i == 1)
 				{
 					targetIndex = 0;
 				}
-				else if(i == 2)
+				else if (i == 2)
 				{
 					targetIndex = 3;
 				}
-				else if(i == 3)
+				else if (i == 3)
 				{
 					targetIndex = 2;
 				}

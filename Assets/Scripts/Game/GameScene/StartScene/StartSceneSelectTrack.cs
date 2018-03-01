@@ -27,6 +27,7 @@ public class StartSceneSelectTrack : SceneProcedure
 		ObjectTools.ROTATE_OBJECT(mainCamera, mainCamera.getRotation(), cameraPos1.localEulerAngles, 0.5f);
 		CommandStartSceneSelectTrack cmdTrack = newCmd(out cmdTrack);
 		cmdTrack.mTrack = mRaceSystem.getTrackIndex();
+		cmdTrack.mPlayAudio = false;
 		pushCommand(cmdTrack, mGameScene);
 	}
 	protected override void onUpdate(float elapsedTime)
@@ -53,6 +54,7 @@ public class StartSceneSelectTrack : SceneProcedure
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SELECT_ROLE;
 			cmd.mPrepareTime = 1.0f;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		if (mGameInputManager.getKeyCurrentDown(KeyCode.X))
@@ -62,6 +64,7 @@ public class StartSceneSelectTrack : SceneProcedure
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SETTING;
 			cmd.mPrepareTime = 0.25f;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		if (mGameInputManager.turnLeft())
@@ -81,6 +84,7 @@ public class StartSceneSelectTrack : SceneProcedure
 			CommandGameSceneChangeProcedure cmd = newCmd(out cmd);
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_CONFIRM_SELECTION;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 	}

@@ -40,6 +40,7 @@ public class GameBase : FrameBase
 	public static ScriptPlayerRaceInfo mScriptPlayerRaceInfo;
 	public static ScriptAttackTip mScriptAttackTip;
 	public static ScriptDebugInfo mScriptDebugInfo;
+	public static ScriptGlobalAudio mScriptGlobalAudio;
 	public override void notifyConstructDone()
 	{
 		base.notifyConstructDone();

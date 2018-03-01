@@ -43,6 +43,7 @@ public class StartSceneSelectRole : SceneProcedure
 		// 设置当前选中角色
 		CommandStartSceneSelectRole cmd = newCmd(out cmd);
 		cmd.mIndex = mRoleSystem.getSelectedIndex();
+		cmd.mPlayAudio = false;
 		pushCommand(cmd, mGameScene);
 	}
 	protected override void onUpdate(float elapsedTime)
@@ -63,6 +64,7 @@ public class StartSceneSelectRole : SceneProcedure
 			CommandGameSceneChangeProcedure cmd = newCmd(out cmd);
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_STAND_BY;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		// 进入选择赛道流程
@@ -73,6 +75,7 @@ public class StartSceneSelectRole : SceneProcedure
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SELECT_TRACK;
 			cmd.mPrepareTime = 0.5f;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		// 进入设置流程
@@ -83,6 +86,7 @@ public class StartSceneSelectRole : SceneProcedure
 			cmd.mProcedure = PROCEDURE_TYPE.PT_START_SETTING;
 			cmd.mPrepareTime = 0.5f;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
 		// 选择上一个角色

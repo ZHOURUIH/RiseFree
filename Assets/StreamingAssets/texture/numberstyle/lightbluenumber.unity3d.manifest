@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 2999555503
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a448c761992f4d6866ff2f54d3ccfa76
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9dea23ffc7e96552740e12d1ee5309d8
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_2.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_6.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_3.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_8.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_9.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_4.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_0.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_7.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_1.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_5.png
+- Assets/Resources/Texture/NumberStyle/LightBlueNumber/LightBlueNumber_dot.png
+Dependencies: []

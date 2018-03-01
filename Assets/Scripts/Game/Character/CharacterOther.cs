@@ -149,7 +149,7 @@ public class CharacterOther : Character
 	public bool getProcessExternalSpeed(){ return mEnableStatus.mProcessExternalSpeed; }
 	public StateMachine getStateMachine() { return mStateMachine; }
 	public bool hasState(PLAYER_STATE state) { return mStateMachine.hasState(state); }
-	public bool hasStateGroup(int group) { return mStateMachine.hasStateGroup(group); }
+	public bool hasStateGroup(STATE_GROUP group) { return mStateMachine.hasStateGroup(group); }
 	public override bool isType(CHARACTER_TYPE type) { return type == CHARACTER_TYPE.CT_OTHER || base.isType(type); }
 	//---------------------------------------------------------------------------------------------------------------------------------
 	protected void initStaticTrail(Color color)

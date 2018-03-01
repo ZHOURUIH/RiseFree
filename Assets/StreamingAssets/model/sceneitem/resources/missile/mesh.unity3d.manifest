@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 892963871
+CRC: 4141705641
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 897cc93ccb21367f16a11a2e3950a5d1
+    Hash: fcd90421d9de29039a5d13959f1d4104
   TypeTreeHash:
     serializedVersion: 2
     Hash: e62688ba90a60d41ebc1dc305a1055a9
@@ -28,4 +28,4 @@ ClassTypes:
 Assets:
 - Assets/Resources/Model/SceneItem/Resources/Missile/Mesh/DJ_daodan.FBX
 Dependencies:
-- Assets/StreamingAssets/model/sceneitem/resources/missile/mesh/materials.unity3d
+- Assets/StreamingAssets/model/sceneitem/resources/missile/material.unity3d

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2857697070
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1a0fc32ff5d598d1e5633332591f8387
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9134a687b4bf118d64a479e841443802
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Layout/NGUIPrefab/UIGlobalAudio.prefab
+Dependencies: []

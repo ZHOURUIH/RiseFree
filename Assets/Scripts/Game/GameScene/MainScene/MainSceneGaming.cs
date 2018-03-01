@@ -5,6 +5,7 @@ using System.Collections.Generic;
 // 游戏主流程
 public class MainSceneGaming : SceneProcedure
 {
+	protected SOUND_DEFINE[] mRaceMusicList;
 	protected int mCount = 0;
 	public MainSceneGaming()
 	{ }
@@ -12,7 +13,13 @@ public class MainSceneGaming : SceneProcedure
 		:
 		 base(type, gameScene)
 	{
-
+		mRaceMusicList = new SOUND_DEFINE[] 
+		{
+			SOUND_DEFINE.SD_RACE_BACKGROUND0,
+			SOUND_DEFINE.SD_RACE_BACKGROUND1,
+			SOUND_DEFINE.SD_RACE_BACKGROUND2,
+			SOUND_DEFINE.SD_RACE_BACKGROUND3,
+		};
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
@@ -21,6 +28,8 @@ public class MainSceneGaming : SceneProcedure
 		mRaceSystem.notifyGameStart();
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_CIRCLE_TIP, 10);
 		LayoutTools.LOAD_NGUI_HIDE(LAYOUT_TYPE.LT_END_COUNT_DOWN, 10);
+		// 随机播放一首背景音乐
+		GameTools.PLAY_AUDIO_SCENE(mRaceMusicList[MathUtility.randomInt(0, mRaceMusicList.Length - 1)], true);
 	}
 	protected override void onUpdate(float elapsedTime)
 	{

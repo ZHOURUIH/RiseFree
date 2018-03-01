@@ -57,6 +57,7 @@ public class ScriptCircleTip : LayoutScript
 		LayoutTools.ACTIVE_WINDOW(window);
 		window.stop();
 		window.play();
+		GameTools.PLAY_AUDIO_UI(window, finish ? SOUND_DEFINE.SD_FINISH : SOUND_DEFINE.SD_UNFINISH);
 	}
 	// circle为已完成的圈数
 	public void notifyFinishedCircle(int circle)
@@ -66,6 +67,7 @@ public class ScriptCircleTip : LayoutScript
 			LayoutTools.ACTIVE_WINDOW(mCircleTipList[circle - 1]);
 			mCircleTipList[circle - 1].stop();
 			mCircleTipList[circle - 1].play();
+			GameTools.PLAY_AUDIO_UI(mCircleTipList[circle - 1], SOUND_DEFINE.SD_CIRCLE_TIP);
 		}
 	}
 }

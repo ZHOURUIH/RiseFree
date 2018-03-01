@@ -13,6 +13,8 @@ public class MainSceneFinish : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
+		// 停止背景音乐
+		ObjectTools.PLAY_AUDIO_SCENE();
 		//隐藏调试信息
 		LayoutTools.HIDE_LAYOUT(LAYOUT_TYPE.LT_DEBUG_INFO);
 		// 给所有角色添加比赛结束状态,如果已经有比赛结束状态的则不会再次添加

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class StartSceneSetting : SceneProcedure
 {
-	protected float mVolume;
 	public StartSceneSetting()
 	{ }
 	public StartSceneSetting(PROCEDURE_TYPE type, GameScene gameScene)
@@ -16,7 +15,6 @@ public class StartSceneSetting : SceneProcedure
 	}
 	protected override void onInit(SceneProcedure lastProcedure, string intent)
 	{
-		mVolume = mGameSetting.getCurVolume();
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_VOLUME_SETTING, 10);
 	}
 	protected override void onUpdate(float elapsedTime)
@@ -25,9 +23,7 @@ public class StartSceneSetting : SceneProcedure
 	}
 	protected override void onExit(SceneProcedure nextProcedure)
 	{
-		MathUtility.clamp(ref mVolume, 0.0f, 1.0f);
-		mGameSetting.setCurVolume(mVolume);
-		mGameSetting.applyToConfig();
+		;
 	}
 	protected override void onPrepareExit(SceneProcedure nextProcedure)
 	{
@@ -46,15 +42,27 @@ public class StartSceneSetting : SceneProcedure
 			cmd.mProcedure = mGameScene.getLastProcedureType();
 			cmd.mPrepareTime = 0.5f;
 			pushCommand(cmd, mGameScene);
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
 			return;
 		}
-		if (mGameInputManager.getKeyCurrentDown(KeyCode.A))
+		if (mGameInputManager.getKeyDown(KeyCode.A))
 		{
-			mScriptVolumeSetting.setVolume(mVolume += 0.01f);
+			setVolume(mGameSetting.getCurVolume() + 0.01f);
 		}
-		if (mGameInputManager.getKeyCurrentDown(KeyCode.B))
+		if (mGameInputManager.getKeyDown(KeyCode.B))
 		{
-			mScriptVolumeSetting.setVolume(mVolume -= 0.01f);
+			setVolume(mGameSetting.getCurVolume() - 0.01f);
 		}
+	}
+	protected void setVolume(float volume)
+	{
+		MathUtility.clamp(ref volume, 0.0f, 1.0f);
+		mScriptVolumeSetting.setVolume(volume);
+		mGameSetting.setCurVolume(volume);
+		mGameSetting.applyToConfig();
+		GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_CLICK_BUTTON);
+		GameScene gameScene = mGameSceneManager.getCurScene();
+		GameSceneComponentAudio componentAudio = gameScene.getFirstActiveComponent<GameSceneComponentAudio>();
+		componentAudio.setVolume(volume);
 	}
 }

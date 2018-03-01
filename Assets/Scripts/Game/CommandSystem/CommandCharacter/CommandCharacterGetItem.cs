@@ -26,6 +26,7 @@ class CommandCharacterGetItem : Command
 			if (player.isType(CHARACTER_TYPE.CT_MYSELF))
 			{
 				mScriptProps.addProps(mItemType, itemIndex);
+				GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_GET_ITEM);
 			}
 			// 如果获取道具的是游戏中Al(直接使用游戏中的道具)
 			else

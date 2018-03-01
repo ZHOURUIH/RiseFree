@@ -4,10 +4,12 @@ using System.Collections;
 public class CommandStartSceneSelectRole : Command
 {
 	public int mIndex;
+	public bool mPlayAudio;
 	public override void init()
 	{
 		base.init();
 		mIndex = 0;
+		mPlayAudio = true;
 	}
 	public override void execute()
 	{
@@ -16,7 +18,7 @@ public class CommandStartSceneSelectRole : Command
 		{
 			CharacterOther curRole = mRoleSystem.getSelectedRole();
 			// 当前角色有SELECT_ROLE状态组,如果没有,则说明是第一次进入选人流程
-			if (curRole != null && curRole.hasStateGroup(0))
+			if (curRole != null && curRole.hasStateGroup(STATE_GROUP.SG_SELECT))
 			{
 				// 当前角色显示完毕时才能切换角色,也不能选择相同的角色
 				if (!curRole.hasState(PLAYER_STATE.PS_SELECTED_ROLE) || mRoleSystem.getSelectedIndex() == mIndex)
@@ -38,6 +40,10 @@ public class CommandStartSceneSelectRole : Command
 				pushCommand(cmdSelect, character);
 				// 通知布局
 				mScriptSelectRole.selectRole(mIndex);
+				if(mPlayAudio)
+				{
+					GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_SELECTION_CHANGE);
+				}
 			}
 		}
 	}

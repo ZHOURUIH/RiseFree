@@ -7,15 +7,15 @@ public class StateMachine
 {
 	protected Dictionary<PLAYER_STATE, Type> mStateTypeList;
 	protected Dictionary<PLAYER_STATE, PlayerState> mCurStateList;
-	protected Dictionary<PLAYER_STATE, List<int>> mStateGroupList;		// 查找状态所在的所有组
-	protected Dictionary<int, List<PLAYER_STATE>> mGroupStateList;		// 查找该组中的所有状态
+	protected Dictionary<PLAYER_STATE, List<STATE_GROUP>> mStateGroupList;		// 查找状态所在的所有组
+	protected Dictionary<STATE_GROUP, StateGroup> mGroupStateList;				// 查找该组中的所有状态
 	protected CharacterOther mPlayer;
 	public StateMachine()
 	{
 		mStateTypeList = new Dictionary<PLAYER_STATE, Type>();
 		mCurStateList = new Dictionary<PLAYER_STATE, PlayerState>();
-		mStateGroupList = new Dictionary<PLAYER_STATE, List<int>>();
-		mGroupStateList = new Dictionary<int, List<PLAYER_STATE>>();
+		mStateGroupList = new Dictionary<PLAYER_STATE, List<STATE_GROUP>>();
+		mGroupStateList = new Dictionary<STATE_GROUP, StateGroup>();
 	}
 	public void init(CharacterOther player)
 	{
@@ -38,47 +38,24 @@ public class StateMachine
 		{
 			UnityUtility.logError("not all player state registed!");
 		}
+		registeGroup(STATE_GROUP.SG_SELECT, false);
+		registeGroup(STATE_GROUP.SG_GAME, false);
+		registeGroup(STATE_GROUP.SG_RIDE, false);
+		registeGroup(STATE_GROUP.SG_BUFF, true);
 		// 为状态分组
-		// 选中状态
-		assignGroup(0, PLAYER_STATE.PS_ON_SELECT_ROLE);
-		assignGroup(0, PLAYER_STATE.PS_SELECTED_ROLE);
-		assignGroup(0, PLAYER_STATE.PS_UN_SELECT_ROLE);
-		// 游戏状态
-		assignGroup(1, PLAYER_STATE.PS_READY);
-		assignGroup(1, PLAYER_STATE.PS_FINISH);
-		assignGroup(1, PLAYER_STATE.PS_GAMING);
-		// 骑行状态
-		assignGroup(2, PLAYER_STATE.PS_RIDING);
-		assignGroup(2, PLAYER_STATE.PS_JUMP);
-		assignGroup(2, PLAYER_STATE.PS_IDLE);
-		// 增益状态和负面状态
-		assignGroup(3, PLAYER_STATE.PS_ATTACKED);
-		assignGroup(3, PLAYER_STATE.PS_SPRINT);
-		assignGroup(3, PLAYER_STATE.PS_PROTECTED);
-		assignGroup(3, PLAYER_STATE.PS_AIM);
-	}
-	public void assignGroup(int group, PLAYER_STATE state)
-	{
-		if(mStateGroupList.ContainsKey(state))
-		{
-			mStateGroupList[state].Add(group);
-		}
-		else
-		{
-			List<int> list = new List<int>();
-			list.Add(group);
-			mStateGroupList.Add(state, list);
-		}
-		if(mGroupStateList.ContainsKey(group))
-		{
-			mGroupStateList[group].Add(state);
-		}
-		else
-		{
-			List<PLAYER_STATE> list = new List<PLAYER_STATE>();
-			list.Add(state);
-			mGroupStateList.Add(group, list);
-		}
+		assignGroup(STATE_GROUP.SG_SELECT, PLAYER_STATE.PS_ON_SELECT_ROLE);
+		assignGroup(STATE_GROUP.SG_SELECT, PLAYER_STATE.PS_SELECTED_ROLE);
+		assignGroup(STATE_GROUP.SG_SELECT, PLAYER_STATE.PS_UN_SELECT_ROLE);
+		assignGroup(STATE_GROUP.SG_GAME, PLAYER_STATE.PS_READY);
+		assignGroup(STATE_GROUP.SG_GAME, PLAYER_STATE.PS_FINISH);
+		assignGroup(STATE_GROUP.SG_GAME, PLAYER_STATE.PS_GAMING);
+		assignGroup(STATE_GROUP.SG_RIDE, PLAYER_STATE.PS_RIDING);
+		assignGroup(STATE_GROUP.SG_RIDE, PLAYER_STATE.PS_JUMP);
+		assignGroup(STATE_GROUP.SG_RIDE, PLAYER_STATE.PS_IDLE);
+		assignGroup(STATE_GROUP.SG_BUFF, PLAYER_STATE.PS_ATTACKED);
+		assignGroup(STATE_GROUP.SG_BUFF, PLAYER_STATE.PS_SPRINT);
+		assignGroup(STATE_GROUP.SG_BUFF, PLAYER_STATE.PS_PROTECTED);
+		assignGroup(STATE_GROUP.SG_BUFF, PLAYER_STATE.PS_AIM);
 	}
 	public void update(float elapsedTime)
 	{
@@ -109,16 +86,16 @@ public class StateMachine
 		}
 	}
 	// 是否拥有该组的任意一个状态
-	public bool hasStateGroup(int group)
+	public bool hasStateGroup(STATE_GROUP group)
 	{
 		if(!mGroupStateList.ContainsKey(group))
 		{
 			return false;
 		}
-		int count0 = mGroupStateList[group].Count;
+		int count0 = mGroupStateList[group].mStateList.Count;
 		for(int i = 0; i < count0; ++i)
 		{
-			if(hasState(mGroupStateList[group][i]))
+			if(hasState(mGroupStateList[group].mStateList[i]))
 			{
 				return true;
 			}
@@ -147,7 +124,7 @@ public class StateMachine
 		Dictionary<PLAYER_STATE, PlayerState> tempList = new Dictionary<PLAYER_STATE, PlayerState>(mCurStateList);
 		foreach (var item in tempList)
 		{
-			if (isSameGroup(item.Key, type))
+			if (!canCoExist(item.Key, type))
 			{
 				removeState(item.Key);
 			}
@@ -182,6 +159,18 @@ public class StateMachine
 	}
 	public Dictionary<PLAYER_STATE, PlayerState> getStateList() { return mCurStateList; }
 	//----------------------------------------------------------------------------------------------------------------
+	protected void assignGroup(STATE_GROUP group, PLAYER_STATE state)
+	{
+		if (!mStateGroupList.ContainsKey(state))
+		{
+			mStateGroupList.Add(state, new List<STATE_GROUP>());
+		}
+		mStateGroupList[state].Add(group);
+		if (mGroupStateList.ContainsKey(group))
+		{
+			mGroupStateList[group].addState(state);
+		}
+	}
 	protected PlayerState createState(PLAYER_STATE type)
 	{
 		if(!mStateTypeList.ContainsKey(type))
@@ -196,27 +185,33 @@ public class StateMachine
 	{
 		mStateTypeList.Add(state, typeof(T));
 	}
-	protected bool isSameGroup(PLAYER_STATE state0, PLAYER_STATE state1)
+	protected void registeGroup(STATE_GROUP group, bool coexist)
+	{
+		mGroupStateList.Add(group, new StateGroup(group, coexist));
+	}
+	// 两个状态是否可以共存
+	protected bool canCoExist(PLAYER_STATE state0, PLAYER_STATE state1)
 	{
 		// 任意一个状态没有所属组,则不在同一组
 		if(!mStateGroupList.ContainsKey(state0) || !mStateGroupList.ContainsKey(state1))
 		{
-			return false;
+			return true;
 		}
-		List<int> group0 = mStateGroupList[state0];
-		List<int> group1 = mStateGroupList[state1];
+		List<STATE_GROUP> group0 = mStateGroupList[state0];
+		List<STATE_GROUP> group1 = mStateGroupList[state1];
 		int count0 = group0.Count;
 		int count1 = group1.Count;
 		for(int i = 0; i < count0; ++i)
 		{
 			for(int j = 0; j < count1; ++j)
 			{
-				if(group0[i] == group1[j])
+				// 属于同一状态组,并且该状态组中的所有状态都不能共存
+				if(group0[i] == group1[j] && !mGroupStateList[group0[i]].mCoexist)
 				{
-					return true;
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 }

@@ -86,6 +86,7 @@ public class ScriptButtomPrompt : LayoutScript
 		{
 			LayoutTools.MOVE_WINDOW_EX(mBottomPromptBackground, mBackgroundStartPos, mBackgroundEndPos, 0.25f, onPromptEnd);
 			LayoutTools.ALPHA_WINDOW(mBottomPromptBackground, 0.3f, 1.0f, 0.25f);
+			GameTools.PLAY_AUDIO_UI(mRoot, SOUND_DEFINE.SD_TIP_SHOW);
 		}
 	}
 	public override void onHide(bool immediately, string param)

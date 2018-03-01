@@ -20,6 +20,10 @@ public class CommandCharacterHitWall : Command
 		// 同时需要降低硬件速度组件中从当前速度加速到目标速度的快慢
 		CharacterSpeedHardware speedHardware = character.getFirstComponent<CharacterSpeedHardware>();
 		speedHardware.setAcceleration(0.0f);
+		if(character.isType(CHARACTER_TYPE.CT_MYSELF))
+		{
+			GameTools.PLAY_AUDIO_UI(mScriptGlobalAudio.getAudioWindow(), SOUND_DEFINE.SD_HIT_WALL);
+		}
 	}
 	public override string showDebugInfo()
 	{

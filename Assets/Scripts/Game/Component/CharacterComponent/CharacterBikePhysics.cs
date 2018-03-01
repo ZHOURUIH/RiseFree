@@ -177,18 +177,12 @@ public class CharacterBikePhysics : GameComponent
 				mSerialPortManager.sendPacket(packet);
 				if (mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
 				{
-					if (mScriptDebugInfo != null)
-					{
-						mScriptDebugInfo.notityFriction(mCurFriction);
-					}
+					mScriptDebugInfo.notityFriction(mCurFriction);
 				}
 			}
 			if (mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
 			{
-				if (mScriptDebugInfo != null)
-				{
-					mScriptDebugInfo.notityPitch(pitch);
-				}
+				mScriptDebugInfo.notityPitch(pitch);
 			}
 		}
 		base.update(elapsedTime);

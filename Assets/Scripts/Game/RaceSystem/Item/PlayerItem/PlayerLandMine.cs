@@ -36,7 +36,8 @@ public class PlayerLandMine : PlayerItemBase
 		Vector3 pos = player.getPosition() - dir * 2.0f;
 		LandmineParam param = new LandmineParam();
 		param.mPosition = pos;
-		mItemManager.createItem(SCENE_ITEM.SI_LAND_MINE, param);
+		SceneLandMine landmine = mItemManager.createItem<SceneLandMine>(SCENE_ITEM.SI_LAND_MINE, param);
+		GameTools.PLAY_AUDIO_OBJECT(landmine, SOUND_DEFINE.SD_PUT_LANDMINE);
 		// 使用后立即移除背包中的道具
 		CommandCharacterRemoveItem cmdRemove = newCmd(out cmdRemove);
 		cmdRemove.mItem = this;
