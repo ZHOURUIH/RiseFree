@@ -11,9 +11,10 @@ public class ProtectedState : PlayerState
 	{
 		mStateTime = 4.0f;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
-		mShield = UnityUtility.instantiatePrefab(mPlayer.getObject(), GameDefine.R_PARTICLE_PREFAB_PATH + GameDefine.SHIELD);
+		mShield = mObjectManager.createObject(mPlayer.getObject(), GameDefine.R_PARTICLE_PREFAB_PATH + GameDefine.SHIELD);
+		mShield.name = "Shield";
 		mShield.transform.localPosition = new Vector3(0.0f, 1.0f, 0.0f);
 		if (mPlayer.isType(CHARACTER_TYPE.CT_MYSELF))
 		{
@@ -22,6 +23,7 @@ public class ProtectedState : PlayerState
 	}
 	public override void leave()
 	{
-		UnityUtility.destroyGameObject(mShield);
+		mObjectManager.destroyObject(mShield);
+		mShield = null;
 	}
 }

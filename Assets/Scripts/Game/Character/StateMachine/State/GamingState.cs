@@ -10,7 +10,7 @@ public class GamingState : PlayerState
 	{
 		;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		// 确认当前道具选择
 		pushCommand<CommandCharacterSelectItem>(mPlayer);

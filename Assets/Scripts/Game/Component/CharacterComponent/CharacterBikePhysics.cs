@@ -97,49 +97,60 @@ public class CharacterBikePhysics : GameComponent
 			Vector3 delta = (moveDir * mData.mSpeed + Vector3.up * mData.mVerticalSpeed) * elapsedTime;
 			mCharacter.setPosition(lastPosition + delta);
 		}
-
-		// 计算与墙面的碰撞
-		// 从运动之前的位置向运动方向发射一条射线
-		Ray dirRay = new Ray(lastPosition, moveDir);
-#if UNITY_EDITOR
-		Debug.DrawLine(dirRay.origin, dirRay.origin + dirRay.direction * 10.0f, Color.red);
-#endif
-		RaycastHit dirRet;
-		// 检测前方是否有墙
-		if (Physics.Raycast(dirRay, out dirRet, 1000.0f, 1 << GameUtility.mWallLayer))
+		// 检测前方是否有墙,多次检测确保角色不会穿透墙壁,最多只检测3次,避免在极端情况出现无线循环的现象
+		const int HIT_WALL_TEST_COUNT = 3;
+		for(int i = 0; i < HIT_WALL_TEST_COUNT; ++i)
 		{
-			float wallDis = MathUtility.getLength(dirRet.point - lastPosition);
-			// 减去上一次的位置与当前位置的差值后,如果小于单车前半部分的长度则认为是碰到了墙,计算出反弹方向
-			if (wallDis - MathUtility.getLength(lastPosition - mCharacter.getPosition()) < GameDefine.BIKE_FRONT_LENGTH)
+			// 计算与墙面的碰撞
+			// 从运动之前的位置向运动方向发射一条射线
+			moveDir = MathUtility.getVectorFromAngle(mData.mSpeedRotation.y * Mathf.Deg2Rad);
+			Ray dirRay = new Ray(lastPosition, moveDir);
+#if UNITY_EDITOR
+			Debug.DrawLine(dirRay.origin, dirRay.origin + dirRay.direction * 10.0f, Color.red);
+#endif
+			RaycastHit dirRet;
+			bool hitWall = false;
+			if (Physics.Raycast(dirRay, out dirRet, 1000.0f, 1 << GameUtility.mWallLayer))
 			{
-				Vector3 newDir = MathUtility.getReflection(moveDir, dirRet.normal);
-				float reflectAngle = MathUtility.getAngleBetweenVector(newDir, dirRet.normal) * Mathf.Rad2Deg;
-				// 反射角需要限定到一定范围
-				if (reflectAngle < GameDefine.MIN_REFLECT_ANGLE || reflectAngle > GameDefine.MAX_REFLECT_ANGLE)
+				float wallDis = MathUtility.getLength(dirRet.point - lastPosition);
+				// 减去上一次的位置与当前位置的差值后,如果小于单车前半部分的长度则认为是碰到了墙,计算出反弹方向
+				if (wallDis - MathUtility.getLength(lastPosition - mCharacter.getPosition()) < GameDefine.BIKE_FRONT_LENGTH)
 				{
-					MathUtility.clamp(ref reflectAngle, GameDefine.MIN_REFLECT_ANGLE, GameDefine.MAX_REFLECT_ANGLE);
-					// 如果法线与反射方向相同,也就是垂直撞墙,则反射角默认为正
-					// 否则通过叉乘的结果来判断反射角的符号
-					if (!MathUtility.isVectorZero(MathUtility.normalize(newDir) - MathUtility.normalize(dirRet.normal)))
+					Vector3 newDir = MathUtility.getReflection(moveDir, dirRet.normal);
+					float reflectAngle = MathUtility.getAngleBetweenVector(newDir, dirRet.normal) * Mathf.Rad2Deg;
+					// 反射角需要限定到一定范围
+					if (reflectAngle < GameDefine.MIN_REFLECT_ANGLE || reflectAngle > GameDefine.MAX_REFLECT_ANGLE)
 					{
-						Vector3 cross = MathUtility.normalize(Vector3.Cross(newDir, dirRet.normal));
-						if (cross.y > 0.0f)
+						MathUtility.clamp(ref reflectAngle, GameDefine.MIN_REFLECT_ANGLE, GameDefine.MAX_REFLECT_ANGLE);
+						// 如果法线与反射方向相同,也就是垂直撞墙,则反射角默认为正
+						// 否则通过叉乘的结果来判断反射角的符号
+						if (!MathUtility.isVectorZero(MathUtility.normalize(newDir) - MathUtility.normalize(dirRet.normal)))
 						{
-							reflectAngle = -reflectAngle;
+							Vector3 cross = MathUtility.normalize(Vector3.Cross(newDir, dirRet.normal));
+							if (cross.y > 0.0f)
+							{
+								reflectAngle = -reflectAngle;
+							}
 						}
+						Quaternion quat = new Quaternion();
+						quat.eulerAngles = new Vector3(0.0f, reflectAngle, 0.0f);
+						newDir = MathUtility.rotateVector3(dirRet.normal, quat);
 					}
-					Quaternion quat = new Quaternion();
-					quat.eulerAngles = new Vector3(0.0f, reflectAngle, 0.0f);
-					newDir = MathUtility.rotateVector3(dirRet.normal, quat);
+					mData.mSpeedRotation.y = MathUtility.getVectorYaw(newDir) * Mathf.Rad2Deg;
+					// 此处仍然同步设置角色的旋转,暂时保证速度方向与角色的旋转值一致
+					mCharacter.setYaw(mData.mSpeedRotation.y);
+					// 根据碰撞的入射角度,计算出速度损失量
+					float inAngle = MathUtility.getAngleBetweenVector(-moveDir, dirRet.normal) * Mathf.Rad2Deg;
+					CommandCharacterHitWall cmdHitWall = newCmd(out cmdHitWall, false);
+					cmdHitWall.mAngle = inAngle;
+					pushCommand(cmdHitWall, mCharacter);
+					hitWall = true;
 				}
-				mData.mSpeedRotation.y = MathUtility.getVectorYaw(newDir) * Mathf.Rad2Deg;
-				// 此处仍然同步设置角色的旋转,暂时保证速度方向与角色的旋转值一致
-				mCharacter.setYaw(mData.mSpeedRotation.y);
-				// 根据碰撞的入射角度,计算出速度损失量
-				float inAngle = MathUtility.getAngleBetweenVector(-moveDir, dirRet.normal) * Mathf.Rad2Deg;
-				CommandCharacterHitWall cmdHitWall = newCmd(out cmdHitWall,false);
-				cmdHitWall.mAngle = inAngle;
-				pushCommand(cmdHitWall, mCharacter);
+			}
+			// 已经没有接触墙壁,则退出循环
+			if (!hitWall)
+			{
+				break;
 			}
 		}
 		// 调整自身位置

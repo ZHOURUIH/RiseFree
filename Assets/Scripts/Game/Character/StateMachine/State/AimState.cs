@@ -23,7 +23,7 @@ public class AimState : PlayerState
 		}
 		return true;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		// 显示瞄准图标,只有玩家自己进入瞄准状态才显示
 		if (mPlayer.isType(CHARACTER_TYPE.CT_MYSELF))

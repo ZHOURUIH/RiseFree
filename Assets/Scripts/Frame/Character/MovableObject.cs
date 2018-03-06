@@ -131,6 +131,7 @@ public class MovableObject : ComponentOwner
 	}
 	// set
 	//-------------------------------------------------------------------------------------------------------------------------
+	public void setDestroyObject(bool value) { mDestroyObject = value; }
 	public virtual void setActive(bool active)
 	{
 		mObject.SetActive(active);

@@ -12,7 +12,7 @@ public class WrongDirectionState : PlayerState
 	{
 		mWrongDirectionTime = 0.0f;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		// 显示方向提示界面,只有玩家自己进入瞄准状态才显示
 		if (mPlayer.isType(CHARACTER_TYPE.CT_MYSELF))

@@ -54,8 +54,7 @@ public class GameFramework : MonoBehaviour
 		registeComponent<DllImportExtern>();
 		registeComponent<ShaderManager>();
 		registeComponent<CameraManager>();
-		registeComponent<LayoutPrefabManager>();
-		registeComponent<ModelManager>();
+		registeComponent<LayoutSubPrefabManager>();
 		registeComponent<InputManager>();
 		registeComponent<SceneSystem>();
 	}
@@ -65,7 +64,8 @@ public class GameFramework : MonoBehaviour
 		instance = this;
 		mGameFrameObject = gameObject;
 		initComponent();
-		// 资源管理器必须最后注册,以便最后销毁,作为最后的资源清理
+		// 物体管理器和资源管理器必须最后注册,以便最后销毁,作为最后的资源清理
+		registeComponent<ObjectManager>();
 		registeComponent<ResourceManager>();
 	}
 	public virtual void registe(){}

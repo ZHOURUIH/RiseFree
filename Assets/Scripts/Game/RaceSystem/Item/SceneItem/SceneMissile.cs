@@ -27,7 +27,7 @@ public class SceneMissile : SceneItemBase
 	protected MovableObject mTarget;
 	public SceneMissile(SCENE_ITEM type)
 		:
-		base(type)
+		base("Missile", type)
 	{
 		mSelfControlDestroy = true;
 		mExplodeParticleName = "Missile_M_3D_Hit_02";
@@ -40,12 +40,17 @@ public class SceneMissile : SceneItemBase
 		MissileParam missileParam = param as MissileParam;
 		// 创建导弹模型并添加导弹脚本
 		createObject(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.MISSILE, missileParam.mPosition);
-		mMissileComponent = mObject.AddComponent<MissileObject>();
+		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
+		UnityUtility.getGameObject(mObject, mExplodeParticleName1, true).SetActive(false);
+		UnityUtility.getGameObject(mObject, mMissileModelName, true).SetActive(true);
+		mMissileComponent = mObject.GetComponent<MissileObject>();
+		if(mMissileComponent == null)
+		{
+			mMissileComponent = mObject.AddComponent<MissileObject>();
+		}
 		mMissileComponent.setItem(this);
 		ObjectTools.TRACK_TARGET(this, GameDefine.MISSILE_SPEED, missileParam.mTarget, Vector3.up);
 		mTarget = missileParam.mTarget;
-		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
-		UnityUtility.getGameObject(mObject, mExplodeParticleName1, true).SetActive(false);
 	}
 	public override void destroy()
 	{

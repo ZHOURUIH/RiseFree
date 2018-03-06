@@ -31,32 +31,44 @@ public class RaceInfo : GameBase
 	public void assignWindow(string rootName)
 	{
 		mScript.newObject(out mCanvas, rootName);
-		mScript.newObject(out mCircleRoot, mCanvas, "CircleRoot");
-		mScript.newObject(out mCircleLabel, mCircleRoot, "CircleLabel");
-		mScript.newObject(out mCurCircleNumber, mCircleRoot, "CurCircleNumber");
-		mScript.newObject(out mSeperate, mCircleRoot, "Seperate");
-		mScript.newObject(out mMaxCircleNumber, mCircleRoot, "MaxCircleNumber");
-		mScript.newObject(out mCircleIcon, mCircleRoot, "CircleIcon");
+		if(mScript.hasObject(mCanvas, "CircleRoot"))
+		{
+			mScript.newObject(out mCircleRoot, mCanvas, "CircleRoot");
+			mScript.newObject(out mCircleLabel, mCircleRoot, "CircleLabel");
+			mScript.newObject(out mCurCircleNumber, mCircleRoot, "CurCircleNumber");
+			mScript.newObject(out mSeperate, mCircleRoot, "Seperate");
+			mScript.newObject(out mMaxCircleNumber, mCircleRoot, "MaxCircleNumber");
+			mScript.newObject(out mCircleIcon, mCircleRoot, "CircleIcon");
+		}
 		mScript.newObject(out mRankRoot, mCanvas, "RankRoot");
 		mScript.newObject(out mPreLabel, mRankRoot, "PreLabel");
 		mScript.newObject(out mRankNumber, mRankRoot, "RankNumber");
 		mScript.newObject(out mEndLabel, mRankRoot, "EndLabel");
 		mScript.newObject(out mRankIcon, mRankRoot, "RankIcon");
-		mScript.newObject(out mSpeedRoot, mCanvas, "SpeedRoot");
-		mScript.newObject(out mSpeedNumber, mSpeedRoot, "SpeedNumber");
-		mScript.newObject(out mSpeedUnit, mSpeedRoot, "SpeedUnit");
-		mScript.newObject(out mSpeedIcon, mSpeedRoot, "SpeedIcon");
-		mScript.newObject(out mSpeedColorIcon, mSpeedRoot, "SpeedColorIcon");
+		if (mScript.hasObject(mCanvas, "SpeedRoot"))
+		{
+			mScript.newObject(out mSpeedRoot, mCanvas, "SpeedRoot");
+			mScript.newObject(out mSpeedNumber, mSpeedRoot, "SpeedNumber");
+			mScript.newObject(out mSpeedUnit, mSpeedRoot, "SpeedUnit");
+			mScript.newObject(out mSpeedIcon, mSpeedRoot, "SpeedIcon");
+			mScript.newObject(out mSpeedColorIcon, mSpeedRoot, "SpeedColorIcon");
+		}
 	}
 	public void init()
 	{
-		mSpeedNumber.setDockingPosition(DOCKING_POSITION.DP_RIGHT);
+		if(mSpeedNumber != null)
+		{
+			mSpeedNumber.setDockingPosition(DOCKING_POSITION.DP_RIGHT);
+		}
 	}
 	public void onReset() { }
 	public void setSpeedMS(float speed)
 	{
-		int speedKMH = (int)(MathUtility.MStoKMH(speed) * GameDefine.DISPLAY_MILEAGE_SCALE);
-		mSpeedNumber.setNumber(speedKMH);
+		if(mSpeedNumber != null)
+		{
+			int speedKMH = (int)(MathUtility.MStoKMH(speed) * GameDefine.DISPLAY_MILEAGE_SCALE);
+			mSpeedNumber.setNumber(speedKMH);
+		}
 	}
 	public void setRank(int rank)
 	{
@@ -65,15 +77,21 @@ public class RaceInfo : GameBase
 	}
 	public void setMaxCircle(int circle)
 	{
-		mMaxCircleNumber.setNumber(circle);
+		if(mMaxCircleNumber != null)
+		{
+			mMaxCircleNumber.setNumber(circle);
+		}
 	}
 	// circle是玩家已完成的圈数
 	public void setCurCircle(int circle)
 	{
-		circle += 1;
-		MathUtility.clamp(ref circle, 0, mRaceSystem.getCurGameTrack().mCircleCount);
-		// 需要显示为玩家当前所在的圈数
-		mCurCircleNumber.setNumber(circle);
+		if(mCurCircleNumber != null)
+		{
+			circle += 1;
+			MathUtility.clamp(ref circle, 0, mRaceSystem.getCurGameTrack().mCircleCount);
+			// 需要显示为玩家当前所在的圈数
+			mCurCircleNumber.setNumber(circle);
+		}
 	}
 	public void setConnectPlayer(CharacterOther player)
 	{

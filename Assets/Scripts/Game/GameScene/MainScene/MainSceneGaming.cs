@@ -48,7 +48,7 @@ public class MainSceneGaming : SceneProcedure
 			cmdProcedure.mProcedure = PROCEDURE_TYPE.PT_MAIN_FINISH;
 			pushCommand(cmdProcedure, mGameScene);
 		}
-		//按L键显示和隐藏游戏键位的使用说明
+		// 按L键显示和隐藏游戏键位的使用说明
 		if (Input.GetKeyDown(KeyCode.L))
 		{
 			mCount++;
@@ -60,6 +60,18 @@ public class MainSceneGaming : SceneProcedure
 			{
 				LayoutTools.SHOW_LAYOUT(LAYOUT_TYPE.LT_DEBUG_INFO);
 			}
+		}
+		// (测试用的)按M键所有AI获得导弹
+		if (Input.GetKeyDown(KeyCode.M))
+		{
+			Dictionary<string, Character> characterList = new Dictionary<string, Character>(); 
+			mCharacterManager.getCharacterListByType(CHARACTER_TYPE.CT_AI,ref characterList);
+			foreach (var item in characterList)
+			{
+				CommandCharacterGetItem cmd = newCmd(out cmd);
+				cmd.mItemType = PLAYER_ITEM.PI_MISSILE;
+				pushCommand(cmd, item.Value);
+			}	
 		}
 	}
 }

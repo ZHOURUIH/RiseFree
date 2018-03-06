@@ -10,7 +10,7 @@ public class ReadyState : PlayerState
 	{
 		mEnableStatus.enableAll(false);
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		// 隐藏静态拖尾,并显示动态拖
 		mPlayer.activeTrail(false);

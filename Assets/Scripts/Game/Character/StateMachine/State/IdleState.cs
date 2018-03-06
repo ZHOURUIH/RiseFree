@@ -10,7 +10,7 @@ public class IdleState : PlayerState
 	{
 		mEnableStatus.mProcessTurn = false;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		;
 	}

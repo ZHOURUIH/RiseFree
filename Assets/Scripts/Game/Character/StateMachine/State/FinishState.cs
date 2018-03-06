@@ -10,7 +10,7 @@ public class FinishState : PlayerState
 	{
 		mEnableStatus.enableAll(false);
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		// 禁用动态拖尾
 		mPlayer.activeTrail(false, false);

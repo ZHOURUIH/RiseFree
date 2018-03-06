@@ -7,19 +7,23 @@ using UnityEngine;
 public class ItemBoxObject : MonoBehaviour
 {
 	protected SceneItemBox mItemBox;
-	protected bool mEffentive = true;
+	protected bool mEffective = true;
 	public void Start()
 	{
 		gameObject.GetComponent<BoxCollider>().isTrigger = true;
 	}
 	public void OnTriggerEnter(Collider other)
 	{
-		if (mEffentive && LayerMask.NameToLayer(GameDefine.LAYER_CHARACTER) == other.gameObject.layer)
+		if (mEffective && LayerMask.NameToLayer(GameDefine.LAYER_CHARACTER) == other.gameObject.layer)
 		{
 			Character character = GameBase.mCharacterManager.getCharacter(other.name);
 			mItemBox.onEffective(character);
-			mEffentive = false;
+			mEffective = false;
 		}
 	}
-	public void setItem(SceneItemBox item) { mItemBox = item; }
+	public void setItem(SceneItemBox item)
+	{
+		mItemBox = item;
+		mEffective = true;
+	}
 }

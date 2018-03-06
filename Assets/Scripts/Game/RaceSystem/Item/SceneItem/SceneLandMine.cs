@@ -24,7 +24,7 @@ public class SceneLandMine : SceneItemBase
 	protected string mLandmineModelName;
 	public SceneLandMine(SCENE_ITEM type)
 		:
-		base(type)
+		base("Landmine", type)
 	{
 		mSelfControlDestroy = true;
 		mExplodeParticleName = "Landmine_3D_FireHit_01";
@@ -36,7 +36,13 @@ public class SceneLandMine : SceneItemBase
 		LandmineParam landmineParam = param as LandmineParam;
 		// 创建地雷模型并添加地雷脚本
 		createObject(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.LANDMINE, landmineParam.mPosition);
-		mLandMineComponent = mObject.AddComponent<LandmineObject>();
+		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
+		UnityUtility.getGameObject(mObject, mLandmineModelName, true).SetActive(true);
+		mLandMineComponent = mObject.GetComponent<LandmineObject>();
+		if(mLandMineComponent == null)
+		{
+			mLandMineComponent = mObject.AddComponent<LandmineObject>();
+		}
 		mLandMineComponent.setItem(this);
 	}
 	// 地雷生效的效果

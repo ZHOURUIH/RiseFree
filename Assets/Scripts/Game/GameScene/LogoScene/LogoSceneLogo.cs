@@ -17,8 +17,16 @@ public class LogoSceneLogo : SceneProcedure
 	{
 		// 先加载关键帧资源
 		mKeyFrameManager.loadAll(false);
-		// 预先加载启动视频的背景音乐
+		// 预先加载启动视频的背景音乐,因为需要尽量保证在播放视频时视频音效已经加载完
 		mAudioManager.loadAudio(SOUND_DEFINE.SD_LOGO_VIDEO);
+		// 然后异步加载所有音效
+		mAudioManager.loadAll(true);
+		// 预加载需要用到的预设
+		mObjectManager.loadPrefab(GameDefine.R_PARTICLE_PREFAB_PATH + GameDefine.SHIELD);
+		mObjectManager.loadPrefab(GameDefine.R_PARTICLE_PREFAB_PATH + GameDefine.TURBO);
+		mObjectManager.loadPrefab(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.ITEM_BOX);
+		mObjectManager.loadPrefab(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.LANDMINE);
+		mObjectManager.loadPrefab(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.MISSILE);
 		// 加载并显示logo布局,也加载全局音效布局
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_LOGO, 0);
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_GLOBAL_AUDIO, 0);

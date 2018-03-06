@@ -29,7 +29,7 @@ class OnSelectRoleState : SelecteState
 		mAnimationList.Add(new AnimationOdds(GameDefine.ANIM_SPEED_UP, GameDefine.ANIM_RIDE, 0.1f));
 		mAnimationList.Add(new AnimationOdds(GameDefine.ANIM_SPEED_UP_SHARP, GameDefine.ANIM_RIDE, 0.1f));
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		mCharacterManager.activeCharacter(mPlayer, true);
 		RoleDisplay scene = mSceneSystem.getScene<RoleDisplay>(GameDefine.ROLE_DISPLAY);

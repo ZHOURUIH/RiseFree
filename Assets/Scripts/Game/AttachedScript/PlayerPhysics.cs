@@ -6,11 +6,7 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
-	public CharacterOther mPlayer;
-	public void Awake()
-	{
-		mPlayer = GameBase.mCharacterManager.getCharacter(gameObject.name) as CharacterOther;
-	}
+	protected CharacterOther mPlayer;
 	public void OnTriggerEnter(Collider other)
 	{
 		// 角色之间的碰撞
@@ -26,6 +22,10 @@ public class PlayerPhysics : MonoBehaviour
 			cmdJump.mJumpSpeed = GameDefine.JUMP_SPEED;
 			GameBase.pushCommand(cmdJump, mPlayer);
 		}
+	}
+	public void setPlayer(CharacterOther player)
+	{
+		mPlayer = player;
 	}
 	//-------------------------------------------------------------------------------------------------------
 }

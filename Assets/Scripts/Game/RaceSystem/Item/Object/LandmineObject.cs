@@ -6,20 +6,23 @@ using UnityEngine;
 public class LandmineObject : MonoBehaviour
 {
 	protected SceneLandMine mSceneLandMine;
-	protected bool mEffentive = true;
+	protected bool mEffective = true;
 	public void Start()
 	{
 		gameObject.GetComponent<BoxCollider>().isTrigger = true;
 	}
 	public void OnTriggerEnter(Collider other)
 	{
-		if (mEffentive && LayerMask.NameToLayer(GameDefine.LAYER_CHARACTER) == other.gameObject.layer)
+		if (mEffective && LayerMask.NameToLayer(GameDefine.LAYER_CHARACTER) == other.gameObject.layer)
 		{
 			Character character = GameBase.mCharacterManager.getCharacter(other.name);
 			mSceneLandMine.onEffective(character);
-			mEffentive = false;
+			mEffective = false;
 		}
-		
 	}
-	public void setItem(SceneLandMine item) { mSceneLandMine = item; }
+	public void setItem(SceneLandMine item)
+	{
+		mSceneLandMine = item;
+		mEffective = true;
+	}
 }

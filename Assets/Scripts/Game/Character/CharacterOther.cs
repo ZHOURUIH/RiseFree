@@ -100,9 +100,17 @@ public class CharacterOther : Character
 	{
 		base.initModel(modelPath, animationControllerPath);
 #if UNITY_EDITOR
-		mObject.AddComponent<PlayerInfo>();
+		if(mObject.GetComponent<PlayerInfo>() == null)
+		{
+			mObject.AddComponent<PlayerInfo>();
+		}
+		mObject.GetComponent<PlayerInfo>().setPlayer(this);
 #endif
-		mObject.AddComponent<PlayerPhysics>();
+		if (mObject.GetComponent<PlayerPhysics>() == null)
+		{
+			mObject.AddComponent<PlayerPhysics>();
+		}
+		mObject.GetComponent<PlayerPhysics>().setPlayer(this);
 		getFirstComponent<CharacterBikePhysics>().notifyModelInited();
 		Color color = GameUtility.getTrailColorByModelName(StringUtility.getFileName(modelPath));
 		initDynamicTrail(color);
@@ -148,6 +156,7 @@ public class CharacterOther : Character
 	public bool getProcessTurn(){ return mEnableStatus.mProcessTurn; }
 	public bool getProcessExternalSpeed(){ return mEnableStatus.mProcessExternalSpeed; }
 	public StateMachine getStateMachine() { return mStateMachine; }
+	public PlayerState getState(PLAYER_STATE state) { return mStateMachine.getState(state); }
 	public bool hasState(PLAYER_STATE state) { return mStateMachine.hasState(state); }
 	public bool hasStateGroup(STATE_GROUP group) { return mStateMachine.hasStateGroup(group); }
 	public override bool isType(CHARACTER_TYPE type) { return type == CHARACTER_TYPE.CT_OTHER || base.isType(type); }

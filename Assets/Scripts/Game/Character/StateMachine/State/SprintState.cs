@@ -3,7 +3,7 @@
 // 冲刺状态
 public class SprintState : PlayerState
 {
-	private GameObject mTurbo;
+	protected GameObject mTurbo;
 	public SprintState(PLAYER_STATE type)
 		:
 		base(type)
@@ -12,9 +12,10 @@ public class SprintState : PlayerState
 		mStateTime = 4.0f;
 		mEnableStatus.mProcessExternalSpeed = false;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
-		mTurbo = UnityUtility.instantiatePrefab(mPlayer.getObject(), GameDefine.R_PARTICLE_PREFAB_PATH + GameDefine.TURBO);
+		mTurbo = mObjectManager.createObject(mPlayer.getObject(), GameDefine.R_PARTICLE_PREFAB_PATH + GameDefine.TURBO);
+		mTurbo.name = "Turbo";
 		mTurbo.transform.localPosition = new Vector3(0.5f, -3.0f, 2.0f);
 		float speed = mPlayer.getCharacterData().mSpeed;
 		CommandCharacterHardwareSpeed cmd = newCmd(out cmd);
@@ -31,6 +32,7 @@ public class SprintState : PlayerState
 	}
 	public override void leave()
 	{
-		UnityUtility.destroyGameObject(mTurbo);
+		mObjectManager.destroyObject(mTurbo);
+		mTurbo = null;
 	}
 }

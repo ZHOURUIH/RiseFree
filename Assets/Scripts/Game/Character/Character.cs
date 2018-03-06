@@ -42,12 +42,12 @@ public class Character : MovableObject
 		if (modelPath != "")
 		{
 			// 模型节点也就是角色节点,并且将节点挂到角色管理器下
-			GameObject model = mModelManager.createModel(modelPath, mName);
+			GameObject model = mObjectManager.createObject(modelPath);
 			setObject(model, true);
 			// 将外部节点设置为角色节点后,角色在销毁时就不能自动销毁节点,否则会出错
-			mDestroyObject = false;
+			setDestroyObject(false);
 			setParent(mCharacterManager.getManagerNode());
-			mAvatar.setModel(model, modelPath, true);
+			mAvatar.setModel(model, modelPath);
 			mRigidBody = model.GetComponent<Rigidbody>();
 		}
 		if (animationControllerPath != "")

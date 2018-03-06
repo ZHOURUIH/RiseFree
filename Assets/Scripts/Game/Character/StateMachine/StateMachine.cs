@@ -107,7 +107,7 @@ public class StateMachine
 	{
 		return mCurStateList.ContainsKey(type) && mCurStateList[type].getActive();
 	}
-	public bool addState(PLAYER_STATE type)
+	public bool addState(PLAYER_STATE type, StateParam param)
 	{
 		if(mCurStateList.ContainsKey(type))
 		{
@@ -130,7 +130,7 @@ public class StateMachine
 			}
 		}
 		// 进入状态,并添加到状态列表
-		state.enter();
+		state.enter(param);
 		mCurStateList.Add(type, state);
 		// 通知角色有状态添加
 		mPlayer.notifyStateChanged();
@@ -158,6 +158,14 @@ public class StateMachine
 		}
 	}
 	public Dictionary<PLAYER_STATE, PlayerState> getStateList() { return mCurStateList; }
+	public PlayerState getState(PLAYER_STATE state)
+	{
+		if(mCurStateList.ContainsKey(state))
+		{
+			return mCurStateList[state];
+		}
+		return null;
+	}
 	//----------------------------------------------------------------------------------------------------------------
 	protected void assignGroup(STATE_GROUP group, PLAYER_STATE state)
 	{

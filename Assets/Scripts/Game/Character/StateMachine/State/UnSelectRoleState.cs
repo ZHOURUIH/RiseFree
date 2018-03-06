@@ -11,7 +11,7 @@ class UnSelectRoleState : SelecteState
 	{
 		;
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		mAnimation.CrossFade(GameDefine.ANIM_TURN_RIGHT);
 		mAnimation.CrossFadeQueued(GameDefine.ANIM_RIDE);

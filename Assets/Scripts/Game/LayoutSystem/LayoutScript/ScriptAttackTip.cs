@@ -7,22 +7,15 @@ using UnityEngine;
 public class ScriptAttackTip : LayoutScript
 {
 	protected txNGUIStaticSprite mAttackEffectRoot;
-	protected List<txNGUIStaticTextureHSLOffset> mEffectList;
 	public ScriptAttackTip(string name, GameLayout layout)
 		:
 		base(name, layout)
 	{
-		mEffectList = new List<txNGUIStaticTextureHSLOffset>();
+		;
 	}
 	public override void assignWindow()
 	{
 		newObject(out mAttackEffectRoot, "AttackedEffectRoot");
-		int count = mAttackEffectRoot.mObject.transform.childCount;
-		for(int i = 0; i < count; ++i)
-		{
-			txNGUIStaticTextureHSLOffset effect = newObject(out effect, mAttackEffectRoot, "Effect" + i);
-			mEffectList.Add(effect);
-		}
 	}
 	public override void init()
 	{
@@ -31,11 +24,6 @@ public class ScriptAttackTip : LayoutScript
 	public override void onReset()
 	{
 		LayoutTools.ACTIVE_WINDOW(mAttackEffectRoot, false);
-		int count = mEffectList.Count;
-		for (int i = 0; i < count; ++i)
-		{
-			LayoutTools.HSL_WINDOW(mEffectList[i], new Vector3(-0.5f, 0.0f, 0.0f));
-		}
 	}
 	public override void onShow(bool immediately, string param)
 	{

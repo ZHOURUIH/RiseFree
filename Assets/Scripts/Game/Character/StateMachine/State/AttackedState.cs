@@ -10,7 +10,7 @@ public class AttackedState : PlayerState
 	{
 		mEnableStatus.enableAll(false);
 	}
-	public override void enter()
+	public override void enter(StateParam param)
 	{
 		// 状态持续时间为摔倒动作的持续时间
 		AnimationClip clip = mAnimation.GetClip(GameDefine.ANIM_FALL_DOWN);

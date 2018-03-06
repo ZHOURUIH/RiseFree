@@ -25,12 +25,9 @@ public class PlayerInfo : MonoBehaviour
 	public List<string> mAllAnimationStateList;
 	public void Awake()
 	{
-		mPlayer = GameBase.mCharacterManager.getCharacter(gameObject.name) as CharacterOther;
-		mCharacterData = mPlayer.getCharacterData();
 		mActiveComponentList = new List<string>();
 		mActivedAnimationStateList = new List<string>();
 		mAllAnimationStateList = new List<string>();
-		mAnimation = mPlayer.getAnimation();
 	}
 	public void Update()
 	{
@@ -40,9 +37,19 @@ public class PlayerInfo : MonoBehaviour
 	{
 		updateInfo(false);
 	}
+	public void setPlayer(CharacterOther player)
+	{
+		mPlayer = player;
+		mCharacterData = mPlayer.getCharacterData();
+		mAnimation = mPlayer.getAnimation();
+	}
 	//-------------------------------------------------------------------------------------------------------
 	protected void updateInfo(bool enable = true)
 	{
+		if(mPlayer == null)
+		{
+			return;
+		}
 		mState = new List<PLAYER_STATE>(mPlayer.getStateMachine().getStateList().Keys);
 		mActiveComponentList.Clear();
 		Dictionary<string, GameComponent> allComponent = mPlayer.getAllComponent();

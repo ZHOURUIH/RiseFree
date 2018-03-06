@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public class StateParam
+{
+	public PLAYER_STATE mType;
+}
+
 public class PlayerState : GameBase
 {
 	protected PLAYER_STATE mType;
@@ -24,7 +29,7 @@ public class PlayerState : GameBase
 	}
 	// 当前是否可以进入该状态,状态的是否重复已经由状态机判断了
 	public virtual bool canEnter(){return true;}
-	public virtual void enter(){}
+	public virtual void enter(StateParam param) {}
 	public virtual void update(float elapsedTime)
 	{
 		if(mStateTime >= 0.0f)

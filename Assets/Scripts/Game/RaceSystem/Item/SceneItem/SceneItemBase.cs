@@ -16,9 +16,9 @@ public class SceneItemBase : MovableObject
 {
 	protected SCENE_ITEM mType;
 	protected bool mSelfControlDestroy;
-	public SceneItemBase(SCENE_ITEM type)
+	public SceneItemBase(string name, SCENE_ITEM type)
 		:
-		base("SceneItem")
+		base(name)
 	{
 		mType = type;
 		mSelfControlDestroy = false;
@@ -33,6 +33,7 @@ public class SceneItemBase : MovableObject
 	}
 	public override void destroy()
 	{
+		mObjectManager.destroyObject(mObject);
 		base.destroy();
 	}
 	public SCENE_ITEM getItemType() { return mType; }
@@ -47,7 +48,8 @@ public class SceneItemBase : MovableObject
 	}
 	protected void createObject(string path, Vector3 pos, Vector3 rot, Vector3 scale)
 	{
-		setObject(UnityUtility.instantiatePrefab(mItemManager.getManagerObject(), path));
+		setObject(mObjectManager.createObject(mItemManager.getManagerObject(), path));
+		setDestroyObject(false);
 		mTransform.localPosition = pos;
 		mTransform.localEulerAngles = rot;
 		mTransform.localScale = scale;

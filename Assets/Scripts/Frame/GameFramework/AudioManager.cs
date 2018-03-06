@@ -8,6 +8,7 @@ public class AudioInfo
 	public string mAudioName;   // 音效名,不含路径和后缀名
 	public string mAudioPath;   // 相对于Sound的路径
 	public string mSuffix;      // 后缀名
+	public LOAD_STATE mState;
 	public bool mIsResource;    // 是否为固定资源,如果为false则是通过链接加载的,可以是网络链接也可以是本地链接
 }
 
@@ -65,6 +66,7 @@ public class AudioManager : FrameComponent
 			newInfo.mAudioName = audioName;
 			newInfo.mAudioPath = StringUtility.getFilePath(url);
 			newInfo.mClip = null;
+			newInfo.mState = LOAD_STATE.LS_UNLOAD;
 			newInfo.mIsResource = false;
 			newInfo.mSuffix = StringUtility.getFileSuffix(url);
 			mAudioClipList.Add(audioName, newInfo);
@@ -80,7 +82,7 @@ public class AudioManager : FrameComponent
 	{
 		foreach (var item in mAudioClipList)
 		{
-			if (item.Value.mClip == null)
+			if (item.Value.mClip == null && item.Value.mState == LOAD_STATE.LS_UNLOAD)
 			{
 				loadAudio(item.Value, async);
 			}
@@ -129,7 +131,7 @@ public class AudioManager : FrameComponent
 		// 如果音效为空,则尝试加载
 		if (clip == null)
 		{
-			if (load)
+			if (load && mAudioClipList[name].mState == LOAD_STATE.LS_UNLOAD)
 			{
 				loadAudio(mAudioClipList[name], false);
 				clip = mAudioClipList[name].mClip;
@@ -212,6 +214,7 @@ public class AudioManager : FrameComponent
 			newInfo.mAudioName = audioName;
 			newInfo.mAudioPath = StringUtility.getFilePath(fileName);
 			newInfo.mClip = null;
+			newInfo.mState = LOAD_STATE.LS_UNLOAD;
 			newInfo.mIsResource = true;
 			newInfo.mSuffix = "";
 			mAudioClipList.Add(audioName, newInfo);
@@ -223,16 +226,18 @@ public class AudioManager : FrameComponent
 		{
 			string name = StringUtility.getFileNameNoSuffix(res.name, true);
 			mAudioClipList[name].mClip = res as AudioClip;
+			mAudioClipList[name].mState = LOAD_STATE.LS_LOADED;
 		}
 		++mLoadedCount;
 	}
 	// name为Resource下相对路径,不带后缀
 	protected void loadAudio(AudioInfo info, bool async)
 	{
-		if(info.mClip != null)
+		if(info.mClip != null || info.mState != LOAD_STATE.LS_UNLOAD)
 		{
 			return;
 		}
+		info.mState = LOAD_STATE.LS_LOADING;
 		string path = info.mAudioPath;
 		if (path != "" && !path.EndsWith("/"))
 		{
@@ -243,14 +248,15 @@ public class AudioManager : FrameComponent
 			string fullName = CommonDefine.R_SOUND_PATH + path + info.mAudioName;
 			if (async)
 			{
-				mResourceManager.loadResourceAsync<AudioClip>(fullName, onAudioLoaded, false);
+				mResourceManager.loadResourceAsync<AudioClip>(fullName, onAudioLoaded, null, false);
 			}
 			else
 			{
 				AudioClip audio = mResourceManager.loadResource<AudioClip>(fullName, false);
 				if (audio != null)
 				{
-					mAudioClipList[audio.name].mClip = audio;
+					info.mClip = audio;
+					info.mState = LOAD_STATE.LS_LOADED;
 				}
 				++mLoadedCount;
 			}

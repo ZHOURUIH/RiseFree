@@ -20,7 +20,7 @@ public class SceneItemBox : SceneItemBase
 	protected string mBoxModelNodeName;
 	public SceneItemBox(SCENE_ITEM type)
 		:
-		base(type)
+		base("ItemBox", type)
 	{
 		mSelfControlDestroy = true;
 		mExplodeParticleName = "ItemBox_SOmobileFX_galaxy_2";
@@ -33,7 +33,12 @@ public class SceneItemBox : SceneItemBase
 		// 创建道具箱子模型并添加脚本
 		createObject(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.ITEM_BOX, boxParam.mPosition);
 		UnityUtility.getGameObject(mObject, mExplodeParticleName, true).SetActive(false);
-		mBoxObjectComponent = mObject.AddComponent<ItemBoxObject>();
+		UnityUtility.getGameObject(mObject, mBoxModelNodeName, true).SetActive(true);
+		mBoxObjectComponent = mObject.GetComponent<ItemBoxObject>();
+		if (mBoxObjectComponent == null)
+		{
+			mBoxObjectComponent = mObject.AddComponent<ItemBoxObject>();
+		}
 		mBoxObjectComponent.setItem(this);
 		// 播放箱子动画(并且设置播放的速度为0.5f)
 		GameObject diXiangzi = UnityUtility.getGameObject(mObject, mBoxModelNodeName, true);
