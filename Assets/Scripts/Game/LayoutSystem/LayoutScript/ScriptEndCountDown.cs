@@ -16,7 +16,6 @@ public class ScriptEndCountDown : LayoutScript
 	}
 	public override void init()
 	{
-		mTimeCountDown.setAutoAdjustWindowSize(true);
 		mTimeCountDown.setInterval(0.08f);
 	}
 	public override void onReset()

@@ -39,11 +39,15 @@ public class CharacterTrackMileage : GameComponent
 				{
 					mPassedPointList.Add(curPointIndex);
 				}
-				float totalLength = mWayPointManager.getTotalLength();
-				// 上一次位于赛道后1/3部分,当前位于赛道前1/3部分,则认为这一帧经过了终点,并且这一圈已经路过了超过一半的路点
-				if (mData.mRunDistance >= totalLength / 3.0f * 2.0f && mData.mRunDistance < totalLength
-					&& runDistance >= 0.0f && runDistance < totalLength / 3.0f
-					&& mPassedPointList.Count >= mWayPointManager.getPointCount() / 2)
+				// 防止在游戏开始后 后退到终点线之前 导致已过路点添加错误 最后圈数检测错误
+				if (runDistance >= mWayPointManager.getTotalLength()/2 && mPassedPointList.Count <= mWayPointManager.getPointCount() / 3)
+				{
+					mPassedPointList.Clear();
+				}
+				// 已经进入下一圈,并且上一次经过的是当前圈的最后一个路段,当前正处于第0个路段,并且已经完成了当前圈一半以上的路段
+				if (runDistance > 0.0f &&
+					curPointIndex == 0 && mPassedPointList[mPassedPointList.Count - 1] == mWayPointManager.getPointCount() - 1 && 
+					mPassedPointList.Count >= mWayPointManager.getPointCount() / 2)
 				{
 					// 圈数改变
 					mPassedPointList.Clear();

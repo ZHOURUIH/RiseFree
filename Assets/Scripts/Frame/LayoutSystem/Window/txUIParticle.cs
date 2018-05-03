@@ -20,7 +20,13 @@ public class txUIParticle : txUIObject
 	}
 	public void setLoop(bool loop)
 	{
+#if UNITY_5_3_5
 		mParticle.loop = loop;
+#else
+		ParticleSystem.MainModule main = mParticle.main;
+		main.loop = loop;
+#endif
+
 	}
 	public void play()
 	{

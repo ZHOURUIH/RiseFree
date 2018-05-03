@@ -25,7 +25,6 @@ public class RoleSelection
 	}
 	public void init()
 	{
-		mRole.setAutoAdjustWindowSize(true);
 		mStartPosition = mRole.getPosition();
 		mEndPosition = mEnd.getPosition();
 		mRole.setAutoHide(false);
@@ -125,7 +124,7 @@ public class RoleSelection
 
 public class ScriptSelectRole : LayoutScript
 {
-	protected txNGUISpriteAnim mSelectionRoleTitle;      // "角色选择"标题序列帧
+	protected txNGUITextureAnim mSelectionRoleTitle;      // "角色选择"标题序列帧
 	protected txNGUISpriteAnim mFemale;                  // 女角色按钮
 	protected List<RoleSelection> mRoleSelectionList;
 	protected bool mShowDone = false;

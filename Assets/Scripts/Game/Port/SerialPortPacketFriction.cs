@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.Ports;
 using System.Threading;
 
 public class SerialPortPacketFriction : SerialPortPacket
@@ -31,7 +30,7 @@ public class SerialPortPacketFriction : SerialPortPacket
 		BinaryUtility.writeByte(payload, ref index, mKeyID);
 		BinaryUtility.writeByte(payload, ref index, mValueLength);
 		BinaryUtility.writeByte(payload, ref index, mFriction);
-		mHeader = new PacketHeader();
+		mHeader = new PacketHeader(GameDefine.REPORT_OUT);
 		mHeader.mPayloadLength = (ushort)payloadLen;
 		mHeader.mCRC16 = BinaryUtility.crc16(0xFF, payload, payloadLen);
 		byte[] headerData = mHeader.toBytes();

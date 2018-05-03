@@ -72,6 +72,10 @@ abstract public class GameScene : ComponentOwner
 	}
 	public virtual void keyProcess(float elapsedTime)
 	{
+		if(!mGameFramework.getEnableKeyboard())
+		{
+			return;
+		}
 		// 在准备退出当前流程时,不响应任何按键操作
 		if (mCurProcedure != null && !mCurProcedure.isPreparingExit())
 		{
@@ -198,12 +202,12 @@ abstract public class GameScene : ComponentOwner
 		return mCurProcedure.getThisOrParent<T>(type);
 	}
 	public GAME_SCENE_TYPE getSceneType() { return mSceneType; }
-	public static SceneProcedure createProcedure<T>(GameScene gameScene, PROCEDURE_TYPE type) where T : SceneProcedure, new()
+	public static SceneProcedure createProcedure<T>(GameScene gameScene, PROCEDURE_TYPE type) where T : SceneProcedure
 	{
 		T procedure = UnityUtility.createInstance<T>(typeof(T), type, gameScene);
 		return procedure;
 	}
-	public T addProcedure<T>(PROCEDURE_TYPE type, SceneProcedure parent = null) where T : SceneProcedure, new()
+	public T addProcedure<T>(PROCEDURE_TYPE type, SceneProcedure parent = null) where T : SceneProcedure
     {
 		SceneProcedure procedure = createProcedure<T>(this, type);
 		if (parent != null)

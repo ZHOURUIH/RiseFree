@@ -27,7 +27,8 @@ public class GameInputManager : InputManager
 	protected Dictionary<KeyCode, KEY_STATE> mKeyState;	// 按键状态列表
 	protected Dictionary<KeyCode, bool> mKeyStateCache;	// 按键状态列表缓存,用于接收当前按键设置
 	protected bool mKeyboardEnable;
-	protected bool mDeviceConnected;			// 保存设备的连接状态,提高访问效率
+	protected bool mDeviceConnected;            // 保存设备的连接状态,提高访问效率
+	protected float mTurnSensitive = 1.0f;
 	public GameInputManager(string name)
 		:base(name)
 	{
@@ -48,6 +49,7 @@ public class GameInputManager : InputManager
 		mKeyboardEnable = (int)mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_KEYBOARD_ENABLE) != 0;
 		mTurnThreshold = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_THRESHOLD);
 		mTurnAngleOffset = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_ANGLE_OFFSET);
+		mTurnSensitive = mGameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_TURN_SENSITIVE);
 	}
 	public override void destroy()
 	{
@@ -56,7 +58,7 @@ public class GameInputManager : InputManager
 	public override void update(float elapsedTime)
 	{
 		base.update(elapsedTime);
-		mDeviceConnected = mSerialPortManager.isDeviceConnect();
+		mDeviceConnected = mUSBManager.isDeviceConnect();
 		// 此处只能判断设备是否连接,否则未按下键盘时,自动回弹逻辑会影响设备转向
 		if (!mDeviceConnected)
 		{
@@ -122,8 +124,8 @@ public class GameInputManager : InputManager
 				}
 			}
 		}
-		mTurnLeft = mLastStickAngle > -mTurnThreshold && mStickAngle < -mTurnThreshold;
-		mTurnRight = mLastStickAngle < mTurnThreshold && mStickAngle > mTurnThreshold;
+		mTurnLeft = mLastStickAngle * mTurnSensitive > -mTurnThreshold && mStickAngle * mTurnSensitive < -mTurnThreshold;
+		mTurnRight = mLastStickAngle * mTurnSensitive < mTurnThreshold && mStickAngle * mTurnSensitive > mTurnThreshold;
 		mLastStickAngle = mStickAngle;
 	}
 	public bool isLeft()

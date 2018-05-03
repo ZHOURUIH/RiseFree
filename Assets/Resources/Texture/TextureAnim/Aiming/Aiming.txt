@@ -1,0 +1,16 @@
+﻿TargetSize=256 * 256
+Aiming_1 = TargetSize:182*164; Pos:0,9; OriginSize:178 * 161;
+Aiming_2 = TargetSize:173*163; Pos:-6,5; OriginSize:169 * 160;
+Aiming_3 = TargetSize:160*162; Pos:-12,-1; OriginSize:157 * 159;
+Aiming_4 = TargetSize:146*158; Pos:-16,-8; OriginSize:143 * 155;
+Aiming_5 = TargetSize:138*150; Pos:-17,-14; OriginSize:135 * 147;
+Aiming_6 = TargetSize:135*141; Pos:-13,-20; OriginSize:132 * 138;
+Aiming_7 = TargetSize:132*128; Pos:-7,-25; OriginSize:129 * 125;
+Aiming_8 = TargetSize:126*116; Pos:-2,-27; OriginSize:124 * 114;
+Aiming_9 = TargetSize:133*121; Pos:3,-28; OriginSize:130 * 119;
+Aiming_10 = TargetSize:138*134; Pos:8,-25; OriginSize:135 * 131;
+Aiming_11 = TargetSize:139*145; Pos:15,-20; OriginSize:136 * 142;
+Aiming_12 = TargetSize:141*154; Pos:19,-14; OriginSize:138 * 151;
+Aiming_13 = TargetSize:150*160; Pos:18,-8; OriginSize:147 * 157;
+Aiming_14 = TargetSize:163*163; Pos:14,-2; OriginSize:160 * 160;
+Aiming_15 = TargetSize:175*163; Pos:7,5; OriginSize:171 * 160;

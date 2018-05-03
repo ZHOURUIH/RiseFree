@@ -34,7 +34,6 @@ public class MainSceneReady : SceneProcedure
 		LayoutTools.LOAD_UGUI_SHOW(LAYOUT_TYPE.LT_PLAYER_RACE_INFO, 10);
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_ATTACK_TIP, 10);
 		LayoutTools.HIDE_LAYOUT_DELAY(null, 10.0f, LAYOUT_TYPE.LT_BUTTOM_PROMPT);
-		LayoutTools.LOAD_NGUI_HIDE(LAYOUT_TYPE.LT_DEBUG_INFO, 25);
 	}
 	protected override void onUpdate(float elapsedTime)
 	{

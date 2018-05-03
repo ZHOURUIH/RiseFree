@@ -13,7 +13,7 @@ public class FrameConfig : ConfigBase
 	{ }
 	public override void writeConfig()
 	{
-		FileUtility.writeFile(CommonDefine.F_CONFIG_PATH + "FrameFloatConfig.txt", generateFloatFile());
+		FileUtility.writeTxtFile(CommonDefine.F_CONFIG_PATH + "FrameFloatConfig.txt", generateFloatFile());
 	}
 	//-----------------------------------------------------------------------------------------------------------------------
 	protected override void addFloat()
@@ -22,6 +22,7 @@ public class FrameConfig : ConfigBase
 		addFloatParam(GAME_DEFINE_FLOAT.GDF_BROADCAST_PORT);
 		addFloatParam(GAME_DEFINE_FLOAT.GDF_LOAD_RESOURCES);
 		addFloatParam(GAME_DEFINE_FLOAT.GDF_LOG_LEVEL);
+		addFloatParam(GAME_DEFINE_FLOAT.GDF_ENABLE_KEYBOARD);
 		if (mFloatNameToDefine.Count != (int)GAME_DEFINE_FLOAT.GDF_FRAME_MAX - (int)GAME_DEFINE_FLOAT.GDF_FRAME_MIN - 1)
 		{
 			UnityUtility.logError("not all float parameter added!");

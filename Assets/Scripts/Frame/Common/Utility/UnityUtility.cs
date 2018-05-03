@@ -59,6 +59,11 @@ public class UnityUtility : FrameComponent
 			mShowMessageBox = false;
 		}
 		UnityEngine.Debug.LogError("error : " + info);
+		// 游戏中的错误日志
+		if (mFrameLogSystem != null)
+		{
+			mFrameLogSystem.logGameError(info);
+		}	
 	}
 	// force表示是否强制输出日志
 	public static void logInfo(string info, LOG_LEVEL level = LOG_LEVEL.LL_NORMAL)
@@ -103,7 +108,7 @@ public class UnityUtility : FrameComponent
 		Camera camera = mCameraManager.getUICamera().getCamera();
 		return camera.ScreenPointToRay(screenPos);
 	}
-	public static List<txUIObject> raycast(Ray ray, SortedDictionary<int, List<txUIObject>> buttonList, int maxCount = 0)
+	public static List<txUIObject> raycast(Ray ray, SortedDictionary<UIDepth, List<txUIObject>> buttonList, int maxCount = 0)
 	{
 		bool cast = true;
 		List<txUIObject> retList = new List<txUIObject>();
@@ -184,6 +189,15 @@ public class UnityUtility : FrameComponent
 	{
 		GameObject obj = GameObject.Instantiate(oriObj);
 		obj.name = name;
+		return obj;
+	}
+	public static GameObject createObject(string name, GameObject parent = null)
+	{
+		GameObject obj = new GameObject(name);
+		if(parent != null)
+		{
+			obj.GetComponent<Transform>().SetParent(parent.GetComponent<Transform>());
+		}
 		return obj;
 	}
 	// 根据预设名实例化

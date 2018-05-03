@@ -78,7 +78,7 @@ public class ScriptSelectTrack : LayoutScript
 {
 	protected txNGUIStaticSprite mTrackRoot;				//	三个赛道的父级
 	protected List<TrackItem> mTrackList;				//	赛道
-	protected txNGUISpriteAnim mSelectTrackTitle;			//	角色 变 赛道序列帧
+	protected txNGUITextureAnim mSelectTrackTitle;			//	角色 变 赛道序列帧
 	protected txNGUIStaticSprite mLeftArrow;              //	左箭头
 	protected txNGUIStaticSprite mRightArrow;				//	右箭头
 	// 整体UI移动的标识

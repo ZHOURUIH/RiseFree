@@ -9,7 +9,7 @@ public class GameBase : FrameBase
 	public static GameConfig mGameConfig;
 	public static HardwareInfo mHardwareInfo;
 	public static SocketManager mSocketNetManager;
-	public static SerialPortManager mSerialPortManager;
+	public static USBManager mUSBManager;
 	public static GameInputManager mGameInputManager;
 	public static GameSetting mGameSetting;
 	public static RoleSystem mRoleSystem;
@@ -51,12 +51,13 @@ public class GameBase : FrameBase
 			mHardwareInfo = mGame.getSystem<HardwareInfo>();
 			mSocketNetManager = mGame.getSystem<SocketManager>();
 			mGameInputManager = mGame.getSystem<GameInputManager>();
-			mSerialPortManager = mGame.getSystem<SerialPortManager>();
+			mUSBManager = mGame.getSystem<USBManager>();
 			mGameSetting = mGame.getSystem<GameSetting>();
 			mRoleSystem = mGame.getSystem<RoleSystem>();
 			mRaceSystem = mGame.getSystem<RaceSystem>();
 			mItemManager = mGame.getSystem<SceneItemManager>();
 			mLogSystem = mGame.getSystem<LogSystem>();
+			mFrameLogSystem = mLogSystem;
 			mRegisterTool = mGame.getSystem<RegisterTool>();
 			mWayPointManager = mGame.getSystem<WayPointManager>();
 			mGameUtility = mGame.getSystem<GameUtility>();

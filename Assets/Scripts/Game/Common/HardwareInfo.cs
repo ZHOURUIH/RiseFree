@@ -9,15 +9,15 @@ using System.IO;
 
 public class HardwareInfo : FrameComponent
 {
-	public string mOriMAC;		// 网卡原生MAC地址
-	public string mHDD;			// 硬盘序列号
-	public string mMainbord;	// 主板序列号
-	public string mCPU;			// CPU ID
-	public string mBIOS;		// BIOS序列号
+	public string mOriMAC;      // 网卡原生MAC地址
+	public string mHDD;         // 硬盘序列号
+	public string mMainbord;    // 主板序列号
+	public string mCPU;         // CPU ID
+	public string mBIOS;        // BIOS序列号
 	public string mMainbordType;// 主板型号
-	public string mCurMAC;		// 网卡当前MAC地址
+	public string mCurMAC;      // 网卡当前MAC地址
 	public HardwareInfo(string name)
-		:base(name) 
+		: base(name)
 	{
 		;
 	}
@@ -26,10 +26,9 @@ public class HardwareInfo : FrameComponent
 		Process p = Process.Start(CommonDefine.F_HELPER_EXE_PATH + "HardwareInfo.exe", CommonDefine.F_HELPER_EXE_PATH);
 		p.WaitForExit();
 		// 获得文件中的字符串
-        string fileBuffer = "";
-        FileUtility.openTxtFile(CommonDefine.F_HELPER_EXE_PATH + "Hardware.txt", ref fileBuffer);
+		string fileBuffer = FileUtility.openTxtFile(CommonDefine.F_HELPER_EXE_PATH + "Hardware.txt");
 		FileUtility.deleteFile(CommonDefine.F_HELPER_EXE_PATH + "Hardware.txt");
-		if(fileBuffer == "")
+		if (fileBuffer == "")
 		{
 			return;
 		}

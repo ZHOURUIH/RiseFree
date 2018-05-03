@@ -28,7 +28,6 @@ public class ScriptStandBy : LayoutScript
 	}
 	public override void init()
 	{
-		mStartRiding.setAutoAdjustWindowSize(true);
 		mStartRiding.setInterval(0.06f);
 		mStartRiding.setAutoHide(false);
 	}

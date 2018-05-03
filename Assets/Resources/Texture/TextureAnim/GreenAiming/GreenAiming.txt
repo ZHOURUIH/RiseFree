@@ -1,0 +1,16 @@
+﻿TargetSize=256 * 256
+GreenAiming_1 = TargetSize:182*164; Pos:0,9; OriginSize:178 * 161;
+GreenAiming_2 = TargetSize:182*171; Pos:-7,5; OriginSize:178 * 167;
+GreenAiming_3 = TargetSize:176*178; Pos:-14,-1; OriginSize:172 * 174;
+GreenAiming_4 = TargetSize:168*182; Pos:-19,-8; OriginSize:165 * 178;
+GreenAiming_5 = TargetSize:166*183; Pos:-22,-14; OriginSize:163 * 179;
+GreenAiming_6 = TargetSize:173*181; Pos:-17,-22; OriginSize:169 * 177;
+GreenAiming_7 = TargetSize:180*175; Pos:-10,-29; OriginSize:176 * 171;
+GreenAiming_8 = TargetSize:183*167; Pos:-2,-34; OriginSize:179 * 164;
+GreenAiming_9 = TargetSize:183*166; Pos:4,-34; OriginSize:179 * 163;
+GreenAiming_10 = TargetSize:180*175; Pos:11,-29; OriginSize:176 * 171;
+GreenAiming_11 = TargetSize:172*181; Pos:18,-22; OriginSize:168 * 177;
+GreenAiming_12 = TargetSize:165*183; Pos:23,-14; OriginSize:162 * 179;
+GreenAiming_13 = TargetSize:169*183; Pos:21,-7; OriginSize:166 * 179;
+GreenAiming_14 = TargetSize:178*178; Pos:15,-1; OriginSize:174 * 174;
+GreenAiming_15 = TargetSize:182*171; Pos:8,5; OriginSize:178 * 167;

@@ -97,14 +97,15 @@ public class CharacterBikePhysics : GameComponent
 			Vector3 delta = (moveDir * mData.mSpeed + Vector3.up * mData.mVerticalSpeed) * elapsedTime;
 			mCharacter.setPosition(lastPosition + delta);
 		}
+		
 		// 检测前方是否有墙,多次检测确保角色不会穿透墙壁,最多只检测3次,避免在极端情况出现无线循环的现象
 		const int HIT_WALL_TEST_COUNT = 3;
 		for(int i = 0; i < HIT_WALL_TEST_COUNT; ++i)
 		{
 			// 计算与墙面的碰撞
 			// 从运动之前的位置向运动方向发射一条射线
-			moveDir = MathUtility.getVectorFromAngle(mData.mSpeedRotation.y * Mathf.Deg2Rad);
-			Ray dirRay = new Ray(lastPosition, moveDir);
+			Vector3 faceDir = MathUtility.getDirectionFromDegreeYawPitch(mData.mSpeedRotation.y, mCharacter.getRotation().x);
+			Ray dirRay = new Ray(lastPosition, faceDir);
 #if UNITY_EDITOR
 			Debug.DrawLine(dirRay.origin, dirRay.origin + dirRay.direction * 10.0f, Color.red);
 #endif
@@ -116,7 +117,7 @@ public class CharacterBikePhysics : GameComponent
 				// 减去上一次的位置与当前位置的差值后,如果小于单车前半部分的长度则认为是碰到了墙,计算出反弹方向
 				if (wallDis - MathUtility.getLength(lastPosition - mCharacter.getPosition()) < GameDefine.BIKE_FRONT_LENGTH)
 				{
-					Vector3 newDir = MathUtility.getReflection(moveDir, dirRet.normal);
+					Vector3 newDir = MathUtility.getReflection(faceDir, dirRet.normal);
 					float reflectAngle = MathUtility.getAngleBetweenVector(newDir, dirRet.normal) * Mathf.Rad2Deg;
 					// 反射角需要限定到一定范围
 					if (reflectAngle < GameDefine.MIN_REFLECT_ANGLE || reflectAngle > GameDefine.MAX_REFLECT_ANGLE)
@@ -136,11 +137,17 @@ public class CharacterBikePhysics : GameComponent
 						quat.eulerAngles = new Vector3(0.0f, reflectAngle, 0.0f);
 						newDir = MathUtility.rotateVector3(dirRet.normal, quat);
 					}
+					// 碰撞墙壁后将摄像机的跟随速度减慢
+					if(mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
+					{
+						CameraLinkerSmoothFollow smoothFollow = mCameraManager.getMainCamera().getCurLinker() as CameraLinkerSmoothFollow;
+						smoothFollow.setFollowPositionSpeed(1.0f);
+					}
 					mData.mSpeedRotation.y = MathUtility.getVectorYaw(newDir) * Mathf.Rad2Deg;
 					// 此处仍然同步设置角色的旋转,暂时保证速度方向与角色的旋转值一致
 					mCharacter.setYaw(mData.mSpeedRotation.y);
 					// 根据碰撞的入射角度,计算出速度损失量
-					float inAngle = MathUtility.getAngleBetweenVector(-moveDir, dirRet.normal) * Mathf.Rad2Deg;
+					float inAngle = MathUtility.getAngleBetweenVector(-faceDir, dirRet.normal) * Mathf.Rad2Deg;
 					CommandCharacterHitWall cmdHitWall = newCmd(out cmdHitWall, false);
 					cmdHitWall.mAngle = inAngle;
 					pushCommand(cmdHitWall, mCharacter);
@@ -183,9 +190,9 @@ public class CharacterBikePhysics : GameComponent
 			if (mCurFriction != (int)friction)
 			{
 				mCurFriction = (int)friction;
-				SerialPortPacketFriction packet = mSerialPortManager.createPacket(out packet, COM_PACKET.CP_FRICTION);
+				SerialPortPacketFriction packet = mUSBManager.createPacket(out packet, COM_PACKET.CP_FRICTION);
 				packet.setFriction((byte)mCurFriction);
-				mSerialPortManager.sendPacket(packet);
+				mUSBManager.sendPacket(packet);
 				if (mCharacter.isType(CHARACTER_TYPE.CT_MYSELF))
 				{
 					mScriptDebugInfo.notityFriction(mCurFriction);
@@ -214,7 +221,9 @@ public class CharacterBikePhysics : GameComponent
 		bool backRet = Physics.Raycast(backRay, out backHit, 1000.0f, 1 << GameUtility.mGroundLayer);
 		if (!frontRet)
 		{
-			UnityUtility.logError("front wheel is not on ground, pos : " + StringUtility.vector3ToString(mCharacter.getPosition()));
+			UnityUtility.logInfo("front wheel is not on ground, pos : " + StringUtility.vector3ToString(mCharacter.getPosition()));
+			// 当角色行驶到非法区域时,复位角色
+			pushCommand<CommandCharacterReset>(mCharacter);
 			return;
 		}
 		if (!backRet)

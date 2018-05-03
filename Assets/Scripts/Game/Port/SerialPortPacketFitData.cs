@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.Ports;
 using System.Threading;
 
 public class SerialPortPacketFitData : SerialPortPacket
@@ -63,6 +62,12 @@ public class SerialPortPacketFitData : SerialPortPacket
 		}
 		// 转向
 		mGameInputManager.setStickAngle(mAngle);
+		if (mScriptDebugInfo != null)
+		{
+			mScriptDebugInfo.setOrginStackAngle(mAngle);
+			mScriptDebugInfo.setRPM(mRPM);
+			mScriptDebugInfo.setPower(mPower);
+		}
 	}
 	bool isKeyDown(int index)
 	{

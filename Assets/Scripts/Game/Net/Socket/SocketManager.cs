@@ -37,17 +37,14 @@ public class SocketManager : FrameComponent
 	protected Socket mServerSoket;
 	protected Socket mBroadcastSocket;
 	protected EndPoint mBroadcastEP;
-	protected Thread mReceiveThread;
-	protected Thread mOutputTread;
+	protected CustomThread mReceiveThread;
+	protected CustomThread mOutputThread;
 	protected List<OUTPUT_STREAM> mOutputList;
 	protected List<INPUT_ELEMENT> mInputList;
 	protected List<INPUT_ELEMENT> mRecieveList;
 	protected ThreadLock mOutputLock;
 	protected ThreadLock mInputLock;
 	protected SocketFactory mSocketFactory;
-	protected bool mRunning = false;
-	protected bool mReceiveFinish = true;
-	protected bool mOutputFinish = true;
 	public SocketManager(string name)
 		:base(name)
 	{
@@ -57,37 +54,33 @@ public class SocketManager : FrameComponent
 		mOutputLock = new ThreadLock();
 		mInputLock = new ThreadLock();
 		mSocketFactory = new SocketFactory();
+		mReceiveThread = new CustomThread("SocketReceive");
+		mOutputThread = new CustomThread("SocketOutput");
 	}
 	public override void init()
 	{
-		mRunning = true;
-		mReceiveFinish = true;
-		mOutputFinish = true;
 		try
 		{
 			mSocketFactory.init();
-			int port = (int)mFrameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_SOCKET_PORT);
-			int broadcastPort = (int)mFrameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_BROADCAST_PORT);
 			// 创建socket  
 			mServerSoket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-			// 绑定地址  
+			// 绑定地址
+			int port = (int)mFrameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_SOCKET_PORT);
 			mServerSoket.Bind(new IPEndPoint(IPAddress.Any, port));
 			mBroadcastSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 			mBroadcastSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 1);
 			// 广播端
+			int broadcastPort = (int)mFrameConfig.getFloatParam(GAME_DEFINE_FLOAT.GDF_BROADCAST_PORT);
 			mBroadcastEP = new IPEndPoint(IPAddress.Broadcast, broadcastPort);
-			mReceiveThread = new Thread(updateUdpServer);
-			mReceiveThread.Start();
-			mOutputTread = new Thread(updateOutput);
-			mOutputTread.Start();
 		}
 		catch(Exception)
 		{
 			UnityUtility.logError("初始化网络失败!请确保测试软件等其他可能占用网络端口的程序已关闭!");
-			mReceiveFinish = true;
-			mOutputFinish = true;
 			mGameFramework.stop();
+			return;
 		}
+		mReceiveThread.start(updateUdpServer, 1);
+		mOutputThread.start(updateOutput, 30);
 	}
 	public override void update(float elapsedTime)
 	{
@@ -105,19 +98,8 @@ public class SocketManager : FrameComponent
 			mBroadcastSocket.Close();
 			mBroadcastSocket = null;
 		}
-		mRunning = false;
-		while (!mReceiveFinish) {}
-		if(mReceiveThread != null)
-		{
-			mReceiveThread.Abort();
-			mReceiveThread = null;
-		}
-		while (!mOutputFinish) {}
-		if(mOutputTread != null)
-		{
-			mOutputTread.Abort();
-			mOutputTread = null;
-		}
+		mReceiveThread.destroy();
+		mOutputThread.destroy();
 		base.destroy();
 		UnityUtility.logInfo("网络管理器退出完毕", LOG_LEVEL.LL_FORCE);
 	}
@@ -156,73 +138,44 @@ public class SocketManager : FrameComponent
 		}
 		mInputList.Clear();
 	}
-	protected void updateOutput()
+	protected bool updateOutput()
 	{
-		mOutputFinish = false;
-		while (mRunning)
+		if (mBroadcastSocket == null)
 		{
-			try
-			{
-				mOutputLock.waitForUnlock();
-				if (mBroadcastSocket == null)
-				{
-					break;
-				}
-				int outputCount = mOutputList.Count;
-				for (int i = 0; i < outputCount; ++i)
-				{
-					mBroadcastSocket.SendTo(mOutputList[i].mData, mBroadcastEP);
-				}
-				mOutputList.Clear();
-				mOutputLock.unlock();
-				Thread.Sleep(30);
-			}
-			catch(Exception)
-			{
-				mOutputLock.unlock();
-				break;
-			}
+			return false;
 		}
-		mOutputFinish = true;
+		mOutputLock.waitForUnlock();
+		List<OUTPUT_STREAM> tempList = new List<OUTPUT_STREAM>(mOutputList);
+		mOutputList.Clear();
+		mOutputLock.unlock();
+		int outputCount = tempList.Count;
+		for (int i = 0; i < outputCount; ++i)
+		{
+			mBroadcastSocket.SendTo(tempList[i].mData, mBroadcastEP);
+		}
+		return true;
 	}
 	protected void receivePacket(SOCKET_PACKET type, byte[] data, int dataSize)
 	{
-		if(!mRunning)
-		{
-			return;
-		}
 		mInputLock.waitForUnlock();
 		mRecieveList.Add(new INPUT_ELEMENT(type, data, dataSize));
 		mInputLock.unlock();
 	}
-	protected void updateUdpServer()
+	protected bool updateUdpServer()
 	{
-		mReceiveFinish = false;
 		IPEndPoint endpoint = new IPEndPoint(IPAddress.Any, 0);
 		EndPoint ep = (EndPoint)endpoint;
-		while (mRunning)
+		byte[] recBuff = new byte[mMaxReceiveCount];
+		if (mServerSoket == null)
 		{
-			try
-			{
-				byte[] recBuff = new byte[mMaxReceiveCount];
-				if (mServerSoket == null)
-				{
-					break;
-				}
-				int intReceiveLength = mServerSoket.ReceiveFrom(recBuff, ref ep);
-				if (intReceiveLength > 0)
-				{
-					SOCKET_PACKET spType = mSocketFactory.getSocketType(recBuff, intReceiveLength);
-					receivePacket(spType, recBuff, intReceiveLength);
-				}
-			}
-			catch(Exception e)
-			{
-				UnityUtility.logInfo("Socket接收线程捕获空指针异常 : " + e.Message + ", stack : " + e.StackTrace, LOG_LEVEL.LL_FORCE);
-				break;
-			}
+			return false;
 		}
-		mReceiveFinish = true;
-		UnityUtility.logInfo("退出Socket接收线程", LOG_LEVEL.LL_FORCE);
+		int intReceiveLength = mServerSoket.ReceiveFrom(recBuff, ref ep);
+		if (intReceiveLength > 0)
+		{
+			SOCKET_PACKET spType = mSocketFactory.getSocketType(recBuff, intReceiveLength);
+			receivePacket(spType, recBuff, intReceiveLength);
+		}
+		return true;
 	}
 }

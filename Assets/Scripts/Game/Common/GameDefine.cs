@@ -126,6 +126,7 @@ public enum GAME_DEFINE_FLOAT
 	GDF_BROADCAST_PORT,             // 广播端口
 	GDF_LOAD_RESOURCES,             // 游戏加载资源的路径,0代表在Resources中读取,1代表从AssetBundle中读取
 	GDF_LOG_LEVEL,                  // 日志输出等级
+	GDF_ENABLE_KEYBOARD,            // 是否响应键盘按键
 	GDF_FRAME_MAX,
 
 	// 游戏配置参数
@@ -356,4 +357,6 @@ public class GameDefine : CommonDefine
 		new Color(0.0f, 1.0f, 0.0f),
 		new Color(1.0f, 0.2f, 0.0f),
 	};
+	public const byte REPORT_OUT = 0x01;
+	public const byte REPORT_IN = 0x02;
 }

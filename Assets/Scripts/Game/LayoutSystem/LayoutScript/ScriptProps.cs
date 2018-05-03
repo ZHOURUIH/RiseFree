@@ -21,7 +21,7 @@ public class PropsItem
 	{
 		mScript = script;
 	}
-	public void assignWindow(txNGUIStaticSprite root, string trackName, int index)
+	public void assignWindow(txUIObject root, string trackName, int index)
 	{
 		mScript.newObject(out mProp, root, trackName);
 		mScript.newObject(out mBackground, mProp, "Background");
@@ -106,7 +106,7 @@ public class ItemInfo
 public class ScriptProps : LayoutScript
 {
 	public Dictionary<PLAYER_ITEM, ItemInfo> mItemInfoList;
-	protected txNGUIStaticSprite mPropsRoot;
+	protected txUIObject mPropsRoot;
 	protected List<PropsItem> mPropsList;				//	道具
 	protected txUIObject mControlHelper;
 	protected float mStartOffsetValue;		// 本次移动的起始值

@@ -11,21 +11,45 @@ public class ColliderCallBack
 	public BoxColliderPressCallback mPressCallback;
 }
 
-public class CompareFunc : IComparer<int>
+public class UIDepth
 {
-	public int Compare(int a, int b)
+	public int mPanelDepth;
+	public int mWindowDepth;
+	public UIDepth(int panelDepth, int windowDepth)
 	{
-		if(a > b)
+		mPanelDepth = panelDepth;
+		mWindowDepth = windowDepth;
+	}
+}
+
+public class CompareFunc : IComparer<UIDepth>
+{
+	public int Compare(UIDepth a, UIDepth b)
+	{
+		// 优先比较布局的深度
+		if(a.mPanelDepth > b.mPanelDepth)
 		{
 			return -1;
 		}
-		else if(a < b)
+		else if(a.mPanelDepth < b.mPanelDepth)
 		{
 			return 1;
 		}
+		// 如果布局深度相同,再比较窗口深度
 		else
 		{
-			return 0;
+			if (a.mWindowDepth > b.mWindowDepth)
+			{
+				return -1;
+			}
+			else if (a.mWindowDepth < b.mWindowDepth)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		}
 	}
 }
@@ -33,15 +57,16 @@ public class CompareFunc : IComparer<int>
 public class GlobalTouchSystem : FrameComponent
 {
 	protected Dictionary<txUIObject, ColliderCallBack> mButtonCallbackList;
-	protected SortedDictionary<int, List<txUIObject>> mButtonOrderList;	// 深度由大到小的列表
+	protected SortedDictionary<UIDepth, List<txUIObject>> mButtonOrderList;	// 深度由大到小的列表
 	protected Vector3 mLastMousePosition;
 	protected txUIObject mHoverButton;
-	protected bool mUseHover = true;		// 是否判断鼠标悬停在某个窗口
+	protected bool mUseHover = true;        // 是否判断鼠标悬停在某个窗口
+	protected bool mUseGlobalTouch = true;	// 是否使用全局触摸检测来进行界面的输入检测
 	public GlobalTouchSystem(string name)
 		:base(name)
 	{
 		mButtonCallbackList = new Dictionary<txUIObject, ColliderCallBack>();
-		mButtonOrderList = new SortedDictionary<int, List<txUIObject>>(new CompareFunc());
+		mButtonOrderList = new SortedDictionary<UIDepth, List<txUIObject>>(new CompareFunc());
 	}
 	public override void init()
 	{
@@ -53,6 +78,7 @@ public class GlobalTouchSystem : FrameComponent
 		mButtonOrderList.Clear();
 		base.destroy();
 	}
+	public void setUseGlobalTouch(bool use) { mUseGlobalTouch = use; }
 	public Vector3 getCurMousePosition()
 	{
 		return Input.mousePosition;
@@ -74,7 +100,7 @@ public class GlobalTouchSystem : FrameComponent
 	}
 	public override void update(float elapsedTime)
 	{
-		if (!mUseHover)
+		if (!mUseHover || !mUseGlobalTouch)
 		{
 			return;
 		}
@@ -109,23 +135,42 @@ public class GlobalTouchSystem : FrameComponent
 			mLastMousePosition = curMousePosition;
 		}
 	}
+	// 用于接收NGUI处理的输入事件,不经过GlobalTouchSystem
+	public void registeBoxColliderNGUI(txUIObject button, UIEventListener.VoidDelegate clickCallback,
+		UIEventListener.BoolDelegate pressCallback = null, UIEventListener.BoolDelegate hoverCallback = null)
+	{
+		button.setClickCallback(clickCallback);
+		button.setPressCallback(pressCallback);
+		button.setHoverCallback(hoverCallback);
+	}
 	// 注册碰撞器,只有注册了的碰撞器才会进行检测
 	public void registeBoxCollider(txUIObject button, BoxColliderClickCallback clickCallback = null, 
-		BoxColliderHoverCallback hoverCallback = null, BoxColliderPressCallback pressCallback = null)
+		BoxColliderPressCallback pressCallback = null, BoxColliderHoverCallback hoverCallback = null)
 	{
-		if (!mButtonCallbackList.ContainsKey(button))
+		if(mUseGlobalTouch)
 		{
-			ColliderCallBack colliderCallback = new ColliderCallBack();
-			colliderCallback.mButton = button;
-			colliderCallback.mClickCallback = clickCallback;
-			colliderCallback.mHoverCallback = hoverCallback;
-			colliderCallback.mPressCallback = pressCallback;
-			mButtonCallbackList.Add(button, colliderCallback);
-			if(!mButtonOrderList.ContainsKey(button.getDepth()))
+			if (!mButtonCallbackList.ContainsKey(button))
 			{
-				mButtonOrderList.Add(button.getDepth(), new List<txUIObject>());
+				ColliderCallBack colliderCallback = new ColliderCallBack();
+				colliderCallback.mButton = button;
+				colliderCallback.mClickCallback = clickCallback;
+				colliderCallback.mHoverCallback = hoverCallback;
+				colliderCallback.mPressCallback = pressCallback;
+				mButtonCallbackList.Add(button, colliderCallback);
+				UIDepth depth = new UIDepth(button.mLayout.getRenderOrder(), button.getDepth());
+				if (!mButtonOrderList.ContainsKey(depth))
+				{
+					mButtonOrderList.Add(depth, new List<txUIObject>());
+				}
+				mButtonOrderList[depth].Add(button);
 			}
-			mButtonOrderList[button.getDepth()].Add(button);
+		}
+		// 如果不使用
+		else
+		{
+			UnityUtility.logError("Not Active Global Touch! use public void registeBoxCollider(txUIObject button, " + 
+				"UIEventListener.VoidDelegate clickCallback = null,UIEventListener.BoolDelegate pressCallback = null, " + 
+				"UIEventListener.BoolDelegate hoverCallback = null) instead");
 		}
 	}
 	// 注销碰撞器
@@ -134,24 +179,27 @@ public class GlobalTouchSystem : FrameComponent
 		if (mButtonCallbackList.ContainsKey(button))
 		{
 			mButtonCallbackList.Remove(button);
-			mButtonOrderList[button.getDepth()].Remove(button);
+			UIDepth depth = new UIDepth(button.mLayout.getRenderOrder(), button.getDepth());
+			mButtonOrderList[depth].Remove(button);
 		}
 	}
 	public void notifyButtonDepthChanged(txUIObject button, int lastDepth)
 	{
 		// 如果之前没有记录过,则不做判断
-		if(!mButtonOrderList.ContainsKey(lastDepth) || !mButtonOrderList[lastDepth].Contains(button))
+		UIDepth oldDepth = new UIDepth(button.mLayout.getRenderOrder(), lastDepth);
+		if (!mButtonOrderList.ContainsKey(oldDepth) || !mButtonOrderList[oldDepth].Contains(button))
 		{
 			return;
 		}
 		// 移除旧的按钮
-		mButtonOrderList[lastDepth].Remove(button);
+		mButtonOrderList[oldDepth].Remove(button);
 		// 添加新的按钮
-		if (!mButtonOrderList.ContainsKey(button.getDepth()))
+		UIDepth newDepth = new UIDepth(button.mLayout.getRenderOrder(), button.getDepth());
+		if (!mButtonOrderList.ContainsKey(newDepth))
 		{
-			mButtonOrderList.Add(button.getDepth(), new List<txUIObject>());
+			mButtonOrderList.Add(newDepth, new List<txUIObject>());
 		}
-		mButtonOrderList[button.getDepth()].Add(button);
+		mButtonOrderList[newDepth].Add(button);
 	}
 	public void notifyGlobalPress(bool press)
 	{

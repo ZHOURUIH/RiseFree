@@ -18,9 +18,10 @@ public class MainSceneGamingFinish : SceneProcedure
 		// 显示比赛结束倒计时
 		LayoutTools.SHOW_LAYOUT(LAYOUT_TYPE.LT_END_COUNT_DOWN);
 		// 10秒后跳转到结束流程
-		CommandGameSceneChangeProcedure cmdProcedure = newCmd(out cmdProcedure, true, true);
+		CommandGameScenePrepareChangeProcedure cmdProcedure = newCmd(out cmdProcedure);
 		cmdProcedure.mProcedure = PROCEDURE_TYPE.PT_MAIN_FINISH;
-		pushDelayCommand(cmdProcedure, mGameScene, 10.0f);
+		cmdProcedure.mPrepareTime = 10.0f;
+		pushCommand(cmdProcedure, mGameScene);
 	}
 	protected override void onUpdate(float elapsedTime)
 	{

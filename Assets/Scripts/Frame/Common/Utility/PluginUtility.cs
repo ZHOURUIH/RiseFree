@@ -10,6 +10,7 @@ using LitJson;
 using ZXing;
 using UnityEngine;
 using ZXing.QrCode;
+using System.Runtime.InteropServices;
 
 public delegate void OnHttpWebRequestCallback(LitJson.JsonData data, object userData);
 public class RequestThreadParam
@@ -72,8 +73,9 @@ public class PluginUtility : FrameComponent
 	}
 	public static LitJson.JsonData httpWebRequestPost(string url, string param, OnHttpWebRequestCallback callback, object callbakcUserData = null)
 	{
+		byte[] byteArray;
 		// 转换输入参数的编码类型，获取byte[]数组 
-		byte[] byteArray = BinaryUtility.stringToBytes("gamedata=" + param, Encoding.UTF8);
+		byteArray = BinaryUtility.stringToBytes(param, Encoding.UTF8);
 		// 初始化新的webRequst
 		// 1． 创建httpWebRequest对象
 		HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri(url));
@@ -82,7 +84,7 @@ public class PluginUtility : FrameComponent
 		webRequest.ContentType = "application/x-www-form-urlencoded";
 		webRequest.ContentLength = byteArray.Length;
 		webRequest.Credentials = CredentialCache.DefaultCredentials;
-		webRequest.Timeout = 5000;
+		webRequest.Timeout = 10000;
 		// 异步
 		if(callback != null)
 		{
@@ -139,9 +141,10 @@ public class PluginUtility : FrameComponent
             response.Close();
             threadParam.mCallback(JsonMapper.ToObject(phpend), threadParam.mUserData);
 		}
-		catch (Exception)
+		catch (Exception e)
 		{
 			threadParam.mCallback(null, threadParam.mUserData);
+			UnityUtility.logInfo("post result exception : " + e.Message);
 		}
 		finally
 		{
@@ -163,7 +166,7 @@ public class PluginUtility : FrameComponent
 		}
 		return url + Parameters;
 	}
-	static public LitJson.JsonData httpWebRequestGet(string urlString, OnHttpWebRequestCallback callback)
+	static public JsonData httpWebRequestGet(string urlString, OnHttpWebRequestCallback callback)
 	{
 		System.GC.Collect();
 		HttpWebRequest httprequest = (HttpWebRequest)WebRequest.Create(new Uri(urlString));//根据url地址创建HTTpWebRequest对象
@@ -219,6 +222,11 @@ public class PluginUtility : FrameComponent
 			if (response.StatusCode != HttpStatusCode.OK)
 			{
 				UnityUtility.logInfo("接受超时");
+				//http超时
+				if(mFrameLogSystem != null)
+				{
+					mFrameLogSystem.logHttpOverTime("Http接收超时");
+				}
 			}
 			Stream steam = response.GetResponseStream();
 			StreamReader reader = new StreamReader(steam, Encoding.UTF8);
@@ -240,4 +248,59 @@ public class PluginUtility : FrameComponent
 			mHttpThreadList.Remove(threadParam.mThread);
 		}
 	}
+	//public static int OpenUSBDevice(ushort VID, ushort PID)
+	//{
+	//	int HidHandle = -1;
+	//	Guid guidHID = new Guid();
+	//	HID.HidD_GetHidGuid(ref guidHID);
+	//	IntPtr hDevInfo = HID.SetupDiGetClassDevs(ref guidHID, IntPtr.Zero, IntPtr.Zero, DIGCF.DIGCF_PRESENT | DIGCF.DIGCF_DEVICEINTERFACE);
+	//	int bufferSize = 0;
+	//	//获取设备，true获取到
+	//	SP_DEVICE_INTERFACE_DATA DeviceInterfaceData = new SP_DEVICE_INTERFACE_DATA();
+	//	DeviceInterfaceData.cbSize = (uint)Marshal.SizeOf(DeviceInterfaceData);
+	//	int index = 0;
+	//	do
+	//	{
+	//		int result = HID.SetupDiEnumDeviceInterfaces(hDevInfo, IntPtr.Zero, ref guidHID, (UInt32)index++, ref DeviceInterfaceData);
+	//		if (result == 0)
+	//		{
+	//			int error = Kernel32.GetLastError();
+	//			break;
+	//		}
+	//		//第一次调用出错，但可以返回正确的Size 
+	//		SP_DEVINFO_DATA strtInterfaceData = new SP_DEVINFO_DATA();
+	//		result = HID.SetupDiGetDeviceInterfaceDetail(hDevInfo, ref DeviceInterfaceData, IntPtr.Zero, 0, ref bufferSize, strtInterfaceData);
+	//		//第二次调用传递返回值，调用即可成功
+	//		IntPtr detailDataBuffer = Marshal.AllocHGlobal(bufferSize);
+	//		SP_DEVICE_INTERFACE_DETAIL_DATA detailData = new SP_DEVICE_INTERFACE_DETAIL_DATA();
+	//		detailData.cbSize = Marshal.SizeOf(typeof(SP_DEVICE_INTERFACE_DETAIL_DATA));
+	//		Marshal.StructureToPtr(detailData, detailDataBuffer, false);
+	//		result = HID.SetupDiGetDeviceInterfaceDetail(hDevInfo, ref DeviceInterfaceData, detailDataBuffer, bufferSize, ref bufferSize, strtInterfaceData);
+	//		//获取设备路径访
+	//		IntPtr pdevicePathName = (IntPtr)((int)detailDataBuffer + 4);
+	//		string devicePathName = Marshal.PtrToStringAuto(pdevicePathName);
+
+	//		//连接设备文件
+	//		HidHandle = HID.CreateFile(devicePathName, HID.GENERIC_READ | HID.GENERIC_WRITE, HID.FILE_SHARE_READ | HID.FILE_SHARE_WRITE, 0, HID.OPEN_EXISTING, 0, 0);
+
+	//		HIDD_ATTRIBUTES Attributes = new HIDD_ATTRIBUTES();
+	//		Attributes.Size = Marshal.SizeOf(typeof(HIDD_ATTRIBUTES));
+	//		result = HID.HidD_GetAttributes(HidHandle, ref Attributes);
+	//		if (result != 0 && (Attributes.VendorID == VID) && (Attributes.ProductID == PID))
+	//		{
+	//			int PreparsedData = 0;
+	//			//获取USB设备的预解析数据
+	//			int ret = HID.HidD_GetPreparsedData(HidHandle, ref PreparsedData);
+	//			if (ret != 0)
+	//			{
+	//				//printf("无法获取USB设备的预解析数据!");
+	//				return -1;
+	//			}
+	//			HIDP_CAPS caps = new HIDP_CAPS();
+	//			int status = HID.HidP_GetCaps(PreparsedData, ref caps);
+	//			HID.HidD_FreePreparsedData(PreparsedData);
+	//		}
+	//	} while (true);
+	//	return HidHandle;
+	//}
 }

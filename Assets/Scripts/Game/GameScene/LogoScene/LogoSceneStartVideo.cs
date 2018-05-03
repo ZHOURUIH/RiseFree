@@ -45,7 +45,7 @@ public class LogoSceneStartVideo : SceneProcedure
 	public void notifyStartVideoDone()
 	{
 		// 为保视频与待机界面之间无缝衔接,在播放完后就立即加载并且显示待机界面
-		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_STAND_BY, 1, false, "FirstStart");
+		LayoutTools.SHOW_LAYOUT(LAYOUT_TYPE.LT_STAND_BY, false, "FirstStart");
 		// 停止视频音乐
 		pushCommand<CommandGameSceneStopAudio>(mGameScene);
 		// 进入开始场景

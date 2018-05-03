@@ -27,11 +27,11 @@ public class txNGUIStaticTexture : txUIObject
 			setMaterial(getMaterialName(), true);
 		}
 	}
-	public void setWindowShader<T>() where T : WindowShader, new()
+	public virtual void setWindowShader<T>() where T : WindowShader, new()
 	{
 		mWindowShader = new T();
 	}
-	public T getWindowShader<T>() where T : WindowShader
+	public virtual T getWindowShader<T>() where T : WindowShader
 	{
 		return mWindowShader as T;
 	}
@@ -41,17 +41,13 @@ public class txNGUIStaticTexture : txUIObject
 		UnityUtility.destroyGameObject(mTexture.material);
 		base.destroy();
 	}
-	public void setTexture(Texture tex, bool resetSize = false)
+	public virtual void setTexture(Texture tex)
 	{
-		if(mTexture == null)
+		if (mTexture == null)
 		{
 			return;
 		}
 		mTexture.mainTexture = tex;
-		if (resetSize && tex != null)
-		{
-			setWindowSize(new Vector2(tex.width, tex.height));
-		}	
 	}
 	public Texture getTexture()
 	{

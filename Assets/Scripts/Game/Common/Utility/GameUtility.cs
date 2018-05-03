@@ -49,25 +49,21 @@ public class GameUtility : FrameComponent
 		return expressionValue;
 	}
 	// 硬件值转换为踏频(踏频单位为次/分钟)
-	public static float HWSToStepFrequency(float haradwareValue)
+	public static float HWSToStepFrequency(float hardwareValue)
 	{
-		if(MathUtility.isFloatZero(haradwareValue))
+		if(MathUtility.isFloatZero(hardwareValue))
 		{
 			return 0.0f;
 		}
-		if (haradwareValue >= 450.0f)
-		{
-			haradwareValue = 450.0f - 1;
-		}
-		return 1.0f / ((450.0f - haradwareValue) * 5.0f / 1000.0f) * 60.0f / mSpeedRatio;
+		return hardwareValue / mSpeedRatio;
 	}
 	public static float stepFrequencyToHWS(float frequency)
 	{
-		if(frequency <= 0.0f)
+		if (frequency < 0.0f || MathUtility.isFloatZero(frequency))
 		{
 			return 0.0f;
 		}
-		return 450.0f - 1.0f / (frequency * mSpeedRatio / 60.0f) * 1000.0f / 5.0f;
+		return frequency * mSpeedRatio;
 	}
 	public static float stepFrequencyToMS(float frequency)
 	{
@@ -82,7 +78,7 @@ public class GameUtility : FrameComponent
 	}
 	public static float MSToStepFrequency(float speedMS)
 	{
-		if(speedMS < 0.0f)
+		if (speedMS < 0.0f || MathUtility.isFloatZero(speedMS))
 		{
 			return 0.0f;
 		}
@@ -118,24 +114,20 @@ public class GameUtility : FrameComponent
 	}
 	public static void replaceConfigValue(string fileName, string paramName, string paramValue)
 	{
-		string text = "";
-		string newtext = "";
-		FileUtility.openTxtFile(CommonDefine.F_CONFIG_PATH + fileName, ref text);
+		string text = FileUtility.openTxtFile(CommonDefine.F_CONFIG_PATH + fileName);
 		int keyWord = text.IndexOf(paramName);
 		int pos1 = text.IndexOf('=', keyWord);
 		int pos2 = text.IndexOf("\r\n", pos1);
 		string str0 = text.Substring(0, pos1 + 1);
-		string str1 = text.Substring(pos1 + 1, pos2 - (pos1 + 1));
 		string str2 = text.Substring(pos2, text.Length - pos2);
-		str1 = paramValue;
-		newtext = str0 + str1 + str2;
-		FileUtility.writeFile(CommonDefine.F_CONFIG_PATH + fileName, newtext);
+		string newtext = str0 + paramValue + str2;
+		FileUtility.writeTxtFile(CommonDefine.F_CONFIG_PATH + fileName, newtext);
 	}
 	public static float getSprintIncreaseSpeed(float speed)
 	{
-		float min = 10;
-		float max = 20;
-		float increaseSpeed = speed *0.2f;
+		float min = 10.0f;
+		float max = 20.0f;
+		float increaseSpeed = speed * 0.2f;
 		MathUtility.clamp(ref increaseSpeed, min, max);
 		return increaseSpeed;
 	}

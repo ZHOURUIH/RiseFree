@@ -27,9 +27,15 @@ public class LogoSceneLogo : SceneProcedure
 		mObjectManager.loadPrefab(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.ITEM_BOX);
 		mObjectManager.loadPrefab(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.LANDMINE);
 		mObjectManager.loadPrefab(GameDefine.R_SCENE_ITEM_PREFAB_PATH + GameDefine.MISSILE);
+		for (int i = 0; i < GameDefine.ROLE_COUNT; ++i)
+		{
+			mObjectManager.loadPrefab(GameDefine.R_CHARACTER_PREFAB_PATH + GameDefine.ROLE_MODEL_NAME[i]);
+		}
 		// 加载并显示logo布局,也加载全局音效布局
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_LOGO, 0);
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_GLOBAL_AUDIO, 0);
+		LayoutTools.LOAD_NGUI_HIDE(LAYOUT_TYPE.LT_DEBUG_INFO, 25);
+		LayoutTools.LOAD_NGUI_ASYNC(LAYOUT_TYPE.LT_STAND_BY, 1, null);
 		// 隐藏完毕后跳转到启动视频流程
 		CommandGameSceneChangeProcedure cmdProcedure = newCmd(out cmdProcedure, true, true);
 		cmdProcedure.mProcedure = PROCEDURE_TYPE.PT_LOGO_START_VIDEO;

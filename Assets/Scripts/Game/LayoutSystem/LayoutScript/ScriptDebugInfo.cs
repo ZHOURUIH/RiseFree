@@ -12,6 +12,8 @@ public class ScriptDebugInfo : LayoutScript
 	protected txNGUIText mDevice;
 	protected txNGUIText mLastPacketTime;
 	protected txNGUIText mOriginStickAngle;
+	protected txNGUIText mRPM;
+	protected txNGUIText mPower;
 	protected DEVICE_CONNENT mDeviceConnect = DEVICE_CONNENT.DC_MAX;
 	public ScriptDebugInfo(string name, GameLayout layout)
 		:
@@ -28,6 +30,8 @@ public class ScriptDebugInfo : LayoutScript
 		newObject(out mDevice, mGrid, "Device");
 		newObject(out mLastPacketTime, mGrid, "LastPacketTime");
 		newObject(out mOriginStickAngle, mGrid, "OriginStickAngle");
+		newObject(out mRPM, mGrid, "RPM");
+		newObject(out mPower, mGrid, "Power");
 	}
 	public override void init()
 	{
@@ -74,6 +78,14 @@ public class ScriptDebugInfo : LayoutScript
 		}
 		mDevice.setLabel(str);
 	}
+	public void setRPM(int rpm)
+	{
+		mRPM.setLabel(StringUtility.intToString(rpm));
+	}
+	public void setPower(int power)
+	{
+		mPower.setLabel(StringUtility.intToString(power));
+	}
 	public void setOrginStackAngle(float stackAngle)
 	{
 		mOriginStickAngle.setLabel(StringUtility.floatToString(stackAngle,3));
@@ -93,15 +105,13 @@ public class ScriptDebugInfo : LayoutScript
 	public override void update(float elapsedTime)
 	{
 		base.update(elapsedTime);
-		if (mDeviceConnect != mSerialPortManager.getDeviceConnect())
+		if (mDeviceConnect != mUSBManager.getDeviceConnect())
 		{
-			mDeviceConnect = mSerialPortManager.getDeviceConnect();
+			mDeviceConnect = mUSBManager.getDeviceConnect();
 			setDevice(mDeviceConnect);
 		}
-		TimeSpan delta = DateTime.Now - mSerialPortManager.getLastPacketTime();
+		TimeSpan delta = DateTime.Now - mUSBManager.getLastPacketTime();
 		setTimeSinceLastPacket((int)delta.TotalMilliseconds);
-		float stackAngle = mGameInputManager.getOriginStickAngle();
-		setOrginStackAngle(stackAngle);
 	}
 	public override void onHide(bool immediately, string param)
 	{

@@ -7,9 +7,11 @@ using System.Threading;
 
 public enum LOG_TYPE
 {
-	LOG_4_5_PROCEDURE,          // 流程跳转
-	LOG_4_5_USER_OPERATION,     // 用户操作
-	LOG_4_5_OTHER,              // 其他
+	LOG_RISE_FREE_PROCEDURE = 1000,     // 流程跳转      
+	LOG_RISE_FREE_USER_OPERATION,       // 用户操作
+	LOG_RISE_FREE_OTHER,                // 其他
+	LOG_RISE_FREE_HTTP_TIME_OUT,
+	LOG_RISE_FREE_GAME_ERROR,
 }
 
 public enum LOG_STATE
@@ -28,16 +30,14 @@ public class LogData
 	public LOG_STATE mState;
 }
 
-public class LogSystem : FrameComponent
+public class LogSystem : FrameComponent, IFrameLogSystem
 {
 	protected Dictionary<string, LogData> mLogSendList;     // 需要发送的日志列表
 	protected List<LogData> mLogBufferList;   // 临时存放日志的列表
-	protected Thread mSendThread;
+	protected CustomThread mSendThread;
 	protected ThreadLock mBufferLock;
 	protected ThreadLock mSqlLiteLock;
 	protected ThreadLock mSendLock;
-	protected bool mRunning = false;
-	protected bool mFinish = true;
 	protected SQLite mSQLite;
 	protected string mTableName = "Log";
 	protected string mGymID;
@@ -50,24 +50,21 @@ public class LogSystem : FrameComponent
 		mBufferLock = new ThreadLock();
 		mSqlLiteLock = new ThreadLock();
 		mSendLock = new ThreadLock();
+		mSendThread = new CustomThread("SendLog");
 	}
 	public override void init()
 	{
-		mRunning = true;
-		mFinish = true;
 		try
 		{
 			mSQLite.init();
 			mSQLite.createTable(mTableName, "GymID varchar(64), LogType varchar(64), Time varchar(32), LogInfo varchar(256), GUID varchar(64), uploaded integer");
 			mGymID = mRegisterTool.generateRegisteCode(mRegisterTool.generateRequestCode(), GameDefine.REGISTE_KEY);
-			mSendThread = new Thread(sendLog);
-			mSendThread.Start();
 		}
 		catch (Exception e)
 		{
 			UnityUtility.logError("初始化日志系统失败! " + e.Message);
-			mFinish = true;
 		}
+		mSendThread.start(sendLog, 50);
 	}
 	public override void destroy()
 	{
@@ -79,13 +76,7 @@ public class LogSystem : FrameComponent
 		}
 		mBufferLock.unlock();
 		mSqlLiteLock.unlock();
-		mRunning = false;
-		while (!mFinish) { }
-		if (mSendThread != null)
-		{
-			mSendThread.Abort();
-			mSendThread = null;
-		}
+		mSendThread.destroy();
 		UnityUtility.logInfo("完成退出日志");
 	}
 	public override void update(float elapsedTime)
@@ -94,15 +85,23 @@ public class LogSystem : FrameComponent
 	}
 	public void logUserOperation(string info)
 	{
-		log(info, LOG_TYPE.LOG_4_5_USER_OPERATION);
+		log(info, LOG_TYPE.LOG_RISE_FREE_USER_OPERATION);
 	}
 	public void logProcedure(string info)
 	{
-		log(info, LOG_TYPE.LOG_4_5_PROCEDURE);
+		log(info, LOG_TYPE.LOG_RISE_FREE_PROCEDURE);
 	}
 	public void logOther(string info)
 	{
-		log(info, LOG_TYPE.LOG_4_5_OTHER);
+		log(info, LOG_TYPE.LOG_RISE_FREE_OTHER);
+	}
+	public void logHttpOverTime(string info)
+	{
+		log(info, LOG_TYPE.LOG_RISE_FREE_HTTP_TIME_OUT);
+	}
+	public void logGameError(string info)
+	{
+		log(info, LOG_TYPE.LOG_RISE_FREE_GAME_ERROR);
 	}
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	protected void log(string info, LOG_TYPE type)
@@ -117,59 +116,44 @@ public class LogSystem : FrameComponent
 		mLogBufferList.Add(data);
 		mBufferLock.unlock();
 	}
-	protected void sendLog()
+	protected bool sendLog()
 	{
-		string uploadData = "";
-		mFinish = false;
-		while (mRunning)
+		// 将日志缓存同步到发送列表中
+		mSendLock.waitForUnlock();
+		mBufferLock.waitForUnlock();
+		int count = mLogBufferList.Count;
+		if (count > 0)
 		{
-			try
+			for (int i = 0; i < count; ++i)
 			{
-				// 将日志缓存同步到发送列表中
-				mSendLock.waitForUnlock();
-				mBufferLock.waitForUnlock();
-				if (mLogBufferList.Count > 0)
-				{
-					for (int i = 0; i < mLogBufferList.Count; i++)
-					{
-						LogData data = mLogBufferList[i];
-						mLogSendList.Add(data.mGuid.ToString(), data);
-					}
-					mLogBufferList.Clear();
-				}
-				mBufferLock.unlock();
-
-				Dictionary<string, LogData> tempList = new Dictionary<string, LogData>(mLogSendList);
-				mSendLock.unlock();
-				foreach (var item in tempList)
-				{
-					// 找到第一个未上传的数据
-					if(item.Value.mState == LOG_STATE.LS_UNUPLOAD)
-					{
-						LogData data = item.Value;
-						// 设置为正在上传状态
-						data.mState = LOG_STATE.LS_UPLOADING;
-						if (data.mType.ToString().Length >= 64 || data.mTime.ToString("G").Length >= 32 || data.mInfo.Length >= 256 || data.mGuid.ToString().Length >= 64)
-						{
-							return;
-						}
-						mSqlLiteLock.waitForUnlock();
-						mSQLite.insertData(mTableName, new object[] { mGymID, data.mType.ToString(), data.mTime.ToString("G"), data.mInfo, data.mGuid.ToString(), 0 });
-						mSqlLiteLock.unlock();
-
-						// 将日志上传服务器,并且记录到本地数据库
-						prepareData(data, ref uploadData);
-						PluginUtility.httpWebRequestPost("http://app1.taxingtianji.com/wechat/php/gameLog.php?", uploadData, onDataUploadResult, data.mGuid.ToString());
-					}
-				}
+				LogData data = mLogBufferList[i];
+				mLogSendList.Add(data.mGuid.ToString(), data);
 			}
-			catch (Exception e)
+			mLogBufferList.Clear();
+		}
+		mBufferLock.unlock();
+
+		Dictionary<string, LogData> tempList = new Dictionary<string, LogData>(mLogSendList);
+		mSendLock.unlock();
+		foreach (var item in tempList)
+		{
+			// 找到未上传的数据
+			if(item.Value.mState == LOG_STATE.LS_UNUPLOAD)
 			{
-				UnityUtility.logInfo("捕获日志异常!" + e.Message + ", " + e.StackTrace);
+				LogData data = item.Value;
+				// 设置为正在上传状态
+				data.mState = LOG_STATE.LS_UPLOADING;
+				mSqlLiteLock.waitForUnlock();
+				mSQLite.insertData(mTableName, new object[] { mGymID, data.mType.ToString(), data.mTime.ToString("G"), data.mInfo, data.mGuid.ToString(), 0 });
+				mSqlLiteLock.unlock();
+
+				// 将日志上传服务器,并且记录到本地数据库
+				string uploadData = "";
+				prepareData(data, ref uploadData);
+				PluginUtility.httpWebRequestPost("http://app1.taxingtianji.com/wechat/php/gameLog.php?", uploadData, onDataUploadResult, data.mGuid.ToString());
 			}
 		}
-		mFinish = true;
-		UnityUtility.logInfo("日志线程退出完成!");
+		return true;
 	}
 	protected void prepareData(LogData logData, ref string str)
 	{

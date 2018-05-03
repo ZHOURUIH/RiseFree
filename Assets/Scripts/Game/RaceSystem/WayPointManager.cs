@@ -85,11 +85,18 @@ public class WayPointManager : FrameComponent
 		Vector3 nextPoint = Vector3.zero;
 		float curDis = 0.0f;
 		// 如果当前点投影在路段内,则计算在当前路段中走过的距离
-		// 投影超出了路段范围,则当前路段中走过的距离为0
 		if (getPointBetween(pos, ref lastPoint, ref nextPoint, ref curIndex, lastPointIndex))
 		{
 			Vector3 posOnLine = MathUtility.getProjectPoint(pos, lastPoint, nextPoint);
 			curDis = MathUtility.getLength(posOnLine - lastPoint);
+		}
+		// 投影超出了路段范围,靠近路段起点则距离为0,靠近路段终点,则距离为路段长度
+		else
+		{
+			if(MathUtility.getLength(pos - nextPoint) < MathUtility.getLength(pos - lastPoint))
+			{
+				curDis = MathUtility.getLength(nextPoint - lastPoint);
+			}
 		}
 		float totalDis = curDis + mPointList[curIndex].mDisToStart;
 		if (totalDis > mTotalLength)

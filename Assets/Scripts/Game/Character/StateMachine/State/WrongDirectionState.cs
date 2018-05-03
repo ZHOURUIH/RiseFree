@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// 瞄准状态
+// 逆行状态
 public class WrongDirectionState : PlayerState
 {
 	protected float mWrongDirectionTime;
@@ -27,8 +27,7 @@ public class WrongDirectionState : PlayerState
 		if(mWrongDirectionTime >=GameDefine.WRONG_DIRECTION_TIME)
 		{
 			// 重置角色方向
-			CommandResetCharacterPositionAndDirection cmdRest = newCmd(out cmdRest);
-			pushCommand(cmdRest, mPlayer);
+			pushCommand<CommandCharacterReset>(mPlayer);
 			// 退出当前状态
 			CommandCharacterRemoveState cmdState = newCmd(out cmdState);
 			cmdState.mState = mType;

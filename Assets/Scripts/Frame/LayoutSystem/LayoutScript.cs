@@ -26,7 +26,6 @@ public abstract class LayoutScript : CommandReceiver
 	protected txUIObject mRoot;
 	protected LAYOUT_TYPE mType;
 	protected Dictionary<string, List<WindowInfo>> mAllWindowList;
-	protected static LayoutRegister mLayoutRegister;
 	public LayoutScript(string name, GameLayout layout)
 		:
 		base(name)
@@ -35,15 +34,11 @@ public abstract class LayoutScript : CommandReceiver
 		mType = mLayout.getType();
 		mDelayCmdList = new List<int>();
 		mAllWindowList = new Dictionary<string, List<WindowInfo>>();
-		if (mLayoutRegister == null)
-		{
-			mLayoutRegister = new LayoutRegister();
-		}
-		mLayoutRegister.onScriptChanged(this);
+		LayoutRegister.onScriptChanged(this);
 	}
 	public override void destroy()
 	{
-		mLayoutRegister.onScriptChanged(this, false);
+		LayoutRegister.onScriptChanged(this, false);
 		base.destroy();
 	}
 	public LAYOUT_TYPE getType() { return mType; }
@@ -54,10 +49,17 @@ public abstract class LayoutScript : CommandReceiver
 	{
 		findWindow(null, mRoot.mObject, ref mAllWindowList);
 	}
+	// 用于接收GlobalTouchSystem处理的输入事件
 	public void registeBoxCollider(txUIObject obj, BoxColliderClickCallback clickCallback = null,
 		BoxColliderHoverCallback hoverCallback = null, BoxColliderPressCallback pressCallback = null)
 	{
-		mGlobalTouchSystem.registeBoxCollider(obj, clickCallback, hoverCallback, pressCallback);
+		mGlobalTouchSystem.registeBoxCollider(obj, clickCallback, pressCallback, hoverCallback);
+	}
+	// 用于接收NGUI处理的输入事件
+	public void registeBoxColliderNGUI(txUIObject obj, UIEventListener.VoidDelegate clickCallback,
+		UIEventListener.BoolDelegate pressCallback = null, UIEventListener.BoolDelegate hoverCallback = null)
+	{
+		mGlobalTouchSystem.registeBoxColliderNGUI(obj, clickCallback, pressCallback, hoverCallback);
 	}
 	public void unregisteBoxCollider(txUIObject obj)
 	{

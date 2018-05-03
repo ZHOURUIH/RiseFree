@@ -3,25 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 public class ScriptSettlement : LayoutScript
 {
-	protected txNGUISpriteAnim mDataRanking;			// 数据排行序列帧
-	protected txNGUISpriteAnim mNext;					// 再战一局序列帧
-	protected txNGUISpriteAnim mRinking;				// 名次
+	protected txNGUITextureAnim mDataRanking;			// 数据排行序列帧
+	protected txNGUITextureAnim mNext;					// 再战一局序列帧
+	protected txNGUITextureAnim mRinking;				// 名次
 	protected txNGUIStaticSprite mRinkingLabelRoot;
 	protected txNGUINumber mRinkingNumber;
-	protected txNGUISpriteAnim mKcal;					// 能量
+	protected txNGUITextureAnim mKcal;					// 能量
 	protected txNGUIStaticSprite mKcalLabelRoot;
 	protected txNGUINumber mKcalNumber;
-	protected txNGUISpriteAnim mAverageSpeed;			// 平均速度
+	protected txNGUITextureAnim mAverageSpeed;			// 平均速度
 	protected txNGUIStaticSprite mAverageSpeedLabelRoot;
 	protected txNGUINumber mAverageSpeedNumber;
-	protected txNGUISpriteAnim mMileage;				// 里程
+	protected txNGUITextureAnim mMileage;				// 里程
 	protected txNGUIStaticSprite mMileageLabelRoot;
 	protected txNGUINumber mMileageNumber;
-	protected txNGUISpriteAnim mMaxSpeed;				// 最大速度
+	protected txNGUITextureAnim mMaxSpeed;				// 最大速度
 	protected txNGUIStaticSprite mMaxSpeedLabelRoot;
 	protected txNGUINumber mMaxSpeedNumber;
 	protected txNGUIStaticSprite mAIcon;					// A图标
-	protected List<txNGUISpriteAnim> mAminList;
+	protected List<txNGUITextureAnim> mAminList;
 	protected List<txNGUIStaticSprite> mLabelList;
 	protected List<txNGUINumber> mNumberList;
 
@@ -29,7 +29,7 @@ public class ScriptSettlement : LayoutScript
 		:
 		base(name, layout)
 	{
-		mAminList = new List<txNGUISpriteAnim>();
+		mAminList = new List<txNGUITextureAnim>();
 		mLabelList = new List<txNGUIStaticSprite>();
 		mNumberList = new List<txNGUINumber>();
 	}

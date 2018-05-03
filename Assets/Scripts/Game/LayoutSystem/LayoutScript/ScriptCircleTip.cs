@@ -26,11 +26,6 @@ public class ScriptCircleTip : LayoutScript
 	}
 	public override void init()
 	{
-		mSecondCircle.setAutoAdjustWindowSize(true);
-		mThirdCircle.setAutoAdjustWindowSize(true);
-		mFourthCircle.setAutoAdjustWindowSize(true);
-		mFinishRace.setAutoAdjustWindowSize(true);
-		mUnfinishRace.setAutoAdjustWindowSize(true);
 		mCircleTipList.Add(mSecondCircle);
 		mCircleTipList.Add(mThirdCircle);
 		mCircleTipList.Add(mFourthCircle);

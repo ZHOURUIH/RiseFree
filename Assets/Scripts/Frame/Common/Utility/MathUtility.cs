@@ -136,8 +136,8 @@ public class MathUtility
 			if (i == str.Length - 1)
 			{
 				string num = str.Substring(beginpos, str.Length - beginpos);
-					float fNum = float.Parse(num);
-					numbers.Add(fNum);
+				float fNum = float.Parse(num);
+				numbers.Add(fNum);
 				break;
 			}
 			// 找到第一个运算符
@@ -746,6 +746,18 @@ public class MathUtility
 	public static float getMax(float a, float b)
 	{
 		return a > b ? a : b;
+	}
+	public static float inverseLerp(float a, float b, float value)
+	{
+		return (value - a) / (b - a);
+	}
+	public static float inverseLerp(Vector2 a, Vector2 b, Vector2 value)
+	{
+		return getLength(value - a) / getLength(b - a);
+	}
+	public static float inverseLerp(Vector3 a, Vector3 b, Vector3 value)
+	{
+		return getLength(value - a) / getLength(b - a);
 	}
 	public static float lerp(float start, float end, float t)
 	{
