@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 #if UNITY_STANDALONE_WIN
+using Microsoft.Win32;
 using System.Windows.Forms;
 #endif
 using UnityEngine;
@@ -58,7 +59,8 @@ public class UnityUtility : FrameComponent
 			// 运行一次只显示一次提示框,避免在循环中报错时一直弹窗
 			mShowMessageBox = false;
 		}
-		UnityEngine.Debug.LogError("error : " + info);
+		string trackStr = new StackTrace().ToString();
+		UnityEngine.Debug.LogError("error : " + info + ", stack : " + trackStr);
 		// 游戏中的错误日志
 		if (mFrameLogSystem != null)
 		{
@@ -339,5 +341,25 @@ public class UnityUtility : FrameComponent
 	public static Sprite texture2DToSprite(Texture2D tex)
 	{
 		return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+	}
+	// 从注册表中获取注册码,如果注册码不存在,则自动创建
+	public static string readRegistryValue(string path, string keyName)
+	{
+		string value = "";
+		RegistryKey key = Registry.CurrentUser.CreateSubKey(path);
+		string codeValue = key.GetValue(keyName) as string;
+		if (codeValue != null)
+		{
+			value = key.GetValue(keyName) as string;
+		}
+		key.Close();
+		return value;
+	}
+	// 读取注册表
+	public static void writeRegistryValue(string path, string value, string keyName)
+	{
+		RegistryKey key = Registry.CurrentUser.CreateSubKey(path);
+		key.SetValue(keyName, value);
+		key.Close();
 	}
 }

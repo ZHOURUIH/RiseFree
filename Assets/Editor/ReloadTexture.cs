@@ -22,13 +22,11 @@ public class ReloadTexture
 	static protected void reloadPath(string path)
 	{
 		List<string> files = new List<string>();
-		List<string> patterns = new List<string>();
-		patterns.Add(".png");
-		FileUtility.findFiles(path, ref files, patterns);
+		FileUtility.findFiles(path, ref files, ".png");
 		int fileCount = files.Count;
 		for(int i = 0; i < fileCount; ++i)
 		{
-			reloadTexture(CommonDefine.P_ASSETS_PATH + path + files[i]);
+			reloadTexture(CommonDefine.P_ASSETS_PATH + files[i]);
 		}
 	}
 	static protected void reloadTexture(string name)

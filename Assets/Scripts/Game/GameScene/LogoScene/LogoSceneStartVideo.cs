@@ -2,9 +2,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 public class LogoSceneStartVideo : SceneProcedure
 {
+	protected bool mVideoDone;
+	protected float mLogTime = 1.0f;
+	protected float mCurTimeCount = 0.0f;
 	public LogoSceneStartVideo()
 	{ }
 	public LogoSceneStartVideo(PROCEDURE_TYPE type, GameScene gameScene)
@@ -17,10 +21,29 @@ public class LogoSceneStartVideo : SceneProcedure
 	{
 		// 显示启动视频,等待视频准备完毕
 		LayoutTools.LOAD_NGUI_SHOW(LAYOUT_TYPE.LT_START_VIDEO, 1);
+		mVideoDone = false;
 	}
 	protected override void onUpdate(float elapsedTime)
 	{
-		;
+		if (mVideoDone)
+		{
+			// 如果logo流程中的预加载的资源还没有加载完,则一直等待
+			LogoSceneLogo logoPreocedure = mGameScene.getSceneProcedure(PROCEDURE_TYPE.PT_LOGO_LOGO) as LogoSceneLogo;
+			if (!logoPreocedure.isObjectPreloadDone())
+			{
+				mCurTimeCount += elapsedTime;
+				if (mCurTimeCount >= mLogTime)
+				{
+					UnityUtility.logInfo("正在等待资源预加载完毕...");
+					mCurTimeCount -= mLogTime;
+				}
+			}
+			// 加载完毕后才能跳转到下一流程
+			else
+			{
+				notifyPreloadObjectDone();
+			}
+		}
 	}
 	protected override void onExit(SceneProcedure nextProcedure)
 	{
@@ -43,6 +66,11 @@ public class LogoSceneStartVideo : SceneProcedure
 	}
 	// 通知流程视频播放完毕
 	public void notifyStartVideoDone()
+	{
+		mVideoDone = true;
+	}
+	//-----------------------------------------------------------------------------------------------------------------------
+	protected void notifyPreloadObjectDone()
 	{
 		// 为保视频与待机界面之间无缝衔接,在播放完后就立即加载并且显示待机界面
 		LayoutTools.SHOW_LAYOUT(LAYOUT_TYPE.LT_STAND_BY, false, "FirstStart");

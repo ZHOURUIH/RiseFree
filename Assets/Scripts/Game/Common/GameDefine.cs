@@ -114,8 +114,9 @@ public enum GAME_DEFINE_FLOAT
 	GDF_APPLICATION_MIN,
 	GDF_FULL_SCREEN,				// 是否全屏,0为窗口模式,1为全屏,2为无边框窗口
 	GDF_SCREEN_WIDTH,				// 分辨率的宽
-	GDF_SCREEN_HEIGHT,				// 分辨率的高
-	GDF_SCREEN_COUNT,				// 显示屏数量,用于多屏横向组合为高分辨率
+	GDF_SCREEN_HEIGHT,              // 分辨率的高
+	GDF_ADAPT_SCREEN,               // 屏幕自适应的方式,0为基于锚点的自适应,可以根据不同分辨率调整布局排列,1为简单拉伸,2为多屏拼接后复制显示
+	GDF_SCREEN_COUNT,               // 显示屏数量,用于多屏横向组合为高分辨率
 	GDF_USE_FIXED_TIME,				// 是否将每帧的时间固定下来
 	GDF_FIXED_TIME,					// 每帧的固定时间,单位秒
 	GDF_APPLICATION_MAX,

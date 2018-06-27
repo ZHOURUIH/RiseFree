@@ -95,8 +95,17 @@ public class AssetBundleLoader : GameBase
 #elif UNITY_ANDROID
 			bool loadFromWWW = true;
 #endif
-			mGameFramework.StartCoroutine(loadAssetBundleCoroutine(mRequestBundleList[0], loadFromWWW));
-			mRequestBundleList.RemoveAt(0);
+			// 找到第一个依赖项已经加载完毕的资源
+			int count = mRequestBundleList.Count;
+			for (int i = 0; i < count; ++i)
+			{
+				if(mRequestBundleList[i].isAllParentLoaded())
+				{
+					mGameFramework.StartCoroutine(loadAssetBundleCoroutine(mRequestBundleList[i], loadFromWWW));
+					mRequestBundleList.RemoveAt(i);
+					break;
+				}
+			}
 		}
 	}
 	public void destroy()
@@ -105,7 +114,6 @@ public class AssetBundleLoader : GameBase
 		{
 			item.Value.unload();
 		}
-		GC.Collect();
 	}
 	public void unload(string name)
 	{
@@ -305,7 +313,7 @@ public class AssetBundleLoader : GameBase
 		if (www.error != null)
 		{
 			// 下载失败
-			UnityUtility.logInfo("下载失败 : " + url, LOG_LEVEL.LL_FORCE);
+			UnityUtility.logInfo("下载失败 : " + url + ", info : " + www.error, LOG_LEVEL.LL_FORCE);
 			callback(null, userData);
 		}
 		else
@@ -393,8 +401,8 @@ public class AssetBundleLoader : GameBase
 			item.Value.mAssetObject = assetRequest.asset;
 		}
 		UnityUtility.logInfo(bundleInfo.mBundleName + " load bundle done", LOG_LEVEL.LL_NORMAL);
-		GC.Collect();
 
+		yield return new WaitForEndOfFrame();
 		// 通知AssetBundleInfo
 		bundleInfo.notifyAssetBundleAsyncLoadedDone(assetBundle);
 		--mAssetBundleCoroutineCount;

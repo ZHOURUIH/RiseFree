@@ -150,7 +150,7 @@ public class LogSystem : FrameComponent, IFrameLogSystem
 				// 将日志上传服务器,并且记录到本地数据库
 				string uploadData = "";
 				prepareData(data, ref uploadData);
-				PluginUtility.httpWebRequestPost("http://app1.taxingtianji.com/wechat/php/gameLog.php?", uploadData, onDataUploadResult, data.mGuid.ToString());
+				HttpUtility.httpWebRequestPost("http://app1.taxingtianji.com/wechat/php/gameLog.php?", uploadData, onDataUploadResult, data.mGuid.ToString());
 			}
 		}
 		return true;

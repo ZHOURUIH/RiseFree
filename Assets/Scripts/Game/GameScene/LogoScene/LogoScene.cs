@@ -16,7 +16,7 @@ public class LogoScene : GameScene
 	}
 	public override void createSceneProcedure()
 	{
-		addProcedure<LogoSceneLogo>(PROCEDURE_TYPE.PT_LOGO_REGISTER_CHECK);
+		addProcedure<LogoSceneRegisterCheck>(PROCEDURE_TYPE.PT_LOGO_REGISTER_CHECK);
 		addProcedure<LogoSceneLogo>(PROCEDURE_TYPE.PT_LOGO_LOGO);
 		addProcedure<LogoSceneStartVideo>(PROCEDURE_TYPE.PT_LOGO_START_VIDEO);
 		addProcedure<LogoSceneExit>(PROCEDURE_TYPE.PT_LOGO_EXIT);

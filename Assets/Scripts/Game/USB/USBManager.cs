@@ -306,7 +306,7 @@ public class USBManager : FrameComponent
 	{
 		if (mInputDataSize >= start + count)
 		{
-			BinaryUtility.memmove(ref mInputBuffer, 0, start + count, mInputDataSize - count);
+			BinaryUtility.memmove(ref mInputBuffer, start, start + count, mInputDataSize - start - count);
 			mInputDataSize -= count;
 		}
 	}

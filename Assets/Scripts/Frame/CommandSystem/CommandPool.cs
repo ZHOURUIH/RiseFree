@@ -31,7 +31,6 @@ public class CommandPool : GameBase
 		mUnusedList.Clear();
 		mInusedList = null;
 		mUnusedList = null;
-		GC.Collect();
 	}
 	public T newCmd<T>(bool show = true, bool delay = false) where T : Command, new()
 	{
@@ -56,7 +55,6 @@ public class CommandPool : GameBase
 			cmd.init();
 			cmd.setType(typeof(T));
 			++mNewCount;
-			UnityUtility.logInfo("new cmd : " + mNewCount + ",type : " + typeof(T), LOG_LEVEL.LL_HIGH);
 		}
 		// 设置为可用命令
 		cmd.setValid(true);

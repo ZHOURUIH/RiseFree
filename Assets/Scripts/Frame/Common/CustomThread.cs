@@ -16,7 +16,7 @@ public class CustomThread
 	protected Thread mThread;
 	protected ThreadTimeLock mTimeLock;
 	protected string mName;
-	protected bool mIsBackground;	// 在终止线程时是否强制终止,false则在终止线程时等待线程执行结束再终止,true则表示终止线程时强制终止
+	protected bool mIsBackground;		// 是否为后台线程,如果是后台线程,则在应用程序关闭时,子线程会自动强制关闭
 	public CustomThread(string name)
 	{
 		mName = name;
@@ -26,7 +26,7 @@ public class CustomThread
 		mThread = null;
 		mTimeLock = null;
 		mPause = false;
-		mIsBackground = false;
+		mIsBackground = true;
 	}
 	public void destroy()
 	{
@@ -40,7 +40,7 @@ public class CustomThread
 			mThread.IsBackground = mIsBackground;
 		}
 	}
-	public void start(CustomThreadCallback callback, int frameTimeMS = 15)
+	public void start(CustomThreadCallback callback, int frameTimeMS = 15, int forceSleep = 5)
 	{
 		UnityUtility.logInfo("准备启动线程 : " + mName, LOG_LEVEL.LL_FORCE);
 		if (mThread != null)
@@ -48,12 +48,13 @@ public class CustomThread
 			return;
 		}
 		mTimeLock = new ThreadTimeLock(frameTimeMS);
+		mTimeLock.setForceSleep(forceSleep);
 		mRunning = true;
 		mCallback = callback;
 		mThread = new Thread(run);
 		mThread.Name = mName;
-		mThread.IsBackground = mIsBackground;
 		mThread.Start();
+		mThread.IsBackground = mIsBackground;
 		UnityUtility.logInfo("线程启动成功 : " + mName, LOG_LEVEL.LL_FORCE);
 	}
 	public void pause(bool isPause)
@@ -68,8 +69,8 @@ public class CustomThread
 		if (mThread != null)
 		{
 			mThread.Abort();
-			mThread = null;
 		}
+		mThread = null;
 		mCallback = null;
 		mTimeLock = null;
 		mPause = false;
